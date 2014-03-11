@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BasesLoaded    
+namespace OpeningPitch    
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -26,32 +26,22 @@ namespace BasesLoaded
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void Register(object sender, RoutedEventArgs e)
         {
-
+            Window RegisterWindow = new RegisterWindow();
+            RegisterWindow.Show();
         }
 
-        private void Log_In(object sender, RoutedEventArgs e)
+        private void Log_In_Click(object sender, RoutedEventArgs e)
         {
-            //if ( = null)
-            //{
-            MessageBox.Show("You did not enter a valid Username and/or Password");
-            //}
-        }
+            if (Username_Input.Text.Equals("") || Password_Input.Password.Equals(""))
+            {
+                MessageBox.Show("You did not enter a valid Username and/or Password");
+            }
+        }   
 
-        private void Exit(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("Are you sure you would like to Exit the program?");
-
-            //MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit the program?", "Exit", MessageBoxButton.OK);
-
-            //if (result == MessageBoxResult.OK)
-            //{
-            //    this.Close();
-            //      Application curApp = Application.Current;
-            //    curApp.Shutdown();
-            //}
-
             MessageBoxResult result = MessageBox.Show("Do you want to close this window?",
                 "Confirmation", MessageBoxButton.OKCancel);
 
@@ -62,10 +52,8 @@ namespace BasesLoaded
             }
             else if (result == MessageBoxResult.Cancel)
             {
-                
-            }
-        }
 
-        
+            }
+        }              
     }
 }
