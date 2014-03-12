@@ -128,7 +128,7 @@
                 Height="24" 
                 Opacity="0.6" 
                 Background="#FFFB0505" 
-                Click="Exit_Click"/> 
-        
+                Click="Exit_Click"/>
+
     </Grid>
 </Window>

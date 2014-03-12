@@ -24,6 +24,7 @@ namespace OpeningPitch
         public MainWindow()
         {
             InitializeComponent();
+            Username_Input.Focus();
         }
 
         private void Register(object sender, RoutedEventArgs e)
@@ -37,6 +38,12 @@ namespace OpeningPitch
             if (Username_Input.Text.Equals("") || Password_Input.Password.Equals(""))
             {
                 MessageBox.Show("You did not enter a valid Username and/or Password");
+            }
+
+            if (Username_Input.Text.Equals(true) && Password_Input.Password.Equals(true))
+            {
+                Window Dashboard = new Dashboard();
+                Dashboard.Show();
             }
         }   
 

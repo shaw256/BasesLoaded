@@ -34,6 +34,12 @@
                Margin="121,183,0,0" 
                VerticalAlignment="Top" 
                Height="23"/>
+        <Button Content="Log In" 
+                HorizontalAlignment="Left" 
+                Margin="226,211,0,0" 
+                VerticalAlignment="Top" 
+                Width="75" 
+                Opacity="0.6" Click="Log_In_Click"/>
         <Button x:Name="Register_Button" 
                 Content="Register" 
                 HorizontalAlignment="Left" 
@@ -48,12 +54,7 @@
                 Opacity="0.6" 
                 Background="#FFFB0505" 
                 Click="Exit_Click"/>
-        <Button Content="Log In" 
-                HorizontalAlignment="Left" 
-                Margin="226,211,0,0" 
-                VerticalAlignment="Top" 
-                Width="75" 
-                Opacity="0.6" Click="Log_In_Click"/>
+        
         
 
     </Grid>
