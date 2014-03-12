@@ -111,10 +111,24 @@
                Margin="236,122,0,0" 
                VerticalAlignment="Top" 
                Height="23"/>
+        <TextBox x:Name="Position_Input" 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="111,150,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120"/>
+        <Label x:Name="Position_Label" 
+               Content="Desired Position" 
+               HorizontalAlignment="Left" 
+               Margin="16,150,0,0" 
+               VerticalAlignment="Top" 
+               Height="23" 
+               Width="97"/>
         <Button x:Name="Register_Button" 
                 Content="Register" 
                 HorizontalAlignment="Left" 
-                Margin="111,171,0,0" 
+                Margin="136,178,0,0" 
                 VerticalAlignment="Top" 
                 Width="75" Opacity="0.6"/>
         <Label Content="* = Required" 
@@ -129,6 +143,8 @@
                 Opacity="0.6" 
                 Background="#FFFB0505" 
                 Click="Exit_Click"/>
+        
+
 
     </Grid>
 </Window>

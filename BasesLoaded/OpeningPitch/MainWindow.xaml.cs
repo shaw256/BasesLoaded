@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net;
+using System.Net.Mail;
 
 namespace OpeningPitch    
 {
@@ -61,6 +63,23 @@ namespace OpeningPitch
             {
 
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NetworkCredential cred = new NetworkCredential("glen.a.hammer@stmartin.edu", "3turboturd3");
+            MailMessage msg = new MailMessage();
+
+            msg.To.Add("jeffrey.s.shaw4@gmail.com");
+            msg.From = new MailAddress("glen.a.hammer@stmartin.edu");
+            msg.Subject = "A Subject.";
+            msg.Body = "Hello, this is my message.";
+
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 25);
+            client.Credentials = CredentialCache.DefaultNetworkCredentials;
+            client.Credentials = cred;
+            client.EnableSsl = true;
+            client.Send(msg);
         }              
     }
 }
