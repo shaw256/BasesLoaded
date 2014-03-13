@@ -12,8 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Net;
-using System.Net.Mail;
 
 namespace OpeningPitch    
 {
@@ -33,6 +31,7 @@ namespace OpeningPitch
         {
             Window RegisterWindow = new RegisterWindow();
             RegisterWindow.Show();
+            this.Close();
         }
 
         private void Log_In_Click(object sender, RoutedEventArgs e)
@@ -44,14 +43,15 @@ namespace OpeningPitch
 
             if (Username_Input.Text.Equals(true) && Password_Input.Password.Equals(true))
             {
-                Window Dashboard = new Dashboard();
-                Dashboard.Show();
+                //Window Dashboard = new Dashboard();
+                //Dashboard.Show();
+                this.Close();
             }
         }   
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Do you want to close this window?",
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit the application?",
                 "Confirmation", MessageBoxButton.OKCancel);
 
             if (result == MessageBoxResult.OK)
@@ -63,23 +63,6 @@ namespace OpeningPitch
             {
 
             }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NetworkCredential cred = new NetworkCredential("glen.a.hammer@stmartin.edu", "3turboturd3");
-            MailMessage msg = new MailMessage();
-
-            msg.To.Add("jeffrey.s.shaw4@gmail.com");
-            msg.From = new MailAddress("glen.a.hammer@stmartin.edu");
-            msg.Subject = "A Subject.";
-            msg.Body = "Hello, this is my message.";
-
-            SmtpClient client = new SmtpClient("smtp.gmail.com", 25);
-            client.Credentials = CredentialCache.DefaultNetworkCredentials;
-            client.Credentials = cred;
-            client.EnableSsl = true;
-            client.Send(msg);
-        }              
+        }            
     }
 }

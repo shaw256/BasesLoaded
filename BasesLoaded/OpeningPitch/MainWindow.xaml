@@ -8,7 +8,7 @@
         Title="MainWindow" 
         Height="350" 
         Width="525">
-    
+
     <Grid x:Name="Main_Window">
         <TextBox x:Name="Username_Input" 
                  Height="23" 
@@ -54,7 +54,6 @@
                 Opacity="0.6" 
                 Background="#FFFB0505" 
                 Click="Exit_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="150,75,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
 
 

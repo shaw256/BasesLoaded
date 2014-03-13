@@ -72,7 +72,6 @@
                  Height="23" 
                  Margin="111,94,0,0" 
                  TextWrapping="Wrap" 
-                 Text="  /  /" 
                  VerticalAlignment="Top" 
                  Width="120" 
                  Opacity="0.6" 
@@ -130,7 +129,7 @@
                 HorizontalAlignment="Left" 
                 Margin="136,178,0,0" 
                 VerticalAlignment="Top" 
-                Width="75" Opacity="0.6"/>
+                Width="75" Opacity="0.6" Click="Register_Button_Click"/>
         <Label Content="* = Required" 
                HorizontalAlignment="Left" 
                Margin="10,314,0,0" 
