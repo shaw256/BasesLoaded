@@ -46,10 +46,20 @@
                Margin="236,38,0,0" 
                VerticalAlignment="Top" 
                Height="23"/>
+        <TextBox HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="111,64,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120"/>
+        <Label Content="Address" 
+               HorizontalAlignment="Left" 
+               Margin="16,66,0,0" 
+               VerticalAlignment="Top"/>
         <TextBox x:Name="E_Mail_Input" 
                  HorizontalAlignment="Left" 
                  Height="23" 
-                 Margin="111,66,0,0" 
+                 Margin="111,92,0,0" 
                  TextWrapping="Wrap" 
                  VerticalAlignment="Top" 
                  Width="120" 
@@ -58,19 +68,19 @@
         <Label x:Name="E_Mail_Label" 
                Content="E-Mail" 
                HorizontalAlignment="Left" 
-               Margin="16,64,0,0" 
+               Margin="16,94,0,0" 
                VerticalAlignment="Top" 
                Height="23"/>
         <Label x:Name="E_Mail_Required" 
                Content="*" 
                HorizontalAlignment="Left" 
-               Margin="236,66,0,0" 
+               Margin="236,150,0,0" 
                VerticalAlignment="Top" 
-               Height="23"/>
+               Height="23" RenderTransformOrigin="5.2,4.087"/>
         <TextBox x:Name="DOB_Input" 
                  HorizontalAlignment="Left" 
                  Height="23" 
-                 Margin="111,94,0,0" 
+                 Margin="111,120,0,0" 
                  TextWrapping="Wrap" 
                  VerticalAlignment="Top" 
                  Width="120" 
@@ -79,7 +89,7 @@
         <Label x:Name="DOB_Label" 
                Content="DOB" 
                HorizontalAlignment="Left" 
-               Margin="16,94,0,0" 
+               Margin="16,120,0,0" 
                VerticalAlignment="Top" 
                Height="23"/>
         <Label x:Name="DOB_Required" 
@@ -91,7 +101,7 @@
         <TextBox x:Name="Phone_Number_Input" 
                  HorizontalAlignment="Left" 
                  Height="23"
-                 Margin="111,122,0,0" 
+                 Margin="111,148,0,0" 
                  TextWrapping="Wrap" 
                  Text="xxx-xxx-xxxx" 
                  VerticalAlignment="Top" 
@@ -101,33 +111,20 @@
         <Label x:Name="Phone_Number_Label" 
                Content="Phone Number" 
                HorizontalAlignment="Left" 
-               Margin="16,122,0,0" 
+               Margin="16,148,0,0" 
                VerticalAlignment="Top" 
                Height="23"/>
-        <Label x:Name="Phone_Number_Required" 
-               Content="*" 
-               HorizontalAlignment="Left"
-               Margin="236,122,0,0" 
-               VerticalAlignment="Top" 
-               Height="23"/>
-        <TextBox x:Name="Position_Input" 
-                 HorizontalAlignment="Left" 
-                 Height="23" 
-                 Margin="111,150,0,0" 
-                 TextWrapping="Wrap" 
-                 VerticalAlignment="Top" 
-                 Width="120"/>
         <Label x:Name="Position_Label" 
                Content="Desired Position" 
                HorizontalAlignment="Left" 
-               Margin="16,150,0,0" 
+               Margin="16,175,0,0" 
                VerticalAlignment="Top" 
                Height="23" 
                Width="97"/>
         <Button x:Name="Register_Button" 
                 Content="Register" 
                 HorizontalAlignment="Left" 
-                Margin="136,178,0,0" 
+                Margin="59,287,0,0" 
                 VerticalAlignment="Top" 
                 Width="75" Opacity="0.6" Click="Register_Button_Click"/>
         <Label Content="* = Required" 
@@ -142,7 +139,18 @@
                 Opacity="0.6" 
                 Background="#FFFB0505" 
                 Click="Exit_Click"/>
-        
+        <ComboBox HorizontalAlignment="Left" Margin="111,176,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Second Base" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Shortstop" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Third Base" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Right Field" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+
 
 
     </Grid>
