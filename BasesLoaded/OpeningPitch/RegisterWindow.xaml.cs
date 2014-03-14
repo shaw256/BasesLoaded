@@ -28,17 +28,41 @@ namespace OpeningPitch
             InitializeComponent();
         }
 
+        private delegate void UpdateProgressBarDelegate(
+        System.Windows.DependencyProperty dp, Object value);
         private void Register_Button_Click(object sender, RoutedEventArgs e)
         {
+
             //if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || E_Mail_Input.Text.Equals("") || Phone_Number_Input.Text.Equals(""))
             //{
-            //    MessageBox.Show("You did not enter a valid Username and/or Password");
+            //    MessageBox.Show("Please fill all required fields.");
             //}
             //else
             //{
                 try
                 {
-                    
+                    Prog_Bar.Minimum = 0;
+                    Prog_Bar.Maximum = short.MaxValue;
+                    Prog_Bar.Value = 0;
+
+                    //Stores the value of the ProgressBar
+                    double value = 0;
+
+                    //Create a new instance of our ProgressBar Delegate that points
+                    // to the ProgressBar's SetValue method.
+                    UpdateProgressBarDelegate updatePbDelegate =
+                        new UpdateProgressBarDelegate(Prog_Bar.SetValue);
+
+                    //Tight Loop: Loop until the ProgressBar.Value reaches the max
+                    do
+                    {
+                        value += 20;
+                        Dispatcher.Invoke(updatePbDelegate,
+                                System.Windows.Threading.DispatcherPriority.Background,
+                                new object[] { ProgressBar.ValueProperty, value });
+                    }
+                    while (Prog_Bar.Value != Prog_Bar.Maximum);
+
                     SmtpClient client = new SmtpClient("smtp.live.com", 587);
                     client.EnableSsl = true;
                     client.Timeout = 10000;
@@ -47,12 +71,13 @@ namespace OpeningPitch
                     client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
 
                     MailMessage msg = new MailMessage();
-                    msg.To.Add(E_Mail_Input.Text);
+                    msg.To.Add("glen.a.hammer@gmail.com");
                     msg.From = new MailAddress("basesloadedapp@outlook.com");
                     msg.Subject = "Registration Successful";
                     msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.";
                     client.Send(msg);
                     MessageBox.Show("Please check your E-Mail for a verification link.");
+                    
                 }
                 catch (Exception ex)
                 {
