@@ -21,7 +21,28 @@ namespace OpeningPitch
     {
         public Dashboard()
         {
+
             InitializeComponent();
         }
-    }
+
+        private void Profile_Click(object sender, RoutedEventArgs e)
+        {
+            Window Profile = new Dashboard();
+            Profile.Show();
+        }
+
+        private void Dashboard_Logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+       private void CreateTeam_Click(object sender, RoutedEventArgs e)
+        {
+            Window Teams = new List_Teams();
+            Teams.Show();
+        }
+
+
+    }              
 }
+
