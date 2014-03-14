@@ -20,7 +20,6 @@ namespace OpeningPitch
     /// <summary>
     /// Interaction logic for RegisterWindow.xaml
     /// </summary>
-    
 
     public partial class RegisterWindow : Window
     {
@@ -29,55 +28,38 @@ namespace OpeningPitch
             InitializeComponent();
         }
 
-        private void First_Name(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Last_Name(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void E_Mail(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void D_O_B(object sender, TextChangedEventArgs e)
-        {
-            
-        }
-
-        private void Phone_Number(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Register_Button_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-                client.EnableSsl = true;
-                client.Timeout = 10000;
-                client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("glen.a.hammer@gmail.com", "3turboturd3!@#");
+            //if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || E_Mail_Input.Text.Equals("") || Phone_Number_Input.Text.Equals(""))
+            //{
+            //    MessageBox.Show("You did not enter a valid Username and/or Password");
+            //}
+            //else
+            //{
+                try
+                {
+                    
+                    SmtpClient client = new SmtpClient("smtp.live.com", 587);
+                    client.EnableSsl = true;
+                    client.Timeout = 10000;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
 
-                MailMessage msg = new MailMessage();
-                msg.To.Add("glen.a.hammer@gmail.com");
-                msg.From = new MailAddress("glen.a.hammer@gmail.com");
-                msg.Subject = "A Subject.";
-                msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.";
-                client.Send(msg);
-                MessageBox.Show("Please check your E-Mail for a verification link.");
-            }
-            catch (Exception ex)
-            {
+                    MailMessage msg = new MailMessage();
+                    msg.To.Add(E_Mail_Input.Text);
+                    msg.From = new MailAddress("basesloadedapp@outlook.com");
+                    msg.Subject = "Registration Successful";
+                    msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.";
+                    client.Send(msg);
+                    MessageBox.Show("Please check your E-Mail for a verification link.");
+                }
+                catch (Exception ex)
+                {
 
-                MessageBox.Show(ex.ToString());
-            }
+                    MessageBox.Show(ex.ToString());
+                }
+            //}
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
