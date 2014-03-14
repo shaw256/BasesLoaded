@@ -82,7 +82,7 @@
                  TextWrapping="Wrap" 
                  VerticalAlignment="Top" 
                  Width="120" 
-                 Opacity="0.6"/>
+                 Opacity="0.6" IsHitTestVisible="False"/>
         <Label x:Name="DOB_label" 
                Content="DOB" 
                HorizontalAlignment="Left" 

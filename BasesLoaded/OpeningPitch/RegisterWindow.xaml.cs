@@ -56,7 +56,7 @@ namespace OpeningPitch
                     //Tight Loop: Loop until the ProgressBar.Value reaches the max
                     do
                     {
-                        value += 20;
+                        value += 5;
                         Dispatcher.Invoke(updatePbDelegate,
                                 System.Windows.Threading.DispatcherPriority.Background,
                                 new object[] { ProgressBar.ValueProperty, value });
