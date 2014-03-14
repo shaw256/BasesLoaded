@@ -83,8 +83,8 @@
                  VerticalAlignment="Top" 
                  Width="120" 
                  Opacity="0.6"/>
-        <Label x:Name="DOB_Label" 
-               Content="DOB" 
+        <Label x:Name="DOB_label" 
+               Content="FUckooff" 
                HorizontalAlignment="Left" 
                Margin="16,120,0,0" 
                VerticalAlignment="Top" 
@@ -188,6 +188,7 @@
                      Margin="0,345,0,0" 
                      VerticalAlignment="Top" 
                      Width="525"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="75" Margin="352,94,0,0" VerticalAlignment="Top" Width="110"/>
 
     </Grid>
 </Window>
