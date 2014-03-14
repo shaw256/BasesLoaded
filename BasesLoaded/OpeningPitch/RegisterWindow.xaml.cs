@@ -45,11 +45,11 @@ namespace OpeningPitch
                     Prog_Bar.Maximum = short.MaxValue;
                     Prog_Bar.Value = 0;
 
-                    //Stores the value of the ProgressBar
+                    //Stores the value of the Prog_Bar
                     double value = 0;
 
-                    //Create a new instance of our ProgressBar Delegate that points
-                    // to the ProgressBar's SetValue method.
+                    //Create a new instance of the Prog_Bar Delegate that points
+                    // to the Prog_Bar's SetValue method.
                     UpdateProgressBarDelegate updatePbDelegate =
                         new UpdateProgressBarDelegate(Prog_Bar.SetValue);
 
@@ -77,6 +77,9 @@ namespace OpeningPitch
                     msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.";
                     client.Send(msg);
                     MessageBox.Show("Please check your E-Mail for a verification link.");
+
+                    Window MainWindow = new MainWindow();
+                    MainWindow.Show();
                     
                 }
                 catch (Exception ex)
