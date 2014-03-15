@@ -87,8 +87,6 @@
 			VerticalAlignment="Top" 
 			Height="23"/>
 
-        <xctk:MaskedTextBox x:Name="DOB_Input" HorizontalAlignment="Left" Height="23" Margin="131,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Mask="00 / 00 / 0000"/>
-
         <Label x:Name="DOB_Required" 
 			Content="*" 
 			HorizontalAlignment="Left" 
@@ -208,7 +206,6 @@
 			Margin="0,345,0,0" 
 			VerticalAlignment="Top" 
 			Width="525"/>
-        <Label x:Name="DOB_Format" Content="MM/DD/YYYY" HorizontalAlignment="Left" Margin="256,122,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
         <Label x:Name="Alt_Position_Label1" 
         	Content="Alternate Position" 
         	HorizontalAlignment="Left" 
@@ -223,7 +220,8 @@
         	VerticalAlignment="Top" 
         	Height="23" 
         	Width="97"/>
-    
+        <DatePicker HorizontalAlignment="Left" Height="22" Margin="131,122,0,0" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
+
 
 
 
