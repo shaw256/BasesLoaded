@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:Obselete="clr-namespace:Xceed.Wpf.Toolkit.Obselete;assembly=Xceed.Wpf.Toolkit" x:Class="OpeningPitch.RegisterWindow" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" OpacityMask="White" WindowStyle="None"
-        Title="RegisterWindow" Height="350" Width="525">
+        Title="RegisterWindow" Height="350" Width="402">
 
     <Grid x:Name="Register_Window">
         <TextBox x:Name="First_Name_Input" 
 			HorizontalAlignment="Left" 
 			Height="23" 
-			Margin="111,10,0,0" 
+			Margin="131,10,0,0" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
 			Width="120" Opacity="0.6"/>
@@ -22,13 +22,13 @@
         <Label x:Name="First_Name_Required" 
 			Content="*" 
 			HorizontalAlignment="Left" 
-			Margin="236,10,0,0" 
+			Margin="256,10,0,0" 
 			VerticalAlignment="Top" 
 			Height="23"/>
         <TextBox x:Name="Last_Name_Input" 
 			HorizontalAlignment="Left" 
 			Height="23" 
-			Margin="111,38,0,0" 
+			Margin="131,38,0,0" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
 			Width="120" 
@@ -42,12 +42,12 @@
         <Label x:Name="Last_Name_Required" 
 			Content="*" 
 			HorizontalAlignment="Left" 
-			Margin="236,38,0,0" 
+			Margin="256,38,0,0" 
 			VerticalAlignment="Top" 
 			Height="23"/>
         <TextBox HorizontalAlignment="Left" 
 			Height="23" 
-			Margin="111,64,0,0" 
+			Margin="131,64,0,0" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
 			Width="120"/>
@@ -58,7 +58,7 @@
         <TextBox x:Name="E_Mail_Input" 
 			HorizontalAlignment="Left" 
 			Height="23" 
-			Margin="111,92,0,0" 
+			Margin="131,94,0,0" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
 			Width="120" 
@@ -72,7 +72,7 @@
         <Label x:Name="E_Mail_Required" 
 			Content="*" 
 			HorizontalAlignment="Left" 
-			Margin="236,150,0,0" 
+			Margin="256,152,0,0" 
 			VerticalAlignment="Top" 
 			Height="23" 
 			RenderTransformOrigin="5.2,4.087"/>
@@ -82,13 +82,13 @@
 			Margin="16,120,0,0" 
 			VerticalAlignment="Top" 
 			Height="23"/>
-      
-        <xctk:MaskedTextBox x:Name="DOB_Input" HorizontalAlignment="Left" Height="23" Margin="111,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Mask="00/00/0000"/>
+
+        <xctk:MaskedTextBox x:Name="DOB_Input" HorizontalAlignment="Left" Height="23" Margin="131,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Mask="00/00/0000"/>
 
         <Label x:Name="DOB_Required" 
 			Content="*" 
 			HorizontalAlignment="Left" 
-			Margin="236,92,0,0" 
+			Margin="256,94,0,0" 
 			VerticalAlignment="Top" 
 			Height="23"/>
         <Label x:Name="Phone_Number_Label" 
@@ -97,28 +97,57 @@
 			Margin="16,148,0,0" 
 			VerticalAlignment="Top" 
 			Height="23"/>
-        
-        <xctk:MaskedTextBox x:Name="Phone_Number_Input1" HorizontalAlignment="Left" Margin="111,148,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Mask="(000) 000-0000" Width="120" Height="21" RenderTransformOrigin="0.483,0.391"/>
+
+        <xctk:MaskedTextBox x:Name="Phone_Number_Input1" HorizontalAlignment="Left" Margin="131,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Mask="(000) 000-0000" Width="120" Height="21" RenderTransformOrigin="0.483,0.391"/>
 
         <Label x:Name="Position_Label" 
 			Content="Desired Position" 
 			HorizontalAlignment="Left" 
-			Margin="16,203,0,0" 
+			Margin="16,205,0,0" 
 			VerticalAlignment="Top" 
 			Height="23" 
 			Width="97"/>
-        
+
         <Label Content="* = Required" 
 			HorizontalAlignment="Left" 
 			Margin="10,314,0,0" 
 			VerticalAlignment="Top" 
 			Height="26"/>
 
-        <ComboBox HorizontalAlignment="Left" Margin="111,176,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="Gender_Selection" HorizontalAlignment="Left" Margin="131,178,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Male" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Female" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="111,204,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="Position_Selection" HorizontalAlignment="Left" Margin="131,206,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Second Base" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Shortstop" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Third Base" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Right Field" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <ComboBox x:Name="Alt_Position_Selection" HorizontalAlignment="Left" Margin="131,233,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Second Base" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Shortstop" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Third Base" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Right Field" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <Label x:Name="Alt_Position_Label2" 
+        	Content="Alternate Position2" 
+        	HorizontalAlignment="Left" 
+        	Margin="16,259,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="23" 
+        	Width="110"/>
+        <ComboBox x:Name="Alt_Position_Selection2" HorizontalAlignment="Left" Margin="131,260,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -132,28 +161,37 @@
         <Label x:Name="E_Mail_Required_Copy" 
 			Content="*" 
 			HorizontalAlignment="Left" 
-			Margin="236,178,0,0" 
+			Margin="256,180,0,0" 
 			VerticalAlignment="Top" 
 			Height="23" 
 			RenderTransformOrigin="5.2,4.087"/>
-    
+
         <Button x:Name="Register_Button" 
 			Content="Register" 
 			HorizontalAlignment="Left" 
-			Margin="296,204,0,0" 
+			Margin="294,299,0,0" 
 			VerticalAlignment="Top" 
 			Width="75" Opacity="0.6" Click="Register_Button_Click"/>
         <Button Content="X" 
-			Margin="506,0,0,0" 
+			Margin="381,-1,-1,0" 
 			VerticalAlignment="Top" 
 			Height="24" 
 			Opacity="0.6" 
 			Background="#FFFB0505" 
-			Click="Exit_Click"/>
+			Click="Exit_Click" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
         <Label x:Name="Position_Label_Copy" 
 			Content="Gender" 
 			HorizontalAlignment="Left" 
-			Margin="16,176,0,0" 
+			Margin="16,178,0,0" 
 			VerticalAlignment="Top" 
 			Height="23" 
 			Width="97"/>
@@ -162,7 +200,15 @@
 			Margin="0,345,0,0" 
 			VerticalAlignment="Top" 
 			Width="525"/>
-        <Label x:Name="DOB_Format" Content="MM/DD/YYYY" HorizontalAlignment="Left" Margin="236,120,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="DOB_Format" Content="MM/DD/YYYY" HorizontalAlignment="Left" Margin="256,122,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Alt_Position_Label1" 
+        	Content="Alternate Position" 
+        	HorizontalAlignment="Left" 
+        	Margin="16,232,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="23" 
+        	Width="110"/>
+
 
 
     </Grid>
