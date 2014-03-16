@@ -77,5 +77,10 @@ namespace OpeningPitch
 
             }
         }
+
+        private void Alt_Position_Selection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
