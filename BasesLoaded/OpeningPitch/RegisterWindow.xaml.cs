@@ -40,31 +40,37 @@ namespace OpeningPitch
             //}
             //else
             //{
-            
-            try
+            if (New_Password_Input != Confirm_Password_Input)
             {
-
-                SmtpClient client = new SmtpClient("smtp.live.com", 587);
-                client.EnableSsl = true;
-                client.Timeout = 10000;
-                client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
-
-                MailMessage msg = new MailMessage();
-                msg.To.Add(Email_Input.Text);
-                msg.From = new MailAddress("basesloadedapp@outlook.com");
-                msg.Subject = "Registration Successful";
-                msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.";
-                client.Send(msg);
-                MessageBox.Show( "Please check your E-Mail for a verification link.");
+                MessageBox.Show("The Passwords do not match, Please try again.");
             }
-            catch (Exception ex)
+            else
             {
+                try
+                {
 
-                MessageBox.Show(ex.ToString());
+                    SmtpClient client = new SmtpClient("smtp.live.com", 587);
+                    client.EnableSsl = true;
+                    client.Timeout = 10000;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
+
+                    MailMessage msg = new MailMessage();
+                    msg.To.Add(Email_Input.Text);
+                    msg.From = new MailAddress("basesloadedapp@outlook.com");
+                    msg.Subject = "Registration Successful";
+                    msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.";
+                    client.Send(msg);
+                    MessageBox.Show("Please check your E-Mail for a verification link.");
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString());
+                }
+                //}
             }
-            //}
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -105,13 +111,6 @@ namespace OpeningPitch
             }
         }
 
-
-
-        private void Validate_Email(object sender, RoutedEventArgs e)
-        {
-            Validator.EmailIsValid(Email_Input.Text);
-        }
-    
 
 
 

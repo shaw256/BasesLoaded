@@ -71,7 +71,7 @@
 			VerticalAlignment="Top" 
 			Width="120" 
 			Opacity="0.6"
-            InputScope="InputScopeNameValue.EmailSmtpAddress" ToolTip="{DynamicResource {x:Static SystemParameters.ToolTipPopupAnimationKey}}" TextInput="Validate_Email" />
+            InputScope="InputScopeNameValue.EmailSmtpAddress"/>
         <Label x:Name="E_Mail_Label" 
 			Content="E-Mail" 
 			HorizontalAlignment="Left" 
@@ -198,7 +198,12 @@
 			VerticalAlignment="Top" 
 			Height="23" 
 			RenderTransformOrigin="5.2,4.087"/>
-
+        <Button x:Name="Cancel_Button" 
+        	Content="Cancel" 
+        	HorizontalAlignment="Left" 
+        	Margin="317,446,0,0" 
+        	VerticalAlignment="Top" 
+        	Width="75" Opacity="0.6" Click="Cancel_Button_Click"/>
         <Button x:Name="Register_Button" 
 			Content="Register" 
 			HorizontalAlignment="Left" 
@@ -233,12 +238,7 @@
 			Margin="0,499,0,-1" 
 			VerticalAlignment="Top" 
 			Width="402"/>
-        <Button x:Name="Cancel_Button" 
-        	Content="Cancel" 
-        	HorizontalAlignment="Left" 
-        	Margin="317,446,0,0" 
-        	VerticalAlignment="Top" 
-        	Width="75" Opacity="0.6" Click="Cancel_Button_Click"/>
+
 
         <Label x:Name="New_Password_Label" 
         	Content="New Password" 
