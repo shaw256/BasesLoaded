@@ -7,9 +7,9 @@
         xmlns:Obselete="clr-namespace:Xceed.Wpf.Toolkit.Obselete;assembly=Xceed.Wpf.Toolkit" 
         x:Class="OpeningPitch.RegisterWindow" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" WindowStyle="None"
-        Title="RegisterWindow" Height="350" Width="402">
-        
-        
+        Title="RegisterWindow" Height="503" Width="402">
+
+
 
 
     <Grid x:Name="Register_Window">
@@ -71,7 +71,7 @@
 			VerticalAlignment="Top" 
 			Width="120" 
 			Opacity="0.6"
-            InputScope="InputScopeNameValue.EmailSmtpAddress" ToolTip="{DynamicResource {x:Static SystemParameters.ToolTipPopupAnimationKey}}"/>
+            InputScope="InputScopeNameValue.EmailSmtpAddress" ToolTip="{DynamicResource {x:Static SystemParameters.ToolTipPopupAnimationKey}}" TextInput="Validate_Email" />
         <Label x:Name="E_Mail_Label" 
 			Content="E-Mail" 
 			HorizontalAlignment="Left" 
@@ -188,8 +188,9 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
+        <PasswordBox x:Name="New_Password_Input" HorizontalAlignment="Left" Height="26" Margin="131,376,0,0" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="Confirm_Password_Input" HorizontalAlignment="Left" Height="26" Margin="131,407,0,0" VerticalAlignment="Top" Width="120"/>
 
-       
         <Label x:Name="E_Mail_Required_Copy" 
 			Content="*" 
 			HorizontalAlignment="Left" 
@@ -201,16 +202,16 @@
         <Button x:Name="Register_Button" 
 			Content="Register" 
 			HorizontalAlignment="Left" 
-			Margin="317,317,0,0" 
+			Margin="317,471,0,0" 
 			VerticalAlignment="Top" 
 			Width="75" Opacity="0.6" Click="Register_Button_Click"/>
         <Button Content="X" 
-			Margin="381,-1,-1,0" 
-			VerticalAlignment="Top" 
+			Margin="0,-1,-1,0" 
+			VerticalAlignment="Top" HorizontalAlignment="Right"
 			Height="24" 
 			Opacity="0.6" 
 			Background="#FFFB0505" 
-			Click="Exit_Click" RenderTransformOrigin="0.5,0.5">
+			Click="Exit_Click" RenderTransformOrigin="0.5,0.5" Width="25">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -229,9 +230,44 @@
 			Width="97"/>
         <ProgressBar x:Name="Prog_Bar" HorizontalAlignment="Left" 
 			Height="5" 
-			Margin="0,345,0,0" 
+			Margin="0,499,0,-1" 
 			VerticalAlignment="Top" 
-			Width="525"/>
-   
+			Width="402"/>
+        <Button x:Name="Cancel_Button" 
+        	Content="Cancel" 
+        	HorizontalAlignment="Left" 
+        	Margin="317,446,0,0" 
+        	VerticalAlignment="Top" 
+        	Width="75" Opacity="0.6" Click="Cancel_Button_Click"/>
+
+        <Label x:Name="New_Password_Label" 
+        	Content="New Password" 
+        	HorizontalAlignment="Left" 
+        	Margin="16,379,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="23" 
+        	Width="97"/>
+        <Label x:Name="Confirm_Password_Label" 
+        	Content="Confirm Password" 
+        	HorizontalAlignment="Left" 
+        	Margin="15,407,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="23" 
+        	Width="111"/>
+        <Label x:Name="New_Password_Required" 
+        	Content="*" 
+        	HorizontalAlignment="Left" 
+        	Margin="256,379,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="23" 
+        	RenderTransformOrigin="5.2,4.087"/>
+        <Label x:Name="Confrm_Password_Required" 
+        	Content="*" 
+        	HorizontalAlignment="Left" 
+        	Margin="256,409,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="23" 
+        	RenderTransformOrigin="5.2,4.087"/>
+
     </Grid>
 </Window>

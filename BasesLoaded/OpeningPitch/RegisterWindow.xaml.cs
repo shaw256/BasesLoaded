@@ -40,6 +40,7 @@ namespace OpeningPitch
             //}
             //else
             //{
+            
             try
             {
 
@@ -96,6 +97,7 @@ namespace OpeningPitch
             {
                 MainWindow BacktoMain = new MainWindow();
                 BacktoMain.Show();
+                this.Close();
             }
             else if (result == MessageBoxResult.Cancel)
             {
@@ -103,25 +105,21 @@ namespace OpeningPitch
             }
         }
 
+
+
+        private void Validate_Email(object sender, RoutedEventArgs e)
+        {
+            Validator.EmailIsValid(Email_Input.Text);
+        }
+    
+
+
+
                
     }
 }
 
-            //if (Email_Input.Text.Length <= 0)
-            //{
-            //    MessageBox.Show("Enter an email.");
-            //    Email_Input.Focus();
-            //}
-                 
-            //else if (!Regex.IsMatch(Email_Input.Text, @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
-            //+ @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
-            //+ @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$"))
-            //{
-            //    MessageBox.Show("Enter a Valid Email.");
-            //    Email_Input.Clear();
-            //    Email_Input.Focus();
-            //}
-    
+            
 
  
 

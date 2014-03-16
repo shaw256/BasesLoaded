@@ -100,6 +100,7 @@
     <Compile Include="UserDashboard.xaml.cs">
       <DependentUpon>UserDashboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Validator.cs" />
     <Page Include="Dashboard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
