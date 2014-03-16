@@ -232,19 +232,6 @@
 			Margin="0,345,0,0" 
 			VerticalAlignment="Top" 
 			Width="525"/>
-        <Label x:Name="Alt_Position_Label1" 
-        	Content="Alternate Position" 
-        	HorizontalAlignment="Left" 
-        	Margin="16,259,0,0" 
-        	VerticalAlignment="Top" 
-        	Height="23" 
-        	Width="110"/>
-        <Label x:Name="Team_Label" 
-        	Content="Desired Team" 
-        	HorizontalAlignment="Left" 
-        	Margin="16,205,0,0" 
-        	VerticalAlignment="Top" 
-        	Height="23" 
-        	Width="97"/>
+   
     </Grid>
 </Window>
