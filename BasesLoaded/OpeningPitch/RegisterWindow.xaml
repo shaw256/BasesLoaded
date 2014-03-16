@@ -6,10 +6,11 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
         xmlns:Obselete="clr-namespace:Xceed.Wpf.Toolkit.Obselete;assembly=Xceed.Wpf.Toolkit" 
         x:Class="OpeningPitch.RegisterWindow" WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True" OpacityMask="White" WindowStyle="None"
+        AllowsTransparency="True" WindowStyle="None"
         Title="RegisterWindow" Height="350" Width="402">
-        
-        
+   
+
+
 
     <Grid x:Name="Register_Window">
         <TextBox x:Name="First_Name_Input" 
@@ -62,15 +63,15 @@
 			HorizontalAlignment="Left" 
 			Margin="16,66,0,0" 
 			VerticalAlignment="Top"/>
-        <TextBox x:Name="E_Mail_Input" 
+        <TextBox x:Name="Email_Input" 
 			HorizontalAlignment="Left" 
 			Height="23" 
-			Margin="131,94,0,0" 
+			Margin="131,92,0,0" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
 			Width="120" 
 			Opacity="0.6"
-            InputScope="EmailSmtpAddress" />
+            InputScope="InputScopeNameValue.EmailSmtpAddress" ToolTip="{DynamicResource {x:Static SystemParameters.ToolTipPopupAnimationKey}}"/>
         <Label x:Name="E_Mail_Label" 
 			Content="E-Mail" 
 			HorizontalAlignment="Left" 
@@ -107,7 +108,7 @@
 			VerticalAlignment="Top" 
 			Height="23"/>
 
-        <xctk:MaskedTextBox x:Name="Phone_Number_Input1" HorizontalAlignment="Left" Margin="131,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Mask="(000) 000 - 0000" Width="120" Height="21" RenderTransformOrigin="0.483,0.391"/>
+        <xctk:MaskedTextBox x:Name="Phone_Number_Input1" HorizontalAlignment="Left" Margin="131,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" InputScope="InputScopeNameValue.TelephoneNumber"  Mask="(000) 000 - 0000" Width="120" Height="21" RenderTransformOrigin="0.483,0.391"/>
 
         <Label x:Name="Position_Label" 
 			Content="Desired Position" 
@@ -171,7 +172,7 @@
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
 
-       
+
         <Label x:Name="E_Mail_Required_Copy" 
 			Content="*" 
 			HorizontalAlignment="Left" 
@@ -183,7 +184,7 @@
         <Button x:Name="Register_Button" 
 			Content="Register" 
 			HorizontalAlignment="Left" 
-			Margin="294,299,0,0" 
+			Margin="317,317,0,0" 
 			VerticalAlignment="Top" 
 			Width="75" Opacity="0.6" Click="Register_Button_Click"/>
         <Button Content="X" 
@@ -228,5 +229,11 @@
         	VerticalAlignment="Top" 
         	Height="23" 
         	Width="97"/>
+        <Button x:Name="Cancel_Button" 
+        	Content="Cancel" 
+        	HorizontalAlignment="Left" 
+        	Margin="317,287,0,0" 
+        	VerticalAlignment="Top" 
+        	Width="75" Opacity="0.6" Click="Cancel_Button_Click"/>
     </Grid>
 </Window>
