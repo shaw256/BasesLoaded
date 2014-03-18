@@ -49,7 +49,7 @@ namespace OpeningPitch
             }
             if (Username_Input.Text.Equals("2") && Password_Input.Password.Equals("2"))
             {
-                UserDashboard Dashboard = new UserDashboard();
+                Window Dashboard = new UserDashboard();
                 Dashboard.Show();
                 this.Close();
             }

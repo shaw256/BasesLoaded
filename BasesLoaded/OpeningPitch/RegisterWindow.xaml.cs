@@ -85,7 +85,7 @@ namespace OpeningPitch
             }
             else if (result == MessageBoxResult.Cancel)
             {
-
+                
             }
         }
 
@@ -107,8 +107,13 @@ namespace OpeningPitch
             }
             else if (result == MessageBoxResult.Cancel)
             {
-
+                this.DialogResult = false;
             }
+        }
+
+        private void Alt_Position_Selection2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
 

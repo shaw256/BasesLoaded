@@ -4,8 +4,7 @@
         Title="List_Teams" Height="300" Width="300" Closing="Window_Closing">
     <Grid x:Name="Create_Team" Margin="0,0,-8,-2">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="97*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
