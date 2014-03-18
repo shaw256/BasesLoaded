@@ -26,9 +26,9 @@ namespace OpeningPitch
 
         private void Create_Team_Click(object sender, RoutedEventArgs e)
         {
-            team_listbox.Items.Add(txt_TeamName);           
-            txt_TeamName.Clear(); 
-        }                             
+            team_listbox.Items.Add(txt_TeamName);
+            txt_TeamName.Clear();
+        }
 
         private void Delete_Team_Click(object sender, RoutedEventArgs e)
         {
@@ -43,8 +43,23 @@ namespace OpeningPitch
             //desired team.
         }
 
-                               
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to cancel?\n\nAll data will be lost.",
+               "Confirmation", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
+            {
+                Window BacktoTCDash = new Dashboard();
+                BacktoTCDash.Show();
+
+            }
+            else if (result == MessageBoxResult.Cancel)
+            {
+                
+            }
         }
 
     }
+}
 
