@@ -41,10 +41,10 @@ namespace OpeningPitch
                 MessageBox.Show("You did not enter a valid Username and/or Password");
             }
 
-            if (Username_Input.Text.Equals(true) && Password_Input.Password.Equals(true))
+            if (Username_Input.Text.Equals("a") && Password_Input.Password.Equals("a"))
             {
-                //Window Dashboard = new Dashboard();
-                //Dashboard.Show();
+                Window UserDashboard = new UserDashboard();
+                UserDashboard.Show();
                 this.Close();
             }
         }   
@@ -63,6 +63,7 @@ namespace OpeningPitch
             {
 
             }
-        }            
+        }
+          
     }
 }
