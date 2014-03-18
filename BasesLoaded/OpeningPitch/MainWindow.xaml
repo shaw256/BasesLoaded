@@ -34,7 +34,8 @@
                Margin="94,183,0,0" 
                VerticalAlignment="Top" 
                Height="23"/>
-        <Button Content="Log In" 
+        <Button Content="Log In"
+                IsDefault="true"
                 HorizontalAlignment="Center" 
                 Margin="-1,227,0,0" 
                 VerticalAlignment="Top" 

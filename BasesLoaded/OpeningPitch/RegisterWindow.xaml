@@ -9,9 +9,6 @@
         AllowsTransparency="True" WindowStyle="None"
         Title="RegisterWindow" Height="503" Width="402">
 
-
-
-
     <Grid x:Name="Register_Window">
         <TextBox x:Name="First_Name_Input" 
 			HorizontalAlignment="Left" 
@@ -91,25 +88,35 @@
 			Margin="16,120,0,0" 
 			VerticalAlignment="Top" 
 			Height="23"/>
-
         <Label x:Name="DOB_Required" 
 			Content="*" 
 			HorizontalAlignment="Left" 
 			Margin="256,94,0,0" 
 			VerticalAlignment="Top" 
 			Height="23"/>
-        <DatePicker   x:Name="DatePicker" HorizontalAlignment="Left" Height="21" Margin="131,123,0,0" VerticalAlignment="Top" Width="120" SelectedDateFormat="Short"/>
-
-
+        <DatePicker x:Name="DatePicker" 
+            HorizontalAlignment="Left" 
+            Height="21" 
+            Margin="131,123,0,0" 
+            VerticalAlignment="Top" 
+            Width="120" 
+            SelectedDateFormat="Short"/>
         <Label x:Name="Phone_Number_Label" 
 			Content="Phone Number" 
 			HorizontalAlignment="Left" 
 			Margin="16,148,0,0" 
 			VerticalAlignment="Top" 
 			Height="23"/>
-
-        <xctk:MaskedTextBox x:Name="Phone_Number_Input1" HorizontalAlignment="Left" Margin="131,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" InputScope="InputScopeNameValue.TelephoneNumber"  Mask="(000) 000 - 0000" Width="120" Height="21" RenderTransformOrigin="0.483,0.391"/>
-
+        <xctk:MaskedTextBox x:Name="Phone_Number_Input1" 
+            HorizontalAlignment="Left" 
+            Margin="131,150,0,0" 
+            TextWrapping="Wrap"  
+            VerticalAlignment="Top" 
+            InputScope="InputScopeNameValue.TelephoneNumber"  
+            Mask="(000) 000 - 0000" 
+            Width="120" 
+            Height="21" 
+            RenderTransformOrigin="0.483,0.391"/>
         <Label x:Name="Position_Label" 
 			Content="Desired Position" 
 			HorizontalAlignment="Left" 
@@ -117,13 +124,11 @@
 			VerticalAlignment="Top" 
 			Height="23" 
 			Width="97"/>
-
         <Label Content="* = Required" 
 			HorizontalAlignment="Left" 
 			Margin="10,314,0,0" 
 			VerticalAlignment="Top" 
 			Height="26"/>
-
         <ComboBox x:Name="Gender_Selection" HorizontalAlignment="Left" Margin="131,178,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Male" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Female" HorizontalAlignment="Left" Width="118"/>
@@ -177,7 +182,7 @@
         	VerticalAlignment="Top" 
         	Height="23" 
         	Width="110"/>
-        <ComboBox x:Name="Alt_Position_Selection2" HorizontalAlignment="Left" Margin="131,287,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="Alt_Position_Selection2" HorizontalAlignment="Left" Margin="131,287,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Alt_Position_Selection2_SelectionChanged">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -188,9 +193,17 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <PasswordBox x:Name="New_Password_Input" HorizontalAlignment="Left" Height="26" Margin="131,376,0,0" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="Confirm_Password_Input" HorizontalAlignment="Left" Height="26" Margin="131,407,0,0" VerticalAlignment="Top" Width="120"/>
-
+        <PasswordBox x:Name="New_Password_Input" 
+                     HorizontalAlignment="Left" 
+                     Height="26" Margin="131,376,0,0" 
+                     VerticalAlignment="Top" 
+                     Width="120"/>
+        <PasswordBox x:Name="Confirm_Password_Input" 
+                     HorizontalAlignment="Left" 
+                     Height="26" 
+                     Margin="131,407,0,0" 
+                     VerticalAlignment="Top" 
+                     Width="120"/>
         <Label x:Name="E_Mail_Required_Copy" 
 			Content="*" 
 			HorizontalAlignment="Left" 
@@ -238,8 +251,6 @@
 			Margin="0,499,0,-1" 
 			VerticalAlignment="Top" 
 			Width="402"/>
-
-
         <Label x:Name="New_Password_Label" 
         	Content="New Password" 
         	HorizontalAlignment="Left" 
