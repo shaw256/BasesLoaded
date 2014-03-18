@@ -216,9 +216,10 @@
         	HorizontalAlignment="Left" 
         	Margin="317,446,0,0" 
         	VerticalAlignment="Top" 
-        	Width="75" Opacity="0.6" Click="Cancel_Button_Click"/>
+        	Width="75" Opacity="0.6" Click="Cancel_Button_Click" IsCancel="True"/>
         <Button x:Name="Register_Button" 
 			Content="Register" 
+            IsDefault="True"
 			HorizontalAlignment="Left" 
 			Margin="317,471,0,0" 
 			VerticalAlignment="Top" 

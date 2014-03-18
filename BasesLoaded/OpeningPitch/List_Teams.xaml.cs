@@ -45,21 +45,14 @@ namespace OpeningPitch
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure you would like to cancel?\n\nAll data will be lost.",
-               "Confirmation", MessageBoxButton.OKCancel);
-
-            if (result == MessageBoxResult.OK)
+            if (MessageBox.Show("Are you sure you want to exit?", "Confirm exit", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
             {
-                Window BacktoTCDash = new Dashboard();
-                BacktoTCDash.Show();
-
-            }
-            else if (result == MessageBoxResult.Cancel)
-            {
-                
+                e.Cancel = true;
             }
         }
-
     }
 }
+
+
+
 
