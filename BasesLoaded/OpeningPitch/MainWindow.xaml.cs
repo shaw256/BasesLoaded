@@ -25,6 +25,7 @@ namespace OpeningPitch
         {
             InitializeComponent();
             Username_Input.Focus();
+            
         }
 
         private void Register(object sender, RoutedEventArgs e)

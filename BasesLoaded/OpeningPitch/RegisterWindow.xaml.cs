@@ -107,7 +107,7 @@ namespace OpeningPitch
             }
             else if (result == MessageBoxResult.Cancel)
             {
-                this.DialogResult = false;
+                
             }
         }
 
