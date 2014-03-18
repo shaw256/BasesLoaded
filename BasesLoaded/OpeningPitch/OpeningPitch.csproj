@@ -92,6 +92,9 @@
     <Compile Include="E-Mail.xaml.cs">
       <DependentUpon>E-Mail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="List_Teams.xaml.cs">
+      <DependentUpon>List_Teams.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Manage_Roster.xaml.cs">
       <DependentUpon>Manage_Roster.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,10 @@
     <Page Include="E-Mail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="List_Teams.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

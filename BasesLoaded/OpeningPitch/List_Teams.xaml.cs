@@ -43,6 +43,35 @@ namespace OpeningPitch
             //desired team.
         }
 
+        //private void btn_Exit(object sender, RoutedEventArgs e)
+        //{
+        //    MessageBoxResult result = MessageBox.Show("Are you sure you would like exit",
+        //      "Confirmation", MessageBoxButton.OKCancel);
+
+        //    if (result == MessageBoxResult.OK)
+        //    {
+        //        Dashboard BacktoTCDashboard = new Dashboard();
+        //        BacktoTCDashboard.Show();
+        //        this.Close();
+            //}
+        //}
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit",
+             "Confirmation", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
+            {
+                Dashboard BacktoTCDashboard = new Dashboard();
+                BacktoTCDashboard.Show();
+                this.Close();
+                
+                
+            }
+
+        }
+
                                
         }
 
