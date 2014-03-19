@@ -25,14 +25,14 @@ namespace OpeningPitch
         {
             InitializeComponent();
             Username_Input.Focus();
-            
+            this.DragMove();
         }
+
 
         private void Register(object sender, RoutedEventArgs e)
         {
             Window RegisterWindow = new RegisterWindow();
             RegisterWindow.Show();
-            this.Close();
         }
 
         private void Log_In_Click(object sender, RoutedEventArgs e)
@@ -70,6 +70,11 @@ namespace OpeningPitch
             {
 
             }
-        }            
+        }
+
+        private void Main_Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

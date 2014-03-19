@@ -9,7 +9,7 @@
         AllowsTransparency="True" WindowStyle="None"
         Title="RegisterWindow" Height="503" Width="402">
 
-    <Grid x:Name="Register_Window">
+    <Grid x:Name="Register_Window" MouseDown="Register_Window_MouseDown">
         <TextBox x:Name="First_Name_Input" 
 			HorizontalAlignment="Left" 
 			Height="23" 

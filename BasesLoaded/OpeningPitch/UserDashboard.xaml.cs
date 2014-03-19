@@ -28,5 +28,10 @@ namespace OpeningPitch
         {
             this.Close();
         }
+
+        private void PlayerProfile_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

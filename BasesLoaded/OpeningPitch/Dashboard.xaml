@@ -8,7 +8,7 @@
             <ColumnDefinition Width="181*"/>
             <ColumnDefinition Width="140*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Login_Home" Content="Home" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="89" Click="Login_Home_Click"/>
+        <Button x:Name="Login_Home" Content="Home" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="89"/>
         <Button x:Name="Create_Team" Content="Team" HorizontalAlignment="Left" Margin="89,0,0,0" VerticalAlignment="Top" Width="75" Click="CreateTeam_Click" Height="22" Grid.ColumnSpan="2"/>
         <Button x:Name="Approve_Player" Content="Approve Player" HorizontalAlignment="Left" Margin="0,141,0,0" VerticalAlignment="Top" Width="89"/>
         <Button x:Name="Edit_Roster" Content="Edit Roster" HorizontalAlignment="Left" Margin="0,163,0,0" VerticalAlignment="Top" Width="89"/>

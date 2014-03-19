@@ -50,6 +50,11 @@ namespace OpeningPitch
                 e.Cancel = true;
             }
         }
+
+        private void Create_Team_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }
 

@@ -29,5 +29,10 @@ namespace OpeningPitch
             Window playerinfo = new Player_Info();
             playerinfo.Show();
         }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

@@ -116,10 +116,10 @@ namespace OpeningPitch
 
         }
 
-
-
-
-               
+        private void Register_Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }
 
