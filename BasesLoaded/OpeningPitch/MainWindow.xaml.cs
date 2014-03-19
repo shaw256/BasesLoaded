@@ -20,17 +20,15 @@ namespace OpeningPitch
     /// </summary>
     public partial class MainWindow : Window
     {
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
         public MainWindow()
         {
             InitializeComponent();
             Username_Input.Focus();
         }
-
-
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
         private void Register(object sender, RoutedEventArgs e)
         {
             Window RegisterWindow = new RegisterWindow();

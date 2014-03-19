@@ -30,7 +30,24 @@ namespace OpeningPitch
 
         private void btn_Logout_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow BacktoMain = new MainWindow();
+            BacktoMain.Show();
             this.Close();
+        }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit?\n\nAll unsaved changes will be lost.",
+                "Confirmation", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
+            {
+                Application curApp = Application.Current;
+                curApp.Shutdown();
+            }
+            else if (result == MessageBoxResult.Cancel)
+            {
+
+            }
         }
     }
 }

@@ -19,33 +19,46 @@ namespace OpeningPitch
     /// </summary>
     public partial class Dashboard : Window
     {
+        public Dashboard()
+        {
+            InitializeComponent();
+        }
         private void tab_Dashboard_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
-        public Dashboard()
-        {
-
-            InitializeComponent();
-        }
-
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             Window Profile = new Dashboard();
             Profile.Show();
         }
-
         private void Dashboard_Logout_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow BacktoMain = new MainWindow();
+            BacktoMain.Show();
             this.Close();
         }
-
        private void CreateTeam_Click(object sender, RoutedEventArgs e)
         {
             Window Teams = new List_Teams();
            Teams.Show();
            this.Close();
         }
+       private void Exit_Click(object sender, RoutedEventArgs e)
+       {
+           MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit?\n\nAll unsaved changes will be lost.",
+               "Confirmation", MessageBoxButton.OKCancel);
+
+           if (result == MessageBoxResult.OK)
+           {
+               Application curApp = Application.Current;
+               curApp.Shutdown();
+           }
+           else if (result == MessageBoxResult.Cancel)
+           {
+
+           }
+       }
     }              
 }
 
