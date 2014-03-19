@@ -19,6 +19,10 @@ namespace OpeningPitch
     /// </summary>
     public partial class UserDashboard : Window
     {
+        private void Player_Profile_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
         public UserDashboard()
         {
             InitializeComponent();
@@ -27,11 +31,6 @@ namespace OpeningPitch
         private void btn_Logout_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void PlayerProfile_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
         }
     }
 }

@@ -19,6 +19,10 @@ namespace OpeningPitch
     /// </summary>
     public partial class Manage_Roster : Window
     {
+        private void Manage_Team_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
         public Manage_Roster()
         {
             InitializeComponent();

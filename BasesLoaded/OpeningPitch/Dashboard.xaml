@@ -1,7 +1,7 @@
 ﻿<Window x:Name="tab_Dashboard" x:Class="OpeningPitch.Dashboard"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Softball Roster" Height="281" Width="454">
+    Title="Softball Roster" Height="281" Width="454" MouseDown="tab_Dashboard_MouseDown">
     <Grid x:Name="Dashboard1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="125*"/>

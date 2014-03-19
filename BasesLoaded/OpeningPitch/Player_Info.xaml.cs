@@ -19,6 +19,10 @@ namespace OpeningPitch
     /// </summary>
     public partial class Player_Info : Window
     {
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
         public Player_Info()
         {
             InitializeComponent();
@@ -32,11 +36,6 @@ namespace OpeningPitch
         private void PlayerformReset_Click(object sender, RoutedEventArgs e)
         {
             // The code to clear the form will go here.
-        }
-
-        private void PlayerInfo_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
         }
     }
 }

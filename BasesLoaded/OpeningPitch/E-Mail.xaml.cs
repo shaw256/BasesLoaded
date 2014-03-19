@@ -21,6 +21,10 @@ namespace OpeningPitch
     /// </summary>
     public partial class E_Mail : Window
     {
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
         public E_Mail()
         {
             InitializeComponent();

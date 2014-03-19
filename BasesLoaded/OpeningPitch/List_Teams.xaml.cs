@@ -19,6 +19,10 @@ namespace OpeningPitch
     /// </summary>
     public partial class List_Teams : Window
     {
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
         public List_Teams()
         {
             InitializeComponent();

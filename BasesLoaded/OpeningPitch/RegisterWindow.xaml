@@ -7,9 +7,9 @@
         xmlns:Obselete="clr-namespace:Xceed.Wpf.Toolkit.Obselete;assembly=Xceed.Wpf.Toolkit" 
         x:Class="OpeningPitch.RegisterWindow" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" WindowStyle="None"
-        Title="RegisterWindow" Height="503" Width="402">
+        Title="RegisterWindow" Height="503" Width="402" MouseDown="Window_MouseDown">
 
-    <Grid x:Name="Register_Window" MouseDown="Register_Window_MouseDown">
+    <Grid x:Name="Register_Window">
         <TextBox x:Name="First_Name_Input" 
 			HorizontalAlignment="Left" 
 			Height="23" 
@@ -216,21 +216,25 @@
         	HorizontalAlignment="Left" 
         	Margin="317,446,0,0" 
         	VerticalAlignment="Top" 
-        	Width="75" Opacity="0.6" Click="Cancel_Button_Click" IsCancel="True"/>
+        	Width="75" Opacity="0.6" Click="Cancel_Button_Click" 
+            IsCancel="True"/>
         <Button x:Name="Register_Button" 
 			Content="Register" 
             IsDefault="True"
 			HorizontalAlignment="Left" 
 			Margin="317,471,0,0" 
 			VerticalAlignment="Top" 
-			Width="75" Opacity="0.6" Click="Register_Button_Click"/>
+			Width="75" Opacity="0.6" 
+            Click="Register_Button_Click"/>
         <Button Content="X" 
 			Margin="0,-1,-1,0" 
-			VerticalAlignment="Top" HorizontalAlignment="Right"
+			VerticalAlignment="Top" 
+            HorizontalAlignment="Right"
 			Height="24" 
 			Opacity="0.6" 
 			Background="#FFFB0505" 
-			Click="Exit_Click" RenderTransformOrigin="0.5,0.5" Width="25">
+			Click="Exit_Click"
+            RenderTransformOrigin="0.5,0.5" Width="25">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -247,7 +251,8 @@
 			VerticalAlignment="Top" 
 			Height="23" 
 			Width="97"/>
-        <ProgressBar x:Name="Prog_Bar" HorizontalAlignment="Left" 
+        <ProgressBar x:Name="Prog_Bar" 
+            HorizontalAlignment="Left" 
 			Height="5" 
 			Margin="0,499,0,-1" 
 			VerticalAlignment="Top" 

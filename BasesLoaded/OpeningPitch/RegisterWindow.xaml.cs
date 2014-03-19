@@ -26,6 +26,10 @@ namespace OpeningPitch
 
     public partial class RegisterWindow : Window
     {
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
         public RegisterWindow()
         {
             InitializeComponent();
@@ -88,12 +92,6 @@ namespace OpeningPitch
                 
             }
         }
-
-        private void Alt_Position_Selection_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void Cancel_Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to cancel your Registration?\n\nAll data will be lost.",
@@ -109,16 +107,6 @@ namespace OpeningPitch
             {
                 
             }
-        }
-
-        private void Alt_Position_Selection2_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Register_Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
         }
     }
 }

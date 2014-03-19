@@ -20,12 +20,14 @@ namespace OpeningPitch
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
         public MainWindow()
         {
             InitializeComponent();
             Username_Input.Focus();
-            this.DragMove();
         }
 
 
@@ -48,12 +50,6 @@ namespace OpeningPitch
                 Dashboard.Show();
                 this.Close();
             }
-            if (Username_Input.Text.Equals("2") && Password_Input.Password.Equals("2"))
-            {
-                Window Dashboard = new UserDashboard();
-                Dashboard.Show();
-                this.Close();
-            }
         }   
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -70,11 +66,6 @@ namespace OpeningPitch
             {
 
             }
-        }
-
-        private void Main_Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
         }
     }
 }

@@ -19,6 +19,10 @@ namespace OpeningPitch
     /// </summary>
     public partial class Dashboard : Window
     {
+        private void tab_Dashboard_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
         public Dashboard()
         {
 
@@ -42,8 +46,6 @@ namespace OpeningPitch
            Teams.Show();
            this.Close();
         }
-
-
     }              
 }
 
