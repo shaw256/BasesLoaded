@@ -182,7 +182,7 @@
         	VerticalAlignment="Top" 
         	Height="23" 
         	Width="110"/>
-        <ComboBox x:Name="Alt_Position_Selection2" HorizontalAlignment="Left" Margin="131,287,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Alt_Position_Selection2_SelectionChanged">
+        <ComboBox x:Name="Alt_Position_Selection2" HorizontalAlignment="Left" Margin="131,287,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
