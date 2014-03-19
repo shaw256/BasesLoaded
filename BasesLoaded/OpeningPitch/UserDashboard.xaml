@@ -1,14 +1,14 @@
 ﻿<Window x:Name="Player_Profile" x:Class="OpeningPitch.UserDashboard"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="UserDashboard" Height="300" Width="300">
-    <Grid x:Name="PlayerProfile" Margin="0,0,2,164">
+        Title="UserDashboard" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="PlayerProfile" Margin="0,0,2,164" MouseDown="PlayerProfile_MouseDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="82*"/>
             <ColumnDefinition Width="63*"/>
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="grid_PlayerProfile" HorizontalAlignment="Left" VerticalAlignment="Top" Height="175" Width="290" Margin="0,94,0,-163" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn_Logout" Content="Logout" HorizontalAlignment="Left" Margin="51,0,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="btn_Logout_Click"/>
+        <Button x:Name="btn_Logout" Content="Logout" HorizontalAlignment="Left" Margin="53,0,-2,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="btn_Logout_Click"/>
         <Button x:Name="btn_EditInfo" Content="Edit Info" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="lbl_Name" Content="Name" HorizontalAlignment="Left" Height="25" Margin="14,120,0,-39" VerticalAlignment="Top" Width="45"/>
         <Label x:Name="lbl_Email" Content="Email" HorizontalAlignment="Left" Height="29" Margin="15,145,0,-68" VerticalAlignment="Top" Width="44"/>

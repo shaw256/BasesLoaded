@@ -57,5 +57,10 @@ namespace OpeningPitch
             //client.Send(msg);
             
         }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

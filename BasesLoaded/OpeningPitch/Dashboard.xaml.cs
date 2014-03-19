@@ -39,7 +39,8 @@ namespace OpeningPitch
        private void CreateTeam_Click(object sender, RoutedEventArgs e)
         {
             Window Teams = new List_Teams();
-            Teams.Show();
+           Teams.Show();
+           this.Close();
         }
 
 

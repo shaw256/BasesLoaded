@@ -33,5 +33,10 @@ namespace OpeningPitch
         {
             // The code to clear the form will go here.
         }
+
+        private void PlayerInfo_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

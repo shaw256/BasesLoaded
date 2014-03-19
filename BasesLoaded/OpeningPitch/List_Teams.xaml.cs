@@ -26,9 +26,9 @@ namespace OpeningPitch
 
         private void Create_Team_Click(object sender, RoutedEventArgs e)
         {
-            team_listbox.Items.Add(txt_TeamName);           
-            txt_TeamName.Clear(); 
-        }                             
+            team_listbox.Items.Add(txt_TeamName);
+            txt_TeamName.Clear();
+        }
 
         private void Delete_Team_Click(object sender, RoutedEventArgs e)
         {
@@ -43,8 +43,21 @@ namespace OpeningPitch
             //desired team.
         }
 
-                               
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to exit?", "Confirm exit", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
         }
 
+        private void Create_Team_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
+}
+
+
+
 

@@ -25,13 +25,14 @@ namespace OpeningPitch
         {
             InitializeComponent();
             Username_Input.Focus();
+            this.DragMove();
         }
+
 
         private void Register(object sender, RoutedEventArgs e)
         {
             Window RegisterWindow = new RegisterWindow();
             RegisterWindow.Show();
-            this.Close();
         }
 
         private void Log_In_Click(object sender, RoutedEventArgs e)
@@ -47,10 +48,10 @@ namespace OpeningPitch
                 Dashboard.Show();
                 this.Close();
             }
-            else if ( Username_Input.Text.Equals("2") && Password_Input.Password.Equals("2"))
+            if (Username_Input.Text.Equals("2") && Password_Input.Password.Equals("2"))
             {
-                Window PlayerHomepage = new UserDashboard();
-                PlayerHomepage.Show();
+                Window Dashboard = new UserDashboard();
+                Dashboard.Show();
                 this.Close();
             }
         }   
@@ -69,6 +70,11 @@ namespace OpeningPitch
             {
 
             }
-        }            
+        }
+
+        private void Main_Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }
