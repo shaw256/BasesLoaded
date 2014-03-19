@@ -35,6 +35,7 @@ namespace OpeningPitch
         {
             Window RegisterWindow = new RegisterWindow();
             RegisterWindow.Show();
+            this.Close();
         }
 
         private void Log_In_Click(object sender, RoutedEventArgs e)

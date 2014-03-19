@@ -52,7 +52,6 @@ namespace OpeningPitch
             {
                 try
                 {
-
                     SmtpClient client = new SmtpClient("smtp.live.com", 587);
                     client.EnableSsl = true;
                     client.Timeout = 10000;
