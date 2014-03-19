@@ -37,5 +37,21 @@ namespace OpeningPitch
         {
             // The code to clear the form will go here.
         }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit the application?",
+                "Confirmation", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
+            {
+                MainWindow BacktoMain = new MainWindow();
+                BacktoMain.Show();
+                this.Close();
+            }
+            else if (result == MessageBoxResult.Cancel)
+            {
+
+            }
+        }
     }
 }

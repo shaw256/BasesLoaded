@@ -58,6 +58,12 @@ namespace OpeningPitch
 
             }
         }
+
+        private void Login_Home_Click(object sender, RoutedEventArgs e)
+        {
+            Window Dashboard = new Dashboard();
+            Dashboard.Show();
+        }
     }
 }
 

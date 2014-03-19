@@ -4,10 +4,6 @@
         Title="UserDashboard" Height="500" Width="400" WindowStartupLocation="CenterScreen" MouseDown="Player_Profile_MouseDown" WindowStyle="None" AllowsTransparency="True">
     <Grid x:Name="PlayerProfile" 
           Margin="0,0,0,10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="99*"/>
-            <ColumnDefinition Width="101*"/>
-        </Grid.ColumnDefinitions>
         <DataGrid x:Name="grid_PlayerProfile" 
                   HorizontalAlignment="Left" 
                   VerticalAlignment="Top" 
@@ -18,10 +14,9 @@
         <Button x:Name="btn_Logout" 
                 Content="Logout" 
                 HorizontalAlignment="Left" 
-                Margin="97,0,0,0" 
+                Margin="295,0,0,0" 
                 VerticalAlignment="Top" 
                 Width="75" 
-                Grid.Column="1" 
                 Click="btn_Logout_Click" Height="24"/>
         <Button x:Name="btn_EditInfo" 
                 Content="Edit Info" 

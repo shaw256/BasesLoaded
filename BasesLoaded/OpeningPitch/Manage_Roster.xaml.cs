@@ -33,10 +33,21 @@ namespace OpeningPitch
             Window playerinfo = new Player_Info();
             playerinfo.Show();
         }
-
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            this.DragMove();
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit Registration?\n\nAll data will be lost.",
+                "Confirmation", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
+            {
+                MainWindow BacktoMain = new MainWindow();
+                BacktoMain.Show();
+                this.Close();
+            }
+            else if (result == MessageBoxResult.Cancel)
+            {
+
+            }
         }
     }
 }
