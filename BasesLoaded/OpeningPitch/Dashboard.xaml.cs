@@ -51,8 +51,9 @@ namespace OpeningPitch
 
            if (result == MessageBoxResult.OK)
            {
-               Application curApp = Application.Current;
-               curApp.Shutdown();
+               MainWindow BacktoMain = new MainWindow();
+               BacktoMain.Show();
+               this.Close();
            }
            else if (result == MessageBoxResult.Cancel)
            {

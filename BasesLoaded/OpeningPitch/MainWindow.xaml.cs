@@ -35,7 +35,6 @@ namespace OpeningPitch
             RegisterWindow.Show();
             this.Close();
         }
-
         private void Log_In_Click(object sender, RoutedEventArgs e)
         {
             if (Username_Input.Text.Equals("") || Password_Input.Password.Equals(""))
@@ -50,7 +49,6 @@ namespace OpeningPitch
                 this.Close();
             }
         }   
-
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit the application?",

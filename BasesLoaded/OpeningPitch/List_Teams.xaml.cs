@@ -42,11 +42,20 @@ namespace OpeningPitch
             //Once the team is added to the list box, this code will allow the captain to assign player in his team by double clicking in the
             //desired team.
         }
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to exit?", "Confirm exit", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit the application?",
+                "Confirmation", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
             {
-                e.Cancel = true;
+                MainWindow BacktoMain = new MainWindow();
+                BacktoMain.Show();
+                this.Close();
+            }
+            else if (result == MessageBoxResult.Cancel)
+            {
+
             }
         }
     }

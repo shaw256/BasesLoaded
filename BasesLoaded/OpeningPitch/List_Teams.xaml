@@ -2,21 +2,77 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="List_Teams" 
-        Height="300" 
-        Width="300" 
-        Closing="Window_Closing" 
+        Height="500" 
+        Width="400"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
         MouseDown="Window_MouseDown">
-    <Grid x:Name="Create_Team" Margin="0,0,-8,-2">
+    
+    <Grid x:Name="Create_Team" Margin="0,0,0,-2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lbl_TeamName" Content="Team Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
-        <TextBox x:Name="txt_TeamName" HorizontalAlignment="Left" Height="23" Margin="89,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-        <Button x:Name="Create_Team1" Content="Create" HorizontalAlignment="Left" Height="24" Margin="108,53,0,0" VerticalAlignment="Top" Width="74"/>
-        <ListBox x:Name="team_listbox" HorizontalAlignment="Left" Height="164" Margin="0,107,0,0" VerticalAlignment="Top" Width="290" SelectionChanged="team_listbox_SelectionChanged"/>
-        <Button x:Name="Delete_Team" Content="X" HorizontalAlignment="Left" Margin="257,13,0,0" VerticalAlignment="Top" Width="19" Height="24" Click="Delete_Team_Click"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="74" Height="24"/>
+        <TextBox x:Name="txt_TeamName" 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="89,13,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="187"/>
+        <Label x:Name="lbl_TeamName" 
+               Content="Team Name" 
+               HorizontalAlignment="Left" 
+               Margin="10,10,0,0" 
+               VerticalAlignment="Top" 
+               Height="26" 
+               Width="74"/>
+        <Button Content="Edit" 
+                HorizontalAlignment="Left" 
+                Margin="10,78,0,0" 
+                VerticalAlignment="Top" 
+                Width="74" 
+                Height="24"/>
+        <Button x:Name="Create_Team1" 
+                Content="Create" 
+                HorizontalAlignment="Left" 
+                Height="24" 
+                Margin="89,78,0,0" 
+                VerticalAlignment="Top" 
+                Width="74"/>
+        <ListBox x:Name="team_listbox" 
+                 HorizontalAlignment="Left" 
+                 Height="385" 
+                 Margin="10,107,0,0" 
+                 VerticalAlignment="Top" 
+                 Width="380" 
+                 SelectionChanged="team_listbox_SelectionChanged"/>
+        <Button x:Name="Delete_Team" 
+                Content="X" 
+                HorizontalAlignment="Left" 
+                Margin="257,13,0,0" 
+                VerticalAlignment="Top" 
+                Width="19" Height="24" 
+                Click="Delete_Team_Click"/>
+        <Button x:Name="Login_Home" 
+                Content="Home" 
+                HorizontalAlignment="Left" 
+                Height="24" 
+                VerticalAlignment="Top" 
+                Width="74" 
+                Margin="316,78,0,0"/>
+        <Button Content="X" 
+                VerticalAlignment="Top" HorizontalAlignment="Right"
+                Height="24" 
+                Opacity="0.6" 
+                Background="#FFFB0505" 
+                Click="Exit_Click" 
+                RenderTransformOrigin="0.5,0.5" 
+                Width="25" 
+                Margin="0,-1,-1,0">
+        </Button>
+        
     </Grid>
 </Window>

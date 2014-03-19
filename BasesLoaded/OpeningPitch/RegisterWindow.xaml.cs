@@ -38,18 +38,16 @@ namespace OpeningPitch
 
         private void Register_Button_Click(object sender, RoutedEventArgs e)
         {
-            //if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || E_Mail_Input.Text.Equals("") || Phone_Number_Input.Text.Equals(""))
+            //if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || Email_Input.Text.Equals("") || Phone_Number_Input.Text.Equals("") || Team_Selection.Equals(null))
             //{
-            //    MessageBox.Show("You did not enter a valid Username and/or Password");
+            //    MessageBox.Show("Please ensure all required fields are filled out.");
+            //}
+            //else if (New_Password_Input != Confirm_Password_Input)
+            //{
+            //    MessageBox.Show("The Passwords do not match, Please try again.");
             //}
             //else
             //{
-            if (New_Password_Input != Confirm_Password_Input)
-            {
-                MessageBox.Show("The Passwords do not match, Please try again.");
-            }
-            else
-            {
                 try
                 {
                     SmtpClient client = new SmtpClient("smtp.live.com", 587);
@@ -72,10 +70,8 @@ namespace OpeningPitch
 
                     MessageBox.Show(ex.ToString());
                 }
-                //}
-            }
+            //}
         }
-
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit Registration?\n\nAll data will be lost.",
@@ -83,8 +79,9 @@ namespace OpeningPitch
 
             if (result == MessageBoxResult.OK)
             {
-                Application curApp = Application.Current;
-                curApp.Shutdown();
+                MainWindow BacktoMain = new MainWindow();
+                BacktoMain.Show();
+                this.Close();
             }
             else if (result == MessageBoxResult.Cancel)
             {

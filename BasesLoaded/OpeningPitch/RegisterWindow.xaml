@@ -107,7 +107,7 @@
 			Margin="16,148,0,0" 
 			VerticalAlignment="Top" 
 			Height="23"/>
-        <xctk:MaskedTextBox x:Name="Phone_Number_Input1" 
+        <xctk:MaskedTextBox x:Name="Phone_Number_Input" 
             HorizontalAlignment="Left" 
             Margin="131,150,0,0" 
             TextWrapping="Wrap"  
