@@ -58,7 +58,7 @@
                 HorizontalAlignment="Left" 
                 Margin="10,468,0,0" 
                 VerticalAlignment="Top" 
-                Width="89"/>
+                Width="89" Click="Cancel_Event_Click"/>
         <ListBox x:Name="grid_Home"
                  HorizontalAlignment="Left" 
                  Height="345" 
