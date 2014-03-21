@@ -48,12 +48,6 @@ namespace OpeningPitch
                 Dashboard.Show();
                 this.Close();
             }
-            if (Username_Input.Text.Equals("2") && Password_Input.Password.Equals("2"))
-            {
-                Window UserDashboard = new UserDashboard();
-                UserDashboard.Show();
-                this.Close();
-            }
         }   
         private void Exit_Click(object sender, RoutedEventArgs e)
         {

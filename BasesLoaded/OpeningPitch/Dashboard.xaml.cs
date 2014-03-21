@@ -60,11 +60,6 @@ namespace OpeningPitch
 
            }
        }
-
-       private void Cancel_Event_Click(object sender, RoutedEventArgs e)
-       {
-          
-       }
     }              
 }
 
