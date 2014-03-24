@@ -49,6 +49,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -88,6 +89,11 @@
     </ApplicationDefinition>
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LINQtoSQL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LINQtoSQL.dbml</DependentUpon>
     </Compile>
     <Compile Include="List_Teams.xaml.cs">
       <DependentUpon>List_Teams.xaml</DependentUpon>
@@ -155,10 +161,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="LINQtoSQL.dbml.layout">
+      <DependentUpon>LINQtoSQL.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="LINQtoSQL.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>LINQtoSQL.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -168,6 +182,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

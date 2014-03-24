@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BasesLoaded" Class="LINQtoSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=safdftsa6b.database.windows.net;Initial Catalog=BasesLoaded;User ID=mssateam01;Connect Timeout=60" SettingsObjectName="OpeningPitch.Properties.Settings" SettingsPropertyName="BasesLoadedConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Players" Member="Players">
+    <Type Name="Player">
+      <Column Name="PID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfBirth" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TeamName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AltPosition1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AltPosition2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TeamID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Player_Security" Member="Securities" ThisKey="PID" OtherKey="SID" Type="Security" />
+      <Association Name="Player_Security1" Member="Securities1" ThisKey="PID" OtherKey="SID" Type="Security" />
+      <Association Name="Team_Player" Member="Team" ThisKey="TeamID" OtherKey="TID" Type="Team" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Security" Member="Securities">
+    <Type Name="Security">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="SID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Player_Security" Member="Player" ThisKey="SID" OtherKey="PID" Type="Player" IsForeignKey="true" />
+      <Association Name="Player_Security1" Member="Player1" ThisKey="SID" OtherKey="PID" Type="Player" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Teams" Member="Teams">
+    <Type Name="Team">
+      <Column Name="TID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TeamName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CoachFirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CoachLastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Team_Player" Member="Players" ThisKey="TID" OtherKey="TeamID" Type="Player" />
+    </Type>
+  </Table>
+</Database>

@@ -17,7 +17,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 
-
 namespace OpeningPitch
 {
     /// <summary>
@@ -35,6 +34,8 @@ namespace OpeningPitch
             InitializeComponent();
             First_Name_Input.Focus();
         }
+
+        LINQtoSQLDataContext LINQ = new LINQtoSQLDataContext();
 
         private void Register_Button_Click(object sender, RoutedEventArgs e)
         {
