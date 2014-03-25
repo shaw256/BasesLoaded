@@ -18,7 +18,7 @@
                 Margin="270,0,0,0" 
                 VerticalAlignment="Top" 
                 Width="95" 
-                Click="btn_Logout_Click" 
+                Click="Logout_btn_Click" 
                 Height="24"/>
         <Button x:Name="EditInfo_btn" 
                 Content="Edit Info" 

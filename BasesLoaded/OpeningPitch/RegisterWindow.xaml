@@ -6,7 +6,8 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
         xmlns:Obselete="clr-namespace:Xceed.Wpf.Toolkit.Obselete;assembly=Xceed.Wpf.Toolkit" 
         x:Class="OpeningPitch.RegisterWindow" WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True" WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStyle="None"
         Title="RegisterWindow" Height="503" Width="402" MouseDown="Window_MouseDown">
     <Window.Resources>
 

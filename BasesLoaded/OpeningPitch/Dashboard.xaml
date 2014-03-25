@@ -8,7 +8,7 @@
     WindowStyle="None" 
     AllowsTransparency="True">
 
-    <Grid x:Name="Dashboard" 
+    <Grid x:Name="TC_Dashboard" 
           Background="{DynamicResource ButtonBackgroundBrush}">
         <Button x:Name="Login_Home1" 
 			Content="Home" 
