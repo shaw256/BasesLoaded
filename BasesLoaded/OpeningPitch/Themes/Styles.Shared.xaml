@@ -578,7 +578,7 @@
 
 	<!-- ********************************** RadioButton Style **********************************-->
 	<Style x:Key="RadioButtonStyle" TargetType="RadioButton">
-		<Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="Foreground" Value="#FF00AADE" />
 		<Setter Property="FontSize" Value="14.667" />
 		<Setter Property="FontFamily" Value="Segoe UI" />
 		<Setter Property="HorizontalContentAlignment" Value="Left" />
