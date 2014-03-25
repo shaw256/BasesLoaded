@@ -29,13 +29,13 @@ namespace OpeningPitch
         }
         private void Create_Team_Click(object sender, RoutedEventArgs e)
         {
-            team_listbox.Items.Add(txt_TeamName);
-            txt_TeamName.Clear();
+            team_listbox.Items.Add(Team_Name_Input);
+            Team_Name_Input.Clear();
         }
         private void Delete_Team_Click(object sender, RoutedEventArgs e)
         {
-            team_listbox.Items.Remove(txt_TeamName);
-            txt_TeamName.Clear();
+            team_listbox.Items.Remove(Team_Name_Input);
+            Team_Name_Input.Clear();
         }
         private void team_listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

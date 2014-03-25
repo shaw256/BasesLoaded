@@ -8,145 +8,185 @@
         x:Class="OpeningPitch.RegisterWindow" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" WindowStyle="None"
         Title="RegisterWindow" Height="503" Width="402" MouseDown="Window_MouseDown">
+    <Window.Resources>
 
-    <Grid x:Name="Register_Window">
+        <Style BasedOn="{StaticResource TextBoxStyle}" TargetType="{x:Type TextBox}" />
+    </Window.Resources>
+
+    <Grid x:Name="Register_Window" Background="{DynamicResource ButtonBackgroundBrush}">
         <TextBox x:Name="First_Name_Input" 
 			HorizontalAlignment="Left" 
 			Height="23" 
 			Margin="131,10,0,0" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
-			Width="120" Opacity="0.6"/>
+			Width="120"/>
         <Label x:Name="First_Name_Label" 
 			Content="First Name" 
 			HorizontalAlignment="Left" 
-			Margin="16,10,0,0" 
+			Margin="7,12,0,0" 
 			VerticalAlignment="Top" 
-			Height="23"/>
+			Height="30" 
+            Foreground="{DynamicResource AccordionButtonExpandedBackgroundBrush}"/>
         <Label x:Name="First_Name_Required" 
 			Content="*" 
 			HorizontalAlignment="Left" 
 			Margin="256,10,0,0" 
 			VerticalAlignment="Top" 
 			Height="23"/>
-        <TextBox x:Name="Last_Name_Input" 
-			HorizontalAlignment="Left" 
-			Height="23" 
-			Margin="131,38,0,0" 
-			TextWrapping="Wrap" 
-			VerticalAlignment="Top" 
-			Width="120" 
-			Opacity="0.6"/>
         <Label x:Name="Last_Name_Label" 
 			Content="Last Name" 
 			HorizontalAlignment="Left" 
-			Margin="16,38,0,0" 
+			Margin="7,42,0,0" 
 			VerticalAlignment="Top" 
-			Height="23"/>
-        <Label x:Name="Last_Name_Required" 
-			Content="*" 
+			Height="30"/>
+        <TextBox x:Name="Last_Name_Input" 
 			HorizontalAlignment="Left" 
-			Margin="256,38,0,0" 
-			VerticalAlignment="Top" 
-			Height="23"/>
-        <TextBox x:Name="Address_Input" 
-            HorizontalAlignment="Left" 
 			Height="23" 
-			Margin="131,64,0,0" 
+			Margin="131,40,0,0" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
 			Width="120"/>
-        <Label Content="Address" 
+        <Label x:Name="Last_Name_Required" 
+			Content="*" 
 			HorizontalAlignment="Left" 
-			Margin="16,66,0,0" 
-			VerticalAlignment="Top"/>
+			Margin="256,44,0,0" 
+			VerticalAlignment="Top" 
+			Height="23"/>
+        <Label x:Name="Address_Label"
+            Content="Address" 
+			HorizontalAlignment="Left" 
+			Margin="7,72,0,0" 
+			VerticalAlignment="Top"
+            Height="30"/>
+        <TextBox x:Name="Address_Input" 
+            HorizontalAlignment="Left" 
+			Height="23" 
+			Margin="131,70,0,0" 
+			TextWrapping="Wrap" 
+			VerticalAlignment="Top" 
+			Width="200"/>
+        
+        <Label x:Name="Address2_Label"
+            Content="Address" 
+        	HorizontalAlignment="Left" 
+        	Margin="6,100,0,0" 
+        	VerticalAlignment="Top"
+        	Height="30"/>
+        <TextBox x:Name="Address2_Input" 
+        	HorizontalAlignment="Left" 
+        	Height="23" 
+        	Margin="131,100,0,0" 
+        	TextWrapping="Wrap" 
+        	VerticalAlignment="Top" 
+        	Width="200"/>
+        <ComboBox x:Name="State_Input" 
+        	HorizontalAlignment="Left" 
+        	Margin="131,130,0,0" 
+        	VerticalAlignment="Top" 
+        	Width="61">
+        </ComboBox>
+        <Label x:Name="State_Label" 
+        	Content="State" 
+        	HorizontalAlignment="Left" 
+        	Margin="6,132,0,0" 
+        	VerticalAlignment="Top"/>
+        <TextBox x:Name="Zipcode_Input" 
+            HorizontalAlignment="Left" 
+            Height="26" 
+            Margin="267,130,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top"
+            Width="64"/>
+        <Label x:Name="lbl_Zipcode" 
+        	Content="Zipcode" 
+        	HorizontalAlignment="Left" 
+        	Margin="192,130,0,0" 
+        	VerticalAlignment="Top" Height="30" Width="75"/>
         <TextBox x:Name="Email_Input" 
 			HorizontalAlignment="Left" 
 			Height="23" 
-			Margin="131,92,0,0" 
+			Margin="130,176,0,0" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
-			Width="120" 
-			Opacity="0.6"
+			Width="120"
             InputScope="InputScopeNameValue.EmailSmtpAddress"/>
         <Label x:Name="E_Mail_Label" 
 			Content="E-Mail" 
 			HorizontalAlignment="Left" 
-			Margin="16,94,0,0" 
+			Margin="7,180,0,0" 
 			VerticalAlignment="Top" 
-			Height="23"/>
+			Height="30"/>
         <Label x:Name="E_Mail_Required" 
 			Content="*" 
 			HorizontalAlignment="Left" 
-			Margin="256,152,0,0" 
+			Margin="255,209,0,0" 
 			VerticalAlignment="Top" 
 			Height="23" 
 			RenderTransformOrigin="5.2,4.087"/>
-        <Label x:Name="DOB_Label" 
-			Content="DOB" 
-			HorizontalAlignment="Left" 
-			Margin="16,120,0,0" 
-			VerticalAlignment="Top" 
-			Height="23"/>
         <Label x:Name="DOB_Required" 
 			Content="*" 
 			HorizontalAlignment="Left" 
-			Margin="256,94,0,0" 
+			Margin="255,177,0,0" 
 			VerticalAlignment="Top" 
 			Height="23"/>
-        <DatePicker x:Name="DatePicker" 
-            HorizontalAlignment="Left" 
-            Height="21" 
-            Margin="131,123,0,0" 
-            VerticalAlignment="Top" 
-            Width="120" 
-            SelectedDateFormat="Short"/>
         <Label x:Name="Phone_Number_Label" 
 			Content="Phone Number" 
 			HorizontalAlignment="Left" 
-			Margin="16,148,0,0" 
+			Margin="6,209,0,0" 
 			VerticalAlignment="Top" 
-			Height="23"/>
+			Height="30"/>
         <xctk:MaskedTextBox x:Name="Phone_Number_Input" 
             HorizontalAlignment="Left" 
-            Margin="131,150,0,0" 
+            Margin="130,206,0,0" 
             TextWrapping="Wrap"  
             VerticalAlignment="Top" 
             InputScope="InputScopeNameValue.TelephoneNumber"  
             Mask="(000) 000 - 0000" 
             Width="120" 
-            Height="21" 
-            RenderTransformOrigin="0.483,0.391"/>
+            Height="30" 
+            RenderTransformOrigin="0.483,0.391" 
+            Background="#FF181818" 
+            Foreground="{StaticResource ForegroundBrush}" 
+            BorderBrush="{DynamicResource ButtonBorderBrush}" 
+            CaretBrush="{DynamicResource TransparentBrush}"/>
         <Label x:Name="Position_Label" 
 			Content="Desired Position" 
 			HorizontalAlignment="Left" 
-			Margin="16,232,0,0" 
+			Margin="6,299,0,0" 
 			VerticalAlignment="Top" 
-			Height="23" 
+			Height="30" 
 			Width="97"/>
-        <Label Content="* = Required" 
+        
+        <Label x:Name="Gender_Label" 
+			Content="Gender" 
 			HorizontalAlignment="Left" 
-			Margin="10,467,0,0" 
+			Margin="7,239,0,0" 
 			VerticalAlignment="Top" 
-			Height="26"/>
-        <ComboBox x:Name="Gender_Selection" HorizontalAlignment="Left" Margin="131,178,0,0" VerticalAlignment="Top" Width="120">
+			Height="30" 
+			Width="97"/>
+        <ComboBox x:Name="Gender_Selection" 
+                  HorizontalAlignment="Left" 
+                  Margin="130,236,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="120">
             <ComboBoxItem Content="Male" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Female" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
         <Label x:Name="Team_Label" 
         	Content="Desired Team" 
         	HorizontalAlignment="Left" 
-        	Margin="16,205,0,0" 
+        	Margin="6,269,0,0" 
         	VerticalAlignment="Top" 
-        	Height="23" 
+        	Height="30" 
         	Width="97"/>
         <ComboBox x:Name="Team_Selection" 
                   HorizontalAlignment="Left" 
-                  Margin="131,206,0,0" 
+                  Margin="130,266,0,0" 
                   VerticalAlignment="Top" 
                   Width="120">
         </ComboBox>
-        <ComboBox x:Name="Position_Selection" HorizontalAlignment="Left" Margin="131,233,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="Position_Selection" HorizontalAlignment="Left" Margin="130,296,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -157,7 +197,7 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <ComboBox x:Name="Alt_Position_Selection" HorizontalAlignment="Left" Margin="131,260,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="Alt_Position_Selection" HorizontalAlignment="Left" Margin="130,326,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -171,18 +211,18 @@
         <Label x:Name="Alt_Position_Label2" 
         	Content="Alternate Position2" 
         	HorizontalAlignment="Left" 
-        	Margin="16,286,0,0" 
+        	Margin="6,355,0,0" 
         	VerticalAlignment="Top" 
-        	Height="23" 
-        	Width="110"/>
+        	Height="30" 
+        	Width="124"/>
         <Label x:Name="Alt_Position_Label1" 
         	Content="Alternate Position" 
         	HorizontalAlignment="Left" 
-        	Margin="16,259,0,0" 
+        	Margin="6,329,0,0" 
         	VerticalAlignment="Top" 
-        	Height="23" 
-        	Width="110"/>
-        <ComboBox x:Name="Alt_Position_Selection2" HorizontalAlignment="Left" Margin="131,287,0,0" VerticalAlignment="Top" Width="120">
+        	Height="30" 
+        	Width="116"/>
+        <ComboBox x:Name="Alt_Position_Selection2" HorizontalAlignment="Left" Margin="130,356,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -193,28 +233,56 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
+        <Label x:Name="New_Password_Label" 
+        	Content="New Password" 
+        	HorizontalAlignment="Left" 
+        	Margin="8,404,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="27" 
+        	Width="97"/>
+        <Label x:Name="New_Password_Required" 
+        	Content="*" 
+        	HorizontalAlignment="Left" 
+        	Margin="256,404,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="23" 
+        	RenderTransformOrigin="5.2,4.087"/>
         <PasswordBox x:Name="New_Password_Input" 
                      HorizontalAlignment="Left" 
-                     Height="26" Margin="131,376,0,0" 
+                     Height="26" Margin="130,397,0,0" 
                      VerticalAlignment="Top" 
                      Width="120"/>
+        <Label x:Name="Confirm_Password_Label" 
+        	Content="Confirm Password" 
+        	HorizontalAlignment="Left" 
+        	Margin="7,432,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="25" 
+        	Width="116"/>
+        <Label x:Name="Confrm_Password_Required" 
+        	Content="*" 
+        	HorizontalAlignment="Left" 
+        	Margin="256,434,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="23" 
+        	RenderTransformOrigin="5.2,4.087"/>
         <PasswordBox x:Name="Confirm_Password_Input" 
                      HorizontalAlignment="Left" 
                      Height="26" 
-                     Margin="131,407,0,0" 
+                     Margin="130,427,0,0" 
                      VerticalAlignment="Top" 
                      Width="120"/>
         <Label x:Name="E_Mail_Required_Copy" 
 			Content="*" 
 			HorizontalAlignment="Left" 
-			Margin="256,205,0,0" 
+			Margin="255,266,0,0" 
 			VerticalAlignment="Top" 
 			Height="23" 
 			RenderTransformOrigin="5.2,4.087"/>
         <Button x:Name="Cancel_Button" 
         	Content="Cancel" 
         	HorizontalAlignment="Left" 
-        	Margin="317,446,0,0" 
+        	Margin="317,434,0,0" 
         	VerticalAlignment="Top" 
         	Width="75" Opacity="0.6" Click="Cancel_Button_Click" 
             IsCancel="True"/>
@@ -222,69 +290,37 @@
 			Content="Register" 
             IsDefault="True"
 			HorizontalAlignment="Left" 
-			Margin="317,471,0,0" 
+			Margin="317,464,0,0" 
 			VerticalAlignment="Top" 
 			Width="75" Opacity="0.6" 
             Click="Register_Button_Click"/>
         <Button Content="X" 
-			Margin="0,-1,-1,0" 
+			Margin="0,0,1,0" 
 			VerticalAlignment="Top" 
             HorizontalAlignment="Right"
-			Height="24" 
+			Height="25" 
 			Opacity="0.6" 
 			Background="#FFFB0505" 
 			Click="Exit_Click"
-            RenderTransformOrigin="0.5,0.5" Width="25">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
+            RenderTransformOrigin="0.5,0.5" Width="25">    
         </Button>
-        <Label x:Name="Gender_Label" 
-			Content="Gender" 
-			HorizontalAlignment="Left" 
-			Margin="16,178,0,0" 
-			VerticalAlignment="Top" 
-			Height="23" 
-			Width="97"/>
+        
         <ProgressBar x:Name="Prog_Bar" 
             HorizontalAlignment="Left" 
 			Height="5" 
 			Margin="0,499,0,-1" 
 			VerticalAlignment="Top" 
 			Width="402"/>
-        <Label x:Name="New_Password_Label" 
-        	Content="New Password" 
-        	HorizontalAlignment="Left" 
-        	Margin="16,379,0,0" 
-        	VerticalAlignment="Top" 
-        	Height="23" 
-        	Width="97"/>
-        <Label x:Name="Confirm_Password_Label" 
-        	Content="Confirm Password" 
-        	HorizontalAlignment="Left" 
-        	Margin="15,407,0,0" 
-        	VerticalAlignment="Top" 
-        	Height="23" 
-        	Width="111"/>
-        <Label x:Name="New_Password_Required" 
-        	Content="*" 
-        	HorizontalAlignment="Left" 
-        	Margin="256,379,0,0" 
-        	VerticalAlignment="Top" 
-        	Height="23" 
-        	RenderTransformOrigin="5.2,4.087"/>
-        <Label x:Name="Confrm_Password_Required" 
-        	Content="*" 
-        	HorizontalAlignment="Left" 
-        	Margin="256,409,0,0" 
-        	VerticalAlignment="Top" 
-        	Height="23" 
-        	RenderTransformOrigin="5.2,4.087"/>
+        <Label Content="* = Required" 
+			HorizontalAlignment="Left" 
+			Margin="10,467,0,0" 
+			VerticalAlignment="Top" 
+			Height="26"/>
+
+
+
+
+
 
     </Grid>
 </Window>

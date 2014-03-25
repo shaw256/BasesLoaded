@@ -7,94 +7,91 @@
     MouseDown="tab_Dashboard_MouseDown" 
     WindowStyle="None" 
     AllowsTransparency="True">
-    
-    <Grid x:Name="Dashboard1">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="125*"/>
-            <ColumnDefinition Width="181*"/>
-            <ColumnDefinition Width="140*"/>
-        </Grid.ColumnDefinitions>
-        <Button x:Name="Login_Home" 
-                Content="Home" 
-                HorizontalAlignment="Left" 
-                Height="22" 
-                VerticalAlignment="Top" 
-                Width="89" 
-                Margin="10,10,0,0"/>
-        <Button x:Name="Create_Team" 
-                Content="Team" 
-                HorizontalAlignment="Left" 
-                Margin="10,37,0,0" 
-                VerticalAlignment="Top" 
-                Width="89" 
-                Click="CreateTeam_Click" 
-                Height="22"/>
+
+    <Grid x:Name="Dashboard1_Copy" Background="{DynamicResource ButtonBackgroundBrush}">
+        <Button x:Name="Login_Home1" 
+			Content="Home" 
+			HorizontalAlignment="Left" 
+			Height="22" 
+			VerticalAlignment="Top" 
+			Width="95" Margin="11,60,0,0"/>
+        <Button x:Name="Create_Team1" 
+			Content="Team" 
+			HorizontalAlignment="Left" 
+			Margin="106,60,0,0" 
+			VerticalAlignment="Top" 
+			Width="95" 
+			Click="CreateTeam_Click" 
+			Height="22"/>
+        <Button x:Name="btn_EditInfo" 
+        	Content="Edit Info" 
+        	HorizontalAlignment="Left" 
+        	VerticalAlignment="Top" 
+        	Width="94" Margin="201,60,0,0" Height="24"/>
+        <Button x:Name="btn_Notification1" 
+			Content="Notification" 
+			HorizontalAlignment="Left" 
+			Margin="295,60,0,0" 
+			VerticalAlignment="Top" 
+			Width="95" 
+			Height="22"/>
         <Button x:Name="Approve_Player" 
-                Content="Approve Player" 
-                HorizontalAlignment="Left" 
-                Margin="10,360,0,0" 
-                VerticalAlignment="Top" 
-                Width="89"/>
+			Content="Approve Player" 
+			HorizontalAlignment="Left" 
+			Margin="0,347,0,0" 
+			VerticalAlignment="Top" 
+			Width="120"/>
         <Button x:Name="Edit_Roster" 
-                Content="Edit Roster" 
-                HorizontalAlignment="Left" 
-                Margin="10,387,0,0" 
-                VerticalAlignment="Top" 
-                Width="89"/>
-        <Button x:Name="Delete_Player" 
-                Content="Delete Player" 
-                HorizontalAlignment="Left" 
-                Margin="10,441,0,0" 
-                VerticalAlignment="Top" 
-                Width="89"/>
+			Content="Edit Roster" 
+			HorizontalAlignment="Left" 
+			Margin="0,377,0,0" 
+			VerticalAlignment="Top" 
+			Width="120"/>
         <Button x:Name="View_Roster" 
-                Content="View Roster" 
-                HorizontalAlignment="Left"
-                Margin="10,414,0,0" 
-                VerticalAlignment="Top" 
-                Width="89"/>
+			Content="View Roster" 
+			HorizontalAlignment="Left"
+			Margin="0,407,0,0" 
+			VerticalAlignment="Top" 
+			Width="120"/> 
+        <Button x:Name="Delete_Player" 
+			Content="Delete Player" 
+			HorizontalAlignment="Left" 
+			Margin="0,437,0,0" 
+			VerticalAlignment="Top" 
+			Width="120"/>
         <Button x:Name="Cancel_Event" 
-                Content="Cancel" 
-                HorizontalAlignment="Left" 
-                Margin="10,468,0,0" 
-                VerticalAlignment="Top" 
-                Width="89"/>
+			Content="Cancel" 
+			HorizontalAlignment="Left" 
+			Margin="0,467,0,0" 
+			VerticalAlignment="Top" 
+			Width="120"/>
         <ListBox x:Name="grid_Home"
-                 HorizontalAlignment="Left" 
-                 Height="345" 
-                 Margin="104,145,0,0" 
-                 VerticalAlignment="Top" 
-                 Width="286" 
-                 Grid.ColumnSpan="3"/>
+			HorizontalAlignment="Left" 
+			Height="345" 
+			Margin="120,152,0,0" 
+			VerticalAlignment="Top" 
+			Width="278"/>
         <Button x:Name="Dashboard_Logout" 
-                Content="Logout" 
-                HorizontalAlignment="Left" 
-                Margin="10,91,0,0" 
-                VerticalAlignment="Top" 
-                Width="89" 
-                Click="Dashboard_Logout_Click" 
-                Height="22"/>
-        <Button x:Name="btn_Notification" 
-                Content="Notification" 
-                HorizontalAlignment="Left" 
-                Margin="10,64,0,0" 
-                VerticalAlignment="Top" 
-                Width="89" 
-                Height="22"/>
+			Content="Logout" 
+			HorizontalAlignment="Left" 
+			VerticalAlignment="Top" 
+			Width="95" 
+			Click="Dashboard_Logout_Click" 
+			Height="22" Margin="270,0,0,0"/>
+       
         <!--This also provides styling to the tab-->
 
         <!-- Below this Is where it starts adding picture to the tab-->
         <Button Content="X" 
-                VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                Height="24" 
-                Opacity="0.6" 
-                Background="#FFFB0505" 
-                Click="Exit_Click" 
-                RenderTransformOrigin="0.5,0.5" 
-                Width="25" 
-                Grid.Column="2" 
-                Margin="0,0,0,476">
-        </Button>
-
+			VerticalAlignment="Bottom" HorizontalAlignment="Right"
+			Height="25" 
+			Opacity="0.6" 
+			Background="#FFFB0505" 
+			Click="Exit_Click" 
+			RenderTransformOrigin="0.5,0.5" 
+			Width="25" 
+			Grid.Column="2" 
+			Margin="0,0,0,470"/>
+        
     </Grid>
 </Window>
