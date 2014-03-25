@@ -66,7 +66,7 @@
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
 			Width="200"/>
-        
+
         <Label x:Name="Address2_Label"
             Content="Address" 
         	HorizontalAlignment="Left" 
@@ -153,11 +153,11 @@
         <Label x:Name="Position_Label" 
 			Content="Desired Position" 
 			HorizontalAlignment="Left" 
-			Margin="6,299,0,0" 
+			Margin="7,270,0,0" 
 			VerticalAlignment="Top" 
 			Height="30" 
-			Width="97"/>
-        
+			Width="116"/>
+
         <Label x:Name="Gender_Label" 
 			Content="Gender" 
 			HorizontalAlignment="Left" 
@@ -173,20 +173,7 @@
             <ComboBoxItem Content="Male" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Female" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <Label x:Name="Team_Label" 
-        	Content="Desired Team" 
-        	HorizontalAlignment="Left" 
-        	Margin="6,269,0,0" 
-        	VerticalAlignment="Top" 
-        	Height="30" 
-        	Width="97"/>
-        <ComboBox x:Name="Team_Selection" 
-                  HorizontalAlignment="Left" 
-                  Margin="130,266,0,0" 
-                  VerticalAlignment="Top" 
-                  Width="120">
-        </ComboBox>
-        <ComboBox x:Name="Position_Selection" HorizontalAlignment="Left" Margin="130,296,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="Position_Selection" HorizontalAlignment="Left" Margin="130,266,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -197,7 +184,7 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <ComboBox x:Name="Alt_Position_Selection" HorizontalAlignment="Left" Margin="130,326,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="Alt_Position_Selection" HorizontalAlignment="Left" Margin="130,296,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -211,18 +198,18 @@
         <Label x:Name="Alt_Position_Label2" 
         	Content="Alternate Position2" 
         	HorizontalAlignment="Left" 
-        	Margin="6,355,0,0" 
+        	Margin="7,326,0,0" 
         	VerticalAlignment="Top" 
         	Height="30" 
         	Width="124"/>
         <Label x:Name="Alt_Position_Label1" 
         	Content="Alternate Position" 
         	HorizontalAlignment="Left" 
-        	Margin="6,329,0,0" 
+        	Margin="7,300,0,0" 
         	VerticalAlignment="Top" 
         	Height="30" 
         	Width="116"/>
-        <ComboBox x:Name="Alt_Position_Selection2" HorizontalAlignment="Left" Margin="130,356,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="Alt_Position_Selection2" HorizontalAlignment="Left" Margin="130,326,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -272,13 +259,10 @@
                      Margin="130,427,0,0" 
                      VerticalAlignment="Top" 
                      Width="120"/>
-        <Label x:Name="E_Mail_Required_Copy" 
-			Content="*" 
-			HorizontalAlignment="Left" 
-			Margin="255,266,0,0" 
-			VerticalAlignment="Top" 
-			Height="23" 
-			RenderTransformOrigin="5.2,4.087"/>
+        <StackPanel Margin="272,294,6,146">
+            <RadioButton GroupName="Admin_Player" Content="Team Captain" FontSize="12"/>
+            <RadioButton GroupName="Admin_Player" Content="Team Player" FontSize="12" />
+        </StackPanel>
         <Button x:Name="Cancel_Button" 
         	Content="Cancel" 
         	HorizontalAlignment="Left" 
@@ -302,20 +286,29 @@
 			Opacity="0.6" 
 			Background="#FFFB0505" 
 			Click="Exit_Click"
-            RenderTransformOrigin="0.5,0.5" Width="25">    
+            RenderTransformOrigin="0.5,0.5" Width="25">
         </Button>
-        
+
         <ProgressBar x:Name="Prog_Bar" 
             HorizontalAlignment="Left" 
 			Height="5" 
 			Margin="0,499,0,-1" 
 			VerticalAlignment="Top" 
 			Width="402"/>
+
         <Label Content="* = Required" 
 			HorizontalAlignment="Left" 
 			Margin="10,467,0,0" 
 			VerticalAlignment="Top" 
 			Height="26"/>
+        <Label x:Name="Select_User_Type" 
+        	Content="*" 
+        	HorizontalAlignment="Left" 
+        	Margin="371,314,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="23" 
+        	RenderTransformOrigin="5.2,4.087"/>
+
 
 
 
