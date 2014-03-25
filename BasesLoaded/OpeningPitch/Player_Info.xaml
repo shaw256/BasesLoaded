@@ -7,9 +7,11 @@
         Width="400" 
         WindowStyle="None"
         AllowsTransparency="True"
-        MouseDown="Window_MouseDown" Background="{DynamicResource ButtonBackgroundBrush}">
+        MouseDown="Window_MouseDown" 
+        Background="{DynamicResource ButtonBackgroundBrush}">
 
-    <Grid x:Name="PlayerInfo" Margin="0,0,0,2" Background="{DynamicResource ButtonBackgroundBrush}">
+    <Grid x:Name="PlayerInfo" Margin="0,0,0,2" 
+          Background="{DynamicResource ButtonBackgroundBrush}">
         <TextBox x:Name="FirstName_Input" 
 			HorizontalAlignment="Left" 
 			Height="23" 
@@ -148,7 +150,8 @@
 			Width="75" 
 			Click="PlayerformReset_Click"/>
         <Button Content="X" 
-			VerticalAlignment="Top" HorizontalAlignment="Right"
+			VerticalAlignment="Top" 
+            HorizontalAlignment="Right"
 			Height="25" 
 			Opacity="0.6" 
 			Background="#FFFB0505" 

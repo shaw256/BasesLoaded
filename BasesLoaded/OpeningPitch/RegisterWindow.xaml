@@ -66,7 +66,6 @@
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
 			Width="200"/>
-        
         <Label x:Name="Address2_Label"
             Content="Address" 
         	HorizontalAlignment="Left" 
@@ -157,7 +156,6 @@
 			VerticalAlignment="Top" 
 			Height="30" 
 			Width="97"/>
-        
         <Label x:Name="Gender_Label" 
 			Content="Gender" 
 			HorizontalAlignment="Left" 
@@ -304,7 +302,6 @@
 			Click="Exit_Click"
             RenderTransformOrigin="0.5,0.5" Width="25">    
         </Button>
-        
         <ProgressBar x:Name="Prog_Bar" 
             HorizontalAlignment="Left" 
 			Height="5" 
@@ -316,11 +313,5 @@
 			Margin="10,467,0,0" 
 			VerticalAlignment="Top" 
 			Height="26"/>
-
-
-
-
-
-
     </Grid>
 </Window>

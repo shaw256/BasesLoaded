@@ -8,13 +8,15 @@
     WindowStyle="None" 
     AllowsTransparency="True">
 
-    <Grid x:Name="Dashboard1_Copy" Background="{DynamicResource ButtonBackgroundBrush}">
+    <Grid x:Name="Dashboard1_Copy" 
+          Background="{DynamicResource ButtonBackgroundBrush}">
         <Button x:Name="Login_Home1" 
 			Content="Home" 
 			HorizontalAlignment="Left" 
 			Height="22" 
 			VerticalAlignment="Top" 
-			Width="95" Margin="11,60,0,0"/>
+			Width="95" 
+            Margin="11,60,0,0"/>
         <Button x:Name="Create_Team1" 
 			Content="Team" 
 			HorizontalAlignment="Left" 
@@ -27,7 +29,9 @@
         	Content="Edit Info" 
         	HorizontalAlignment="Left" 
         	VerticalAlignment="Top" 
-        	Width="94" Margin="201,60,0,0" Height="24"/>
+        	Width="94" 
+            Margin="201,60,0,0" 
+            Height="24"/>
         <Button x:Name="btn_Notification1" 
 			Content="Notification" 
 			HorizontalAlignment="Left" 
@@ -77,13 +81,11 @@
 			VerticalAlignment="Top" 
 			Width="95" 
 			Click="Dashboard_Logout_Click" 
-			Height="22" Margin="270,0,0,0"/>
-       
-        <!--This also provides styling to the tab-->
-
-        <!-- Below this Is where it starts adding picture to the tab-->
+			Height="22" 
+            Margin="270,0,0,0"/>
         <Button Content="X" 
-			VerticalAlignment="Bottom" HorizontalAlignment="Right"
+			VerticalAlignment="Bottom" 
+            HorizontalAlignment="Right"
 			Height="25" 
 			Opacity="0.6" 
 			Background="#FFFB0505" 
@@ -92,6 +94,5 @@
 			Width="25" 
 			Grid.Column="2" 
 			Margin="0,0,0,470"/>
-        
     </Grid>
 </Window>

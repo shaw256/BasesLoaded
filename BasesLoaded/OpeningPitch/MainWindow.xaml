@@ -48,7 +48,9 @@
                      HorizontalAlignment="Left" 
                      Margin="125,215,0,0" 
                      VerticalAlignment="Top" 
-                     Width="150" Opacity="0.6" Height="25"/>
+                     Width="150" 
+                     Opacity="0.6" 
+                     Height="25"/>
         <Label x:Name="Password_Label" 
                Content="Password" 
                HorizontalAlignment="Left" 
@@ -61,23 +63,24 @@
                 Margin="160,257,160,0" 
                 VerticalAlignment="Top" 
                 Width="80" 
-                Opacity="0.6" Click="Log_In_Click"/>
+                Opacity="0.6" 
+                Click="Log_In_Click"/>
         <Button x:Name="Register_Button" 
                 Content="Register" 
                 HorizontalAlignment="Center" 
                 Margin="160,287,160,0" 
                 VerticalAlignment="Top" 
-                Width="80" Opacity="0.6" 
-                Click="Register" Height="23"/>
+                Width="80" 
+                Opacity="0.6" 
+                Click="Register" 
+                Height="23"/>
         <Button Content="X" 
-                VerticalAlignment="Top" HorizontalAlignment="Right"
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Right"
                 Height="25" 
                 Opacity="0.6" 
                 Background="#FFFB0505" 
-                Click="Exit_Click" RenderTransformOrigin="0.5,0.5" Width="25"/>
-
-
-
-
+                Click="Exit_Click" 
+                Width="25"/>
     </Grid>
 </Window>
