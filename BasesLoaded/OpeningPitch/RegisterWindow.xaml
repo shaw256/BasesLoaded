@@ -54,7 +54,7 @@
 			VerticalAlignment="Top" 
 			Height="23"/>
         <Label x:Name="Address_Label"
-            Content="Address" 
+            Content="Address 1" 
 			HorizontalAlignment="Left" 
 			Margin="7,72,0,0" 
 			VerticalAlignment="Top"
@@ -66,9 +66,8 @@
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
 			Width="200"/>
-
         <Label x:Name="Address2_Label"
-            Content="Address" 
+            Content="Address 2" 
         	HorizontalAlignment="Left" 
         	Margin="6,100,0,0" 
         	VerticalAlignment="Top"
@@ -153,11 +152,10 @@
         <Label x:Name="Position_Label" 
 			Content="Desired Position" 
 			HorizontalAlignment="Left" 
-			Margin="7,270,0,0" 
+			Margin="6,269,0,0" 
 			VerticalAlignment="Top" 
 			Height="30" 
-			Width="116"/>
-
+			Width="97"/>
         <Label x:Name="Gender_Label" 
 			Content="Gender" 
 			HorizontalAlignment="Left" 
@@ -198,14 +196,14 @@
         <Label x:Name="Alt_Position_Label2" 
         	Content="Alternate Position2" 
         	HorizontalAlignment="Left" 
-        	Margin="7,326,0,0" 
+        	Margin="6,325,0,0" 
         	VerticalAlignment="Top" 
         	Height="30" 
         	Width="124"/>
         <Label x:Name="Alt_Position_Label1" 
         	Content="Alternate Position" 
         	HorizontalAlignment="Left" 
-        	Margin="7,300,0,0" 
+        	Margin="6,299,0,0" 
         	VerticalAlignment="Top" 
         	Height="30" 
         	Width="116"/>
@@ -220,6 +218,10 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
+        <StackPanel Margin="261,339,10,99">
+            <RadioButton GroupName="User_Type" Content="Team Captain" FontSize="12" BorderBrush="{DynamicResource ButtonBorderBrush}"/>
+            <RadioButton GroupName="User_Type" Content="Team Player" FontSize="12" BorderBrush="{DynamicResource ButtonBorderBrush}" />
+        </StackPanel>
         <Label x:Name="New_Password_Label" 
         	Content="New Password" 
         	HorizontalAlignment="Left" 
@@ -259,10 +261,6 @@
                      Margin="130,427,0,0" 
                      VerticalAlignment="Top" 
                      Width="120"/>
-        <StackPanel Margin="272,294,6,146">
-            <RadioButton GroupName="Admin_Player" Content="Team Captain" FontSize="12"/>
-            <RadioButton GroupName="Admin_Player" Content="Team Player" FontSize="12" />
-        </StackPanel>
         <Button x:Name="Cancel_Button" 
         	Content="Cancel" 
         	HorizontalAlignment="Left" 
@@ -288,32 +286,16 @@
 			Click="Exit_Click"
             RenderTransformOrigin="0.5,0.5" Width="25">
         </Button>
-
         <ProgressBar x:Name="Prog_Bar" 
             HorizontalAlignment="Left" 
 			Height="5" 
 			Margin="0,499,0,-1" 
 			VerticalAlignment="Top" 
 			Width="402"/>
-
         <Label Content="* = Required" 
 			HorizontalAlignment="Left" 
 			Margin="10,467,0,0" 
 			VerticalAlignment="Top" 
 			Height="26"/>
-        <Label x:Name="Select_User_Type" 
-        	Content="*" 
-        	HorizontalAlignment="Left" 
-        	Margin="371,314,0,0" 
-        	VerticalAlignment="Top" 
-        	Height="23" 
-        	RenderTransformOrigin="5.2,4.087"/>
-
-
-
-
-
-
-
     </Grid>
 </Window>

@@ -28,7 +28,7 @@ namespace OpeningPitch
             InitializeComponent();
         }
 
-        private void btn_Logout_Click(object sender, RoutedEventArgs e)
+        private void Logout_btn_Click(object sender, RoutedEventArgs e)
         {
             MainWindow BacktoMain = new MainWindow();
             BacktoMain.Show();
