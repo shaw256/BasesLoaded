@@ -8,7 +8,7 @@
     WindowStyle="None" 
     AllowsTransparency="True">
 
-    <Grid x:Name="Dashboard1_Copy" 
+    <Grid x:Name="Dashboard" 
           Background="{DynamicResource ButtonBackgroundBrush}">
         <Button x:Name="Login_Home1" 
 			Content="Home" 
@@ -25,14 +25,14 @@
 			Width="95" 
 			Click="CreateTeam_Click" 
 			Height="22"/>
-        <Button x:Name="btn_EditInfo" 
+        <Button x:Name="EditInfo_btn" 
         	Content="Edit Info" 
         	HorizontalAlignment="Left" 
         	VerticalAlignment="Top" 
         	Width="94" 
             Margin="201,60,0,0" 
             Height="24"/>
-        <Button x:Name="btn_Notification1" 
+        <Button x:Name="Notification_btn" 
 			Content="Notification" 
 			HorizontalAlignment="Left" 
 			Margin="295,60,0,0" 
@@ -69,7 +69,7 @@
 			Margin="0,467,0,0" 
 			VerticalAlignment="Top" 
 			Width="120"/>
-        <ListBox x:Name="grid_Home"
+        <ListBox x:Name="Grid_Home"
 			HorizontalAlignment="Left" 
 			Height="345" 
 			Margin="120,152,0,0" 

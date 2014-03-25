@@ -27,17 +27,17 @@ namespace OpeningPitch
         {
             this.DragMove();
         }
-        private void Create_Team_Click(object sender, RoutedEventArgs e)
+        private void Create_Team1_Click(object sender, RoutedEventArgs e)
         {
-            team_listbox.Items.Add(Team_Name_Input);
+            Team_Listbox.Items.Add(Team_Name_Input);
             Team_Name_Input.Clear();
         }
         private void Delete_Team_Click(object sender, RoutedEventArgs e)
         {
-            team_listbox.Items.Remove(Team_Name_Input);
+            Team_Listbox.Items.Remove(Team_Name_Input);
             Team_Name_Input.Clear();
         }
-        private void team_listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Team_Listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Once the team is added to the list box, this code will allow the captain to assign player in his team by double clicking in the
             //desired team.
@@ -58,7 +58,6 @@ namespace OpeningPitch
 
             }
         }
-
         private void Login_Home_Click(object sender, RoutedEventArgs e)
         {
             Window Dashboard = new Dashboard();

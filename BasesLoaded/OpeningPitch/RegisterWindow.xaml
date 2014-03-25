@@ -54,7 +54,7 @@
 			VerticalAlignment="Top" 
 			Height="23"/>
         <Label x:Name="Address_Label"
-            Content="Address" 
+            Content="Address 1" 
 			HorizontalAlignment="Left" 
 			Margin="7,72,0,0" 
 			VerticalAlignment="Top"
@@ -67,7 +67,7 @@
 			VerticalAlignment="Top" 
 			Width="200"/>
         <Label x:Name="Address2_Label"
-            Content="Address" 
+            Content="Address 2" 
         	HorizontalAlignment="Left" 
         	Margin="6,100,0,0" 
         	VerticalAlignment="Top"
@@ -174,7 +174,7 @@
         <Label x:Name="Team_Label" 
         	Content="Desired Team" 
         	HorizontalAlignment="Left" 
-        	Margin="6,269,0,0" 
+        	Margin="6,266,0,0" 
         	VerticalAlignment="Top" 
         	Height="30" 
         	Width="97"/>

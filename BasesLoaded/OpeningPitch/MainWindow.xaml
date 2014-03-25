@@ -5,7 +5,9 @@
         Title="MainWindow"
         AllowsTransparency="True"
         Height="500" 
-        Width="400" MouseDown="Window_MouseDown" WindowStyle="None">
+        Width="400" 
+        MouseDown="Window_MouseDown"
+        WindowStyle="None">
 
     <Window.Resources>
         <ResourceDictionary>

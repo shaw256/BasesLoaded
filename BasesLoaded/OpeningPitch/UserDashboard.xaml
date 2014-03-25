@@ -12,7 +12,7 @@
     
     <Grid x:Name="PlayerProfile" 
           Background="{DynamicResource ButtonBackgroundBrush}">
-        <Button x:Name="btn_Logout" 
+        <Button x:Name="Logout_btn" 
                 Content="Logout" 
                 HorizontalAlignment="Left" 
                 Margin="270,0,0,0" 
@@ -20,35 +20,35 @@
                 Width="95" 
                 Click="btn_Logout_Click" 
                 Height="24"/>
-        <Button x:Name="btn_EditInfo" 
+        <Button x:Name="EditInfo_btn" 
                 Content="Edit Info" 
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top" 
                 Width="95" 
                 Margin="10,65,0,0" 
                 Height="24"/>
-        <Label x:Name="lbl_Name" 
+        <Label x:Name="Name_Label" 
                Content="Name" 
                HorizontalAlignment="Left" 
                Height="25" 
                Margin="14,120,0,0" 
                VerticalAlignment="Top" 
                Width="45"/>
-        <Label x:Name="lbl_Email" 
+        <Label x:Name="Email_Label" 
                Content="Email" 
                HorizontalAlignment="Left" 
                Height="29" 
                Margin="15,150,0,0" 
                VerticalAlignment="Top" 
                Width="44"/>
-        <Label x:Name="lbl_Phone" 
+        <Label x:Name="Phone_Label" 
                Content="Phone" 
                HorizontalAlignment="Left" 
                Height="24" 
                Margin="15,247,0,0" 
                VerticalAlignment="Top" 
                Width="59"/>
-        <Label x:Name="lbl_Address" 
+        <Label x:Name="Address_Label" 
                Content="Address" 
                HorizontalAlignment="Left" 
                Height="27" 
@@ -61,7 +61,7 @@
                Margin="19,174,0,0" 
                VerticalAlignment="Top" 
                Width="22"/>
-        <Label x:Name="lbl_UserTeam" 
+        <Label x:Name="UserTeam_Label" 
                Content="Team" 
                HorizontalAlignment="Left" 
                Height="31" 
@@ -77,6 +77,12 @@
                 Click="Exit_Click" 
                 Width="25" 
                 Grid.Column="1"/>
-        <Button x:Name="btn_UserViewRoster" Content="View Roster" HorizontalAlignment="Left" Margin="270,65,0,0" VerticalAlignment="Top" Width="95" Height="24"/>
+        <Button x:Name="UserViewRoster_btn" 
+                Content="View Roster" 
+                HorizontalAlignment="Left" 
+                Margin="270,65,0,0" 
+                VerticalAlignment="Top"
+                Width="95" 
+                Height="24"/>
     </Grid>
 </Window>
