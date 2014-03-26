@@ -35,7 +35,7 @@ namespace OpeningPitch
             First_Name_Input.Focus();
         }
 
-        LINQtoSQLDataContext LINQ = new LINQtoSQLDataContext();
+        LINQtoSQLDataContext db = new LINQtoSQLDataContext();
 
         private void Register_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -49,6 +49,59 @@ namespace OpeningPitch
             //}
             //else
             //{
+            try
+            {
+                var query = from stuff in db.Players
+                            where stuff.Email == Email_Input.Text
+                            select stuff;
+
+                if (query.Count() == 0)
+                {
+
+                    Player user = new Player();
+                    user.FirstName = First_Name_Input.Text;
+                    user.LastName = Last_Name_Input.Text;
+                    user.Email = Email_Input.Text;
+                    user.PhoneNumber = Phone_Number_Input.Text;
+                    user.Address = Address_Input.Text;
+                    //user.Address2 = Address2_Input.Text;
+                    //user.City = City_Input.Text;
+                    //user.State = State_Input.Text;
+                    //user.Zipcode = Zipcode_Input.Text;
+                    user.Position = Position_Selection.Text;
+                    user.AltPosition1 = Alt_Position_Selection.Text;
+                    user.AltPosition2 = Alt_Position_Selection2.Text;
+                    user.Gender = Gender_Selection.Text;
+
+                    Security userSec = new Security();
+                    userSec.UserName = Email_Input.Text;
+                   // userSec.Password = Confirm_Password_Input.PreviewTextInput;
+                    userSec.SID = user.PID;
+                    
+                   
+
+
+
+
+
+                    db.Players.InsertOnSubmit(user);
+                    db.SubmitChanges();
+                }
+
+                else
+                {
+                    MessageBox.Show("Username already exists!");
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
                 try
                 {
                     SmtpClient client = new SmtpClient("smtp.live.com", 587);

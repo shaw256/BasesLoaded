@@ -112,8 +112,6 @@ namespace OpeningPitch
 		
 		private string _Email;
 		
-		private string _DateOfBirth;
-		
 		private string _PhoneNumber;
 		
 		private string _Gender;
@@ -148,8 +146,6 @@ namespace OpeningPitch
     partial void OnAddressChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnDateOfBirthChanging(string value);
-    partial void OnDateOfBirthChanged();
     partial void OnPhoneNumberChanging(string value);
     partial void OnPhoneNumberChanged();
     partial void OnGenderChanging(string value);
@@ -270,26 +266,6 @@ namespace OpeningPitch
 					this._Email = value;
 					this.SendPropertyChanged("Email");
 					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfBirth", DbType="NVarChar(50)")]
-		public string DateOfBirth
-		{
-			get
-			{
-				return this._DateOfBirth;
-			}
-			set
-			{
-				if ((this._DateOfBirth != value))
-				{
-					this.OnDateOfBirthChanging(value);
-					this.SendPropertyChanging();
-					this._DateOfBirth = value;
-					this.SendPropertyChanged("DateOfBirth");
-					this.OnDateOfBirthChanged();
 				}
 			}
 		}

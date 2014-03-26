@@ -155,7 +155,7 @@
 			Margin="6,269,0,0" 
 			VerticalAlignment="Top" 
 			Height="30" 
-			Width="97"/>
+			Width="116"/>
         <Label x:Name="Gender_Label" 
 			Content="Gender" 
 			HorizontalAlignment="Left" 
