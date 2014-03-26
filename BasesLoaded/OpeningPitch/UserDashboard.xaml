@@ -71,12 +71,12 @@
         <Button Content="X" 
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Right"
-                Height="24" 
-                Opacity="0.6" 
-                Background="#FFFB0505" 
+                Height="19" 
+                Background="{DynamicResource ButtonBackgroundBrush}" 
                 Click="Exit_Click" 
-                Width="25" 
-                Grid.Column="1"/>
+                Width="19" 
+                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+                Foreground="{DynamicResource Brush01}"/>
         <Button x:Name="UserViewRoster_btn" 
                 Content="View Roster" 
                 HorizontalAlignment="Left" 

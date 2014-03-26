@@ -58,7 +58,7 @@
 	<!-- Button Brushes -->
 	<SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{StaticResource Color_009}" />
 	<SolidColorBrush x:Key="ButtonBorderBrush" Color="{StaticResource Color_006}" />
-	<SolidColorBrush x:Key="ButtonHoverBackgroundBrush" Color="{StaticResource Color_006}" />
+	<SolidColorBrush x:Key="ButtonHoverBackgroundBrush" Color="{StaticResource Color_069}" />
 	<SolidColorBrush x:Key="ButtonHoverBorderBrush" Color="{StaticResource Color_004}" />
 	<SolidColorBrush x:Key="ButtonPressedBackgroundBrush" Color="{StaticResource Color_024}" />
 	<SolidColorBrush x:Key="ButtonPressedBorderBrush" Color="{StaticResource Color_024}" />

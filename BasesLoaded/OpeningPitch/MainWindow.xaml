@@ -31,21 +31,21 @@
         </ResourceDictionary>
     </Window.Resources>
 
-
-    <Grid x:Name="Main_Window" Background="{DynamicResource BackgroundKey}">
-        <TextBox x:Name="Username_Input" 
+        <Grid x:Name="Main_Window" 
+          Background="{DynamicResource BackgroundKey}">
+            <TextBox x:Name="Username_Input" 
                  Margin="125,185,125,285" 
                  TextWrapping="Wrap" 
                  Width="150" 
                  Opacity="0.6"
                  Height="25"/>
-        <Label x:Name="Username_Label" 
+            <Label x:Name="Username_Label" 
         	Content="Username" 
         	HorizontalAlignment="Left" 
         	Margin="57,185,0,0" 
         	VerticalAlignment="Top" 
         	Height="25" BorderBrush="{DynamicResource BackgroundKey}"/>
-        <PasswordBox x:Name="Password_Input" 
+            <PasswordBox x:Name="Password_Input" 
                      MaxLength="25" 
                      HorizontalAlignment="Left" 
                      Margin="125,215,0,0" 
@@ -53,36 +53,36 @@
                      Width="150" 
                      Opacity="0.6" 
                      Height="25"/>
-        <Label x:Name="Password_Label" 
+            <Label x:Name="Password_Label" 
                Content="Password" 
                HorizontalAlignment="Left" 
                Margin="60,215,0,0" 
                VerticalAlignment="Top" 
                Height="30"/>
-        <Button Content="Log In"
+            <Button Content="Log In"
                 IsDefault="true"
                 HorizontalAlignment="Center" 
                 Margin="160,257,160,0" 
                 VerticalAlignment="Top" 
                 Width="80" 
-                Opacity="0.6" 
                 Click="Log_In_Click"/>
-        <Button x:Name="Register_Button" 
+            <Button x:Name="Register_Button" 
                 Content="Register" 
                 HorizontalAlignment="Center" 
                 Margin="160,287,160,0" 
                 VerticalAlignment="Top" 
                 Width="80" 
-                Opacity="0.6" 
                 Click="Register" 
-                Height="23"/>
-        <Button Content="X" 
+                Height="23" Background="Black"/>
+            <Button Content="X" 
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Right"
-                Height="25" 
-                Opacity="0.6" 
-                Background="#FFFB0505" 
+                Height="19" 
+                Width="19"
+                Background="{DynamicResource ButtonBackgroundBrush}" 
                 Click="Exit_Click" 
-                Width="25"/>
-    </Grid>
+                BorderThickness="0"  
+                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+                Foreground="{DynamicResource Brush01}" />
+        </Grid>
 </Window>

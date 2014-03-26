@@ -23,6 +23,7 @@
     <Color x:Key="Color_007">#FF333333</Color>
     <Color x:Key="Color_008">#FF292929</Color>
     <Color x:Key="Color_009">#FF181818</Color>
+    <Color x:Key="Color_069">#FF778899</Color>
 	
 <!--Transparent and Whites with transparency-->		
     <Color x:Key="Color_010">#E5FFFFFF</Color><!--90% White-->
