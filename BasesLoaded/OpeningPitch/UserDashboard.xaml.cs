@@ -49,5 +49,9 @@ namespace OpeningPitch
 
             }
         }
+        private void Minimize_Button(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }

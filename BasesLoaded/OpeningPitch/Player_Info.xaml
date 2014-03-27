@@ -157,6 +157,21 @@
 			Click="Exit_Click" 
 			Width="19"
             Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
-            Foreground="{DynamicResource Brush01}"/>
+            Foreground="{DynamicResource Brush01}" 
+            TextOptions.TextFormattingMode="Display"
+            ToolTip="Close" 
+            FontWeight="Bold"/>
+        <Button Content="-" 
+                HorizontalAlignment="Left" 
+                Margin="362,0,0,0" 
+                VerticalAlignment="Top" 
+                Width="19" 
+                Height="19"
+                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+                Foreground="{DynamicResource Brush01}" 
+                TextOptions.TextFormattingMode="Display" 
+                Click="Minimize_Button"
+                ToolTip="Minimize" 
+                FontWeight="Bold"/>
     </Grid>
 </Window>

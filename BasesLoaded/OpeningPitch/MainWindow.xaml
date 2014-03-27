@@ -7,27 +7,20 @@
         AllowsTransparency="True"
         Height="500" 
         Width="400" 
-        MouseDown="Window_MouseDown">
+        MouseDown="Window_MouseDown"
+        ResizeMode="CanResizeWithGrip"
+        MinWidth="400"
+        MinHeight="500">
 
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!-- Light Theme -->
-                <!-- <ResourceDictionary Source="Themes/Metro/Light/Metro.MSControls.Core.Implicit.xaml" />
-                <ResourceDictionary Source="Themes/Metro/Light/Metro.MSControls.Toolkit.Implicit.xaml" />-->
-
                 <!-- Dark Theme -->
-                <ResourceDictionary Source="Themes/MetroDark.MSControls.Core.Implicit.xaml" />
-                <ResourceDictionary Source="Themes/MetroDark.MSControls.Toolkit.Implicit.xaml" />
-
+                <ResourceDictionary Source="Themes/Dark/MetroDark.MSControls.Core.Implicit.xaml" />
+                <ResourceDictionary Source="Themes/Dark/MetroDark.MSControls.Toolkit.Implicit.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
-            <!-- Light Theme -->
-            <!--<SolidColorBrush x:Key="BackgroundKey" Color="#FFFFFF" />-->
-
             <!-- Dark Theme -->
             <SolidColorBrush x:Key="BackgroundKey" Color="#FF181818" />
-
         </ResourceDictionary>
     </Window.Resources>
 
@@ -35,42 +28,44 @@
           Background="{DynamicResource BackgroundKey}">
         <TextBox x:Name="Username_Input" 
                  Margin="125,185,125,285" 
-                 TextWrapping="Wrap" 
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
                  Width="150" 
                  Opacity="0.6"
                  Height="25"/>
         <Label x:Name="Username_Label" 
         	Content="Username" 
-        	HorizontalAlignment="Left" 
-        	Margin="57,185,0,0" 
-        	VerticalAlignment="Top" 
+        	HorizontalAlignment="Center" 
+        	Margin="56,185,275,290" 
+        	VerticalAlignment="Center" 
         	Height="25" BorderBrush="{DynamicResource BackgroundKey}"/>
         <PasswordBox x:Name="Password_Input" 
                      MaxLength="25" 
-                     HorizontalAlignment="Left" 
-                     Margin="125,215,0,0" 
-                     VerticalAlignment="Top" 
+                     HorizontalAlignment="Center" 
+                     Margin="125,215,125,255" 
+                     VerticalAlignment="Center" 
                      Width="150" 
                      Opacity="0.6" 
                      Height="25"/>
         <Label x:Name="Password_Label" 
                Content="Password" 
-               HorizontalAlignment="Left" 
-               Margin="60,215,0,0" 
-               VerticalAlignment="Top" 
+               HorizontalAlignment="Center" 
+               Margin="59,215,275,255" 
+               VerticalAlignment="Center" 
                Height="30"/>
         <Button Content="Log In"
                 IsDefault="true"
                 HorizontalAlignment="Center" 
-                Margin="160,257,160,0" 
-                VerticalAlignment="Top" 
+                Margin="160,257,160,213" 
+                VerticalAlignment="Center" 
                 Width="80" 
                 Click="Log_In_Click"/>
         <Button x:Name="Register_Button" 
                 Content="Register" 
                 HorizontalAlignment="Center" 
-                Margin="160,287,160,0" 
-                VerticalAlignment="Top" 
+                Margin="160,287,160,183" 
+                VerticalAlignment="Center" 
                 Width="80" 
                 Click="Register" 
                 Height="23" Background="Black"/>
@@ -83,15 +78,21 @@
                 Click="Exit_Click" 
                 BorderThickness="0"  
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
-                Foreground="{DynamicResource Brush01}" TextOptions.TextFormattingMode="Display" />
+                Foreground="{DynamicResource Brush01}" 
+                TextOptions.TextFormattingMode="Display"
+                ToolTip="Close" 
+                FontWeight="Bold"/>
         <Button Content="-" 
-                HorizontalAlignment="Left" 
-                Margin="362,0,0,0" 
+                HorizontalAlignment="Right" 
+                Margin="362,0,19,0" 
                 VerticalAlignment="Top" 
                 Width="19" 
                 Height="19"
                 FontWeight="Bold"
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
-                Foreground="{DynamicResource Brush01}" TextOptions.TextFormattingMode="Display" Click="Minimize_Button"/>
+                Foreground="{DynamicResource Brush01}" 
+                TextOptions.TextFormattingMode="Display" 
+                Click="Minimize_Button"
+                ToolTip="Minimize"/>
     </Grid>
 </Window>

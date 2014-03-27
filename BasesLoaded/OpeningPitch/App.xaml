@@ -5,8 +5,8 @@
     <Application.Resources>
     <ResourceDictionary>
         <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary Source="Themes/MetroDark.MSControls.Core.Implicit.xaml" />
-            <ResourceDictionary Source="Themes/MetroDark.MSControls.Toolkit.Implicit.xaml" />
+            <ResourceDictionary Source="Themes/Dark/MetroDark.MSControls.Core.Implicit.xaml" />
+            <ResourceDictionary Source="Themes/Dark/MetroDark.MSControls.Toolkit.Implicit.xaml" />
         </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
     </Application.Resources>

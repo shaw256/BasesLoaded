@@ -58,6 +58,10 @@ namespace OpeningPitch
 
             }
         }
+        private void Minimize_Button(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
         private void Login_Home_Click(object sender, RoutedEventArgs e)
         {
             Window Dashboard = new Dashboard();
