@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -62,10 +63,10 @@ namespace OpeningPitch
                     user.Email = Email_Input.Text;
                     user.PhoneNumber = Phone_Number_Input.Text;
                     user.Address = Address_Input.Text;
-                    //user.Address2 = Address2_Input.Text;
+                    user.Address2 = Address2_Input.Text;
                     //user.City = City_Input.Text;
-                    //user.State = State_Input.Text;
-                    //user.Zipcode = Zipcode_Input.Text;
+                    user.State = State_Input.Text;
+                    user.Zipcode = Zipcode_Input.Text;
                     user.Position = Position_Selection.Text;
                     user.AltPosition1 = Alt_Position_Selection.Text;
                     user.AltPosition2 = Alt_Position_Selection2.Text;
@@ -73,14 +74,8 @@ namespace OpeningPitch
 
                     Security userSec = new Security();
                     userSec.UserName = Email_Input.Text;
-                   // userSec.Password = Confirm_Password_Input.PreviewTextInput;
+                    // userSec.Password = Confirm_Password_Input.PreviewTextInput;
                     userSec.SID = user.PID;
-                    
-                   
-
-
-
-
 
                     db.Players.InsertOnSubmit(user);
                     db.SubmitChanges();
@@ -98,7 +93,6 @@ namespace OpeningPitch
             {
                 MessageBox.Show(ex.Message);
             }
-
 
                 try
                 {

@@ -126,6 +126,18 @@ namespace OpeningPitch
 		
 		private System.Nullable<int> _TeamID;
 		
+		private string _Address2;
+		
+		private string _City;
+		
+		private string _Zipcode;
+		
+		private string _State;
+		
+		private int _Approved;
+		
+		private int _UserType;
+		
 		private EntitySet<Security> _Securities;
 		
 		private EntitySet<Security> _Securities1;
@@ -160,6 +172,18 @@ namespace OpeningPitch
     partial void OnAltPosition2Changed();
     partial void OnTeamIDChanging(System.Nullable<int> value);
     partial void OnTeamIDChanged();
+    partial void OnAddress2Changing(string value);
+    partial void OnAddress2Changed();
+    partial void OnCityChanging(string value);
+    partial void OnCityChanged();
+    partial void OnZipcodeChanging(string value);
+    partial void OnZipcodeChanged();
+    partial void OnStateChanging(string value);
+    partial void OnStateChanged();
+    partial void OnApprovedChanging(int value);
+    partial void OnApprovedChanged();
+    partial void OnUserTypeChanging(int value);
+    partial void OnUserTypeChanged();
     #endregion
 		
 		public Player()
@@ -270,7 +294,7 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string PhoneNumber
 		{
 			get
@@ -310,7 +334,7 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamName", DbType="NVarChar(50)")]
 		public string TeamName
 		{
 			get
@@ -410,6 +434,126 @@ namespace OpeningPitch
 					this._TeamID = value;
 					this.SendPropertyChanged("TeamID");
 					this.OnTeamIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address2", DbType="NVarChar(50)")]
+		public string Address2
+		{
+			get
+			{
+				return this._Address2;
+			}
+			set
+			{
+				if ((this._Address2 != value))
+				{
+					this.OnAddress2Changing(value);
+					this.SendPropertyChanging();
+					this._Address2 = value;
+					this.SendPropertyChanged("Address2");
+					this.OnAddress2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(50)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this.OnCityChanging(value);
+					this.SendPropertyChanging();
+					this._City = value;
+					this.SendPropertyChanged("City");
+					this.OnCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zipcode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Zipcode
+		{
+			get
+			{
+				return this._Zipcode;
+			}
+			set
+			{
+				if ((this._Zipcode != value))
+				{
+					this.OnZipcodeChanging(value);
+					this.SendPropertyChanging();
+					this._Zipcode = value;
+					this.SendPropertyChanged("Zipcode");
+					this.OnZipcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NVarChar(50)")]
+		public string State
+		{
+			get
+			{
+				return this._State;
+			}
+			set
+			{
+				if ((this._State != value))
+				{
+					this.OnStateChanging(value);
+					this.SendPropertyChanging();
+					this._State = value;
+					this.SendPropertyChanged("State");
+					this.OnStateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Approved", DbType="Int NOT NULL")]
+		public int Approved
+		{
+			get
+			{
+				return this._Approved;
+			}
+			set
+			{
+				if ((this._Approved != value))
+				{
+					this.OnApprovedChanging(value);
+					this.SendPropertyChanging();
+					this._Approved = value;
+					this.SendPropertyChanged("Approved");
+					this.OnApprovedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserType", DbType="Int NOT NULL")]
+		public int UserType
+		{
+			get
+			{
+				return this._UserType;
+			}
+			set
+			{
+				if ((this._UserType != value))
+				{
+					this.OnUserTypeChanging(value);
+					this.SendPropertyChanging();
+					this._UserType = value;
+					this.SendPropertyChanged("UserType");
+					this.OnUserTypeChanged();
 				}
 			}
 		}
@@ -787,7 +931,7 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamName", DbType="NVarChar(50)")]
 		public string TeamName
 		{
 			get
@@ -807,7 +951,7 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CoachFirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CoachFirstName", DbType="NVarChar(50)")]
 		public string CoachFirstName
 		{
 			get
@@ -827,7 +971,7 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CoachLastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CoachLastName", DbType="NVarChar(50)")]
 		public string CoachLastName
 		{
 			get

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace OpeningPitch
         {
             InitializeComponent();
         }
+        LINQtoSQLDataContext db = new LINQtoSQLDataContext();
         private void TC_Dashboard_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -63,6 +65,64 @@ namespace OpeningPitch
        private void Minimize_Button(object sender, RoutedEventArgs e)
        {
            this.WindowState = WindowState.Minimized;
+       }
+
+       private void Applications_Click(object sender, RoutedEventArgs e)
+       {
+           DataTable MyDataTable = new DataTable();
+           
+           MyDataTable.Columns.Add(
+               new DataColumn()
+               {
+                   DataType = System.Type.GetType("System.String"),
+                   ColumnName = "First Name"
+               }
+
+             );
+
+           MyDataTable.Columns.Add(
+               new DataColumn()
+               {
+                   DataType = System.Type.GetType("System.String"),
+                   ColumnName = "Last Name"
+               }
+               );
+
+           MyDataTable.Columns.Add(
+               new DataColumn()
+               {
+                   DataType = System.Type.GetType("System.String"),
+                   ColumnName = "Email"
+               }
+               );
+
+           MyDataTable.Columns.Add(
+              new DataColumn()
+              {
+                  DataType = System.Type.GetType("System.String"),
+                  ColumnName = "Position"
+              }
+              );
+
+           var applicationQuery = from players in db.Players
+                                  where players.Approved == 0
+                                  select players;
+
+
+           foreach (var column in applicationQuery)
+           {
+               var row = MyDataTable.NewRow();
+               row["First Name"] = column.FirstName;
+               row["Last Name"] = column.LastName;
+               row["Email"] = column.Email;
+               row["Position"] = column.Position;
+               MyDataTable.Rows.Add(row);
+           }
+
+           Team_Display.ItemsSource = MyDataTable.AsDataView();
+           Team_Display.IsReadOnly = true;
+
+           
        }
     }              
 }
