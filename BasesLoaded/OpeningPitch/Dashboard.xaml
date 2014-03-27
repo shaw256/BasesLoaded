@@ -4,7 +4,7 @@
     Title="Softball Roster" 
     Height="500" Width="400"
     WindowStartupLocation="CenterScreen"
-    MouseDown="tab_Dashboard_MouseDown" 
+    MouseDown="TC_Dashboard_MouseDown" 
     WindowStyle="None" 
     AllowsTransparency="True"
     ResizeMode="CanResizeWithGrip"

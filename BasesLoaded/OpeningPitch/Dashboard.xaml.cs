@@ -23,7 +23,7 @@ namespace OpeningPitch
         {
             InitializeComponent();
         }
-        private void tab_Dashboard_MouseDown(object sender, MouseButtonEventArgs e)
+        private void TC_Dashboard_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
