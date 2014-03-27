@@ -40,14 +40,14 @@ namespace OpeningPitch
 
         private void Register_Button_Click(object sender, RoutedEventArgs e)
         {
-            //if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || Email_Input.Text.Equals("") || Phone_Number_Input.Text.Equals("") || Team_Selection.Equals(null))
-            //{
-            //    MessageBox.Show("Please ensure all required fields are filled out.");
-            //}
-            //else if (New_Password_Input != Confirm_Password_Input)
-            //{
-            //    MessageBox.Show("The Passwords do not match, Please try again.");
-            //}
+            if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || Email_Input.Text.Equals("") || Phone_Number_Input.Text.Equals(""))
+            {
+                MessageBox.Show("Please ensure all required fields are filled out.");
+            }
+            else if (New_Password_Input != Confirm_Password_Input)
+            {
+                MessageBox.Show("The Passwords do not match, Please try again.");
+            }
             try
             {
                 var query = from stuff in db.Players
@@ -116,7 +116,7 @@ namespace OpeningPitch
 
                     MessageBox.Show(ex.ToString());
                 }
-            //}
+            
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
