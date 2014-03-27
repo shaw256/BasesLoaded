@@ -108,15 +108,21 @@ namespace OpeningPitch
 		
 		private string _LastName;
 		
-		private string _Address;
-		
-		private string _Email;
+		private string _Gender;
 		
 		private string _PhoneNumber;
 		
-		private string _Gender;
+		private string _Email;
 		
-		private string _TeamName;
+		private string _Address;
+		
+		private string _Address2;
+		
+		private string _City;
+		
+		private string _State;
+		
+		private string _Zipcode;
 		
 		private string _Position;
 		
@@ -124,25 +130,11 @@ namespace OpeningPitch
 		
 		private string _AltPosition2;
 		
-		private System.Nullable<int> _TeamID;
-		
-		private string _Address2;
-		
-		private string _City;
-		
-		private string _Zipcode;
-		
-		private string _State;
+		private string _TeamName;
 		
 		private int _Approved;
 		
 		private int _UserType;
-		
-		private EntitySet<Security> _Securities;
-		
-		private EntitySet<Security> _Securities1;
-		
-		private EntityRef<Team> _Team;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -154,32 +146,30 @@ namespace OpeningPitch
     partial void OnFirstNameChanged();
     partial void OnLastNameChanging(string value);
     partial void OnLastNameChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnPhoneNumberChanging(string value);
-    partial void OnPhoneNumberChanged();
     partial void OnGenderChanging(string value);
     partial void OnGenderChanged();
-    partial void OnTeamNameChanging(string value);
-    partial void OnTeamNameChanged();
+    partial void OnPhoneNumberChanging(string value);
+    partial void OnPhoneNumberChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnAddress2Changing(string value);
+    partial void OnAddress2Changed();
+    partial void OnCityChanging(string value);
+    partial void OnCityChanged();
+    partial void OnStateChanging(string value);
+    partial void OnStateChanged();
+    partial void OnZipcodeChanging(string value);
+    partial void OnZipcodeChanged();
     partial void OnPositionChanging(string value);
     partial void OnPositionChanged();
     partial void OnAltPosition1Changing(string value);
     partial void OnAltPosition1Changed();
     partial void OnAltPosition2Changing(string value);
     partial void OnAltPosition2Changed();
-    partial void OnTeamIDChanging(System.Nullable<int> value);
-    partial void OnTeamIDChanged();
-    partial void OnAddress2Changing(string value);
-    partial void OnAddress2Changed();
-    partial void OnCityChanging(string value);
-    partial void OnCityChanged();
-    partial void OnZipcodeChanging(string value);
-    partial void OnZipcodeChanged();
-    partial void OnStateChanging(string value);
-    partial void OnStateChanged();
+    partial void OnTeamNameChanging(string value);
+    partial void OnTeamNameChanged();
     partial void OnApprovedChanging(int value);
     partial void OnApprovedChanged();
     partial void OnUserTypeChanging(int value);
@@ -188,13 +178,10 @@ namespace OpeningPitch
 		
 		public Player()
 		{
-			this._Securities = new EntitySet<Security>(new Action<Security>(this.attach_Securities), new Action<Security>(this.detach_Securities));
-			this._Securities1 = new EntitySet<Security>(new Action<Security>(this.attach_Securities1), new Action<Security>(this.detach_Securities1));
-			this._Team = default(EntityRef<Team>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int PID
 		{
 			get
@@ -254,42 +241,22 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Address
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Gender
 		{
 			get
 			{
-				return this._Address;
+				return this._Gender;
 			}
 			set
 			{
-				if ((this._Address != value))
+				if ((this._Gender != value))
 				{
-					this.OnAddressChanging(value);
+					this.OnGenderChanging(value);
 					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
+					this._Gender = value;
+					this.SendPropertyChanged("Gender");
+					this.OnGenderChanged();
 				}
 			}
 		}
@@ -314,126 +281,42 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="NVarChar(50)")]
-		public string Gender
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Email
 		{
 			get
 			{
-				return this._Gender;
+				return this._Email;
 			}
 			set
 			{
-				if ((this._Gender != value))
+				if ((this._Email != value))
 				{
-					this.OnGenderChanging(value);
+					this.OnEmailChanging(value);
 					this.SendPropertyChanging();
-					this._Gender = value;
-					this.SendPropertyChanged("Gender");
-					this.OnGenderChanged();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamName", DbType="NVarChar(50)")]
-		public string TeamName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Address
 		{
 			get
 			{
-				return this._TeamName;
+				return this._Address;
 			}
 			set
 			{
-				if ((this._TeamName != value))
+				if ((this._Address != value))
 				{
-					this.OnTeamNameChanging(value);
+					this.OnAddressChanging(value);
 					this.SendPropertyChanging();
-					this._TeamName = value;
-					this.SendPropertyChanged("TeamName");
-					this.OnTeamNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="NVarChar(50)")]
-		public string Position
-		{
-			get
-			{
-				return this._Position;
-			}
-			set
-			{
-				if ((this._Position != value))
-				{
-					this.OnPositionChanging(value);
-					this.SendPropertyChanging();
-					this._Position = value;
-					this.SendPropertyChanged("Position");
-					this.OnPositionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltPosition1", DbType="NVarChar(50)")]
-		public string AltPosition1
-		{
-			get
-			{
-				return this._AltPosition1;
-			}
-			set
-			{
-				if ((this._AltPosition1 != value))
-				{
-					this.OnAltPosition1Changing(value);
-					this.SendPropertyChanging();
-					this._AltPosition1 = value;
-					this.SendPropertyChanged("AltPosition1");
-					this.OnAltPosition1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltPosition2", DbType="NVarChar(50)")]
-		public string AltPosition2
-		{
-			get
-			{
-				return this._AltPosition2;
-			}
-			set
-			{
-				if ((this._AltPosition2 != value))
-				{
-					this.OnAltPosition2Changing(value);
-					this.SendPropertyChanging();
-					this._AltPosition2 = value;
-					this.SendPropertyChanged("AltPosition2");
-					this.OnAltPosition2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamID", DbType="Int")]
-		public System.Nullable<int> TeamID
-		{
-			get
-			{
-				return this._TeamID;
-			}
-			set
-			{
-				if ((this._TeamID != value))
-				{
-					if (this._Team.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTeamIDChanging(value);
-					this.SendPropertyChanging();
-					this._TeamID = value;
-					this.SendPropertyChanged("TeamID");
-					this.OnTeamIDChanged();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
 				}
 			}
 		}
@@ -458,7 +341,7 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string City
 		{
 			get
@@ -474,6 +357,26 @@ namespace OpeningPitch
 					this._City = value;
 					this.SendPropertyChanged("City");
 					this.OnCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string State
+		{
+			get
+			{
+				return this._State;
+			}
+			set
+			{
+				if ((this._State != value))
+				{
+					this.OnStateChanging(value);
+					this.SendPropertyChanging();
+					this._State = value;
+					this.SendPropertyChanged("State");
+					this.OnStateChanged();
 				}
 			}
 		}
@@ -498,22 +401,82 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NVarChar(50)")]
-		public string State
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Position
 		{
 			get
 			{
-				return this._State;
+				return this._Position;
 			}
 			set
 			{
-				if ((this._State != value))
+				if ((this._Position != value))
 				{
-					this.OnStateChanging(value);
+					this.OnPositionChanging(value);
 					this.SendPropertyChanging();
-					this._State = value;
-					this.SendPropertyChanged("State");
-					this.OnStateChanged();
+					this._Position = value;
+					this.SendPropertyChanged("Position");
+					this.OnPositionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltPosition1", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AltPosition1
+		{
+			get
+			{
+				return this._AltPosition1;
+			}
+			set
+			{
+				if ((this._AltPosition1 != value))
+				{
+					this.OnAltPosition1Changing(value);
+					this.SendPropertyChanging();
+					this._AltPosition1 = value;
+					this.SendPropertyChanged("AltPosition1");
+					this.OnAltPosition1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltPosition2", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AltPosition2
+		{
+			get
+			{
+				return this._AltPosition2;
+			}
+			set
+			{
+				if ((this._AltPosition2 != value))
+				{
+					this.OnAltPosition2Changing(value);
+					this.SendPropertyChanging();
+					this._AltPosition2 = value;
+					this.SendPropertyChanged("AltPosition2");
+					this.OnAltPosition2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TeamName
+		{
+			get
+			{
+				return this._TeamName;
+			}
+			set
+			{
+				if ((this._TeamName != value))
+				{
+					this.OnTeamNameChanging(value);
+					this.SendPropertyChanging();
+					this._TeamName = value;
+					this.SendPropertyChanged("TeamName");
+					this.OnTeamNameChanged();
 				}
 			}
 		}
@@ -558,66 +521,6 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Player_Security", Storage="_Securities", ThisKey="PID", OtherKey="SID")]
-		public EntitySet<Security> Securities
-		{
-			get
-			{
-				return this._Securities;
-			}
-			set
-			{
-				this._Securities.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Player_Security1", Storage="_Securities1", ThisKey="PID", OtherKey="SID")]
-		public EntitySet<Security> Securities1
-		{
-			get
-			{
-				return this._Securities1;
-			}
-			set
-			{
-				this._Securities1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Team_Player", Storage="_Team", ThisKey="TeamID", OtherKey="TID", IsForeignKey=true)]
-		public Team Team
-		{
-			get
-			{
-				return this._Team.Entity;
-			}
-			set
-			{
-				Team previousValue = this._Team.Entity;
-				if (((previousValue != value) 
-							|| (this._Team.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Team.Entity = null;
-						previousValue.Players.Remove(this);
-					}
-					this._Team.Entity = value;
-					if ((value != null))
-					{
-						value.Players.Add(this);
-						this._TeamID = value.TID;
-					}
-					else
-					{
-						this._TeamID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Team");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -637,30 +540,6 @@ namespace OpeningPitch
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
-		private void attach_Securities(Security entity)
-		{
-			this.SendPropertyChanging();
-			entity.Player = this;
-		}
-		
-		private void detach_Securities(Security entity)
-		{
-			this.SendPropertyChanging();
-			entity.Player = null;
-		}
-		
-		private void attach_Securities1(Security entity)
-		{
-			this.SendPropertyChanging();
-			entity.Player1 = this;
-		}
-		
-		private void detach_Securities1(Security entity)
-		{
-			this.SendPropertyChanging();
-			entity.Player1 = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Security")]
@@ -676,10 +555,6 @@ namespace OpeningPitch
 		private string _Password;
 		
 		private System.Nullable<int> _SID;
-		
-		private EntityRef<Player> _Player;
-		
-		private EntityRef<Player> _Player1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -697,8 +572,6 @@ namespace OpeningPitch
 		
 		public Security()
 		{
-			this._Player = default(EntityRef<Player>);
-			this._Player1 = default(EntityRef<Player>);
 			OnCreated();
 		}
 		
@@ -773,83 +646,11 @@ namespace OpeningPitch
 			{
 				if ((this._SID != value))
 				{
-					if ((this._Player.HasLoadedOrAssignedValue || this._Player1.HasLoadedOrAssignedValue))
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnSIDChanging(value);
 					this.SendPropertyChanging();
 					this._SID = value;
 					this.SendPropertyChanged("SID");
 					this.OnSIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Player_Security", Storage="_Player", ThisKey="SID", OtherKey="PID", IsForeignKey=true)]
-		public Player Player
-		{
-			get
-			{
-				return this._Player.Entity;
-			}
-			set
-			{
-				Player previousValue = this._Player.Entity;
-				if (((previousValue != value) 
-							|| (this._Player.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Player.Entity = null;
-						previousValue.Securities.Remove(this);
-					}
-					this._Player.Entity = value;
-					if ((value != null))
-					{
-						value.Securities.Add(this);
-						this._SID = value.PID;
-					}
-					else
-					{
-						this._SID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Player");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Player_Security1", Storage="_Player1", ThisKey="SID", OtherKey="PID", IsForeignKey=true)]
-		public Player Player1
-		{
-			get
-			{
-				return this._Player1.Entity;
-			}
-			set
-			{
-				Player previousValue = this._Player1.Entity;
-				if (((previousValue != value) 
-							|| (this._Player1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Player1.Entity = null;
-						previousValue.Securities1.Remove(this);
-					}
-					this._Player1.Entity = value;
-					if ((value != null))
-					{
-						value.Securities1.Add(this);
-						this._SID = value.PID;
-					}
-					else
-					{
-						this._SID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Player1");
 				}
 			}
 		}
@@ -889,8 +690,6 @@ namespace OpeningPitch
 		
 		private string _CoachLastName;
 		
-		private EntitySet<Player> _Players;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -907,7 +706,6 @@ namespace OpeningPitch
 		
 		public Team()
 		{
-			this._Players = new EntitySet<Player>(new Action<Player>(this.attach_Players), new Action<Player>(this.detach_Players));
 			OnCreated();
 		}
 		
@@ -991,19 +789,6 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Team_Player", Storage="_Players", ThisKey="TID", OtherKey="TeamID")]
-		public EntitySet<Player> Players
-		{
-			get
-			{
-				return this._Players;
-			}
-			set
-			{
-				this._Players.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1022,18 +807,6 @@ namespace OpeningPitch
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Players(Player entity)
-		{
-			this.SendPropertyChanging();
-			entity.Team = this;
-		}
-		
-		private void detach_Players(Player entity)
-		{
-			this.SendPropertyChanging();
-			entity.Team = null;
 		}
 	}
 }

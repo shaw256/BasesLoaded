@@ -34,6 +34,7 @@ namespace OpeningPitch
         {
             InitializeComponent();
             First_Name_Input.Focus();
+            this.State_Input.SelectedIndex = 1;
         }
 
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
@@ -64,18 +65,19 @@ namespace OpeningPitch
                     user.PhoneNumber = Phone_Number_Input.Text;
                     user.Address = Address_Input.Text;
                     user.Address2 = Address2_Input.Text;
-                    //user.City = City_Input.Text;
+                    user.City = City_Input.Text;
                     user.State = State_Input.Text;
                     user.Zipcode = Zipcode_Input.Text;
                     user.Position = Position_Selection.Text;
                     user.AltPosition1 = Alt_Position_Selection.Text;
                     user.AltPosition2 = Alt_Position_Selection2.Text;
                     user.Gender = Gender_Selection.Text;
+                    if (Team_Captain.IsChecked == true) user.UserType = 1; 
 
-                    Security userSec = new Security();
-                    userSec.UserName = Email_Input.Text;
+                    //Security userSec = new Security();
+                    //userSec.UserName = Email_Input.Text;
                     // userSec.Password = Confirm_Password_Input.PreviewTextInput;
-                    userSec.SID = user.PID;
+                    //userSec.SID = user.PID;
 
                     db.Players.InsertOnSubmit(user);
                     db.SubmitChanges();
@@ -94,28 +96,28 @@ namespace OpeningPitch
                 MessageBox.Show(ex.Message);
             }
 
-                try
-                {
-                    SmtpClient client = new SmtpClient("smtp.live.com", 587);
-                    client.EnableSsl = true;
-                    client.Timeout = 10000;
-                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
+                //try
+                //{
+                //    SmtpClient client = new SmtpClient("smtp.live.com", 587);
+                //    client.EnableSsl = true;
+                //    client.Timeout = 10000;
+                //    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                //    client.UseDefaultCredentials = false;
+                //    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
 
-                    MailMessage msg = new MailMessage();
-                    msg.To.Add(Email_Input.Text);
-                    msg.From = new MailAddress("basesloadedapp@outlook.com");
-                    msg.Subject = "Registration Successful";
-                    msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.";
-                    client.Send(msg);
-                    MessageBox.Show("Please check your E-Mail for a verification link.");
-                }
-                catch (Exception ex)
-                {
+                //    MailMessage msg = new MailMessage();
+                //    msg.To.Add(Email_Input.Text);
+                //    msg.From = new MailAddress("basesloadedapp@outlook.com");
+                //    msg.Subject = "Registration Successful";
+                //    msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.";
+                //    client.Send(msg);
+                //    MessageBox.Show("Please check your E-Mail for a verification link.");
+                //}
+                //catch (Exception ex)
+                //{
 
-                    MessageBox.Show(ex.ToString());
-                }
+                //    MessageBox.Show(ex.ToString());
+                //}
             //}
         }
         private void Exit_Click(object sender, RoutedEventArgs e)

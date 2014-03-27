@@ -85,7 +85,8 @@
         	TextWrapping="Wrap" 
         	VerticalAlignment="Center" 
         	Width="200"/>
-        <TextBox HorizontalAlignment="Center" 
+        <TextBox x:Name="City_Input"
+             HorizontalAlignment="Center" 
              Height="23" 
              Margin="130,130,150,340" 
              TextWrapping="Wrap" 
@@ -99,9 +100,59 @@
 
         <ComboBox x:Name="State_Input" 
         	HorizontalAlignment="Center" 
-        	Margin="130,160,209,310" 
+        	Margin="130,160,198,310" 
         	VerticalAlignment="Center" 
-        	Width="61">
+        	Width="72" Height="3" MaxDropDownHeight="150">
+            <ComboBoxItem Content="AL" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="AK" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="AZ" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="AR" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="CA" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="CO" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="CT" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="DE" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="FL" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="GA" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="HI" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="ID" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="IL" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="IN" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="IA" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="KS" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="KY" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="LA" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="ME" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="MD" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="MA" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="MI" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="MN" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="MS" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="MO" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="MT" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="NE" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="NV" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="NH" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="NJ" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="NM" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="NY" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="NC" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="ND" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="OH" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="OK" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="OR" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="PA" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="RI" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="SC" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="SD" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="TN" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="TX" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="UT" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="VT" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="VA" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="WA" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="WV" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="WI" HorizontalAlignment="Left" Width="112"/>
+            <ComboBoxItem Content="WY" HorizontalAlignment="Left" Width="112"/>
         </ComboBox>
         <Label x:Name="State_Label" 
         	Content="State" 
@@ -111,14 +162,14 @@
         <TextBox x:Name="Zipcode_Input" 
             HorizontalAlignment="Center" 
             Height="26" 
-            Margin="255,160,81,310" 
+            Margin="266,160,70,310" 
             TextWrapping="Wrap" 
             VerticalAlignment="Center"
             Width="64"/>
         <Label x:Name="Zipcode_label" 
         	Content="Zipcode" 
         	HorizontalAlignment="Center" 
-        	Margin="196,160,144,310" 
+        	Margin="207,160,133,310" 
         	VerticalAlignment="Center" 
             Height="30" 
             Width="60"/>
@@ -238,7 +289,8 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <RadioButton GroupName="User_Type" 
+        <RadioButton x:Name="Team_Player" 
+                     GroupName="User_Type" 
                      Content="Team Player" 
                      FontSize="12" 
                      HorizontalAlignment="Right" 
@@ -247,7 +299,8 @@
                      Margin="0,0,10,126" 
                      Height="31" 
                      Width="97" />
-        <RadioButton GroupName="User_Type" 
+        <RadioButton x:Name="Team_Captain" 
+                     GroupName="User_Type" 
                      Content="Team Captain" 
                      FontSize="12" 
                      HorizontalAlignment="Right" 
