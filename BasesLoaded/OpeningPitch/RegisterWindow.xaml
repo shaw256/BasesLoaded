@@ -85,35 +85,47 @@
         	TextWrapping="Wrap" 
         	VerticalAlignment="Center" 
         	Width="200"/>
+        <TextBox HorizontalAlignment="Center" 
+             Height="23" 
+             Margin="130,130,150,340" 
+             TextWrapping="Wrap" 
+             VerticalAlignment="Center" 
+             Width="120"/>
+        <Label Content="City" 
+             HorizontalAlignment="Center" 
+             Margin="6,130,362,340" 
+             VerticalAlignment="Center" 
+             Height="30"/>
+
         <ComboBox x:Name="State_Input" 
         	HorizontalAlignment="Center" 
-        	Margin="130,130,209,340" 
+        	Margin="130,160,209,310" 
         	VerticalAlignment="Center" 
         	Width="61">
         </ComboBox>
         <Label x:Name="State_Label" 
         	Content="State" 
         	HorizontalAlignment="Center" 
-        	Margin="6,132,354,340" 
-        	VerticalAlignment="Center"/>
+        	Margin="6,160,354,310" 
+        	VerticalAlignment="Center" Height="30"/>
         <TextBox x:Name="Zipcode_Input" 
             HorizontalAlignment="Center" 
             Height="26" 
-            Margin="266,130,70,340" 
+            Margin="255,160,81,310" 
             TextWrapping="Wrap" 
             VerticalAlignment="Center"
             Width="64"/>
         <Label x:Name="Zipcode_label" 
         	Content="Zipcode" 
         	HorizontalAlignment="Center" 
-        	Margin="206,130,134,340" 
+        	Margin="196,160,144,310" 
         	VerticalAlignment="Center" 
             Height="30" 
             Width="60"/>
         <TextBox x:Name="Email_Input" 
 			HorizontalAlignment="Center" 
 			Height="23" 
-			Margin="130,176,150,294" 
+			Margin="130,214,150,256" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Center" 
 			Width="120"
@@ -121,31 +133,31 @@
         <Label x:Name="E_Mail_Label" 
 			Content="E-Mail" 
 			HorizontalAlignment="Center" 
-			Margin="6,176,347,294" 
+			Margin="6,214,347,256" 
 			VerticalAlignment="Center" 
 			Height="30"/>
         <Label x:Name="E_Mail_Required" 
 			Content="*" 
 			HorizontalAlignment="Center" 
-			Margin="255,209,129,268" 
+			Margin="260,247,124,230" 
 			VerticalAlignment="Center" 
 			Height="23" 
 			RenderTransformOrigin="5.2,4.087"/>
         <Label x:Name="DOB_Required" 
 			Content="*" 
 			HorizontalAlignment="Center" 
-			Margin="255,176,129,301" 
+			Margin="260,214,124,263" 
 			VerticalAlignment="Center" 
 			Height="23"/>
         <Label x:Name="Phone_Number_Label" 
 			Content="Phone Number" 
 			HorizontalAlignment="Center" 
-			Margin="6,206,295,264" 
+			Margin="6,244,295,226" 
 			VerticalAlignment="Center" 
 			Height="30"/>
         <xctk:MaskedTextBox x:Name="Phone_Number_Input" 
             HorizontalAlignment="Center" 
-            Margin="130,206,150,264" 
+            Margin="130,244,150,226" 
             TextWrapping="Wrap"  
             VerticalAlignment="Center" 
             InputScope="InputScopeNameValue.TelephoneNumber"  
@@ -160,26 +172,26 @@
         <Label x:Name="Position_Label" 
 			Content="Desired Position" 
 			HorizontalAlignment="Center" 
-			Margin="6,266,278,204" 
+			Margin="6,304,278,166" 
 			VerticalAlignment="Center" 
 			Height="30" 
 			Width="116"/>
         <Label x:Name="Gender_Label" 
 			Content="Gender" 
 			HorizontalAlignment="Center" 
-			Margin="6,236,297,234" 
+			Margin="6,274,297,196" 
 			VerticalAlignment="Center" 
 			Height="30" 
 			Width="97"/>
         <ComboBox x:Name="Gender_Selection" 
                   HorizontalAlignment="Center" 
-                  Margin="130,236,150,234" 
+                  Margin="130,274,150,196" 
                   VerticalAlignment="Center" 
                   Width="120">
             <ComboBoxItem Content="Male" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Female" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <ComboBox x:Name="Position_Selection" HorizontalAlignment="Center" Margin="130,266,150,204" VerticalAlignment="Center" Width="120">
+        <ComboBox x:Name="Position_Selection" HorizontalAlignment="Center" Margin="130,304,150,166" VerticalAlignment="Center" Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -190,7 +202,7 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <ComboBox x:Name="Alt_Position_Selection" HorizontalAlignment="Center" Margin="130,296,150,174" VerticalAlignment="Center" Width="120">
+        <ComboBox x:Name="Alt_Position_Selection" HorizontalAlignment="Center" Margin="130,334,150,136" VerticalAlignment="Center" Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -204,18 +216,18 @@
         <Label x:Name="Alt_Position_Label2" 
         	Content="Alternate Position2" 
         	HorizontalAlignment="Center" 
-        	Margin="6,326,270,144" 
+        	Margin="6,364,270,106" 
         	VerticalAlignment="Center" 
         	Height="30" 
         	Width="124"/>
         <Label x:Name="Alt_Position_Label1" 
         	Content="Alternate Position" 
         	HorizontalAlignment="Center" 
-        	Margin="6,296,278,174" 
+        	Margin="6,334,278,136" 
         	VerticalAlignment="Center" 
         	Height="30" 
         	Width="116"/>
-        <ComboBox x:Name="Alt_Position_Selection2" HorizontalAlignment="Center" Margin="130,326,150,144" VerticalAlignment="Center" Width="120">
+        <ComboBox x:Name="Alt_Position_Selection2" HorizontalAlignment="Center" Margin="130,364,150,106" VerticalAlignment="Center" Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -226,21 +238,33 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <StackPanel Margin="261,339,10,99">
-            <RadioButton GroupName="User_Type" Content="Team Captain" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderBrush="{DynamicResource ButtonBorderBrush}" Margin="16,0"/>
-            <RadioButton GroupName="User_Type" Content="Team Player" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderBrush="{DynamicResource ButtonBorderBrush}" Margin="16,0" Height="31" Width="97" />
-        </StackPanel>
+        <RadioButton GroupName="User_Type" 
+                     Content="Team Player" 
+                     FontSize="12" 
+                     HorizontalAlignment="Right" 
+                     VerticalAlignment="Bottom" 
+                     BorderBrush="{DynamicResource ButtonBorderBrush}" 
+                     Margin="0,0,10,126" 
+                     Height="31" 
+                     Width="97" />
+        <RadioButton GroupName="User_Type" 
+                     Content="Team Captain" 
+                     FontSize="12" 
+                     HorizontalAlignment="Right" 
+                     VerticalAlignment="Bottom" 
+                     BorderBrush="{DynamicResource ButtonBorderBrush}" 
+                     Margin="0,0,10,162"/>
         <Label x:Name="New_Password_Label" 
         	Content="New Password" 
         	HorizontalAlignment="Center" 
-        	Margin="10,400,293,73" 
+        	Margin="6,400,297,73" 
         	VerticalAlignment="Center" 
         	Height="27" 
         	Width="97"/>
         <Label x:Name="New_Password_Required" 
         	Content="*" 
         	HorizontalAlignment="Center" 
-        	Margin="255,397,129,80" 
+        	Margin="260,397,124,80" 
         	VerticalAlignment="Center" 
         	Height="23" 
         	RenderTransformOrigin="5.2,4.087"/>
@@ -252,14 +276,14 @@
         <Label x:Name="Confirm_Password_Label" 
         	Content="Confirm Password" 
         	HorizontalAlignment="Center" 
-        	Margin="10,432,274,43" 
+        	Margin="6,432,278,43" 
         	VerticalAlignment="Center" 
         	Height="25" 
         	Width="116"/>
         <Label x:Name="Confrm_Password_Required" 
         	Content="*" 
         	HorizontalAlignment="Center" 
-        	Margin="255,427,129,50" 
+        	Margin="260,430,124,47" 
         	VerticalAlignment="Center" 
         	Height="23" 
         	RenderTransformOrigin="5.2,4.087"/>
@@ -285,30 +309,30 @@
 			Width="75" 
             Click="Register_Button_Click"/>
         <Button Content="X" 
-			Margin="0,0,1,0" 
+			Margin="0,10,10,0" 
 			VerticalAlignment="Top" 
             HorizontalAlignment="Right"
-			Height="19" 
+			Height="25" 
 			Background="{DynamicResource ButtonBackgroundBrush}" 
 			Click="Exit_Click"
-            Width="19"
+            Width="25"
             Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
             Foreground="{DynamicResource Brush01}" 
             TextOptions.TextFormattingMode="Display"
             ToolTip="Close" 
-            FontWeight="Bold"/>
+            FontWeight="Bold" FontSize="14"/>
         <Button Content="-" 
                 HorizontalAlignment="Right" 
-                Margin="0,0,20,0" 
+                Margin="0,10,35,0" 
                 VerticalAlignment="Top" 
-                Width="19" 
-                Height="19"
+                Width="25" 
+                Height="25"
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                 Foreground="{DynamicResource Brush01}" 
                 TextOptions.TextFormattingMode="Display" 
                 Click="Minimize_Button"
                 ToolTip="Minimize" 
-                FontWeight="Bold"/>
+                FontWeight="Bold" FontSize="14"/>
         <ProgressBar x:Name="Prog_Bar" 
             HorizontalAlignment="Center" 
 			Height="5" 

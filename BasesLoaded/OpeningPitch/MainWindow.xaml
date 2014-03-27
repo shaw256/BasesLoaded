@@ -72,8 +72,8 @@
         <Button Content="X" 
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Right"
-                Height="19" 
-                Width="19"
+                Height="26" 
+                Width="25"
                 Background="{DynamicResource ButtonBackgroundBrush}" 
                 Click="Exit_Click" 
                 BorderThickness="0"  
@@ -81,18 +81,17 @@
                 Foreground="{DynamicResource Brush01}" 
                 TextOptions.TextFormattingMode="Display"
                 ToolTip="Close" 
-                FontWeight="Bold"/>
+                FontWeight="Bold" FontSize="14" Margin="0,7,10,0"/>
         <Button Content="-" 
                 HorizontalAlignment="Right" 
-                Margin="362,0,19,0" 
+                Margin="0,7,35,0" 
                 VerticalAlignment="Top" 
-                Width="19" 
-                Height="19"
+                Width="25" 
+                Height="25"
                 FontWeight="Bold"
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                 Foreground="{DynamicResource Brush01}" 
-                TextOptions.TextFormattingMode="Display" 
                 Click="Minimize_Button"
-                ToolTip="Minimize"/>
+                ToolTip="Minimize" FontSize="14" TextOptions.TextFormattingMode="Display"/>
     </Grid>
 </Window>

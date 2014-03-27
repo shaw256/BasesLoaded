@@ -63,26 +63,26 @@
         <Button Content="X" 
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Right"
-                Height="19" 
+                Height="25" 
                 Background="{DynamicResource ButtonBackgroundBrush}" 
                 Click="Exit_Click" 
-                Width="19"
+                Width="25"
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                 Foreground="{DynamicResource Brush01}" 
                 TextOptions.TextFormattingMode="Display"
                 ToolTip="Close" 
-                FontWeight="Bold"/>
+                FontWeight="Bold" Margin="0,10,10,0" FontSize="14"/>
         <Button Content="-" 
                 HorizontalAlignment="Left" 
-                Margin="362,0,0,0" 
+                Margin="340,10,0,0" 
                 VerticalAlignment="Top" 
-                Width="19" 
-                Height="19"
+                Width="25" 
+                Height="25"
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                 Foreground="{DynamicResource Brush01}" 
                 TextOptions.TextFormattingMode="Display" 
                 Click="Minimize_Button"
                 ToolTip="Minimize" 
-                FontWeight="Bold"/>
+                FontWeight="Bold" FontSize="14"/>
     </Grid>
 </Window>
