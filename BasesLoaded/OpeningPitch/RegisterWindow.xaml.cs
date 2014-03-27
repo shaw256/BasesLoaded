@@ -47,8 +47,6 @@ namespace OpeningPitch
             //{
             //    MessageBox.Show("The Passwords do not match, Please try again.");
             //}
-            //else
-            //{
             try
             {
                 var query = from stuff in db.Players
