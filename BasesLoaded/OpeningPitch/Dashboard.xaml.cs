@@ -124,6 +124,29 @@ namespace OpeningPitch
 
            
        }
+
+       private void Approve_Player_Click(object sender, RoutedEventArgs e)
+       {
+           DataRowView row = (DataRowView)Team_Display.SelectedItems[0];
+           var player = from players in db.Players
+                        where players.Email.ToString() == row["Email"].ToString()
+                        select players;
+
+           foreach (var info in player)
+           {
+               info.Approved = 1;
+           }
+
+           try
+           {
+               db.SubmitChanges();
+           }
+
+           catch (Exception ex)
+           {
+               MessageBox.Show(ex.Message);
+           }
+       }
     }              
 }
 

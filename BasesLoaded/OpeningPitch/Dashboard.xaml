@@ -114,5 +114,6 @@
                 Click="Minimize_Button"
                 ToolTip="Minimize" 
                 FontWeight="Bold"/>
+        <Button x:Name="Approve_Player" Content="Approve Player" HorizontalAlignment="Left" Margin="26,175,0,0" VerticalAlignment="Top" Width="95" ToolTip="This allows one to pull up all the users information." Click="Approve_Player_Click"/>
     </Grid>
 </Window>
