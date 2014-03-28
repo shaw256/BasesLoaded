@@ -103,17 +103,24 @@
             ToolTip="Close" 
             FontWeight="Bold"/>
         <Button Content="-" 
-                HorizontalAlignment="Right" 
-                Margin="0,0,19,0" 
-                VerticalAlignment="Top" 
-                Width="19" 
-                Height="19"
-                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
-                Foreground="{DynamicResource Brush01}" 
-                TextOptions.TextFormattingMode="Display" 
-                Click="Minimize_Button"
-                ToolTip="Minimize" 
-                FontWeight="Bold"/>
-        <Button x:Name="Approve_Player" Content="Approve Player" HorizontalAlignment="Left" Margin="26,175,0,0" VerticalAlignment="Top" Width="95" ToolTip="This allows one to pull up all the users information." Click="Approve_Player_Click"/>
+            HorizontalAlignment="Right" 
+            Margin="0,0,19,0" 
+            VerticalAlignment="Top" 
+            Width="19" 
+            Height="19"
+            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+            Foreground="{DynamicResource Brush01}" 
+            TextOptions.TextFormattingMode="Display" 
+            Click="Minimize_Button"
+            ToolTip="Minimize" 
+            FontWeight="Bold"/>
+        <Button x:Name="Approve_Player" 
+            Content="Approve" 
+            HorizontalAlignment="Left" 
+            Margin="10,176,0,0" 
+            VerticalAlignment="Top" 
+            Width="120" 
+            ToolTip="This allows one to pull up all the users information." 
+            Click="Approve_Player_Click"/>
     </Grid>
 </Window>
