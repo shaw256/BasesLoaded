@@ -87,7 +87,7 @@ namespace OpeningPitch
                 {
                     MessageBox.Show("Username already exists!");
                 }
-            
+
 
             }
 
@@ -95,6 +95,7 @@ namespace OpeningPitch
             {
                 MessageBox.Show(ex.Message);
             }
+        }
 
         //        try
         //        {
