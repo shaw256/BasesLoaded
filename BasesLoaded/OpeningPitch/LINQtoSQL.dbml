@@ -14,11 +14,14 @@
       <Column Name="State" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Zipcode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Position" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="AltPosition1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="AltPosition2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TeamName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AltPosition1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AltPosition2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TeamName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Approved" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UserType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Player_Security" Member="Securities" ThisKey="PID" OtherKey="SID" Type="Security" />
+      <Association Name="Team_Player" Member="Team" ThisKey="TID" OtherKey="TID" Type="Team" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Security" Member="Securities">
@@ -27,6 +30,7 @@
       <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="SID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Player_Security" Member="Player" ThisKey="SID" OtherKey="PID" Type="Player" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Teams" Member="Teams">
@@ -35,6 +39,7 @@
       <Column Name="TeamName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="CoachFirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="CoachLastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Team_Player" Member="Players" ThisKey="TID" OtherKey="TID" Type="Player" />
     </Type>
   </Table>
 </Database>

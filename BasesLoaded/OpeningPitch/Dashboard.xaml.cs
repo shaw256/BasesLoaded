@@ -69,8 +69,41 @@ namespace OpeningPitch
 
        private void Applications_Click(object sender, RoutedEventArgs e)
        {
-           DataTable MyDataTable = new DataTable();
+
+           GridViewApplicants();
            
+       }
+
+       private void Approve_Player_Click(object sender, RoutedEventArgs e)
+       {
+           DataRowView row = (DataRowView)Team_Display.SelectedItems[0];
+           var player = from players in db.Players
+                        where players.Email.ToString() == row["Email"].ToString()
+                        select players;
+
+           foreach (var info in player)
+           {
+               info.Approved = 1;
+
+           }
+           try
+           {
+               //db.Refresh(System.Data.Linq.RefreshMode.KeepChanges, info.Approved);
+               db.SubmitChanges();
+           }
+
+           catch (Exception ex)
+           {
+               MessageBox.Show(ex.Message);
+           }
+
+           GridViewApplicants();
+       }
+    
+        private void GridViewApplicants()
+       {
+           DataTable MyDataTable = new DataTable();
+
            MyDataTable.Columns.Add(
                new DataColumn()
                {
@@ -121,32 +154,8 @@ namespace OpeningPitch
 
            Team_Display.ItemsSource = MyDataTable.AsDataView();
            Team_Display.IsReadOnly = true;
-
+       }
+    }   
            
-       }
-
-       private void Approve_Player_Click(object sender, RoutedEventArgs e)
-       {
-           DataRowView row = (DataRowView)Team_Display.SelectedItems[0];
-           var player = from players in db.Players
-                        where players.Email.ToString() == row["Email"].ToString()
-                        select players;
-
-           foreach (var info in player)
-           {
-               info.Approved = 1;
-           }
-
-           try
-           {
-               db.SubmitChanges();
-           }
-
-           catch (Exception ex)
-           {
-               MessageBox.Show(ex.Message);
-           }
-       }
-    }              
 }
 

@@ -136,6 +136,12 @@ namespace OpeningPitch
 		
 		private int _UserType;
 		
+		private System.Nullable<int> _TID;
+		
+		private EntitySet<Security> _Securities;
+		
+		private EntityRef<Team> _Team;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -174,10 +180,14 @@ namespace OpeningPitch
     partial void OnApprovedChanged();
     partial void OnUserTypeChanging(int value);
     partial void OnUserTypeChanged();
+    partial void OnTIDChanging(System.Nullable<int> value);
+    partial void OnTIDChanged();
     #endregion
 		
 		public Player()
 		{
+			this._Securities = new EntitySet<Security>(new Action<Security>(this.attach_Securities), new Action<Security>(this.detach_Securities));
+			this._Team = default(EntityRef<Team>);
 			OnCreated();
 		}
 		
@@ -421,7 +431,7 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltPosition1", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltPosition1", DbType="NVarChar(50)")]
 		public string AltPosition1
 		{
 			get
@@ -441,7 +451,7 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltPosition2", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltPosition2", DbType="NVarChar(50)")]
 		public string AltPosition2
 		{
 			get
@@ -461,7 +471,7 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamName", DbType="NVarChar(50)")]
 		public string TeamName
 		{
 			get
@@ -521,6 +531,77 @@ namespace OpeningPitch
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TID", DbType="Int")]
+		public System.Nullable<int> TID
+		{
+			get
+			{
+				return this._TID;
+			}
+			set
+			{
+				if ((this._TID != value))
+				{
+					if (this._Team.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTIDChanging(value);
+					this.SendPropertyChanging();
+					this._TID = value;
+					this.SendPropertyChanged("TID");
+					this.OnTIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Player_Security", Storage="_Securities", ThisKey="PID", OtherKey="SID")]
+		public EntitySet<Security> Securities
+		{
+			get
+			{
+				return this._Securities;
+			}
+			set
+			{
+				this._Securities.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Team_Player", Storage="_Team", ThisKey="TID", OtherKey="TID", IsForeignKey=true)]
+		public Team Team
+		{
+			get
+			{
+				return this._Team.Entity;
+			}
+			set
+			{
+				Team previousValue = this._Team.Entity;
+				if (((previousValue != value) 
+							|| (this._Team.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Team.Entity = null;
+						previousValue.Players.Remove(this);
+					}
+					this._Team.Entity = value;
+					if ((value != null))
+					{
+						value.Players.Add(this);
+						this._TID = value.TID;
+					}
+					else
+					{
+						this._TID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Team");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -540,6 +621,18 @@ namespace OpeningPitch
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_Securities(Security entity)
+		{
+			this.SendPropertyChanging();
+			entity.Player = this;
+		}
+		
+		private void detach_Securities(Security entity)
+		{
+			this.SendPropertyChanging();
+			entity.Player = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Security")]
@@ -555,6 +648,8 @@ namespace OpeningPitch
 		private string _Password;
 		
 		private System.Nullable<int> _SID;
+		
+		private EntityRef<Player> _Player;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -572,6 +667,7 @@ namespace OpeningPitch
 		
 		public Security()
 		{
+			this._Player = default(EntityRef<Player>);
 			OnCreated();
 		}
 		
@@ -646,11 +742,49 @@ namespace OpeningPitch
 			{
 				if ((this._SID != value))
 				{
+					if (this._Player.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnSIDChanging(value);
 					this.SendPropertyChanging();
 					this._SID = value;
 					this.SendPropertyChanged("SID");
 					this.OnSIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Player_Security", Storage="_Player", ThisKey="SID", OtherKey="PID", IsForeignKey=true)]
+		public Player Player
+		{
+			get
+			{
+				return this._Player.Entity;
+			}
+			set
+			{
+				Player previousValue = this._Player.Entity;
+				if (((previousValue != value) 
+							|| (this._Player.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Player.Entity = null;
+						previousValue.Securities.Remove(this);
+					}
+					this._Player.Entity = value;
+					if ((value != null))
+					{
+						value.Securities.Add(this);
+						this._SID = value.PID;
+					}
+					else
+					{
+						this._SID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Player");
 				}
 			}
 		}
@@ -690,6 +824,8 @@ namespace OpeningPitch
 		
 		private string _CoachLastName;
 		
+		private EntitySet<Player> _Players;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -706,6 +842,7 @@ namespace OpeningPitch
 		
 		public Team()
 		{
+			this._Players = new EntitySet<Player>(new Action<Player>(this.attach_Players), new Action<Player>(this.detach_Players));
 			OnCreated();
 		}
 		
@@ -789,6 +926,19 @@ namespace OpeningPitch
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Team_Player", Storage="_Players", ThisKey="TID", OtherKey="TID")]
+		public EntitySet<Player> Players
+		{
+			get
+			{
+				return this._Players;
+			}
+			set
+			{
+				this._Players.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -807,6 +957,18 @@ namespace OpeningPitch
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Players(Player entity)
+		{
+			this.SendPropertyChanging();
+			entity.Team = this;
+		}
+		
+		private void detach_Players(Player entity)
+		{
+			this.SendPropertyChanging();
+			entity.Team = null;
 		}
 	}
 }
