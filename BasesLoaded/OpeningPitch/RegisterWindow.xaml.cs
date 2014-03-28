@@ -41,61 +41,64 @@ namespace OpeningPitch
 
         private void Register_Button_Click(object sender, RoutedEventArgs e)
         {
-            //if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || Email_Input.Text.Equals("") || Phone_Number_Input.Text.Equals("") || Team_Selection.Equals(null))
-            //{
-            //    MessageBox.Show("Please ensure all required fields are filled out.");
-            //}
-            //else if (New_Password_Input != Confirm_Password_Input)
-            //{
-            //    MessageBox.Show("The Passwords do not match, Please try again.");
-            //}
-            try
+            if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || Email_Input.Text.Equals("") || Phone_Number_Input.Text.Equals("") || (Team_Captain.Equals(null) & Team_Player.Equals(null)))
             {
-                var query = from stuff in db.Players
-                            where stuff.Email == Email_Input.Text
-                            select stuff;
-
-                if (query.Count() == 0)
+                MessageBox.Show("Please ensure all required fields are filled out.");
+            }
+            else if (New_Password_Input != Confirm_Password_Input)
+            {
+                MessageBox.Show("The Passwords do not match, Please try again.");
+            }
+            else
+            {
+                try
                 {
+                    var query = from stuff in db.Players
+                                where stuff.Email == Email_Input.Text
+                                select stuff;
 
-                    Player user = new Player();
-                    user.FirstName = First_Name_Input.Text;
-                    user.LastName = Last_Name_Input.Text;
-                    user.Email = Email_Input.Text;
-                    user.PhoneNumber = Phone_Number_Input.Text;
-                    user.Address = Address_Input.Text;
-                    user.Address2 = Address2_Input.Text;
-                    user.City = City_Input.Text;
-                    user.State = State_Input.Text;
-                    user.Zipcode = Zipcode_Input.Text;
-                    user.Position = Position_Selection.Text;
-                    user.AltPosition1 = Alt_Position_Selection.Text;
-                    user.AltPosition2 = Alt_Position_Selection2.Text;
-                    user.Gender = Gender_Selection.Text;
-                    if (Team_Captain.IsChecked == true) user.UserType = 1;
+                    if (query.Count() == 0)
+                    {
 
-                    Security userSec = new Security();
-                    userSec.UserName = Email_Input.Text;
-                    userSec.Password = Confirm_Password_Input.ToString();
-                    userSec.SID = user.PID;
+                        Player user = new Player();
+                        user.FirstName = First_Name_Input.Text;
+                        user.LastName = Last_Name_Input.Text;
+                        user.Email = Email_Input.Text;
+                        user.PhoneNumber = Phone_Number_Input.Text;
+                        user.Address = Address_Input.Text;
+                        user.Address2 = Address2_Input.Text;
+                        user.City = City_Input.Text;
+                        user.State = State_Input.Text;
+                        user.Zipcode = Zipcode_Input.Text;
+                        user.Position = Position_Selection.Text;
+                        user.AltPosition1 = Alt_Position_Selection.Text;
+                        user.AltPosition2 = Alt_Position_Selection2.Text;
+                        user.Gender = Gender_Selection.Text;
+                        if (Team_Captain.IsChecked == true) user.UserType = 1;
 
-                    db.Players.InsertOnSubmit(user);
-                    db.SubmitChanges();
+                        Security userSec = new Security();
+                        userSec.UserName = Email_Input.Text;
+                        userSec.Password = Confirm_Password_Input.ToString();
+                        userSec.SID = user.PID;
+
+                        db.Players.InsertOnSubmit(user);
+                        db.SubmitChanges();
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Username already exists!");
+                    }
+
+
                 }
 
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Username already exists!");
+                    MessageBox.Show(ex.Message);
                 }
-
-
             }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        
 
         //        try
         //        {
@@ -121,6 +124,7 @@ namespace OpeningPitch
         //        }
         //    }
         //}
+        }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit Registration?\n\nAll data will be lost.",
