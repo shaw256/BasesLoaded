@@ -72,15 +72,31 @@ namespace OpeningPitch
                     user.AltPosition1 = Alt_Position_Selection.Text;
                     user.AltPosition2 = Alt_Position_Selection2.Text;
                     user.Gender = Gender_Selection.Text;
-                    if (Team_Captain.IsChecked == true) user.UserType = 1;
+                    if (Team_Captain.IsChecked == true)
+                    {
+                        user.UserType = 1;
+                        user.Approved = 1;
+                    }
+                    
 
                     Security userSec = new Security();
-                    userSec.UserName = Email_Input.Text;
-                    userSec.Password = Confirm_Password_Input.ToString();
+                    userSec.Password = Confirm_Password_Input.Password;
                     userSec.SID = user.PID;
 
                     db.Players.InsertOnSubmit(user);
-                    db.SubmitChanges();
+                   
+                    try
+                    {
+                        db.SubmitChanges();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    this.Close();
+                    MessageBox.Show("You have successfully registered!");
                 }
 
                 else
