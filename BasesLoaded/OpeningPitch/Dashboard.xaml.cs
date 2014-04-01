@@ -23,8 +23,70 @@ namespace OpeningPitch
         public Dashboard()
         {
             InitializeComponent();
+            Approve_Player.Visibility = Visibility.Hidden;
+            Deny_Player.Visibility = Visibility.Hidden;
+            Cancel_Event.Visibility = Visibility.Hidden;
+            Add_Player.Visibility = Visibility.Hidden;
+            Delete_Player.Visibility = Visibility.Hidden;
         }
+
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
+        private void GridViewApplicants()
+        {
+            DataTable MyDataTable = new DataTable();
+
+            MyDataTable.Columns.Add(
+                new DataColumn()
+                {
+                    DataType = System.Type.GetType("System.String"),
+                    ColumnName = "First Name"
+                }
+
+              );
+
+            MyDataTable.Columns.Add(
+                new DataColumn()
+                {
+                    DataType = System.Type.GetType("System.String"),
+                    ColumnName = "Last Name"
+                }
+                );
+
+            MyDataTable.Columns.Add(
+                new DataColumn()
+                {
+                    DataType = System.Type.GetType("System.String"),
+                    ColumnName = "Email"
+                }
+                );
+
+            MyDataTable.Columns.Add(
+               new DataColumn()
+               {
+                   DataType = System.Type.GetType("System.String"),
+                   ColumnName = "Position"
+               }
+               );
+
+            var applicationQuery = from players in db.Players
+                                   where players.Approved == 0
+                                   select players;
+
+
+            foreach (var column in applicationQuery)
+            {
+                var row = MyDataTable.NewRow();
+                row["First Name"] = column.FirstName;
+                row["Last Name"] = column.LastName;
+                row["Email"] = column.Email;
+                row["Position"] = column.Position;
+                MyDataTable.Rows.Add(row);
+            }
+
+            Team_Display.ItemsSource = MyDataTable.AsDataView();
+            Team_Display.IsReadOnly = true;
+        }
+
         private void TC_Dashboard_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -71,6 +133,9 @@ namespace OpeningPitch
        {
 
            GridViewApplicants();
+           Approve_Player.Visibility = Visibility.Visible;
+           Deny_Player.Visibility = Visibility.Visible;
+           Cancel_Event.Visibility = Visibility.Visible;
            
        }
 
@@ -100,61 +165,38 @@ namespace OpeningPitch
            GridViewApplicants();
        }
     
-        private void GridViewApplicants()
-       {
-           DataTable MyDataTable = new DataTable();
+       
 
-           MyDataTable.Columns.Add(
-               new DataColumn()
-               {
-                   DataType = System.Type.GetType("System.String"),
-                   ColumnName = "First Name"
-               }
+        private void Edit_Roster_click(object sender, RoutedEventArgs e)
+        {
+            Add_Player.Visibility = Visibility.Visible;
+            Delete_Player.Visibility = Visibility.Visible;
+            Approve_Player.Visibility = Visibility.Hidden;
+            Deny_Player.Visibility = Visibility.Hidden;
+            Cancel_Event.Visibility = Visibility.Hidden;
+           
+            
+            
 
-             );
+        }
 
-           MyDataTable.Columns.Add(
-               new DataColumn()
-               {
-                   DataType = System.Type.GetType("System.String"),
-                   ColumnName = "Last Name"
-               }
-               );
+        private void Login_Home_Click(object sender, RoutedEventArgs e)
+        {
+            Approve_Player.Visibility = Visibility.Hidden;
+            Deny_Player.Visibility = Visibility.Hidden;
+            Cancel_Event.Visibility = Visibility.Hidden;
+            Add_Player.Visibility = Visibility.Hidden;
+            Delete_Player.Visibility = Visibility.Hidden;
+        }
 
-           MyDataTable.Columns.Add(
-               new DataColumn()
-               {
-                   DataType = System.Type.GetType("System.String"),
-                   ColumnName = "Email"
-               }
-               );
-
-           MyDataTable.Columns.Add(
-              new DataColumn()
-              {
-                  DataType = System.Type.GetType("System.String"),
-                  ColumnName = "Position"
-              }
-              );
-
-           var applicationQuery = from players in db.Players
-                                  where players.Approved == 0
-                                  select players;
-
-
-           foreach (var column in applicationQuery)
-           {
-               var row = MyDataTable.NewRow();
-               row["First Name"] = column.FirstName;
-               row["Last Name"] = column.LastName;
-               row["Email"] = column.Email;
-               row["Position"] = column.Position;
-               MyDataTable.Rows.Add(row);
-           }
-
-           Team_Display.ItemsSource = MyDataTable.AsDataView();
-           Team_Display.IsReadOnly = true;
-       }
+        private void EditInfo_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Approve_Player.Visibility = Visibility.Hidden;
+            Deny_Player.Visibility = Visibility.Hidden;
+            Cancel_Event.Visibility = Visibility.Hidden;
+            Add_Player.Visibility = Visibility.Hidden;
+            Delete_Player.Visibility = Visibility.Hidden;
+        }
     }   
            
 }

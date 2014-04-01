@@ -110,9 +110,11 @@ namespace OpeningPitch
                     {
                         MessageBox.Show(ex.Message);
                     }
-
-                    this.Close();
                     MessageBox.Show("You have successfully registered!");
+                    Window BacktoMain = new MainWindow();
+                    BacktoMain.Show();
+                    this.Close();
+                    
                 }
 
                 else

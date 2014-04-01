@@ -13,71 +13,64 @@
 
     <Grid x:Name="TC_Dashboard" 
           Background="{DynamicResource ButtonBackgroundBrush}">
-        <Button x:Name="Login_Home1" 
+        <Button x:Name="Login_Home" 
 			Content="Home" 
 			HorizontalAlignment="Center" 
 			Height="22" 
 			VerticalAlignment="Center" 
-			Width="95" 
-            Margin="11,60,294,410"/>
+			Width="104" 
+            Margin="10,94,576,376" Click="Login_Home_Click"/>
         <Button x:Name="Create_Team1" 
-			Content="Team" 
+			Content="Edit Teams" 
 			HorizontalAlignment="Center" 
-			Margin="106,60,199,410" 
+			Margin="352,94,234,376" 
 			VerticalAlignment="Center" 
-			Width="95" 
+			Width="104" 
 			Click="CreateTeam_Click" 
 			Height="22"/>
         <Button x:Name="EditInfo_btn" 
         	Content="Edit Info" 
         	HorizontalAlignment="Center" 
         	VerticalAlignment="Center" 
-        	Width="94" 
-            Margin="201,60,105,410" 
-            Height="24"/>
-        <Button x:Name="Notification_btn" 
-			Content="Notification" 
-			HorizontalAlignment="Center" 
-			Margin="295,60,10,410" 
-			VerticalAlignment="Center" 
-			Width="95" 
-			Height="22"/>
+        	Width="103" 
+            Margin="577,94,10,376" 
+            Height="24" Click="EditInfo_btn_Click"/>
         <Button x:Name="Applications" 
 			Content="Applications" 
 			HorizontalAlignment="Left" 
-			Margin="10,340,0,130" 
+			Margin="462,94,0,376" 
 			VerticalAlignment="Center" 
-			Width="120" Click="Applications_Click"/>
+			Width="110" Click="Applications_Click"/>
         <Button x:Name="Edit_Roster" 
 			Content="Edit Roster" 
 			HorizontalAlignment="Left" 
-			Margin="10,370,0,100" 
+			Margin="237,94,0,376" 
 			VerticalAlignment="Center" 
-			Width="120"/>
-        <Button x:Name="View_Roster" 
-			Content="View Roster" 
+			Width="110" Click="Edit_Roster_click"/>
+        <Button x:Name="View_Team_Roster" 
+			Content="Team Roster" 
 			HorizontalAlignment="Left"
-			Margin="10,400,0,70" 
+			Margin="119,94,0,376" 
 			VerticalAlignment="Center" 
-			Width="120"/>
+			Width="112"/>
         <Button x:Name="Delete_Player" 
 			Content="Delete Player" 
 			HorizontalAlignment="Left" 
-			Margin="10,430,0,40" 
+			Margin="153,460,0,10" 
 			VerticalAlignment="Center" 
-			Width="120"/>
+			Width="110"/>
         <Button x:Name="Cancel_Event" 
 			Content="Cancel" 
 			HorizontalAlignment="Left" 
-			Margin="10,460,0,10" 
+			Margin="531,460,0,10" 
 			VerticalAlignment="Center" 
-			Width="120"/>
+			Width="100"/>
         <DataGrid x:Name="Team_Display" 
             HorizontalAlignment="Left" 
-            Height="361" 
-            Margin="135,129,0,0" 
+            Height="326" 
+            Margin="10,129,0,0" 
             VerticalAlignment="Top" 
-            Width="546" BorderBrush="{DynamicResource AccordionBorderBrush}" 
+            Width="671" BorderBrush="{DynamicResource AccordionBorderBrush}" 
             Background="{DynamicResource AccordionBackgroundBrush}"
             SelectionMode="Single"
             SelectionUnit="FullRow"/>
@@ -117,10 +110,24 @@
         <Button x:Name="Approve_Player" 
             Content="Approve" 
             HorizontalAlignment="Left" 
-            Margin="10,176,0,0" 
+            Margin="321,460,0,0" 
             VerticalAlignment="Top" 
-            Width="120" 
+            Width="100" 
             ToolTip="This allows one to pull up all the users information." 
             Click="Approve_Player_Click"/>
+        <Button x:Name="Deny_Player" 
+        	Content="Deny" 
+        	HorizontalAlignment="Left" 
+        	Margin="426,460,0,0" 
+        	VerticalAlignment="Top" 
+        	Width="100" 
+        	ToolTip="This allows one to pull up all the users information." 
+        	Click="Approve_Player_Click"/>
+        <Button x:Name="Add_Player" 
+        	Content="Add Player" 
+        	HorizontalAlignment="Left" 
+        	Margin="36,460,0,10" 
+        	VerticalAlignment="Center" 
+        	Width="112"/>
     </Grid>
 </Window>
