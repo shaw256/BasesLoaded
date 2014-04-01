@@ -44,13 +44,13 @@ namespace OpeningPitch
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit the application?",
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to cancel the team edit process?",
                 "Confirmation", MessageBoxButton.OKCancel);
 
             if (result == MessageBoxResult.OK)
             {
-                MainWindow BacktoMain = new MainWindow();
-                BacktoMain.Show();
+                Window Dashboard = new Dashboard();
+                Dashboard.Show();
                 this.Close();
             }
             else if (result == MessageBoxResult.Cancel)
