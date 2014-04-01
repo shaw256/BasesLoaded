@@ -9,57 +9,96 @@
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
 
-    <Grid x:Name="Create_Team" Margin="0,0,0,-2" 
+    <Grid x:Name="Create_Team_Window" Margin="0,0,0,-2" 
           Background="{DynamicResource ButtonBackgroundBrush}">
-        <TextBox x:Name="Team_Name_Input" 
-                 HorizontalAlignment="Left" 
-                 Height="23" 
-                 Margin="97,10,0,0" 
-                 TextWrapping="Wrap" 
-                 VerticalAlignment="Top" 
-                 Width="168"/>
-        <Label x:Name="TeamName_Label" 
-               Content="Team Name" 
-               HorizontalAlignment="Left" 
-               Margin="10,10,0,0" 
-               VerticalAlignment="Top" 
-               Height="30" 
-               Width="82"/>
         <Button x:Name="Login_Home" 
                 Content="Home" 
                 HorizontalAlignment="Left" 
                 Height="24" 
                 VerticalAlignment="Top" 
                 Width="95" 
-                Margin="10,77,0,0" 
+                Margin="10,5,0,0" 
                 Click="Login_Home_Click"/>
-        <Button Content="Edit" 
+        <TextBox x:Name="Team_Name_Input" 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="97,65,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="168" TextChanged="Unhide_Create_Button"/>
+        <Button x:Name="Clear_Team_Name" 
+                Content="X" 
                 HorizontalAlignment="Left" 
-                Margin="105,77,0,0" 
+                Margin="265,65,0,0" 
+                VerticalAlignment="Top" 
+                Width="19" Height="24" 
+                Click="Clear_Team_Name_Click"/>
+        <Label x:Name="TeamName_Label" 
+               Content="Team Name" 
+               HorizontalAlignment="Left" 
+               Margin="15,65,0,0" 
+               VerticalAlignment="Top" 
+               Height="30" 
+               Width="82"/>
+        <Label x:Name="Coach_lbl" 
+        	Content="Team Coach" 
+        	HorizontalAlignment="Left" 
+        	Margin="10,129,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="30" 
+        	Width="82"/>
+        <Label x:Name="Coach_First_Name_lbl" 
+        	Content="First Name" 
+        	HorizontalAlignment="Left" 
+        	Margin="97,100,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="30" 
+        	Width="82"/>
+        <Label x:Name="Coach_Last_Name_lbl" 
+        	Content="Last Name" 
+        	HorizontalAlignment="Left" 
+        	Margin="248,100,0,0" 
+        	VerticalAlignment="Top" 
+        	Height="30" 
+        	Width="82"/>
+        <TextBox x:Name="Coach_First_Name" 
+        	HorizontalAlignment="Left" 
+        	Height="23" 
+        	Margin="97,129,0,0" 
+        	TextWrapping="Wrap" 
+        	VerticalAlignment="Top" 
+        	Width="142"/>
+        <TextBox x:Name="Coach_Last_Name" 
+        	HorizontalAlignment="Left" 
+        	Height="23" 
+        	Margin="248,129,0,0" 
+        	TextWrapping="Wrap" 
+        	VerticalAlignment="Top" 
+        	Width="142"/>
+        <DataGrid x:Name="Team_GridBox" 
+                 HorizontalAlignment="Left" 
+                 Height="293" 
+                 Margin="10,164,0,0" 
+                 VerticalAlignment="Top" 
+                 Width="380" 
+                 SelectionChanged="Team_Listbox_SelectionChanged" Background="{DynamicResource ButtonBackgroundBrush}"/>
+
+        <Button x:Name="Delete_Team1" 
+                Content="Delete" 
+                HorizontalAlignment="Left" 
+                Margin="200,462,0,0" 
                 VerticalAlignment="Top" 
                 Width="95" 
                 Height="24"/>
-        <Button x:Name="Create_Team1" 
+        <Button x:Name="Create_Team" 
                 Content="Create" 
                 HorizontalAlignment="Left" 
                 Height="24" 
-                Margin="200,77,0,0" 
+                Margin="295,462,0,0" 
                 VerticalAlignment="Top" 
-                Width="95" Click="Create_Team1_Click"/>
-        <ListBox x:Name="Team_Listbox" 
-                 HorizontalAlignment="Left" 
-                 Height="385" 
-                 Margin="10,107,0,0" 
-                 VerticalAlignment="Top" 
-                 Width="380" 
-                 SelectionChanged="Team_Listbox_SelectionChanged"/>
-        <Button x:Name="Delete_Team" 
-                Content="X" 
-                HorizontalAlignment="Left" 
-                Margin="265,10,0,0" 
-                VerticalAlignment="Top" 
-                Width="19" Height="24" 
-                Click="Delete_Team_Click"/>
+                Width="95" Click="Create_Team_Click"/>
+       
+        
         <Button x:Name="Exit" Content="X" 
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Right"
@@ -71,10 +110,10 @@
                 Foreground="{DynamicResource Brush01}" 
                 TextOptions.TextFormattingMode="Display"
                 ToolTip="Close" 
-                FontWeight="Bold" Margin="0,10,10,0" FontSize="14"/>
+                FontWeight="Bold" FontSize="14"/>
         <Button Content="-" 
                 HorizontalAlignment="Left" 
-                Margin="340,10,0,0" 
+                Margin="350,0,0,0" 
                 VerticalAlignment="Top" 
                 Width="25" 
                 Height="25"
@@ -84,5 +123,6 @@
                 Click="Minimize_Button"
                 ToolTip="Minimize" 
                 FontWeight="Bold" FontSize="14"/>
+        
     </Grid>
 </Window>

@@ -34,7 +34,7 @@
         	VerticalAlignment="Center" 
         	Width="103" 
             Margin="577,94,10,376" 
-            Height="24"/>
+            Height="24" Click="EditInfo_btn_Click"/>
         <Button x:Name="Applications" 
 			Content="Applications" 
 			HorizontalAlignment="Left" 
