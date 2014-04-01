@@ -37,6 +37,22 @@ namespace OpeningPitch
             this.State_Input.SelectedIndex = 1;
         }
 
+        private string _name;
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new ApplicationException("Please enter your first name.");
+                }
+            }
+        }
+
+
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
 
         private void Register_Button_Click(object sender, RoutedEventArgs e)

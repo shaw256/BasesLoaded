@@ -3,11 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-    <ResourceDictionary>
-        <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary Source="Themes/Dark/MetroDark.MSControls.Core.Implicit.xaml" />
-            <ResourceDictionary Source="Themes/Dark/MetroDark.MSControls.Toolkit.Implicit.xaml" />
-        </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
+
+        <ResourceDictionary>
+
+            <ControlTemplate x:Key="TextBoxErrorTemplate">
+                <DockPanel LastChildFill="True">
+                    <TextBlock DockPanel.Dock="=Right"
+                    Foreground="Orange"
+                    FontSize="12pt">****</TextBlock>
+                    <Border BorderBrush="Green" BorderThickness="1">
+                        <AdornedElementPlaceholder/>
+                    </Border>
+                </DockPanel>
+            </ControlTemplate>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Dark/MetroDark.MSControls.Core.Implicit.xaml" />
+                <ResourceDictionary Source="Themes/Dark/MetroDark.MSControls.Toolkit.Implicit.xaml" />
+ 
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+
+
     </Application.Resources>
 </Application>

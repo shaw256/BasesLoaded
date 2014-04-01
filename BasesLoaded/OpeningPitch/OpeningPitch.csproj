@@ -113,6 +113,7 @@
     <Compile Include="Player_Info.xaml.cs">
       <DependentUpon>Player_Info.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RegisterValidation.cs" />
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
