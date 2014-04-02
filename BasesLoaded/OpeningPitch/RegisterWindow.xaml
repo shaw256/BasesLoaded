@@ -16,8 +16,20 @@
         MouseDown="Window_MouseDown">
 
     <Window.Resources>
-        <Style BasedOn="{StaticResource TextBoxStyle}" TargetType="{x:Type TextBox}">
-            <Setter Property="Validation.ErrorTemplate">
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14.667" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+            <Setter Property="Background" Value="{StaticResource TextBoxBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="6,4" />
+            <Setter Property="MinHeight" Value="30" />
+            <Setter Property="MinWidth" Value="90" />
+            <Setter Property="IsTabStop" Value="False" />
+            
+            
+                <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>
                         <DockPanel LastChildFill="true">
@@ -33,6 +45,26 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+
+
+        <Style TargetType="{x:Type xctk:MaskedTextBox}">
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DockPanel LastChildFill="true">
+                        <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="20" Height="20" CornerRadius="10"
+                                    ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                            <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                            </TextBlock>
+                        </Border>
+                        <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                            <Border BorderBrush="red" BorderThickness="1" />
+                        </AdornedElementPlaceholder>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         </Style>
 
         <Style BasedOn="{StaticResource ComboBoxStyle}" TargetType="{x:Type ComboBox}">
@@ -52,13 +84,7 @@
 
 
 
-            <Style.Triggers>
-                <Trigger Property="Validation.HasError" Value="true">
-                    <Setter Property="ToolTip"
-                Value="{Binding RelativeSource={RelativeSource Self},
-            Path=(Validation.Errors).CurrentItem.ErrorContent}"/>
-                </Trigger>
-            </Style.Triggers>
+
         </Style>
 
 
