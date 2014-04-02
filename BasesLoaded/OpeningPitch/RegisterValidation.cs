@@ -9,6 +9,11 @@ using System.ComponentModel;
 namespace OpeningPitch
 {
     class RegisterValidation : IDataErrorInfo
+    {
+
+        public string FName { get; set; }
+        public string LName { get; set; }
+
 
         private string _name;
 

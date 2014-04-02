@@ -24,39 +24,47 @@ namespace OpeningPitch
     /// Interaction logic for RegisterWindow.xaml
     /// </summary>
 
+
     public partial class RegisterWindow : Window
     {
+        private int _noOfErrorsOnScreen = 0;
+        private RegisterValidation _applicant = new RegisterValidation();
+        LINQtoSQLDataContext db = new LINQtoSQLDataContext();
+
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
+       
+        
         public RegisterWindow()
         {
             InitializeComponent();
             First_Name_Input.Focus();
             this.State_Input.SelectedIndex = 1;
+            Register_Window.DataContext = _applicant;
         }
 
-        private string _name;
-
-        public string Name
+        private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                if (String.IsNullOrEmpty(value))
-                {
-                    throw new ApplicationException("Please enter your first name.");
-                }
-            }
+            if (e.Action == ValidationErrorEventAction.Added)
+                _noOfErrorsOnScreen++;
+            else
+                _noOfErrorsOnScreen--;
         }
 
-
-        LINQtoSQLDataContext db = new LINQtoSQLDataContext();
-
-        private void Register_Button_Click(object sender, RoutedEventArgs e)
+        
+        private void Applicant_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
+            e.CanExecute = _noOfErrorsOnScreen == 0;
+            e.Handled = true;
+        }
+
+        private void Applicant_Executed(object sender,CanExecuteRoutedEventArgs e)
+        {
+
+            RegisterValidation _applicant = Register_Window.DataContext as RegisterValidation;
+
             //if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || Email_Input.Text.Equals("") || Phone_Number_Input.Text.Equals("") || Team_Selection.Equals(null))
             //{
             //    MessageBox.Show("Please ensure all required fields are filled out.");
@@ -144,6 +152,10 @@ namespace OpeningPitch
             {
                 MessageBox.Show(ex.Message);
             }
+
+            _applicant = new RegisterValidation();
+            Register_Window.DataContext = _applicant;
+            e.Handled = true;
         }
 
         //        try
@@ -170,6 +182,16 @@ namespace OpeningPitch
         //        }
         //    }
         //}
+
+        
+
+
+
+
+
+
+
+  
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit Registration?\n\nAll data will be lost.",
