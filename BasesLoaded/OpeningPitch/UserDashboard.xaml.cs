@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,63 @@ namespace OpeningPitch
         public UserDashboard()
         {
             InitializeComponent();
+        }
+
+        LINQtoSQLDataContext db = new LINQtoSQLDataContext();
+        private void GridViewApplicants()
+        {
+            DataTable MyDataTable = new DataTable();
+
+            MyDataTable.Columns.Add(
+                new DataColumn()
+                {
+                    DataType = System.Type.GetType("System.String"),
+                    ColumnName = "First Name"
+                }
+
+              );
+
+            MyDataTable.Columns.Add(
+                new DataColumn()
+                {
+                    DataType = System.Type.GetType("System.String"),
+                    ColumnName = "Last Name"
+                }
+                );
+
+            MyDataTable.Columns.Add(
+                new DataColumn()
+                {
+                    DataType = System.Type.GetType("System.String"),
+                    ColumnName = "Email"
+                }
+                );
+
+            MyDataTable.Columns.Add(
+               new DataColumn()
+               {
+                   DataType = System.Type.GetType("System.String"),
+                   ColumnName = "Position"
+               }
+               );
+
+            var applicationQuery = from players in db.Players
+                                   where players.Approved == 0
+                                   select players;
+
+
+            foreach (var column in applicationQuery)
+            {
+                var row = MyDataTable.NewRow();
+                row["First Name"] = column.FirstName;
+                row["Last Name"] = column.LastName;
+                row["Email"] = column.Email;
+                row["Position"] = column.Position;
+                MyDataTable.Rows.Add(row);
+            }
+
+            User_View.ItemsSource = MyDataTable.AsDataView();
+            User_View.IsReadOnly = true;
         }
 
         private void Logout_btn_Click(object sender, RoutedEventArgs e)
