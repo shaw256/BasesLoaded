@@ -171,7 +171,7 @@ namespace OpeningPitch
         //            msg.To.Add(Email_Input.Text);
         //            msg.From = new MailAddress("basesloadedapp@outlook.com");
         //            msg.Subject = "Registration Successful";
-        //            msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.";
+        //            msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.\n\n"http://basesloadedapp.azurewebsites.net/";
         //            client.Send(msg);
         //            MessageBox.Show("Please check your E-Mail for a verification link.");
         //        }
