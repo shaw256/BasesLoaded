@@ -88,18 +88,26 @@ namespace OpeningPitch
                     user.AltPosition1 = Alt_Position_Selection.Text;
                     user.AltPosition2 = Alt_Position_Selection2.Text;
                     user.Gender = Gender_Selection.Text;
+                    user.Password = Confirm_Password_Input.Password;
+                    
                     if (Team_Captain.IsChecked == true)
                     {
                         user.UserType = 1;
                         user.Approved = 1;
                     }
+
+                    var teamquery = from teams in db.Teams
+                                    where teams.TeamName == "TestTeam"
+                                    select teams.TID;
+
+                    foreach (var team in teamquery)
+                    {
+                        user.TID = team;
+                    }
+
                     
-
-                    Security userSec = new Security();
-                    userSec.Password = Confirm_Password_Input.Password;
-                    userSec.SID = user.PID;
-
                     db.Players.InsertOnSubmit(user);
+
                    
                     try
                     {
@@ -110,6 +118,13 @@ namespace OpeningPitch
                     {
                         MessageBox.Show(ex.Message);
                     }
+
+
+
+
+
+
+
                     MessageBox.Show("You have successfully registered!");
                     Window BacktoMain = new MainWindow();
                     BacktoMain.Show();

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.ComponentModel;
 
 namespace OpeningPitch
 {
-    class RegisterValidation
-    {
+    class RegisterValidation : IDataErrorInfo
 
         private string _name;
 
@@ -21,6 +22,7 @@ namespace OpeningPitch
                 {
                     throw new ApplicationException("Please enter your first name.");
                 }
+
             }
         }
     }

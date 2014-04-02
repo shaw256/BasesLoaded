@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
-        xmlns:Obselete="clr-namespace:Xceed.Wpf.Toolkit.Obselete;assembly=Xceed.Wpf.Toolkit" 
+        xmlns:Obselete="clr-namespace:Xceed.Wpf.Toolkit.Obselete;assembly=Xceed.Wpf.Toolkit"
+        xmlns:local="clr-namespace:OpeningPitch"
         x:Class="OpeningPitch.RegisterWindow" 
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
@@ -57,7 +58,6 @@
             <TextBox.Text>
                 <Binding Path="Name">
                     <Binding.ValidationRules>
-                        <ExceptionValidationRule />
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
