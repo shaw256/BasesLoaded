@@ -104,7 +104,7 @@ namespace OpeningPitch
         }
        private void CreateTeam_Click(object sender, RoutedEventArgs e)
         {
-            Window Teams = new List_Teams();
+            Window Teams = new Add_Team();
            Teams.Show();
            this.Close();
         }

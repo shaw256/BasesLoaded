@@ -1,4 +1,4 @@
-﻿<Window x:Class="OpeningPitch.List_Teams"
+﻿<Window x:Class="OpeningPitch.Add_Team"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="List_Teams" 

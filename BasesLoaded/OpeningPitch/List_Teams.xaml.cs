@@ -18,9 +18,9 @@ namespace OpeningPitch
     /// <summary>
     /// Interaction logic for List_Teams.xaml
     /// </summary>
-    public partial class List_Teams : Window
+    public partial class Add_Team : Window
     {
-        public List_Teams()
+        public Add_Team()
         {
             InitializeComponent();
             Create_Team.Visibility = Visibility.Hidden;
