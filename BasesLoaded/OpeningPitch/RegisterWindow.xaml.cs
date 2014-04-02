@@ -60,7 +60,7 @@ namespace OpeningPitch
             e.Handled = true;
         }
 
-        private void Applicant_Executed(object sender,CanExecuteRoutedEventArgs e)
+        private void Applicant_Executed(object sender, ExecutedRoutedEventArgs e)
         {
 
             RegisterValidation _applicant = Register_Window.DataContext as RegisterValidation;

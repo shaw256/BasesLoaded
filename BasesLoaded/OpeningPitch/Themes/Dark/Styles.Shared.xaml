@@ -131,7 +131,7 @@
 	<SolidColorBrush x:Key="GlyphPressedBackgroundBrush" Color="{StaticResource Color_024}" />
 	<SolidColorBrush x:Key="GlyphDisabledBackgroundBrush" Color="{StaticResource Color_005}" />
 
-	<!-- ValidationToolTip Brushes -->
+	<!--Brushes -->
 	<SolidColorBrush x:Key="ValidationToolTipTemplateShadowBrush" Color="{StaticResource Color_003}" />
 
 	<!-- ******************************************************** SL-WPF SHARED INLINE CONTROLS RESOURCES ***********************************************************
