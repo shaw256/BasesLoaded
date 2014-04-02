@@ -10,15 +10,15 @@
         AllowsTransparency="True" 
         Background="{DynamicResource ButtonBackgroundBrush}"
         ResizeMode="CanResizeWithGrip"
-        MinWidth="400"
+        MinWidth="690"
         MinHeight="500">
-    
+
     <Grid x:Name="PlayerProfile" 
           Background="{DynamicResource ButtonBackgroundBrush}">
         <Button x:Name="Logout_btn" 
                 Content="Logout" 
                 HorizontalAlignment="Left" 
-                Margin="207,0,0,0" 
+                Margin="10,10,0,0" 
                 VerticalAlignment="Top" 
                 Width="95" 
                 Click="Logout_btn_Click" 
@@ -28,49 +28,14 @@
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top" 
                 Width="95" 
-                Margin="10,65,0,0" 
+                Margin="10,85,0,0" 
                 Height="24"/>
-        <Label x:Name="Name_Label" 
-               Content="Name" 
-               HorizontalAlignment="Left" 
-               Height="25" 
-               Margin="14,120,0,0" 
-               VerticalAlignment="Top" 
-               Width="45"/>
-        <Label x:Name="Email_Label" 
-               Content="Email" 
-               HorizontalAlignment="Left" 
-               Height="29" 
-               Margin="15,150,0,0" 
-               VerticalAlignment="Top" 
-               Width="44"/>
-        <Label x:Name="Phone_Label" 
-               Content="Phone" 
-               HorizontalAlignment="Left" 
-               Height="24" 
-               Margin="15,247,0,0" 
-               VerticalAlignment="Top" 
-               Width="59"/>
-        <Label x:Name="Address_Label" 
-               Content="Address" 
-               HorizontalAlignment="Left" 
-               Height="27" 
-               Margin="15,215,0,0" 
-               VerticalAlignment="Top" 
-               Width="60"/>
         <Label Grid.Column="1" 
                HorizontalAlignment="Left" 
                Height="3" 
                Margin="19,174,0,0" 
                VerticalAlignment="Top" 
                Width="22"/>
-        <Label x:Name="UserTeam_Label" 
-               Content="Team" 
-               HorizontalAlignment="Left" 
-               Height="31" 
-               Margin="15,184,0,0" 
-               VerticalAlignment="Top" 
-               Width="44"/>
         <Button Content="X" 
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Right"
@@ -85,7 +50,7 @@
                 FontWeight="Bold" Margin="0,10,10,0" FontSize="14"/>
         <Button Content="-" 
                 HorizontalAlignment="Left" 
-                Margin="340,10,0,0" 
+                Margin="630,10,0,0" 
                 VerticalAlignment="Top" 
                 Width="25" 
                 Height="25"
@@ -98,9 +63,10 @@
         <Button x:Name="UserViewRoster_btn" 
                 Content="View Roster" 
                 HorizontalAlignment="Left" 
-                Margin="270,65,0,0" 
+                Margin="585,85,0,0" 
                 VerticalAlignment="Top"
                 Width="95" 
                 Height="24"/>
+        <DataGrid x:Name="User_View" HorizontalAlignment="Left" Height="370" Margin="10,120,0,0" VerticalAlignment="Top" Width="670" Background="{DynamicResource Brush05}"/>
     </Grid>
 </Window>
