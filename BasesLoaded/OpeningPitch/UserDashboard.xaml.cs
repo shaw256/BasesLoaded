@@ -111,5 +111,10 @@ namespace OpeningPitch
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        private void UserViewRoster_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

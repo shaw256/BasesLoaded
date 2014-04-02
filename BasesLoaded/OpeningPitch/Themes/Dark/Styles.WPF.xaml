@@ -667,13 +667,7 @@
 												</DiscreteObjectKeyFrame.Value>
 											</DiscreteObjectKeyFrame>
 										</ObjectAnimationUsingKeyFrames>
-										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IsOpen" Storyboard.TargetName="validationTooltip">
-											<DiscreteObjectKeyFrame KeyTime="0">
-												<DiscreteObjectKeyFrame.Value>
-													<System:Boolean>True</System:Boolean>
-												</DiscreteObjectKeyFrame.Value>
-											</DiscreteObjectKeyFrame>
-										</ObjectAnimationUsingKeyFrames>
+										
 									</Storyboard>
 								</VisualState>
 							</VisualStateGroup>
@@ -687,25 +681,7 @@
 						<Border x:Name="DisabledVisualElement" BorderBrush="{StaticResource DisabledVisualElement}" BorderThickness="{TemplateBinding BorderThickness}" Background="{StaticResource DisabledVisualElement}" IsHitTestVisible="False" Opacity="0" />
 						<Border x:Name="FocusVisualElement" BorderBrush="{StaticResource TextBoxFocusedBrush}" BorderThickness="{TemplateBinding BorderThickness}" IsHitTestVisible="False" Opacity="0" />
 						<Border x:Name="ValidationErrorElement" BorderBrush="{StaticResource ValidationErrorElement}" BorderThickness="{TemplateBinding BorderThickness}" Visibility="Collapsed">
-							<ToolTipService.ToolTip>
-								<ToolTip x:Name="validationTooltip" DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ValidationToolTipTemplate}">
-									<ToolTip.Triggers>
-										<EventTrigger RoutedEvent="Canvas.Loaded">
-											<BeginStoryboard>
-												<Storyboard>
-													<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IsHitTestVisible" Storyboard.TargetName="validationTooltip">
-														<DiscreteObjectKeyFrame KeyTime="0">
-															<DiscreteObjectKeyFrame.Value>
-																<System:Boolean>true</System:Boolean>
-															</DiscreteObjectKeyFrame.Value>
-														</DiscreteObjectKeyFrame>
-													</ObjectAnimationUsingKeyFrames>
-												</Storyboard>
-											</BeginStoryboard>
-										</EventTrigger>
-									</ToolTip.Triggers>
-								</ToolTip>
-							</ToolTipService.ToolTip>
+
 						</Border>
 					</Grid>
 				</ControlTemplate>

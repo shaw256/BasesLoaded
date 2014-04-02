@@ -20,29 +20,48 @@
             <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>
-                        <DockPanel LastChildFill="True">
-                            <TextBlock DockPanel.Dock="Right" 
-                        Foreground="Orange"
-                        FontSize="12pt">
-                        !!!!
-                            </TextBlock>
-                            <Border BorderBrush="Green" BorderThickness="1">
-                                <AdornedElementPlaceholder />
+                        <DockPanel LastChildFill="true">
+                            <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="20" Height="20" CornerRadius="10"
+                                    ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                                </TextBlock>
                             </Border>
+                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                <Border BorderBrush="red" BorderThickness="1" />
+                            </AdornedElementPlaceholder>
                         </DockPanel>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+
+        <Style BasedOn="{StaticResource ComboBoxStyle}" TargetType="{x:Type ComboBox}">
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Foreground="Red" FontSize="24" Text="*" 
+                   ToolTip="{Binding .CurrentItem}">
+                            </TextBlock>
+                            <AdornedElementPlaceholder>
+                            </AdornedElementPlaceholder>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+
 
             <Style.Triggers>
-            <Trigger Property="Validation.HasError" Value="true">
-                <Setter Property="ToolTip"
-                Value="{Binding RelativeSource={RelativeSource Self}, 
-                       Path=(Validation.Errors)[0].ErrorContent}"/>
-            </Trigger>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                Value="{Binding RelativeSource={RelativeSource Self},
+            Path=(Validation.Errors).CurrentItem.ErrorContent}"/>
+                </Trigger>
             </Style.Triggers>
-        
         </Style>
+
+
     </Window.Resources>
 
     <Grid x:Name="Register_Window" 
@@ -351,11 +370,7 @@
                   HorizontalAlignment="Center"
                   Margin="130,334,150,136"
                   VerticalAlignment="Center"
-                  Width="120"
-                  Grid.Row="10"
-                  Grid.Column="1"
-                  Validation.Error="Validation_Error"
-                  Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AltPosition1, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
+                  Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -384,11 +399,7 @@
                   HorizontalAlignment="Center" 
                   Margin="130,364,150,106" 
                   VerticalAlignment="Center" 
-                  Width="120"
-                  Grid.Row="11"
-                  Grid.Column="1"
-                  Validation.Error="Validation_Error"
-                  Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AltPosition2, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
+                  Width="120">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
