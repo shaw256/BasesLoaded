@@ -104,7 +104,7 @@ namespace OpeningPitch
         }
        private void CreateTeam_Click(object sender, RoutedEventArgs e)
         {
-            Window Teams = new Add_Team();
+           Window Teams = new Add_Team();
            Teams.Show();
            this.Close();
         }
@@ -208,8 +208,8 @@ namespace OpeningPitch
         {           
             //List<Player> Players = (from p in db.Players
             IEnumerable<Player> Players= (from p in db.Players
-                                    where  p.Approved==1 && p.TID==3
-                                    orderby p.PID
+                                   where  p.Approved==1 && p.TID==3
+                                   orderby p.PID
                                    select p).ToList();
 
 

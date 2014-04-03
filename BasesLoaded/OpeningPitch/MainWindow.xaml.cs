@@ -92,6 +92,8 @@ namespace OpeningPitch
                 globals.user.AltPosition2 = player.AltPosition2;
                 globals.user.Gender = player.Gender;
                 globals.user.UserType = player.UserType;
+                globals.user.PID = player.PID;
+                globals.user.TID = player.TID;
             }
 
         }   
