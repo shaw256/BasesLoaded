@@ -65,7 +65,7 @@ namespace OpeningPitch
 
             RegisterValidation _applicant = Register_Window.DataContext as RegisterValidation;
 
-            //if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || Email_Input.Text.Equals("") || Phone_Number_Input.Text.Equals("") || Team_Selection.Equals(null))
+            //if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || Email_Input.Text.Equals("") || Phone_Number_Input.Text.Equals(""))
             //{
             //    MessageBox.Show("Please ensure all required fields are filled out.");
             //}
@@ -73,6 +73,7 @@ namespace OpeningPitch
             //{
             //    MessageBox.Show("The Passwords do not match, Please try again.");
             //}
+
             try
             {
                 var query = from stuff in db.Players
@@ -126,13 +127,6 @@ namespace OpeningPitch
                     {
                         MessageBox.Show(ex.Message);
                     }
-
-
-
-
-
-
-
                     MessageBox.Show("You have successfully registered!");
                     Window BacktoMain = new MainWindow();
                     BacktoMain.Show();
@@ -153,45 +147,35 @@ namespace OpeningPitch
                 MessageBox.Show(ex.Message);
             }
 
+            
+
+            try
+                {
+                    SmtpClient client = new SmtpClient("smtp.live.com", 587);
+                    client.EnableSsl = true;
+                    client.Timeout = 10000;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
+
+                    MailMessage msg = new MailMessage();
+                    msg.To.Add(Email_Input.Text);
+                    msg.From = new MailAddress("basesloadedapp@outlook.com");
+                    msg.Subject = "Registration Successful";
+                    msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.\n\nhttp://basesloadedapp.azurewebsites.net/";
+                    client.Send(msg);
+                    MessageBox.Show("Please check your E-Mail for a verification link.");
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString());
+                }
+
             _applicant = new RegisterValidation();
             Register_Window.DataContext = _applicant;
             e.Handled = true;
         }
-
-        //        try
-        //        {
-        //            SmtpClient client = new SmtpClient("smtp.live.com", 587);
-        //            client.EnableSsl = true;
-        //            client.Timeout = 10000;
-        //            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-        //            client.UseDefaultCredentials = false;
-        //            client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
-
-        //            MailMessage msg = new MailMessage();
-        //            msg.To.Add(Email_Input.Text);
-        //            msg.From = new MailAddress("basesloadedapp@outlook.com");
-        //            msg.Subject = "Registration Successful";
-        //            msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.\n\n"http://basesloadedapp.azurewebsites.net/";
-        //            client.Send(msg);
-        //            MessageBox.Show("Please check your E-Mail for a verification link.");
-        //        }
-        //        catch (Exception ex)
-        //        {
-
-        //            MessageBox.Show(ex.ToString());
-        //        }
-        //    }
-        //}
-
-        
-
-
-
-
-
-
-
-  
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit Registration?\n\nAll data will be lost.",

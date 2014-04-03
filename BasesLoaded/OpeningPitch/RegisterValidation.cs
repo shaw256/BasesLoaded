@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 namespace OpeningPitch
 {
@@ -24,6 +26,16 @@ namespace OpeningPitch
         public string AltPosition1  { get; set; }
         public string AltPosition2  { get; set; }
 
+        private bool ValidateEmail(string emailaddress)
+        {
+            
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(emailaddress);
+            if (match.Success)
+                return true;
+            else
+                return false;
+        }
 
         public string Error
         {
@@ -41,6 +53,11 @@ namespace OpeningPitch
                     {
                         result = "Please enter a First Name";
                     }
+
+                    else if (Regex.IsMatch(FName, @"[\W\d]" ))
+                    {
+                        result = "First name cannot contain non-letters.";
+                    }
                 }
 
                 if (columnName == "LName")
@@ -49,6 +66,12 @@ namespace OpeningPitch
                     {
                         result = "Please enter a Last Name";
                     }
+
+                    else if (Regex.IsMatch(LName, @"[\W\d^]"))
+                    {
+                        result = "Last name cannot contain non-letters.";
+                    }
+
                 }
 
                 if (columnName == "Address1")
@@ -69,6 +92,11 @@ namespace OpeningPitch
                     {
                         result = "Please enter your city.";
                     }
+
+                    else if (Regex.IsMatch(City, @"\d"))
+                    {
+                        result = "City can contain only letters.";
+                    }
                 }
 
                 if (columnName == "Zipcode")
@@ -77,13 +105,33 @@ namespace OpeningPitch
                     {
                         result = "Please enter your Zipcode.";
                     }
+
+                    else if (Zipcode.Length != 5)
+                    {
+                        result = "Zipcode cannot exceed 5 digits";
+                    }
+
+                    else if (Regex.IsMatch(Zipcode, @"\D"))
+                    {
+                        result = "Zipcode can contain only numbers.";
+                    }
                 }
 
                 if (columnName == "Email")
                 {
                     if (string.IsNullOrEmpty(Email))
                     {
-                        result = "Please enter your address.";
+                        result = "Please enter your email address.";
+                    }
+
+                    else if (!ValidateEmail(Email))
+                    {
+                        result = "Please enter a valid email address.";
+                    }
+
+                    else if (Email.Length > 50)
+                    {
+                        result = "Email addresses cannot exceed 50 characters.";
                     }
                 }
 
@@ -109,16 +157,38 @@ namespace OpeningPitch
                     {
                         result = "Please select a position.";
                     }
+
+                    if (Position != null)
+                    {
+                        if (Position == AltPosition1 || Position == AltPosition2)
+                            {
+                                result = "You have selected duplicate positions.";
+                            }
+                    }
                 }
 
                 if (columnName == "AltPosition1")
                 {
-                    
+                    if (AltPosition1 != null)
+                    {
+
+                        if (AltPosition1 == Position || AltPosition1 == AltPosition2)
+                        {
+                            result = "Please select a different position than already selected.";
+                        }
+                    }
                 }
 
                 if (columnName == "AltPosition2")
                 {
+                    if (AltPosition2 != null)
+                    {
 
+                        if (AltPosition2 == Position || AltPosition1 == AltPosition2)
+                        {
+                            result = "Please select a different position than already selected.";
+                        }
+                    }
                 }
                 return result;
             }

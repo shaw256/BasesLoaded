@@ -27,10 +27,11 @@ namespace OpeningPitch
         public UserDashboard()
         {
             InitializeComponent();
+
         }
 
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
-        private void GridViewApplicants()
+        private void GridViewRoster()
         {
             DataTable MyDataTable = new DataTable();
 
@@ -52,14 +53,6 @@ namespace OpeningPitch
                 );
 
             MyDataTable.Columns.Add(
-                new DataColumn()
-                {
-                    DataType = System.Type.GetType("System.String"),
-                    ColumnName = "Email"
-                }
-                );
-
-            MyDataTable.Columns.Add(
                new DataColumn()
                {
                    DataType = System.Type.GetType("System.String"),
@@ -77,7 +70,6 @@ namespace OpeningPitch
                 var row = MyDataTable.NewRow();
                 row["First Name"] = column.FirstName;
                 row["Last Name"] = column.LastName;
-                row["Email"] = column.Email;
                 row["Position"] = column.Position;
                 MyDataTable.Rows.Add(row);
             }
@@ -113,6 +105,11 @@ namespace OpeningPitch
         }
 
         private void UserViewRoster_btn_Click(object sender, RoutedEventArgs e)
+        {
+            GridViewRoster();
+        }
+
+        private void EditInfo_btn_Click(object sender, RoutedEventArgs e)
         {
 
         }
