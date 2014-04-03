@@ -27,9 +27,9 @@
             <Setter Property="MinHeight" Value="30" />
             <Setter Property="MinWidth" Value="90" />
             <Setter Property="IsTabStop" Value="False" />
-            
-            
-                <Setter Property="Validation.ErrorTemplate">
+
+
+            <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>
                         <DockPanel LastChildFill="true">
@@ -49,35 +49,38 @@
 
 
         <Style TargetType="{x:Type xctk:MaskedTextBox}">
-        <Setter Property="Validation.ErrorTemplate">
-            <Setter.Value>
-                <ControlTemplate>
-                    <DockPanel LastChildFill="true">
-                        <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="20" Height="20" CornerRadius="10"
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel LastChildFill="true">
+                            <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="20" Height="20" CornerRadius="10"
                                     ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
-                            <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
-                            </TextBlock>
-                        </Border>
-                        <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
-                            <Border BorderBrush="red" BorderThickness="1" />
-                        </AdornedElementPlaceholder>
-                    </DockPanel>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                                </TextBlock>
+                            </Border>
+                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                <Border BorderBrush="red" BorderThickness="1" />
+                            </AdornedElementPlaceholder>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style BasedOn="{StaticResource ComboBoxStyle}" TargetType="{x:Type ComboBox}">
             <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Foreground="Red" FontSize="24" Text="*" 
-                   ToolTip="{Binding .CurrentItem}">
-                            </TextBlock>
-                            <AdornedElementPlaceholder>
+                        <DockPanel LastChildFill="true">
+                            <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="20" Height="20" CornerRadius="10"
+                                    ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                                </TextBlock>
+                            </Border>
+                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                <Border BorderBrush="red" BorderThickness="1" />
                             </AdornedElementPlaceholder>
-                        </StackPanel>
+                        </DockPanel>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -92,12 +95,13 @@
 
     <Grid x:Name="Register_Window" 
           Background="{DynamicResource ButtonBackgroundBrush}">
-            
+
         <Grid.CommandBindings>
             <CommandBinding Command="New" CanExecute="Applicant_CanExecute" Executed="Applicant_Executed"></CommandBinding>
         </Grid.CommandBindings>
-        
-        <TextBox x:Name="First_Name_Input" 
+
+        <TextBox
+            x:Name="First_Name_Input" 
 			HorizontalAlignment="Center" 
 			Height="23" 
 			Margin="130,10,150,460" 
@@ -127,9 +131,9 @@
 			Margin="6,40,322,430" 
 			VerticalAlignment="Center" 
             Height="30"/>
-        
-        
-        
+
+
+
         <TextBox x:Name="Last_Name_Input" 
 			HorizontalAlignment="Center" 
 			Height="23" 
@@ -153,19 +157,17 @@
 			Margin="6,70,326,400" 
 			VerticalAlignment="Center"
             Height="30"/>
-        
-        
-        
-        
+
+
+
+
         <TextBox x:Name="Address_Input" 
             HorizontalAlignment="Center" 
 			Height="23" 
-			Margin="130,70,70,400" 
+			Margin="130,70,36,400" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Center" 
-			Width="200"
-            Grid.Row="2"
-            Grid.Column="1"
+			Width="234"
             Validation.Error="Validation_Error"
             Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Address1, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
         <Label x:Name="Address2_Label"
@@ -174,31 +176,27 @@
         	Margin="6,100,326,370" 
         	VerticalAlignment="Center"
         	Height="30"/>
-        
-        
-        
+
+
+
         <TextBox x:Name="Address2_Input" 
         	HorizontalAlignment="Center" 
         	Height="23" 
-        	Margin="130,100,70,370" 
+        	Margin="130,100,36,370" 
         	TextWrapping="Wrap" 
         	VerticalAlignment="Center" 
-        	Width="200"
-            Grid.Row="3"
-            Grid.Column="1"
+        	Width="234"
             Validation.Error="Validation_Error"
             Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Address2, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
                  />
-        
+
         <TextBox x:Name="City_Input"
              HorizontalAlignment="Center" 
              Height="23" 
-             Margin="130,130,150,340" 
+             Margin="130,130,36,340" 
              TextWrapping="Wrap" 
              VerticalAlignment="Center" 
-             Width="120"
-            Grid.Row="4"
-            Grid.Column="1"
+             Width="234"
             Validation.Error="Validation_Error"
             Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=City, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
         <Label Content="City" 
@@ -268,39 +266,37 @@
         	HorizontalAlignment="Center" 
         	Margin="6,160,354,310" 
         	VerticalAlignment="Center" Height="30"/>
-        
-        
+
+
         <TextBox x:Name="Zipcode_Input" 
             HorizontalAlignment="Center" 
             Height="26" 
-            Margin="266,160,70,310" 
+            Margin="304,160,35,310" 
             TextWrapping="Wrap" 
             VerticalAlignment="Center"
-            Width="64"
-            Grid.Row="5"
-            Grid.Column="1"
+            Width="60"
+            MinWidth="60"
+            MaxLength="5"
             Validation.Error="Validation_Error"
             Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Zipcode, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
         <Label x:Name="Zipcode_label" 
         	Content="Zipcode" 
         	HorizontalAlignment="Center" 
-        	Margin="207,160,133,310" 
+        	Margin="236,160,104,310" 
         	VerticalAlignment="Center" 
             Height="30" 
             Width="60"/>
-        
-        
-        
+
+
+
         <TextBox x:Name="Email_Input" 
 			HorizontalAlignment="Center" 
 			Height="23" 
-			Margin="130,214,150,256" 
+			Margin="130,214,36,256" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Center" 
-			Width="120"
+			Width="234"
             InputScope="InputScopeNameValue.EmailSmtpAddress"
-            Grid.Row="6"
-            Grid.Column="1"
             Validation.Error="Validation_Error"
             Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Email, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
         <Label x:Name="E_Mail_Label" 
@@ -317,24 +313,23 @@
 			Height="23" 
 			RenderTransformOrigin="5.2,4.087"/>
 
-        
+
 
         <xctk:MaskedTextBox x:Name="Phone_Number_Input" 
             HorizontalAlignment="Center" 
-            Margin="130,244,150,226" 
+            Margin="130,244,104,226" 
             TextWrapping="Wrap"  
             VerticalAlignment="Center" 
             InputScope="InputScopeNameValue.TelephoneNumber"  
             Mask="(000) 000 - 0000" 
-            Width="120" 
+            Width="166" 
             Height="30" 
+            FontSize="20px"
             RenderTransformOrigin="0.483,0.391" 
             Background="#FF181818" 
             Foreground="{StaticResource ForegroundBrush}" 
             BorderBrush="{DynamicResource ButtonBorderBrush}" 
             CaretBrush="{DynamicResource TransparentBrush}"
-            Grid.Row="7"
-            Grid.Column="1"
             Validation.Error="Validation_Error"
             Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=PhoneNumber, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
         <Label x:Name="Phone_Number_Label" 
@@ -343,8 +338,8 @@
 			Margin="6,244,295,226" 
 			VerticalAlignment="Center" 
 			Height="30"/>
-        
-        
+
+
         <Label x:Name="Position_Label" 
 			Content="Desired Position" 
 			HorizontalAlignment="Center" 
@@ -352,7 +347,7 @@
 			VerticalAlignment="Center" 
 			Height="30" 
 			Width="116"/>
-        
+
         <Label x:Name="Gender_Label" 
 			Content="Gender" 
 			HorizontalAlignment="Center" 
@@ -360,7 +355,7 @@
 			VerticalAlignment="Center" 
 			Height="30" 
 			Width="97"/>
-        
+
         <ComboBox x:Name="Gender_Selection" 
                   HorizontalAlignment="Center" 
                   Margin="130,274,150,196" 
@@ -396,7 +391,11 @@
                   HorizontalAlignment="Center"
                   Margin="130,334,150,136"
                   VerticalAlignment="Center"
-                  Width="120">
+                  Width="120"
+                  Grid.Row="10"
+                  Grid.Column="1"
+                  Validation.Error="Validation_Error"
+                  Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AltPosition1, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -407,6 +406,8 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
+
+
         <Label x:Name="Alt_Position_Label2" 
         	Content="Alternate Position2" 
         	HorizontalAlignment="Center" 
@@ -425,7 +426,11 @@
                   HorizontalAlignment="Center" 
                   Margin="130,364,150,106" 
                   VerticalAlignment="Center" 
-                  Width="120">
+                  Width="120"
+                  Grid.Row="11"
+                  Grid.Column="1"
+                  Validation.Error="Validation_Error"
+                  Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AltPosition2, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>

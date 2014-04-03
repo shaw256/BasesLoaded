@@ -29,7 +29,7 @@
                 VerticalAlignment="Top" 
                 Width="95" 
                 Margin="10,85,0,0" 
-                Height="24"/>
+                Height="24" Click="EditInfo_btn_Click"/>
         <Label Grid.Column="1" 
                HorizontalAlignment="Left" 
                Height="3" 
