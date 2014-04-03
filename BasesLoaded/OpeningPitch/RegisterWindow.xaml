@@ -325,6 +325,7 @@
 			VerticalAlignment="Center" 
 			Height="30"/>
 
+
         <Label x:Name="Position_Label" 
 			Content="Desired Position" 
 			HorizontalAlignment="Center" 
