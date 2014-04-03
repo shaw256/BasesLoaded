@@ -108,5 +108,11 @@ namespace OpeningPitch
         {
             GridViewRoster();
         }
+
+        private void EditInfo_btn_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+        }
     }
 }
