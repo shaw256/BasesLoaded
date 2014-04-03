@@ -147,9 +147,7 @@ namespace OpeningPitch
                 MessageBox.Show(ex.Message);
             }
 
-            _applicant = new RegisterValidation();
-            Register_Window.DataContext = _applicant;
-            e.Handled = true;
+            
 
             try
                 {
@@ -173,6 +171,10 @@ namespace OpeningPitch
 
                     MessageBox.Show(ex.ToString());
                 }
+
+            _applicant = new RegisterValidation();
+            Register_Window.DataContext = _applicant;
+            e.Handled = true;
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {

@@ -197,6 +197,11 @@ namespace OpeningPitch
             Add_Player.Visibility = Visibility.Hidden;
             Delete_Player.Visibility = Visibility.Hidden;
         }
+
+        private void Deny_Player_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }   
            
 }
