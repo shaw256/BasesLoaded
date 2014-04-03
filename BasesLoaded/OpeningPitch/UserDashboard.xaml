@@ -75,6 +75,7 @@
                   Margin="10,120,10,10" 
                   VerticalAlignment="Center" 
                   Width="670"
+                  CellEditEnding="User_View_CellEditEnding"
                   Background="{DynamicResource ButtonBackgroundBrush}"/>
     </Grid>
 </Window>
