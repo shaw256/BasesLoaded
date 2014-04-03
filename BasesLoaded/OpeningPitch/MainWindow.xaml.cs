@@ -49,6 +49,7 @@ namespace OpeningPitch
                         where (players.Email == Username_Input.Text && players.Password == Password_Input.Password)
                         select players;
 
+            
             foreach (var player in query)
             {
                  if (query.Count() == 0)
@@ -61,6 +62,7 @@ namespace OpeningPitch
                     Window UserDashboard = new UserDashboard();
                     UserDashboard.Show();
                     this.Close();
+
                 }
 
                 else if (player.UserType == 1)
@@ -76,6 +78,20 @@ namespace OpeningPitch
                     Dashboard.Show();
                     this.Close();
                 }
+                globals.user.FirstName = player.FirstName;
+                globals.user.LastName = player.LastName;
+                globals.user.Email = player.Email;
+                globals.user.PhoneNumber = player.PhoneNumber;
+                globals.user.Address = player.Address;
+                globals.user.Address2 = player.Address2;
+                globals.user.City = player.City;
+                globals.user.State = player.State;
+                globals.user.Zipcode = player.Zipcode;
+                globals.user.Position = player.Position;
+                globals.user.AltPosition = player.AltPosition1;
+                globals.user.AltPosition2 = player.AltPosition2;
+                globals.user.Gender = player.Gender;
+                globals.user.UserType = player.UserType;
             }
 
         }   
