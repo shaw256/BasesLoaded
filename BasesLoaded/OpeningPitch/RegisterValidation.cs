@@ -25,6 +25,8 @@ namespace OpeningPitch
         public string Position      { get; set; }
         public string AltPosition1  { get; set; }
         public string AltPosition2  { get; set; }
+        public string TeamChoice    { get; set; }
+        public string NewTeamName   { get; set; }
 
         private bool ValidateEmail(string emailaddress)
         {
@@ -169,7 +171,7 @@ namespace OpeningPitch
 
                 if (columnName == "AltPosition1")
                 {
-                    if (AltPosition1 != null)
+                    if (AltPosition1 != null && AltPosition1 != "")
                     {
 
                         if (AltPosition1 == Position || AltPosition1 == AltPosition2)
@@ -181,13 +183,29 @@ namespace OpeningPitch
 
                 if (columnName == "AltPosition2")
                 {
-                    if (AltPosition2 != null)
+                    if (AltPosition2 != null && AltPosition2 != "")
                     {
 
                         if (AltPosition2 == Position || AltPosition1 == AltPosition2)
                         {
                             result = "Please select a different position than already selected.";
                         }
+                    }
+                }
+
+                if (columnName == "TeamChoice")
+                {
+                    if (TeamChoice == null)
+                    {
+                        result = "Please select an option.";
+                    }
+                }
+
+                if (columnName == "NewTeamName")
+                {
+                    if (NewTeamName == null)
+                    {
+                        result = "Please select an option.";
                     }
                 }
                 return result;
