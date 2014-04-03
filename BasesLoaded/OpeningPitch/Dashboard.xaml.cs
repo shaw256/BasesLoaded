@@ -179,11 +179,14 @@ namespace OpeningPitch
 
         private void Login_Home_Click(object sender, RoutedEventArgs e)
         {
-            Approve_Player.Visibility = Visibility.Hidden;
-            Deny_Player.Visibility = Visibility.Hidden;
-            Cancel_Event.Visibility = Visibility.Hidden;
-            Add_Player.Visibility = Visibility.Hidden;
-            Delete_Player.Visibility = Visibility.Hidden;
+            //Approve_Player.Visibility = Visibility.Hidden;
+           // Deny_Player.Visibility = Visibility.Hidden;
+            //Cancel_Event.Visibility = Visibility.Hidden;
+            //Add_Player.Visibility = Visibility.Hidden;
+            //Delete_Player.Visibility = Visibility.Hidden;
+            Window home = new Dashboard();
+            home.Show();
+            this.Close();
           
         }
 
