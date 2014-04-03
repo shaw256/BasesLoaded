@@ -111,7 +111,7 @@ namespace OpeningPitch
 
         private void EditInfo_btn_Click(object sender, RoutedEventArgs e)
         {
-           
+
         }
     }
 }
