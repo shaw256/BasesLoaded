@@ -12,11 +12,12 @@
         WindowStyle="None"
         Title="RegisterWindow" 
         Height="500" 
-        Width="400" 
+        Width="748.522" 
         MouseDown="Window_MouseDown">
 
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
+            
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="FontSize" Value="14.667" />
             <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
@@ -27,9 +28,7 @@
             <Setter Property="MinHeight" Value="30" />
             <Setter Property="MinWidth" Value="90" />
             <Setter Property="IsTabStop" Value="False" />
-
-
-            <Setter Property="Validation.ErrorTemplate">
+             <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>
                         <DockPanel LastChildFill="true">
@@ -84,17 +83,11 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
-
-
-
         </Style>
-
-
     </Window.Resources>
 
     <Grid x:Name="Register_Window" 
-          Background="{DynamicResource ButtonBackgroundBrush}">
+          Background="{DynamicResource ButtonBackgroundBrush}" HorizontalAlignment="Left" Width="749">
 
         <Grid.CommandBindings>
             <CommandBinding Command="New" CanExecute="Applicant_CanExecute" Executed="Applicant_Executed"></CommandBinding>
@@ -111,7 +104,7 @@
             Grid.Row="0"
             Grid.Column="1"
             Validation.Error="Validation_Error"
-            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=FName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" />
+            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=FName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
         <Label x:Name="First_Name_Label" 
 			Content="First Name" 
 			HorizontalAlignment="Center" 
@@ -119,12 +112,6 @@
 			VerticalAlignment="Center" 
 			Height="30" 
             Foreground="{DynamicResource AccordionButtonExpandedBackgroundBrush}"/>
-        <Label x:Name="First_Name_Required" 
-			Content="*" 
-			HorizontalAlignment="Center" 
-			Margin="256,10,128,467" 
-			VerticalAlignment="Center" 
-			Height="23"/>
         <Label x:Name="Last_Name_Label" 
 			Content="Last Name" 
 			HorizontalAlignment="Center" 
@@ -145,12 +132,6 @@
             Grid.Column="1"
             Validation.Error="Validation_Error"
             Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=LName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
-        <Label x:Name="Last_Name_Required" 
-			Content="*" 
-			HorizontalAlignment="Center" 
-			Margin="255,40,129,437" 
-			VerticalAlignment="Center" 
-			Height="23"/>
         <Label x:Name="Address_Label"
             Content="Address 1" 
 			HorizontalAlignment="Center" 
@@ -205,8 +186,9 @@
              VerticalAlignment="Center" 
              Height="30"/>
 
-        <ComboBox x:Name="State_Input" 
-        	HorizontalAlignment="Center" 
+        <ComboBox 
+            x:Name="State_Input" 
+            HorizontalAlignment="Center" 
         	Margin="130,160,198,310" 
         	VerticalAlignment="Center" 
         	Width="72" Height="3" MaxDropDownHeight="150">
@@ -377,6 +359,7 @@
                   Grid.Column="1"
                   Validation.Error="Validation_Error"
                   Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Position, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
+            
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -396,6 +379,7 @@
                   Grid.Column="1"
                   Validation.Error="Validation_Error"
                   Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AltPosition1, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
+            <ComboBoxItem Content="" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -431,6 +415,7 @@
                   Grid.Column="1"
                   Validation.Error="Validation_Error"
                   Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AltPosition2, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
+            <ComboBoxItem Content="" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -448,9 +433,14 @@
                      HorizontalAlignment="Right" 
                      VerticalAlignment="Bottom" 
                      BorderBrush="{DynamicResource ButtonBorderBrush}" 
-                     Margin="0,0,10,126" 
+                     Margin="0,0,10,165" 
                      Height="31" 
-                     Width="97" />
+                     Width="97" 
+                     Checked="Team_Player_Checked"
+                     Grid.Row="15"
+                     Grid.Column="1"
+                     Validation.Error="Validation_Error"/>
+
         <RadioButton x:Name="Team_Captain" 
                      GroupName="User_Type" 
                      Content="Team Captain" 
@@ -458,7 +448,8 @@
                      HorizontalAlignment="Right" 
                      VerticalAlignment="Bottom" 
                      BorderBrush="{DynamicResource ButtonBorderBrush}" 
-                     Margin="0,0,10,162"/>
+                     Margin="0,0,10,196" Checked="Team_Captain_Checked"/>
+
         <Label x:Name="New_Password_Label" 
         	Content="New Password" 
         	HorizontalAlignment="Center" 
@@ -469,7 +460,7 @@
         <Label x:Name="New_Password_Required" 
         	Content="*" 
         	HorizontalAlignment="Center" 
-        	Margin="260,397,124,80" 
+        	Margin="250,397,134,80" 
         	VerticalAlignment="Center" 
         	Height="23" 
         	RenderTransformOrigin="5.2,4.087"/>
@@ -488,7 +479,7 @@
         <Label x:Name="Confrm_Password_Required" 
         	Content="*" 
         	HorizontalAlignment="Center" 
-        	Margin="260,430,124,47" 
+        	Margin="250,430,134,47" 
         	VerticalAlignment="Center" 
         	Height="23" 
         	RenderTransformOrigin="5.2,4.087"/>
@@ -551,5 +542,31 @@
 			Margin="10,468,305,6" 
 			VerticalAlignment="Center" 
 			Height="26"/>
+
+        <Label x:Name="TeamListLabel" Content="Team" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="522,336,0,0"/>
+        <ComboBox 
+            x:Name="TeamList"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="135"
+            Margin="567,334,0,0"
+            Validation.Error="Validation_Error"
+            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=TeamChoice, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"  
+            />
+
+        <Label x:Name="CustomTeamLabel" Content="Team Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="487,370,0,0" Width="80"/>
+        <TextBox 
+            x:Name="CustomTeam"
+            HorizontalAlignment="Left" 
+            Height="23"
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="135" 
+            Margin="567,369,0,0"
+            FontSize="12px"
+            Validation.Error="Validation_Error"
+            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=NewTeamName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+
+
     </Grid>
 </Window>
