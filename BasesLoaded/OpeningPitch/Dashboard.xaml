@@ -74,7 +74,9 @@
             Width="671" BorderBrush="{DynamicResource AccordionBorderBrush}" 
             Background="{DynamicResource AccordionBackgroundBrush}"
             SelectionMode="Single"
-            SelectionUnit="FullRow"/>
+            SelectionUnit="FullRow"
+            />
+
         <Button x:Name="Dashboard_Logout" 
 			Content="Logout" 
 			HorizontalAlignment="Right" 
