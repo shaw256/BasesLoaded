@@ -551,5 +551,11 @@
 			Margin="10,468,305,6" 
 			VerticalAlignment="Center" 
 			Height="26"/>
+        <Label x:Name="Last_Name_Required_Copy" 
+        	Content="*" 
+        	HorizontalAlignment="Center" 
+        	Margin="369,70,15,400" 
+        	VerticalAlignment="Center" 
+        	Height="30"/>
     </Grid>
 </Window>
