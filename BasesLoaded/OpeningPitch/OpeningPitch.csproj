@@ -104,8 +104,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LINQtoSQL.dbml</DependentUpon>
     </Compile>
-    <Compile Include="List_Teams.xaml.cs">
-      <DependentUpon>List_Teams.xaml</DependentUpon>
+    <Compile Include="Add_Teams.xaml.cs">
+      <DependentUpon>Add_Teams.xaml</DependentUpon>
     </Compile>
     <Compile Include="Manage_Roster.xaml.cs">
       <DependentUpon>Manage_Roster.xaml</DependentUpon>
@@ -124,7 +124,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="List_Teams.xaml">
+    <Page Include="Add_Teams.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

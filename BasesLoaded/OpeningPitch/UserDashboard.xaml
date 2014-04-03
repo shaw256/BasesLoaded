@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="UserDashboard" 
         Height="500" 
-        Width="400" 
+        Width="690" 
         WindowStartupLocation="CenterScreen" 
         MouseDown="Player_Profile_MouseDown" 
         WindowStyle="None" 
@@ -17,19 +17,19 @@
           Background="{DynamicResource ButtonBackgroundBrush}">
         <Button x:Name="Logout_btn" 
                 Content="Logout" 
-                HorizontalAlignment="Left" 
-                Margin="10,10,0,0" 
-                VerticalAlignment="Top" 
+                HorizontalAlignment="Center" 
+                Margin="10,10,585,460" 
+                VerticalAlignment="Center" 
                 Width="95" 
                 Click="Logout_btn_Click" 
                 Height="24"/>
         <Button x:Name="EditInfo_btn" 
                 Content="Edit Info" 
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
                 Width="95" 
-                Margin="10,85,0,0" 
-                Height="24" Click="EditInfo_btn_Click"/>
+                Margin="10,85,585,385" 
+                Height="24"/>
         <Label Grid.Column="1" 
                HorizontalAlignment="Left" 
                Height="3" 
@@ -49,8 +49,8 @@
                 ToolTip="Close" 
                 FontWeight="Bold" Margin="0,10,10,0" FontSize="14"/>
         <Button Content="-" 
-                HorizontalAlignment="Left" 
-                Margin="630,10,0,0" 
+                HorizontalAlignment="Right" 
+                Margin="0,10,35,0" 
                 VerticalAlignment="Top" 
                 Width="25" 
                 Height="25"
@@ -62,11 +62,17 @@
                 FontWeight="Bold" FontSize="14"/>
         <Button x:Name="UserViewRoster_btn" 
                 Content="View Roster" 
-                HorizontalAlignment="Left" 
-                Margin="585,85,0,0" 
-                VerticalAlignment="Top"
+                HorizontalAlignment="Center" 
+                Margin="585,85,10,385" 
+                VerticalAlignment="Center"
                 Width="95" 
                 Height="24" Click="UserViewRoster_btn_Click"/>
-        <DataGrid x:Name="User_View" HorizontalAlignment="Left" Height="370" Margin="10,120,0,0" VerticalAlignment="Top" Width="670" Background="{DynamicResource Brush05}"/>
+        <DataGrid x:Name="User_View" 
+                  HorizontalAlignment="Center" 
+                  Height="370" 
+                  Margin="10,120,10,10" 
+                  VerticalAlignment="Center" 
+                  Width="670" 
+                  Background="{DynamicResource ButtonBackgroundBrush}"/>
     </Grid>
 </Window>
