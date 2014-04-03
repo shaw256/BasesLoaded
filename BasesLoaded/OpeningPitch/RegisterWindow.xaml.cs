@@ -43,7 +43,24 @@ namespace OpeningPitch
             First_Name_Input.Focus();
             this.State_Input.SelectedIndex = 1;
             Register_Window.DataContext = _applicant;
+            PopulateTeamComboBox();
+            TeamList.Visibility = Visibility.Hidden;
+            CustomTeam.Visibility = Visibility.Hidden;
+            CustomTeamLabel.Visibility = Visibility.Hidden;
+            TeamListLabel.Visibility = Visibility.Hidden;
         }
+
+        public void PopulateTeamComboBox()
+        {
+            var currentTeamQuery = (from teams in db.Teams
+                            select new { teams.TeamName }).ToList();
+
+            
+            this.TeamList.ItemsSource = currentTeamQuery;
+            this.TeamList.DisplayMemberPath = "TeamName";
+            this.TeamList.SelectedValuePath = "TeamName";
+        }
+
 
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
@@ -211,7 +228,28 @@ namespace OpeningPitch
             {
                 
             }
+
+
         }
+
+        private void Team_Captain_Checked(object sender, RoutedEventArgs e)
+        {
+            CustomTeam.Visibility = Visibility.Visible;
+            TeamList.Visibility = Visibility.Hidden;
+            CustomTeamLabel.Visibility = Visibility.Visible;
+            TeamListLabel.Visibility = Visibility.Hidden;
+        }
+
+        private void Team_Player_Checked(object sender, RoutedEventArgs e)
+        {
+            TeamList.Visibility = Visibility.Visible;
+            CustomTeam.Visibility = Visibility.Hidden;
+            CustomTeamLabel.Visibility = Visibility.Hidden;
+            TeamListLabel.Visibility = Visibility.Visible;
+        }
+
+
+
     }
 }
 

@@ -173,10 +173,7 @@ namespace OpeningPitch
             Delete_Player.Visibility = Visibility.Visible;
             Approve_Player.Visibility = Visibility.Hidden;
             Deny_Player.Visibility = Visibility.Hidden;
-            Cancel_Event.Visibility = Visibility.Hidden;
-           
-            
-            
+            Cancel_Event.Visibility = Visibility.Hidden;           
 
         }
 
@@ -187,6 +184,7 @@ namespace OpeningPitch
             Cancel_Event.Visibility = Visibility.Hidden;
             Add_Player.Visibility = Visibility.Hidden;
             Delete_Player.Visibility = Visibility.Hidden;
+          
         }
 
         private void EditInfo_btn_Click(object sender, RoutedEventArgs e)
@@ -200,6 +198,23 @@ namespace OpeningPitch
 
         private void Deny_Player_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void View_Team_Roster_Click(object sender, RoutedEventArgs e)
+        {           
+            //List<Player> Players = (from p in db.Players
+            IEnumerable<Player> Players= (from p in db.Players
+                                    where  p.Approved==1 && p.TID==3
+                                    orderby p.PID
+                                   select p).ToList();
+
+
+            Team_Display.ItemsSource = Players;                                 
+                                 
+            
+           
+           
 
         }
     }   
