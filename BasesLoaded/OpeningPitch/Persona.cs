@@ -23,7 +23,9 @@ namespace OpeningPitch
         private string _altPosition2;
         private string _gender;
         private int _userType;
-        
+        private int _PID;
+        private System.Nullable<int> _TID;
+
         public string Email
         {
             get { return _email; }
@@ -61,8 +63,8 @@ namespace OpeningPitch
         }
         public string State
         {
-            get { return _city; }
-            set { _city = value; }
+            get { return _state; }
+            set { _state = value; }
         }
         public string Zipcode
         {
@@ -95,6 +97,16 @@ namespace OpeningPitch
             set { _userType = value; }
         }
 
-      
+        public int PID
+        {
+            get { return _PID; }
+            set { _PID = value; }
+        }
+        public System.Nullable<int> TID
+        {
+            get { return _TID; }
+            set { _TID = value; }
+        }
+
     }
 }

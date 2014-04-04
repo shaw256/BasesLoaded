@@ -1,6 +1,7 @@
 ﻿<Window x:Name="Player_Profile" x:Class="OpeningPitch.UserDashboard"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:grid="http://schemas.microsoft.com/wpf/2008/toolkit"
         Title="UserDashboard" 
         Height="500" 
         Width="690" 
@@ -12,7 +13,7 @@
         ResizeMode="CanResizeWithGrip"
         MinWidth="690"
         MinHeight="500">
-
+    
     <Grid x:Name="PlayerProfile" 
           Background="{DynamicResource ButtonBackgroundBrush}">
         <Button x:Name="Logout_btn" 
@@ -48,7 +49,9 @@
                 Foreground="{DynamicResource Brush01}"
                 TextOptions.TextFormattingMode="Display"
                 ToolTip="Close" 
-                FontWeight="Bold" Margin="0,10,10,0" FontSize="14"/>
+                FontWeight="Bold" 
+                Margin="0,10,10,0" 
+                FontSize="14"/>
         <Button Content="-" 
                 HorizontalAlignment="Right" 
                 Margin="0,10,35,0" 
@@ -60,7 +63,8 @@
                 Click="Minimize_Button" 
                 TextOptions.TextFormattingMode="Display"
                 ToolTip="Minimize" 
-                FontWeight="Bold" FontSize="14"/>
+                FontWeight="Bold" 
+                FontSize="14"/>
         <Button x:Name="UserViewRoster_btn" 
                 Content="View Roster" 
                 HorizontalAlignment="Center" 
@@ -69,13 +73,83 @@
                 Width="95" 
                 Height="24" 
                 Click="UserViewRoster_btn_Click"/>
-        <DataGrid x:Name="User_View" 
-                  ColumnWidth="50"
+        <!--<DataGrid x:Name="User_View" 
                   HorizontalAlignment="Center" 
                   Height="370" 
                   Margin="10,120,10,10" 
                   VerticalAlignment="Center" 
                   Width="670"
-                  Background="{DynamicResource ButtonBackgroundBrush}"/>
+                  Background="{DynamicResource ButtonBackgroundBrush}"/>-->
+        <Button Content="Update" 
+                HorizontalAlignment="Left" 
+                Margin="110,85,0,0" 
+                VerticalAlignment="Top" 
+                Width="75" 
+                Click="Update_Click"/>
+
+        <grid:DataGrid x:Name="User_View" AutoGenerateColumns="False"  
+                       AlternationCount="2" SelectionMode="Single" Margin="0,174,0,0" Background="{DynamicResource ButtonBackgroundBrush}">
+            <grid:DataGrid.Columns>
+                <grid:DataGridTextColumn Binding="{Binding  Path=FirstName}" IsReadOnly="False"  
+                                    Header="First Name" Width="SizeToHeader" />
+                <grid:DataGridTextColumn Binding="{Binding Path=LastName}" 
+
+                                    Header="Last Name" Width="SizeToHeader" />
+
+                <grid:DataGridTextColumn Binding="{Binding Path=Email}"  
+
+                                    Header="Email" Width="SizeToHeader" />
+
+                <grid:DataGridTextColumn Binding="{Binding Path=PhoneNumber}" 
+
+                                    Header="Phone Number" Width="SizeToHeader" />
+
+                <grid:DataGridTextColumn Binding="{Binding Path=Address}" 
+
+                                    Header="Address" Width="SizeToHeader" />
+
+                <grid:DataGridTextColumn Binding="{Binding Path=Address2}" 
+
+                                    Header="Address 2" Width="SizeToHeader" />
+                <grid:DataGridTextColumn Binding="{Binding Path=City}" 
+
+                                    Header="City" Width="SizeToHeader" />
+                <grid:DataGridTextColumn Binding="{Binding Path=State}" 
+
+                                    Header="State" Width="SizeToHeader" />
+
+                <grid:DataGridTextColumn Binding="{Binding Path=Zipcode}" 
+
+                                    Header="Zip Code" Width="SizeToHeader" />
+                <!--<grid:DataGridTemplateColumn Header="Edit Row">
+                    <grid:DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+
+                            <Button Content="Edit" Click="EditButton_Click" />
+
+                        </DataTemplate>
+
+                    </grid:DataGridTemplateColumn.CellTemplate>
+
+                </grid:DataGridTemplateColumn>
+
+                <grid:DataGridTemplateColumn Header="Delete Row">
+
+                    <grid:DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+
+                            <Button Content="Delete" Click="DeleteButton_Click" />
+
+                        </DataTemplate>
+
+                    </grid:DataGridTemplateColumn.CellTemplate>
+
+                </grid:DataGridTemplateColumn>-->
+
+            </grid:DataGrid.Columns>
+
+        </grid:DataGrid>
     </Grid>
 </Window>

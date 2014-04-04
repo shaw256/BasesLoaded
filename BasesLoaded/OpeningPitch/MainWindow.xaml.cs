@@ -78,6 +78,8 @@ namespace OpeningPitch
                     Dashboard.Show();
                     this.Close();
                 }
+                globals.user.PID = player.PID;
+                globals.user.TID = player.TID;
                 globals.user.FirstName = player.FirstName;
                 globals.user.LastName = player.LastName;
                 globals.user.Email = player.Email;
