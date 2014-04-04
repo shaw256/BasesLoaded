@@ -71,10 +71,12 @@
             Height="326" 
             Margin="9,129,10,45" 
             VerticalAlignment="Center" 
-            Width="671" BorderBrush="{DynamicResource AccordionBorderBrush}" 
+            Width="671" 
+            BorderBrush="{DynamicResource AccordionBorderBrush}" 
             Background="{DynamicResource AccordionBackgroundBrush}"
             SelectionMode="Single"
-            SelectionUnit="FullRow" Grid.ColumnSpan="2"
+            SelectionUnit="FullRow" 
+            Grid.ColumnSpan="2"
             />
 
         <Button x:Name="Dashboard_Logout" 

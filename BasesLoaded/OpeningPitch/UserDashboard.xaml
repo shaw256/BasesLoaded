@@ -13,7 +13,7 @@
         ResizeMode="CanResizeWithGrip"
         MinWidth="690"
         MinHeight="500">
-    
+
     <Grid x:Name="PlayerProfile" 
           Background="{DynamicResource ButtonBackgroundBrush}">
         <Button x:Name="Logout_btn" 
@@ -32,12 +32,20 @@
                 Margin="10,85,585,385" 
                 Height="24" 
                 Click="EditInfo_btn_Click"/>
-        <Label Grid.Column="1" 
-               HorizontalAlignment="Left" 
-               Height="3" 
-               Margin="19,174,0,0" 
-               VerticalAlignment="Top" 
-               Width="22"/>
+        <Button Content="Update" 
+                HorizontalAlignment="Center" 
+                Margin="110,85,505,385" 
+                VerticalAlignment="Center" 
+                Width="75" 
+                Click="Update_Click"/>
+        <Button x:Name="UserViewRoster_btn" 
+                Content="View Roster" 
+                HorizontalAlignment="Center" 
+                Margin="585,85,10,385" 
+                VerticalAlignment="Center"
+                Width="95" 
+                Height="24" 
+                Click="UserViewRoster_btn_Click"/>
         <Button Content="X" 
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Right"
@@ -65,91 +73,56 @@
                 ToolTip="Minimize" 
                 FontWeight="Bold" 
                 FontSize="14"/>
-        <Button x:Name="UserViewRoster_btn" 
-                Content="View Roster" 
-                HorizontalAlignment="Center" 
-                Margin="585,85,10,385" 
-                VerticalAlignment="Center"
-                Width="95" 
-                Height="24" 
-                Click="UserViewRoster_btn_Click"/>
-        <!--<DataGrid x:Name="User_View" 
+        <DataGrid x:Name="User_View" 
                   HorizontalAlignment="Center" 
                   Height="370" 
                   Margin="10,120,10,10" 
                   VerticalAlignment="Center" 
                   Width="670"
-                  Background="{DynamicResource ButtonBackgroundBrush}"/>-->
-        <Button Content="Update" 
-                HorizontalAlignment="Left" 
-                Margin="110,85,0,0" 
-                VerticalAlignment="Top" 
-                Width="75" 
-                Click="Update_Click"/>
-
-        <grid:DataGrid x:Name="User_View" AutoGenerateColumns="False"  
-                       AlternationCount="2" SelectionMode="Single" Margin="0,174,0,0" Background="{DynamicResource ButtonBackgroundBrush}">
-            <grid:DataGrid.Columns>
-                <grid:DataGridTextColumn Binding="{Binding  Path=FirstName}" IsReadOnly="False"  
+                  Background="{DynamicResource ButtonBackgroundBrush}"
+                  SelectionMode="Single"
+                  SelectionUnit="FullRow"
+                  Grid.ColumnSpan="2"/>
+        <!--<DataGrid x:Name="User_View" 
+                  AutoGenerateColumns="False"  
+                  AlternationCount="2" 
+                  SelectionMode="Single" 
+                  Margin="10,120,10,10" 
+                  Background="{DynamicResource ButtonBackgroundBrush}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding  Path=FirstName}" IsReadOnly="False"  
                                     Header="First Name" Width="SizeToHeader" />
-                <grid:DataGridTextColumn Binding="{Binding Path=LastName}" 
-
+                <DataGridTextColumn Binding="{Binding Path=LastName}" 
                                     Header="Last Name" Width="SizeToHeader" />
-
-                <grid:DataGridTextColumn Binding="{Binding Path=Email}"  
-
+                <DataGridTextColumn Binding="{Binding Path=Email}"  
                                     Header="Email" Width="SizeToHeader" />
-
-                <grid:DataGridTextColumn Binding="{Binding Path=PhoneNumber}" 
-
+                <DataGridTextColumn Binding="{Binding Path=PhoneNumber}" 
                                     Header="Phone Number" Width="SizeToHeader" />
-
-                <grid:DataGridTextColumn Binding="{Binding Path=Address}" 
-
+                <DataGridTextColumn Binding="{Binding Path=Address}" 
                                     Header="Address" Width="SizeToHeader" />
-
-                <grid:DataGridTextColumn Binding="{Binding Path=Address2}" 
-
+                <DataGridTextColumn Binding="{Binding Path=Address2}" 
                                     Header="Address 2" Width="SizeToHeader" />
-                <grid:DataGridTextColumn Binding="{Binding Path=City}" 
-
+                <DataGridTextColumn Binding="{Binding Path=City}" 
                                     Header="City" Width="SizeToHeader" />
-                <grid:DataGridTextColumn Binding="{Binding Path=State}" 
-
+                <DataGridTextColumn Binding="{Binding Path=State}" 
                                     Header="State" Width="SizeToHeader" />
-
-                <grid:DataGridTextColumn Binding="{Binding Path=Zipcode}" 
-
-                                    Header="Zip Code" Width="SizeToHeader" />
-                <!--<grid:DataGridTemplateColumn Header="Edit Row">
+                <DataGridTextColumn Binding="{Binding Path=Zipcode}" 
+                                    Header="Zip Code" Width="SizeToHeader" />-->
+        <!--<grid:DataGridTemplateColumn Header="Edit Row">
                     <grid:DataGridTemplateColumn.CellTemplate>
-
                         <DataTemplate>
-
                             <Button Content="Edit" Click="EditButton_Click" />
-
                         </DataTemplate>
-
                     </grid:DataGridTemplateColumn.CellTemplate>
-
                 </grid:DataGridTemplateColumn>
-
                 <grid:DataGridTemplateColumn Header="Delete Row">
-
                     <grid:DataGridTemplateColumn.CellTemplate>
-
                         <DataTemplate>
-
                             <Button Content="Delete" Click="DeleteButton_Click" />
-
                         </DataTemplate>
-
                     </grid:DataGridTemplateColumn.CellTemplate>
-
                 </grid:DataGridTemplateColumn>-->
-
-            </grid:DataGrid.Columns>
-
-        </grid:DataGrid>
+        <!--</DataGrid.Columns>-->
+        <!--</DataGrid>-->
     </Grid>
 </Window>

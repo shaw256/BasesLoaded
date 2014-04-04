@@ -90,14 +90,14 @@ namespace OpeningPitch
             Team_Display.IsReadOnly = true;
         }
 
-        //private void GridViewRoster()
-        //{
-        //    var players = (from m in db.Players
-        //                   where m.TID == globals.user.TID
-        //                   select m);
+        private void GridViewRoster()
+        {
+            var players = (from m in db.Players
+                           where m.TID == globals.user.TID
+                           select m);
 
-        //    Team_Display.ItemsSource = players;
-        //}
+            Team_Display.ItemsSource = players;
+        }
 
         private void TC_Dashboard_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -239,15 +239,15 @@ namespace OpeningPitch
         private void View_Team_Roster_Click(object sender, RoutedEventArgs e)
         {           
             //List<Player> Players = (from p in db.Players
-            IEnumerable<Player> Players= (from p in db.Players
-                                   where  p.Approved==1 && p.TID==3
-                                   orderby p.PID
-                                   select p).ToList();
+            //IEnumerable<Player> Players= (from p in db.Players
+            //                       where  p.Approved==1 && p.TID==3
+            //                       orderby p.PID
+            //                       select p).ToList();
 
 
-            Team_Display.ItemsSource = Players;
+            //Team_Display.ItemsSource = Players;
 
-            //GridViewRoster();
+            GridViewRoster();
 
            
            
