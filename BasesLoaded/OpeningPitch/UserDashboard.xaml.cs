@@ -27,103 +27,26 @@ namespace OpeningPitch
         public UserDashboard()
         {
             InitializeComponent();
-
         }
 
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
         private void GridViewRoster()
         {
-            DataTable MyDataTable = new DataTable();
+            var players = (from m in db.Players
+                           where m.TID == globals.user.TID
+                           select m);
 
-            MyDataTable.Columns.Add(
-                new DataColumn()
-                {
-                    DataType = System.Type.GetType("System.String"),
-                    ColumnName = "First Name"
-                }
-
-              );
-
-            MyDataTable.Columns.Add(
-                new DataColumn()
-                {
-                    DataType = System.Type.GetType("System.String"),
-                    ColumnName = "Last Name"
-                }
-                );
-
-            MyDataTable.Columns.Add(
-               new DataColumn()
-               {
-                   DataType = System.Type.GetType("System.String"),
-                   ColumnName = "Position"
-               }
-               );
-
-            var applicationQuery = from players in db.Players
-                                   where players.TID == globals.user.TID
-                                   select players;
-
-
-            foreach (var column in applicationQuery)
-            {
-                var row = MyDataTable.NewRow();
-                row["First Name"] = column.FirstName;
-                row["Last Name"] = column.LastName;
-                row["Position"] = column.Position;
-                MyDataTable.Rows.Add(row);
-            }
-
-            User_View.ItemsSource = MyDataTable.AsDataView();
-            
-            User_View.IsReadOnly = true;
-            
+            User_View.ItemsSource = players;
         }
+
         private void CurrentUserInfo()
         {
-            DataTable MyDataTable = new DataTable();
+            var players = (from m in db.Players
+                           where m.Email == globals.user.Email
+                           select m);
 
-            MyDataTable.Columns.Add(
-                new DataColumn()
-                {
-                    DataType = System.Type.GetType("System.String"),
-                    ColumnName = "First Name"
-                }
+            User_View.ItemsSource = players;
 
-              );
-
-            MyDataTable.Columns.Add(
-                new DataColumn()
-                {
-                    DataType = System.Type.GetType("System.String"),
-                    ColumnName = "Last Name"
-                }
-                );
-
-            MyDataTable.Columns.Add(
-               new DataColumn()
-               {
-                   DataType = System.Type.GetType("System.String"),
-                   ColumnName = "Position"
-               }
-               );
-
-            var applicationQuery = from players in db.Players
-                                   where players.PID == globals.user.PID
-                                   select players;
-
-
-            foreach (var column in applicationQuery)
-            {
-                var row = MyDataTable.NewRow();
-                row["First Name"] = column.FirstName;
-                row["Last Name"] = column.LastName;
-                row["Position"] = column.Position;
-                MyDataTable.Rows.Add(row);
-            }
-
-            User_View.ItemsSource = MyDataTable.AsDataView();
-            User_View.IsReadOnly = false;
         }
 
         private void Logout_btn_Click(object sender, RoutedEventArgs e)
@@ -165,35 +88,43 @@ namespace OpeningPitch
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             LINQtoSQLDataContext UpdateUser = new LINQtoSQLDataContext();
-            
 
             try
             {
-                var query = from stuff in db.Players
-                            where stuff.Email == globals.user.Email
-                            select stuff;
 
-                foreach (var stuff in query)
-                {
-                    stuff.FirstName = globals.user.FirstName;
-                    stuff.LastName = globals.user.LastName;
-                    stuff.Email = globals.user.Email;
-                    stuff.PhoneNumber = globals.user.PhoneNumber;
-                    stuff.Address = globals.user.Address;
-                    stuff.Address2 = globals.user.Address2;
-                    stuff.City = globals.user.City;
-                    stuff.Zipcode = globals.user.Zipcode;
-                    stuff.Position = globals.user.Position;
-                    stuff.AltPosition1 = globals.user.AltPosition;
-                    stuff.AltPosition2 = globals.user.AltPosition2;
-                    stuff.Gender = globals.user.Gender;
-                }
+                Player PlayerRow = User_View.SelectedItem as Player;
+                //string m = PlayerRow.PID;
+                Player player = (from p in UpdateUser.Players
+                                     where p.PID == globals.user.PID
+                                     select p).Single();
+
+                player.FirstName = PlayerRow.FirstName;
+                player.LastName = PlayerRow.LastName;
+                player.Email = PlayerRow.Email;
+                player.PhoneNumber = PlayerRow.PhoneNumber;
+                player.Address = PlayerRow.Address;
+                player.Address2 = PlayerRow.Address2;
+                player.City = PlayerRow.City;
+                player.State = PlayerRow.State;
+                player.Zipcode = PlayerRow.Zipcode;
+
+                UpdateUser.SubmitChanges();
+
+                MessageBox.Show("Update Successful.");
+
+                User_View.Items.Refresh();
+
             }
 
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                MessageBox.Show(ex.Message);
-            }
+
+                MessageBox.Show(Ex.Message);
+
+                return;
+
+            } 
+
         }
     }
 }
