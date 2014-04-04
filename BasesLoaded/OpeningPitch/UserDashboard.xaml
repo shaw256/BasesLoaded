@@ -88,7 +88,7 @@
                 Click="Update_Click"/>
 
         <grid:DataGrid x:Name="User_View" AutoGenerateColumns="False"  
-                       AlternationCount="2" SelectionMode="Single" Margin="0,174,0,0">
+                       AlternationCount="2" SelectionMode="Single" Margin="0,174,0,0" Background="{DynamicResource ButtonBackgroundBrush}">
             <grid:DataGrid.Columns>
                 <grid:DataGridTextColumn Binding="{Binding  Path=FirstName}" IsReadOnly="False"  
                                     Header="First Name" Width="SizeToHeader" />
