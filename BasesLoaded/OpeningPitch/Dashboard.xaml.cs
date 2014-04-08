@@ -175,7 +175,7 @@ namespace OpeningPitch
             Deny_Player.Visibility = Visibility.Hidden;
             Cancel_Event.Visibility = Visibility.Hidden;
            
-            
+
             
 
         }

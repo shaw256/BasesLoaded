@@ -197,7 +197,11 @@ namespace OpeningPitch
                 {
                     if (TeamChoice == null)
                     {
-                        result = "Please select an option.";
+                        if (NewTeamName == null)
+                        {
+                            result = "Please select an option.";
+                        }
+                        
                     }
                 }
 
@@ -205,9 +209,13 @@ namespace OpeningPitch
                 {
                     if (NewTeamName == null)
                     {
-                        result = "Please select an option.";
+                        if (TeamChoice == null)
+                        {
+                            result = "Please select an option.";
+                        }
                     }
                 }
+
                 return result;
             }
         }

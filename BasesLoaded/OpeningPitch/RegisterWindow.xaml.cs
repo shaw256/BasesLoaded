@@ -116,10 +116,21 @@ namespace OpeningPitch
                     user.Gender = Gender_Selection.Text;
                     user.Password = Confirm_Password_Input.Password;
                     
+                    
                     if (Team_Captain.IsChecked == true)
                     {
                         user.UserType = 1;
                         user.Approved = 1;
+                        Team newTeam = new Team();
+                        newTeam.TeamName = CustomTeam.Text;
+                        newTeam.CoachFirstName = First_Name_Input.Text;
+                        newTeam.CoachLastName = Last_Name_Input.Text;
+                        user.TeamName = CustomTeam.Text;
+                    }
+
+                    else
+                    {
+                        user.TeamName = TeamList.Text;
                     }
 
                     var teamquery = from teams in db.Teams
