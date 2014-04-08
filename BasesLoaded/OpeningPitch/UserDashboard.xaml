@@ -73,7 +73,7 @@
                 ToolTip="Minimize" 
                 FontWeight="Bold" 
                 FontSize="14"/>
-        <DataGrid x:Name="User_View" 
+        <!--<DataGrid x:Name="User_View" 
                   HorizontalAlignment="Center" 
                   Height="370" 
                   Margin="10,120,10,10" 
@@ -82,47 +82,56 @@
                   Background="{DynamicResource ButtonBackgroundBrush}"
                   SelectionMode="Single"
                   SelectionUnit="FullRow"
-                  Grid.ColumnSpan="2"/>
-        <!--<DataGrid x:Name="User_View" 
+                  Grid.ColumnSpan="2"/>-->
+        <DataGrid x:Name="User_View" 
                   AutoGenerateColumns="False"  
                   AlternationCount="2" 
                   SelectionMode="Single" 
                   Margin="10,120,10,10" 
                   Background="{DynamicResource ButtonBackgroundBrush}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding  Path=FirstName}" IsReadOnly="False"  
-                                    Header="First Name" Width="SizeToHeader" />
+                <DataGridTextColumn Binding="{Binding  Path=FirstName}" 
+                                    IsReadOnly="False"  
+                                    Header="First Name" Width="Auto" />
                 <DataGridTextColumn Binding="{Binding Path=LastName}" 
-                                    Header="Last Name" Width="SizeToHeader" />
+                                    IsReadOnly="False"
+                                    Header="Last Name" Width="Auto" />
                 <DataGridTextColumn Binding="{Binding Path=Email}"  
-                                    Header="Email" Width="SizeToHeader" />
+                                    IsReadOnly="False"
+                                    Header="Email" Width="Auto" />
                 <DataGridTextColumn Binding="{Binding Path=PhoneNumber}" 
-                                    Header="Phone Number" Width="SizeToHeader" />
+                                    IsReadOnly="False"
+                                    Header="Phone Number" Width="Auto" />
                 <DataGridTextColumn Binding="{Binding Path=Address}" 
-                                    Header="Address" Width="SizeToHeader" />
+                                    IsReadOnly="False"
+                                    Header="Address" Width="Auto" />
                 <DataGridTextColumn Binding="{Binding Path=Address2}" 
-                                    Header="Address 2" Width="SizeToHeader" />
+                                    IsReadOnly="False"
+                                    Header="Address 2" Width="Auto" />
                 <DataGridTextColumn Binding="{Binding Path=City}" 
-                                    Header="City" Width="SizeToHeader" />
+                                    IsReadOnly="False"
+                                    Header="City" Width="Auto" />
                 <DataGridTextColumn Binding="{Binding Path=State}" 
-                                    Header="State" Width="SizeToHeader" />
+                                    IsReadOnly="False"
+                                    Header="State" Width="Auto" />
                 <DataGridTextColumn Binding="{Binding Path=Zipcode}" 
-                                    Header="Zip Code" Width="SizeToHeader" />-->
-        <!--<grid:DataGridTemplateColumn Header="Edit Row">
-                    <grid:DataGridTemplateColumn.CellTemplate>
+                                    IsReadOnly="False"
+                                    Header="Zip Code" Width="Auto" />
+        <!--<DataGridTemplateColumn Header="Edit Row">
+                    <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Edit" Click="EditButton_Click" />
                         </DataTemplate>
-                    </grid:DataGridTemplateColumn.CellTemplate>
-                </grid:DataGridTemplateColumn>
-                <grid:DataGridTemplateColumn Header="Delete Row">
-                    <grid:DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete Row">
+                    <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Delete" Click="DeleteButton_Click" />
                         </DataTemplate>
-                    </grid:DataGridTemplateColumn.CellTemplate>
-                </grid:DataGridTemplateColumn>-->
-        <!--</DataGrid.Columns>-->
-        <!--</DataGrid>-->
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+        </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
