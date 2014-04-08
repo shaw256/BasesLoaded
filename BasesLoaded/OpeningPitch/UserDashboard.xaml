@@ -74,16 +74,6 @@
                 ToolTip="Minimize" 
                 FontWeight="Bold" 
                 FontSize="14"/>
-        <!--<DataGrid x:Name="User_View" 
-                  HorizontalAlignment="Center" 
-                  Height="370" 
-                  Margin="10,120,10,10" 
-                  VerticalAlignment="Center" 
-                  Width="670"
-                  Background="{DynamicResource ButtonBackgroundBrush}"
-                  SelectionMode="Single"
-                  SelectionUnit="FullRow"
-                  Grid.ColumnSpan="2"/>-->
         <DataGrid x:Name="User_View" 
                   AutoGenerateColumns="False"  
                   AlternationCount="2" 
@@ -134,21 +124,7 @@
                                     IsReadOnly="True"
                                     Header="Zip Code"
                                     Width="Auto" />
-        <!--<DataGridTemplateColumn Header="Edit Row">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Edit" Click="EditButton_Click" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Delete Row">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Delete" Click="DeleteButton_Click" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>-->
-        </DataGrid.Columns>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Window>

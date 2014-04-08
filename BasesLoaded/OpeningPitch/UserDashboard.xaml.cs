@@ -20,13 +20,12 @@ namespace OpeningPitch
     /// </summary>
     public partial class UserDashboard : Window
     {
-        
         public UserDashboard()
         {
             InitializeComponent();
             Update.Visibility = Visibility.Hidden;
-
         }
+
         private void Player_Profile_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -50,12 +49,11 @@ namespace OpeningPitch
                            select m);
 
             User_View.ItemsSource = players;
-
         }
 
         private void Logout_btn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure you would like to logout, " + globals.user.FirstName + " ?\n\nAll unsaved changes will be lost", "Logout?", MessageBoxButton.OKCancel);
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to logout " + globals.user.FirstName + " ?\n\nAll unsaved changes will be lost", "Logout?", MessageBoxButton.OKCancel);
 
             if (result == MessageBoxResult.OK)
             {
@@ -104,7 +102,6 @@ namespace OpeningPitch
             zipcode.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Hidden;
 
-
             foreach (DataGridColumn item in User_View.Columns)
             {
                 //if(column name condition of column id)
@@ -129,9 +126,7 @@ namespace OpeningPitch
 
             try
             {
-
                 Player PlayerRow = User_View.SelectedItem as Player;
-                //string m = PlayerRow.PID;
                 Player player = (from p in UpdateUser.Players
                                      where p.PID == globals.user.PID
                                      select p).Single();
@@ -151,18 +146,13 @@ namespace OpeningPitch
                 MessageBox.Show("Update Successful.");
 
                 User_View.Items.Refresh();
-
             }
 
             catch (Exception Ex)
             {
-
                 MessageBox.Show(Ex.Message);
-
                 return;
-
             } 
-
         }
     }
 }
