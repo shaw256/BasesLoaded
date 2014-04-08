@@ -32,7 +32,8 @@
                 Margin="10,85,585,385" 
                 Height="24" 
                 Click="EditInfo_btn_Click"/>
-        <Button Content="Update" 
+        <Button x:Name="Update"
+                Content="Update" 
                 HorizontalAlignment="Center" 
                 Margin="110,85,505,385" 
                 VerticalAlignment="Center" 
@@ -90,33 +91,49 @@
                   Margin="10,120,10,10" 
                   Background="{DynamicResource ButtonBackgroundBrush}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding  Path=FirstName}" 
-                                    IsReadOnly="False"  
-                                    Header="First Name" Width="Auto" />
+                <DataGridTextColumn Binding="{Binding  Path=FirstName}"
+                                    IsReadOnly="True"
+                                    Header="First Name" 
+                                    Width="Auto" />
                 <DataGridTextColumn Binding="{Binding Path=LastName}" 
-                                    IsReadOnly="False"
-                                    Header="Last Name" Width="Auto" />
-                <DataGridTextColumn Binding="{Binding Path=Email}"  
-                                    IsReadOnly="False"
-                                    Header="Email" Width="Auto" />
-                <DataGridTextColumn Binding="{Binding Path=PhoneNumber}" 
-                                    IsReadOnly="False"
-                                    Header="Phone Number" Width="Auto" />
-                <DataGridTextColumn Binding="{Binding Path=Address}" 
-                                    IsReadOnly="False"
-                                    Header="Address" Width="Auto" />
-                <DataGridTextColumn Binding="{Binding Path=Address2}" 
-                                    IsReadOnly="False"
-                                    Header="Address 2" Width="Auto" />
-                <DataGridTextColumn Binding="{Binding Path=City}" 
-                                    IsReadOnly="False"
-                                    Header="City" Width="Auto" />
-                <DataGridTextColumn Binding="{Binding Path=State}" 
-                                    IsReadOnly="False"
-                                    Header="State" Width="Auto" />
-                <DataGridTextColumn Binding="{Binding Path=Zipcode}" 
-                                    IsReadOnly="False"
-                                    Header="Zip Code" Width="Auto" />
+                                    IsReadOnly="True"
+                                    Header="Last Name" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="emailField" 
+                                    Binding="{Binding Path=Email}"                                      
+                                    IsReadOnly="True"
+                                    Header="Email" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="phoneNumber" 
+                                    Binding="{Binding Path=PhoneNumber}" 
+                                    IsReadOnly="True"
+                                    Header="Phone Number" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="address1" 
+                                    Binding="{Binding Path=Address}"                                     
+                                    IsReadOnly="True"
+                                    Header="Address"
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="address2" 
+                                    Binding="{Binding Path=Address2}"                                    
+                                    IsReadOnly="True"
+                                    Header="Address 2" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="city" 
+                                    Binding="{Binding Path=City}"                                    
+                                    IsReadOnly="True"
+                                    Header="City" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="state" 
+                                    Binding="{Binding Path=State}"                                     
+                                    IsReadOnly="True"
+                                    Header="State" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="zipcode"
+                                    Binding="{Binding Path=Zipcode}"                                     
+                                    IsReadOnly="True"
+                                    Header="Zip Code"
+                                    Width="Auto" />
         <!--<DataGridTemplateColumn Header="Edit Row">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
