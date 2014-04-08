@@ -20,11 +20,11 @@
 			Height="22" 
 			VerticalAlignment="Center" 
 			Width="104" 
-            Margin="10,94,576,376" Click="Login_Home_Click"/>
+            Margin="119,94,467,376" Click="Login_Home_Click"/>
         <Button x:Name="Create_Team1" 
 			Content="Edit Teams" 
 			HorizontalAlignment="Center" 
-			Margin="352,94,234,376" 
+			Margin="10,94,576,376" 
 			VerticalAlignment="Center" 
 			Width="104" 
 			Click="CreateTeam_Click" 
@@ -39,31 +39,31 @@
         <Button x:Name="Applications" 
 			Content="Applications" 
 			HorizontalAlignment="Center" 
-			Margin="462,94,118,376" 
+			Margin="343,94,237,376" 
 			VerticalAlignment="Center" 
 			Width="110" Click="Applications_Click"/>
         <Button x:Name="Edit_Roster" 
 			Content="Edit Roster" 
 			HorizontalAlignment="Center" 
-			Margin="237,94,343,376" 
+			Margin="228,94,352,376" 
 			VerticalAlignment="Center" 
 			Width="110" Click="Edit_Roster_click"/>
         <Button x:Name="View_Team_Roster" 
 			Content="Team Roster" 
 			HorizontalAlignment="Center"
-			Margin="120,94,458,376" 
+			Margin="460,94,118,376" 
 			VerticalAlignment="Center" 
-			Width="112"/>
+			Width="112" Click="View_Team_Roster_Click"/>
         <Button x:Name="Delete_Player" 
 			Content="Delete Player" 
 			HorizontalAlignment="Center" 
-			Margin="153,460,427,10" 
+			Margin="10,460,570,10" 
 			VerticalAlignment="Center" 
 			Width="110"/>
         <Button x:Name="Cancel_Event" 
 			Content="Cancel" 
 			HorizontalAlignment="Center" 
-			Margin="531,460,59,10" 
+			Margin="580,460,10,10" 
 			VerticalAlignment="Center" 
 			Width="100"/>
         <DataGrid x:Name="Team_Display" 
@@ -71,10 +71,12 @@
             Height="326" 
             Margin="9,129,10,45" 
             VerticalAlignment="Center" 
-            Width="671" BorderBrush="{DynamicResource AccordionBorderBrush}" 
+            Width="671" 
+            BorderBrush="{DynamicResource AccordionBorderBrush}" 
             Background="{DynamicResource AccordionBackgroundBrush}"
             SelectionMode="Single"
-            SelectionUnit="FullRow"
+            SelectionUnit="FullRow" 
+            Grid.ColumnSpan="2"
             />
 
         <Button x:Name="Dashboard_Logout" 
@@ -84,7 +86,7 @@
 			Width="95" 
 			Click="Dashboard_Logout_Click" 
 			Height="22" 
-            Margin="0,0,43,0"/>
+            Margin="0,0,43,0" Grid.Column="1"/>
         <Button Content="X" 
 			VerticalAlignment="Top" 
             HorizontalAlignment="Right"
@@ -94,10 +96,9 @@
 			Width="19" 
 			Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
             Foreground="{DynamicResource Brush01}" 
-            Margin="0,0,0,481" 
             TextOptions.TextFormattingMode="Display"
             ToolTip="Close" 
-            FontWeight="Bold"/>
+            FontWeight="Bold" Grid.Column="1"/>
         <Button Content="-" 
             HorizontalAlignment="Right" 
             Margin="0,0,19,0" 
@@ -109,11 +110,11 @@
             TextOptions.TextFormattingMode="Display" 
             Click="Minimize_Button"
             ToolTip="Minimize" 
-            FontWeight="Bold"/>
+            FontWeight="Bold" Grid.Column="1"/>
         <Button x:Name="Approve_Player" 
             Content="Approve" 
             HorizontalAlignment="Center" 
-            Margin="321,460,269,10" 
+            Margin="125,460,465,10" 
             VerticalAlignment="Center" 
             Width="100" 
             ToolTip="This allows one to pull up all the users information." 
@@ -121,7 +122,7 @@
         <Button x:Name="Deny_Player" 
         	Content="Deny" 
         	HorizontalAlignment="Center" 
-        	Margin="426,460,164,10" 
+        	Margin="475,460,115,10" 
         	VerticalAlignment="Center" 
         	Width="100" 
         	ToolTip="This allows one to pull up all the users information." 
@@ -129,7 +130,7 @@
         <Button x:Name="Add_Player" 
         	Content="Add Player" 
         	HorizontalAlignment="Center" 
-        	Margin="36,460,542,10" 
+        	Margin="230,460,348,10" 
         	VerticalAlignment="Center" 
         	Width="112"/>
     </Grid>

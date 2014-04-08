@@ -12,6 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
 
 namespace OpeningPitch
 {
@@ -87,6 +90,15 @@ namespace OpeningPitch
             Team_Display.IsReadOnly = true;
         }
 
+        private void GridViewRoster()
+        {
+            var players = (from m in db.Players
+                           where m.TID == globals.user.TID
+                           select m);
+
+            Team_Display.ItemsSource = players;
+        }
+
         private void TC_Dashboard_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -104,7 +116,7 @@ namespace OpeningPitch
         }
        private void CreateTeam_Click(object sender, RoutedEventArgs e)
         {
-            Window Teams = new Add_Team();
+           Window Teams = new Add_Team();
            Teams.Show();
            this.Close();
         }
@@ -173,20 +185,21 @@ namespace OpeningPitch
             Delete_Player.Visibility = Visibility.Visible;
             Approve_Player.Visibility = Visibility.Hidden;
             Deny_Player.Visibility = Visibility.Hidden;
-            Cancel_Event.Visibility = Visibility.Hidden;
-           
-
-            
+            Cancel_Event.Visibility = Visibility.Hidden;           
 
         }
 
         private void Login_Home_Click(object sender, RoutedEventArgs e)
         {
-            Approve_Player.Visibility = Visibility.Hidden;
-            Deny_Player.Visibility = Visibility.Hidden;
-            Cancel_Event.Visibility = Visibility.Hidden;
-            Add_Player.Visibility = Visibility.Hidden;
-            Delete_Player.Visibility = Visibility.Hidden;
+            //Approve_Player.Visibility = Visibility.Hidden;
+           // Deny_Player.Visibility = Visibility.Hidden;
+            //Cancel_Event.Visibility = Visibility.Hidden;
+            //Add_Player.Visibility = Visibility.Hidden;
+            //Delete_Player.Visibility = Visibility.Hidden;
+            Window home = new Dashboard();
+            home.Show();
+            this.Close();
+          
         }
 
         private void EditInfo_btn_Click(object sender, RoutedEventArgs e)
@@ -200,6 +213,44 @@ namespace OpeningPitch
 
         private void Deny_Player_Click(object sender, RoutedEventArgs e)
         {
+            //try
+            //{
+            //    SmtpClient client = new SmtpClient("smtp.live.com", 587);
+            //    client.EnableSsl = true;
+            //    client.Timeout = 10000;
+            //    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //    client.UseDefaultCredentials = false;
+            //    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
+
+            //    MailMessage msg = new MailMessage();
+            //    msg.To.Add(Email_Input.Text);
+            //    msg.From = new MailAddress("basesloadedapp@outlook.com");
+            //    msg.Subject = "Registration Failed";
+            //    msg.Body = "We are sorry to have to inform you that your submission has been denied.\nPlease contact the team captain";
+            //    client.Send(msg);
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    MessageBox.Show(ex.ToString());
+            //}
+        }
+
+        private void View_Team_Roster_Click(object sender, RoutedEventArgs e)
+        {           
+            //List<Player> Players = (from p in db.Players
+            //IEnumerable<Player> Players= (from p in db.Players
+            //                       where  p.Approved==1 && p.TID==3
+            //                       orderby p.PID
+            //                       select p).ToList();
+
+
+            //Team_Display.ItemsSource = Players;
+
+            GridViewRoster();
+
+           
+           
 
         }
     }   

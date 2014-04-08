@@ -34,12 +34,12 @@
                  Width="150" 
                  Opacity="0.6"
                  Height="25"/>
-        <Label x:Name="Username_Label" 
-        	Content="Username" 
+        <Label x:Name="Email_Label" 
+        	Content="E-mail" 
         	HorizontalAlignment="Center" 
-        	Margin="56,185,275,290" 
+        	Margin="78,185,275,285" 
         	VerticalAlignment="Center" 
-        	Height="25" BorderBrush="{DynamicResource BackgroundKey}"/>
+        	Height="30" BorderBrush="{DynamicResource BackgroundKey}"/>
         <PasswordBox x:Name="Password_Input" 
                      MaxLength="25" 
                      HorizontalAlignment="Center" 

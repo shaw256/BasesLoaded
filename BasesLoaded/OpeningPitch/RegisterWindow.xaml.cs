@@ -54,11 +54,12 @@ namespace OpeningPitch
         {
             var currentTeamQuery = (from teams in db.Teams
                             select new { teams.TeamName }).ToList();
-
+            
             
             this.TeamList.ItemsSource = currentTeamQuery;
             this.TeamList.DisplayMemberPath = "TeamName";
             this.TeamList.SelectedValuePath = "TeamName";
+            
         }
 
 
@@ -117,20 +118,13 @@ namespace OpeningPitch
                     user.Password = Confirm_Password_Input.Password;
                     
                     
+                    
+                    
                     if (Team_Captain.IsChecked == true)
                     {
                         user.UserType = 1;
                         user.Approved = 1;
-                        Team newTeam = new Team();
-                        newTeam.TeamName = CustomTeam.Text;
-                        newTeam.CoachFirstName = First_Name_Input.Text;
-                        newTeam.CoachLastName = Last_Name_Input.Text;
-                        user.TeamName = CustomTeam.Text;
-                    }
-
-                    else
-                    {
-                        user.TeamName = TeamList.Text;
+                        globals.user.UserType = user.UserType;
                     }
 
                     var teamquery = from teams in db.Teams
@@ -249,6 +243,7 @@ namespace OpeningPitch
             TeamList.Visibility = Visibility.Hidden;
             CustomTeamLabel.Visibility = Visibility.Visible;
             TeamListLabel.Visibility = Visibility.Hidden;
+            
         }
 
         private void Team_Player_Checked(object sender, RoutedEventArgs e)
@@ -257,9 +252,11 @@ namespace OpeningPitch
             CustomTeam.Visibility = Visibility.Hidden;
             CustomTeamLabel.Visibility = Visibility.Hidden;
             TeamListLabel.Visibility = Visibility.Visible;
+
+            
         }
 
-
+        
 
     }
 }
