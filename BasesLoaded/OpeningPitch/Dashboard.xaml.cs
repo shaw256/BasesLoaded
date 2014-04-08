@@ -31,74 +31,11 @@ namespace OpeningPitch
             Cancel_Event.Visibility = Visibility.Hidden;
             Add_Player.Visibility = Visibility.Hidden;
             Delete_Player.Visibility = Visibility.Hidden;
+            Update.Visibility = Visibility.Hidden;
         }
 
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
-        private void GridViewApplicants()
-        {
-            DataTable MyDataTable = new DataTable();
-
-            MyDataTable.Columns.Add(
-                new DataColumn()
-                {
-                    DataType = System.Type.GetType("System.String"),
-                    ColumnName = "First Name"
-                }
-
-              );
-
-            MyDataTable.Columns.Add(
-                new DataColumn()
-                {
-                    DataType = System.Type.GetType("System.String"),
-                    ColumnName = "Last Name"
-                }
-                );
-
-            MyDataTable.Columns.Add(
-                new DataColumn()
-                {
-                    DataType = System.Type.GetType("System.String"),
-                    ColumnName = "Email"
-                }
-                );
-
-            MyDataTable.Columns.Add(
-               new DataColumn()
-               {
-                   DataType = System.Type.GetType("System.String"),
-                   ColumnName = "Position"
-               }
-               );
-
-            var applicationQuery = from players in db.Players
-                                   where players.Approved == 0
-                                   select players;
-
-
-            foreach (var column in applicationQuery)
-            {
-                var row = MyDataTable.NewRow();
-                row["First Name"] = column.FirstName;
-                row["Last Name"] = column.LastName;
-                row["Email"] = column.Email;
-                row["Position"] = column.Position;
-                MyDataTable.Rows.Add(row);
-            }
-
-            Team_Display.ItemsSource = MyDataTable.AsDataView();
-            Team_Display.IsReadOnly = true;
-        }
-
-        private void GridViewRoster()
-        {
-            var players = (from m in db.Players
-                           where m.TID == globals.user.TID
-                           select m);
-
-            Team_Display.ItemsSource = players;
-        }
-
+              
         private void TC_Dashboard_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -118,6 +55,7 @@ namespace OpeningPitch
         {
            Window Teams = new Add_Team();
            Teams.Show();
+           MakeReadonlyTrue();
            this.Close();
         }
        private void Exit_Click(object sender, RoutedEventArgs e)
@@ -145,70 +83,95 @@ namespace OpeningPitch
        {
 
            GridViewApplicants();
+           MakeReadonlyTrue();
            Approve_Player.Visibility = Visibility.Visible;
            Deny_Player.Visibility = Visibility.Visible;
            Cancel_Event.Visibility = Visibility.Visible;
+           Update.Visibility = Visibility.Hidden;
+         
            
        }
 
        private void Approve_Player_Click(object sender, RoutedEventArgs e)
        {
-           DataRowView row = (DataRowView)Team_Display.SelectedItems[0];
-           var player = from players in db.Players
-                        where players.Email.ToString() == row["Email"].ToString()
-                        select players;
+           LINQtoSQLDataContext ApprovePlayer = new LINQtoSQLDataContext();
 
-           foreach (var info in player)
-           {
-               info.Approved = 1;
-
-           }
            try
            {
-               //db.Refresh(System.Data.Linq.RefreshMode.KeepChanges, info.Approved);
-               db.SubmitChanges();
+
+               Player PlayerRow = Team_Display.SelectedItem as Player;
+
+               Player player = (from p in ApprovePlayer.Players
+                                where p.PID == globals.user.PID
+                                select p).Single();
+
+               player.Approved = 1;
+
+               ApprovePlayer.SubmitChanges();
+
+               MessageBox.Show("Update Successful.");
+
+               Team_Display.Items.Refresh();
+
            }
 
-           catch (Exception ex)
+           catch (Exception Ex)
            {
-               MessageBox.Show(ex.Message);
+
+               MessageBox.Show(Ex.Message);
+
+               return;
            }
+           //DataRowView row = (DataRowView)Team_Display.SelectedItems[0];
+           //var player = from players in db.Players
+           //             where players.Email.ToString() == row["Email"].ToString()
+           //             select players;
+
+           //foreach (var info in player)
+           //{
+           //    info.Approved = 1;
+
+           //}
+           //try
+           //{
+           //    //db.Refresh(System.Data.Linq.RefreshMode.KeepChanges, info.Approved);
+           //    db.SubmitChanges();
+           //}
+
+           //catch (Exception ex)
+           //{
+           //    MessageBox.Show(ex.Message);
+           //}
 
            GridViewApplicants();
        }
     
        
 
-        private void Edit_Roster_click(object sender, RoutedEventArgs e)
-        {
-            Add_Player.Visibility = Visibility.Visible;
-            Delete_Player.Visibility = Visibility.Visible;
-            Approve_Player.Visibility = Visibility.Hidden;
-            Deny_Player.Visibility = Visibility.Hidden;
-            Cancel_Event.Visibility = Visibility.Hidden;           
-
-        }
-
         private void Login_Home_Click(object sender, RoutedEventArgs e)
-        {
-            //Approve_Player.Visibility = Visibility.Hidden;
-           // Deny_Player.Visibility = Visibility.Hidden;
-            //Cancel_Event.Visibility = Visibility.Hidden;
-            //Add_Player.Visibility = Visibility.Hidden;
-            //Delete_Player.Visibility = Visibility.Hidden;
-            Window home = new Dashboard();
-            home.Show();
-            this.Close();
-          
-        }
-
-        private void EditInfo_btn_Click(object sender, RoutedEventArgs e)
         {
             Approve_Player.Visibility = Visibility.Hidden;
             Deny_Player.Visibility = Visibility.Hidden;
             Cancel_Event.Visibility = Visibility.Hidden;
             Add_Player.Visibility = Visibility.Hidden;
             Delete_Player.Visibility = Visibility.Hidden;
+            Update.Visibility = Visibility.Hidden;
+            Window home = new Dashboard();
+            home.Show();
+            this.Close();
+          
+        }
+
+        private void EditPersonalInfo_Click(object sender, RoutedEventArgs e)
+        {
+            Approve_Player.Visibility = Visibility.Hidden;
+            Deny_Player.Visibility = Visibility.Hidden;
+            Cancel_Event.Visibility = Visibility.Visible;
+            Add_Player.Visibility = Visibility.Hidden;
+            Delete_Player.Visibility = Visibility.Hidden;
+            Update.Visibility = Visibility.Visible;
+            CurrentUserInfo();
+          
         }
 
         private void Deny_Player_Click(object sender, RoutedEventArgs e)
@@ -236,24 +199,114 @@ namespace OpeningPitch
             //}
         }
 
-        private void View_Team_Roster_Click(object sender, RoutedEventArgs e)
+        private void Team_Roster_Click(object sender, RoutedEventArgs e)
         {           
-            //List<Player> Players = (from p in db.Players
-            //IEnumerable<Player> Players= (from p in db.Players
-            //                       where  p.Approved==1 && p.TID==3
-            //                       orderby p.PID
-            //                       select p).ToList();
-
-
-            //Team_Display.ItemsSource = Players;
-
+            
+            Approve_Player.Visibility = Visibility.Hidden;
+            Deny_Player.Visibility = Visibility.Hidden;
+            Cancel_Event.Visibility = Visibility.Hidden;
+            Update.Visibility = Visibility.Hidden;
+            Add_Player.Visibility = Visibility.Visible;
+            Delete_Player.Visibility = Visibility.Visible;
             GridViewRoster();
+            MakeReadonlyTrue();
+        }
 
-           
-           
+        private void Add_Player_Click(object sender, RoutedEventArgs e)
+        {
+            Window AddPlayer = new Player_Info();
+            AddPlayer.Show();
+            MakeReadonlyTrue();
+            this.Close();
+        }
+      
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+             LINQtoSQLDataContext UpdateUser = new LINQtoSQLDataContext();
+
+             try
+             {
+
+                 Player PlayerRow = Team_Display.SelectedItem as Player;
+
+                 Player player = (from p in UpdateUser.Players
+                                  where p.PID == globals.user.PID
+                                  select p).Single();
+
+                 player.FirstName = PlayerRow.FirstName;
+                 player.LastName = PlayerRow.LastName;
+                 player.Email = PlayerRow.Email;
+                 player.PhoneNumber = PlayerRow.PhoneNumber;
+                 player.Address = PlayerRow.Address;
+                 player.Address2 = PlayerRow.Address2;
+                 player.City = PlayerRow.City;
+                 player.State = PlayerRow.State;
+                 player.Zipcode = PlayerRow.Zipcode;
+
+                 UpdateUser.SubmitChanges();
+
+                 MessageBox.Show("Update Successful.");
+
+                 Team_Display.Items.Refresh();
+
+             }
+
+             catch (Exception Ex)
+             {
+
+                 MessageBox.Show(Ex.Message);
+
+                 return;
+             }
+        }
+
+
+        /// <summary>
+        /// These are all the extra functions the button use
+        /// </summary>
+            private void GridViewRoster()
+        {
+            var players = (from m in db.Players
+                           where m.TID == globals.user.TID
+                           select m);
+
+            Team_Display.ItemsSource = players;
+        }
+            private void GridViewApplicants()
+            {
+
+                var players = (from a in db.Players
+                               where a.Approved == 0
+                               select a);
+                Team_Display.ItemsSource = players;
+            }
+            private void MakeReadonlyTrue()
+            {
+                foreach (DataGridColumn Item in Team_Display.Columns)
+                {
+                    Item.IsReadOnly = true;
+                }
+            }
+            private void MakeReadonlyFalse()
+            {
+                foreach (DataGridColumn Item in Team_Display.Columns)
+                {
+                    Item.IsReadOnly = false;
+                }
+            }
+            private void CurrentUserInfo()
+            {
+                var players = (from m in db.Players
+                               where m.Email == globals.user.Email
+                               select m);
+
+                Team_Display.ItemsSource = players;
+                MakeReadonlyFalse();
+            }
 
         }
+
     }   
            
-}
+
 

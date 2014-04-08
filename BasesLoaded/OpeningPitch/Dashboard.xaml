@@ -19,41 +19,35 @@
 			HorizontalAlignment="Center" 
 			Height="22" 
 			VerticalAlignment="Center" 
-			Width="104" 
-            Margin="119,94,467,376" Click="Login_Home_Click"/>
+			Width="131" 
+            Margin="10,94,549,376" Click="Login_Home_Click"/>
         <Button x:Name="Create_Team1" 
-			Content="Edit Teams" 
+			Content="Add Teams" 
 			HorizontalAlignment="Center" 
-			Margin="10,94,576,376" 
+			Margin="282,94,278,376" 
 			VerticalAlignment="Center" 
-			Width="104" 
+			Width="130" 
 			Click="CreateTeam_Click" 
 			Height="22"/>
-        <Button x:Name="EditInfo_btn" 
-        	Content="Edit Info" 
+        <Button x:Name="EditPersonalInfo" 
+        	Content="Personal Info" 
         	HorizontalAlignment="Center" 
         	VerticalAlignment="Center" 
-        	Width="103" 
-            Margin="577,94,10,376" 
-            Height="24" Click="EditInfo_btn_Click"/>
+        	Width="129" 
+            Margin="551,94,10,376" 
+            Height="24" Click="EditPersonalInfo_Click"/>
         <Button x:Name="Applications" 
 			Content="Applications" 
 			HorizontalAlignment="Center" 
-			Margin="343,94,237,376" 
+			Margin="412,94,139,376" 
 			VerticalAlignment="Center" 
-			Width="110" Click="Applications_Click"/>
-        <Button x:Name="Edit_Roster" 
-			Content="Edit Roster" 
-			HorizontalAlignment="Center" 
-			Margin="228,94,352,376" 
-			VerticalAlignment="Center" 
-			Width="110" Click="Edit_Roster_click"/>
-        <Button x:Name="View_Team_Roster" 
+			Width="139" Click="Applications_Click"/>
+        <Button x:Name="Team_Roster" 
 			Content="Team Roster" 
 			HorizontalAlignment="Center"
-			Margin="460,94,118,376" 
+			Margin="141,94,408,376" 
 			VerticalAlignment="Center" 
-			Width="112" Click="View_Team_Roster_Click"/>
+			Width="141" Click="Team_Roster_Click"/>
         <Button x:Name="Delete_Player" 
 			Content="Delete Player" 
 			HorizontalAlignment="Center" 
@@ -66,18 +60,88 @@
 			Margin="580,460,10,10" 
 			VerticalAlignment="Center" 
 			Width="100"/>
-        <DataGrid x:Name="Team_Display" 
-            HorizontalAlignment="Center" 
-            Height="326" 
-            Margin="9,129,10,45" 
-            VerticalAlignment="Center" 
-            Width="671" 
-            BorderBrush="{DynamicResource AccordionBorderBrush}" 
-            Background="{DynamicResource AccordionBackgroundBrush}"
-            SelectionMode="Single"
-            SelectionUnit="FullRow" 
-            Grid.ColumnSpan="2"
-            />
+        <DataGrid x:Name="Team_Display" x:Uid="Team_Display" AutoGenerateColumns="False"  
+
+                       AlternationCount="2" SelectionMode="Single" Margin="10,129,10,45">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Binding="{Binding  Path=FirstName}" IsReadOnly="True"  
+                                    
+
+                                    Header="First Name" Width="SizeToHeader" />
+
+                <DataGridTextColumn Binding="{Binding Path=LastName}" IsReadOnly="True"
+
+                                    Header="Last Name" Width="SizeToHeader" />
+
+                <DataGridTextColumn Binding="{Binding Path=PhoneNumber}"  IsReadOnly="True"
+
+                                    Header="Phone Number" Width="SizeToHeader" />
+                <DataGridTextColumn Binding="{Binding Path=Email}" IsReadOnly="True"
+
+                                    Header="Email" Width="SizeToHeader" />
+
+                <DataGridTextColumn Binding="{Binding Path=Address}" IsReadOnly="True"
+
+                                    Header="Address" Width="SizeToHeader" />
+
+                <DataGridTextColumn Binding="{Binding Path=Address2}" IsReadOnly="True"
+
+                                    Header="Address2" Width="SizeToHeader" />
+
+                <DataGridTextColumn Binding="{Binding Path=City}" IsReadOnly="True"
+
+                                    Header="City" Width="SizeToHeader" />
+                <DataGridTextColumn Binding="{Binding Path=State}" IsReadOnly="True"
+
+                                    Header="State" Width="SizeToHeader" />
+                <DataGridTextColumn Binding="{Binding Path=Zipcode}" IsReadOnly="True"
+
+                                    Header="Zipcode" Width="SizeToHeader" />
+                <DataGridTextColumn Binding="{Binding Path=Gender}" IsReadOnly="True"
+
+                                    Header="Gender" Width="SizeToHeader" />
+                <DataGridTextColumn Binding="{Binding Path=Position}" IsReadOnly="True"
+
+                                    Header="Position" Width="SizeToHeader" />
+                <DataGridTextColumn Binding="{Binding Path=Team}" IsReadOnly="True"
+
+                                    Header="Team" Width="SizeToHeader" />
+                <!--<DataGridTemplateColumn Header="Edit Row">
+
+                    <DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+
+                            <Button Content="Edit" Click="EditButton_Click" />
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Delete Row">
+
+                    <DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+
+                            <Button Content="Delete" Click="DeleteButton_Click" />
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>-->
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+
+
 
         <Button x:Name="Dashboard_Logout" 
 			Content="Logout" 
@@ -114,7 +178,7 @@
         <Button x:Name="Approve_Player" 
             Content="Approve" 
             HorizontalAlignment="Center" 
-            Margin="125,460,465,10" 
+            Margin="375,460,215,10" 
             VerticalAlignment="Center" 
             Width="100" 
             ToolTip="This allows one to pull up all the users information." 
@@ -130,8 +194,14 @@
         <Button x:Name="Add_Player" 
         	Content="Add Player" 
         	HorizontalAlignment="Center" 
-        	Margin="230,460,348,10" 
+        	Margin="120,460,458,10" 
         	VerticalAlignment="Center" 
-        	Width="112"/>
+        	Width="112" Click="Add_Player_Click"/>
+        <Button x:Name="Update" 
+        	Content="Update" 
+        	HorizontalAlignment="Center" 
+        	Margin="480,460,110,10" 
+        	VerticalAlignment="Center" 
+        	Width="100" Click="Update_Click"/>
     </Grid>
 </Window>

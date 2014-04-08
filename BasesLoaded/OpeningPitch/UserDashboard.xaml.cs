@@ -46,7 +46,7 @@ namespace OpeningPitch
                            select m);
 
             User_View.ItemsSource = players;
-
+            
         }
 
         private void Logout_btn_Click(object sender, RoutedEventArgs e)
