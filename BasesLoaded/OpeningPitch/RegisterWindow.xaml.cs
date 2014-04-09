@@ -79,23 +79,6 @@ namespace OpeningPitch
 
             RegisterValidation _applicant = Register_Window.DataContext as RegisterValidation;
 
-            //if (First_Name_Input.Text.Equals("") || Last_Name_Input.Text.Equals("") || Email_Input.Text.Equals("") || Phone_Number_Input.Text.Equals(""))
-            //{
-            //    MessageBox.Show("Please ensure all required fields are filled out.");
-            //}
-            //else if (New_Password_Input != Confirm_Password_Input)
-            //{
-            //    MessageBox.Show("The Passwords do not match, Please try again.");
-            //}
-
-            try
-            {
-                var query = from stuff in db.Players
-                            where stuff.Email == Email_Input.Text
-                            select stuff;
-
-                if (query.Count() == 0)
-                {
 
                     Player user = new Player();
                     user.FirstName = First_Name_Input.Text;
@@ -114,8 +97,7 @@ namespace OpeningPitch
                     user.Password = Confirm_Password_Input.Password;
                     
                     
-                    
-                    
+                                    
                     if (AccountType.Text == "Team Captain")
                     {
                         user.UserType = 1;
@@ -137,7 +119,7 @@ namespace OpeningPitch
                     {
 
                         var teamquery = from teams in db.Teams
-                                        where teams.TeamName == "TestTeam"
+                                        where teams.TeamName == TeamList.Text
                                         select teams;
 
                         foreach (var team in teamquery)
@@ -161,25 +143,17 @@ namespace OpeningPitch
                     {
                         MessageBox.Show(ex.Message);
                     }
+
+
+
                     MessageBox.Show("You have successfully registered!");
+
                     Window BacktoMain = new MainWindow();
                     BacktoMain.Show();
                     this.Close();
                     
-                }
-
-                else
-                {
-                    MessageBox.Show("Username already exists!");
-                }
 
 
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
             
 
@@ -206,10 +180,14 @@ namespace OpeningPitch
                     MessageBox.Show(ex.ToString());
                 }
 
+
             _applicant = new RegisterValidation();
             Register_Window.DataContext = _applicant;
             e.Handled = true;
+
         }
+
+
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit Registration?\n\nAll data will be lost.",

@@ -283,12 +283,35 @@ namespace OpeningPitch
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             Match match = regex.Match(emailaddress);
             if (match.Success)
+            {
                 return true;
+            }
+
             else
+            {
                 return false;
+            }
         }
 
-        private bool ValidateTeam(string teamToBeChecked)
+        private bool IsEmailUnique(string emailaddress)
+        {
+            var checkEmailAddresses = from players in databaseCheck.Players
+                                      where players.Email == emailaddress
+                                      select players;
+
+            if (checkEmailAddresses.Count() > 0)
+            {
+                return false;
+            }
+
+            else
+            {
+                return true;
+            }
+        }
+
+
+        private bool IsTeamUnique(string teamToBeChecked)
         {
             var isThereATeam = from teams in databaseCheck.Teams
                                where teams.TeamName == teamToBeChecked
@@ -401,6 +424,10 @@ namespace OpeningPitch
                         result = "Please enter a valid email address.";
                     }
 
+                    else if (!IsEmailUnique(Email))
+                    {
+                        result = "This email is already in use!";
+                    }
                     else if (Email.Length > 50)
                     {
                         result = "Email addresses cannot exceed 50 characters.";
@@ -525,7 +552,7 @@ namespace OpeningPitch
                         }
                     }
 
-                    if (!ValidateTeam(NewTeamName))
+                    if (!IsTeamUnique(NewTeamName))
                     {
                         result = "This team already exists!";
                     }
