@@ -28,7 +28,6 @@
           Background="{DynamicResource BackgroundKey}">
         <TextBox x:Name="Username_Input" 
                  Margin="125,185,125,285" 
-                 TextWrapping="Wrap"
                  VerticalAlignment="Center"
                  HorizontalAlignment="Center"
                  Width="150" 

@@ -32,7 +32,8 @@
                 Margin="10,85,585,385" 
                 Height="24" 
                 Click="EditInfo_btn_Click"/>
-        <Button Content="Update" 
+        <Button x:Name="Update"
+                Content="Update" 
                 HorizontalAlignment="Center" 
                 Margin="110,85,505,385" 
                 VerticalAlignment="Center" 
@@ -74,55 +75,56 @@
                 FontWeight="Bold" 
                 FontSize="14"/>
         <DataGrid x:Name="User_View" 
-                  HorizontalAlignment="Center" 
-                  Height="370" 
-                  Margin="10,120,10,10" 
-                  VerticalAlignment="Center" 
-                  Width="670"
-                  Background="{DynamicResource ButtonBackgroundBrush}"
-                  SelectionMode="Single"
-                  SelectionUnit="FullRow"
-                  Grid.ColumnSpan="2"/>
-        <!--<DataGrid x:Name="User_View" 
                   AutoGenerateColumns="False"  
                   AlternationCount="2" 
                   SelectionMode="Single" 
                   Margin="10,120,10,10" 
                   Background="{DynamicResource ButtonBackgroundBrush}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding  Path=FirstName}" IsReadOnly="False"  
-                                    Header="First Name" Width="SizeToHeader" />
+                <DataGridTextColumn Binding="{Binding  Path=FirstName}"
+                                    IsReadOnly="True"
+                                    Header="First Name" 
+                                    Width="Auto" />
                 <DataGridTextColumn Binding="{Binding Path=LastName}" 
-                                    Header="Last Name" Width="SizeToHeader" />
-                <DataGridTextColumn Binding="{Binding Path=Email}"  
-                                    Header="Email" Width="SizeToHeader" />
-                <DataGridTextColumn Binding="{Binding Path=PhoneNumber}" 
-                                    Header="Phone Number" Width="SizeToHeader" />
-                <DataGridTextColumn Binding="{Binding Path=Address}" 
-                                    Header="Address" Width="SizeToHeader" />
-                <DataGridTextColumn Binding="{Binding Path=Address2}" 
-                                    Header="Address 2" Width="SizeToHeader" />
-                <DataGridTextColumn Binding="{Binding Path=City}" 
-                                    Header="City" Width="SizeToHeader" />
-                <DataGridTextColumn Binding="{Binding Path=State}" 
-                                    Header="State" Width="SizeToHeader" />
-                <DataGridTextColumn Binding="{Binding Path=Zipcode}" 
-                                    Header="Zip Code" Width="SizeToHeader" />-->
-        <!--<grid:DataGridTemplateColumn Header="Edit Row">
-                    <grid:DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Edit" Click="EditButton_Click" />
-                        </DataTemplate>
-                    </grid:DataGridTemplateColumn.CellTemplate>
-                </grid:DataGridTemplateColumn>
-                <grid:DataGridTemplateColumn Header="Delete Row">
-                    <grid:DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Delete" Click="DeleteButton_Click" />
-                        </DataTemplate>
-                    </grid:DataGridTemplateColumn.CellTemplate>
-                </grid:DataGridTemplateColumn>-->
-        <!--</DataGrid.Columns>-->
-        <!--</DataGrid>-->
+                                    IsReadOnly="True"
+                                    Header="Last Name" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="emailField" 
+                                    Binding="{Binding Path=Email}"                                      
+                                    IsReadOnly="True"
+                                    Header="Email" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="phoneNumber" 
+                                    Binding="{Binding Path=PhoneNumber}" 
+                                    IsReadOnly="True"
+                                    Header="Phone Number" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="address1" 
+                                    Binding="{Binding Path=Address}"                                     
+                                    IsReadOnly="True"
+                                    Header="Address"
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="address2" 
+                                    Binding="{Binding Path=Address2}"                                    
+                                    IsReadOnly="True"
+                                    Header="Address 2" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="city" 
+                                    Binding="{Binding Path=City}"                                    
+                                    IsReadOnly="True"
+                                    Header="City" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="state" 
+                                    Binding="{Binding Path=State}"                                     
+                                    IsReadOnly="True"
+                                    Header="State" 
+                                    Width="Auto" />
+                <DataGridTextColumn x:Name="zipcode"
+                                    Binding="{Binding Path=Zipcode}"                                     
+                                    IsReadOnly="True"
+                                    Header="Zip Code"
+                                    Width="Auto" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

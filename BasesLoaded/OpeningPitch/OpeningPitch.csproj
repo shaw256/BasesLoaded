@@ -100,13 +100,13 @@
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="globals.cs" />
+    <Compile Include="Add_Teams.xaml.cs">
+      <DependentUpon>Add_Teams.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LINQtoSQL.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LINQtoSQL.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Add_Teams.xaml.cs">
-      <DependentUpon>Add_Teams.xaml</DependentUpon>
     </Compile>
     <Compile Include="Manage_Roster.xaml.cs">
       <DependentUpon>Manage_Roster.xaml</DependentUpon>

@@ -22,7 +22,7 @@
       <Column Name="TID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Activated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Team_Player" Member="Team" ThisKey="TID" OtherKey="TID" Type="Team" IsForeignKey="true" />
+      <Column Name="ActivateCode" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Teams" Member="Teams">
@@ -31,7 +31,6 @@
       <Column Name="TeamName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CoachFirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CoachLastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Team_Player" Member="Players" ThisKey="TID" OtherKey="TID" Type="Player" />
     </Type>
   </Table>
 </Database>
