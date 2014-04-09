@@ -7,30 +7,277 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
+using System.Runtime.CompilerServices;
 
 namespace OpeningPitch
 {
-    class RegisterValidation : IDataErrorInfo
+    class RegisterValidation : IDataErrorInfo, INotifyPropertyChanged
     {
 
-        public string FName         { get; set; }
-        public string LName         { get; set; }
-        public string Address1      { get; set; }
-        public string Address2      { get; set; }
-        public string City          { get; set; }
-        public string Zipcode       { get; set; }
-        public string Email         { get; set; }
-        public string PhoneNumber   { get; set; }
-        public string Gender        { get; set; }
-        public string Position      { get; set; }
-        public string AltPosition1  { get; set; }
-        public string AltPosition2  { get; set; }
-        public string TeamChoice    { get; set; }
-        public string NewTeamName   { get; set; }
+       #region Private Variables
+       private string _FName;
+       private string _LName;
+       private string _Address1;
+       private string _Address2;
+       private string _City;
+       private string _Zipcode;
+       private string _Email;
+       private string _PhoneNumber;
+       private string _Gender;
+       private string _Position; 
+       private string _AltPosition1;
+       private string _AltPosition2;
+       private string _TeamChoice;
+       private string _NewTeamName;
+       private string _AccountType;
+       #endregion
+
+       #region Properties
+       public string FName        
+        {
+            get { return _FName; }
+
+            set 
+            { 
+                if (_FName != value)
+                {
+                    _FName = value;
+                    OnPropertyChanged("FName");
+                    
+                }
+            }
+        }
+        public string LName
+        {
+            get { return _LName; }
+
+            set
+            {
+                if (_LName != value)
+                {
+                    _LName = value;
+                    OnPropertyChanged("LName");
+
+                }
+            }
+        }
+        public string Address1
+        {
+            get { return _Address1; }
+
+            set
+            {
+                if (_Address1 != value)
+                {
+                    _Address1 = value;
+                    OnPropertyChanged("Address1");
+
+                }
+            }
+        }
+
+        public string Address2
+        {
+            get { return _Address2; }
+
+            set
+            {
+                if (_Address2 != value)
+                {
+                    _Address2 = value;
+                    OnPropertyChanged("Address2");
+
+                }
+            }
+        }
+
+        public string City
+        {
+            get { return _City; }
+
+            set
+            {
+                if (_City != value)
+                {
+                    _City = value;
+                    OnPropertyChanged("City");
+
+                }
+            }
+        }
+
+        public string Zipcode
+        {
+            get { return _Zipcode; }
+
+            set
+            {
+                if (_Zipcode != value)
+                {
+                    _Zipcode = value;
+                    OnPropertyChanged("Zipcode");
+
+                }
+            }
+        }
+
+        public string Email
+        {
+            get { return _Email; }
+
+            set
+            {
+                if (_Email != value)
+                {
+                    _Email = value;
+                    OnPropertyChanged("Email");
+
+                }
+            }
+        }
+
+        public string PhoneNumber
+        {
+            get { return _PhoneNumber; }
+
+            set
+            {
+                if (_PhoneNumber != value)
+                {
+                    _PhoneNumber = value;
+                    OnPropertyChanged("PhoneNumber");
+
+                }
+            }
+        }
+
+        public string Gender
+        {
+            get { return _Gender; }
+
+            set
+            {
+                if (_Gender != value)
+                {
+                    _Gender = value;
+                    OnPropertyChanged("Gender");
+
+                }
+            }
+        }
+
+        public string Position
+        {
+            get { return _Position; }
+
+            set
+            {
+                if (_Position != value)
+                {
+                    _Position = value;
+                    OnPropertyChanged("Position");
+
+                }
+            }
+        }
+
+        public string AltPosition1
+        {
+            get { return _AltPosition1; }
+
+            set
+            {
+                if (_AltPosition1 != value)
+                {
+                    _AltPosition1 = value;
+                    OnPropertyChanged("AltPosition1");
+
+                }
+            }
+        }
+
+        public string AltPosition2
+        {
+            get { return _AltPosition2; }
+
+            set
+            {
+                if (_AltPosition2 != value)
+                {
+                    _AltPosition2 = value;
+                    OnPropertyChanged("AltPosition2");
+
+                }
+            }
+        }
+
+        public string TeamChoice
+        {
+            get { return _TeamChoice; }
+
+            set
+            {
+                if (_TeamChoice != value)
+                {
+                    _TeamChoice = value;
+                    OnPropertyChanged("TeamChoice");
+                    OnPropertyChanged("NewTeamName");
+                    OnPropertyChanged("AccountType");
+
+                }
+            }
+        }
+
+        public string NewTeamName
+        {
+            get { return _NewTeamName; }
+
+            set
+            {
+                if (_NewTeamName != value)
+                {
+                    _NewTeamName = value;
+                    OnPropertyChanged("TeamChoice");
+                    OnPropertyChanged("NewTeamName");
+                    OnPropertyChanged("AccountType");
+
+                }
+            }
+        }
+
+        public string AccountType
+        {
+            get { return _AccountType; }
+
+            set
+            {
+                if (_AccountType != value)
+                {
+                    _AccountType = value;
+                    OnPropertyChanged("TeamChoice");
+                    OnPropertyChanged("NewTeamName");
+                    OnPropertyChanged("AccountType");
+
+                }
+            }
+        }
+        #endregion
+
+       #region INotifyPropertyChanged Members
+       public event PropertyChangedEventHandler PropertyChanged;
+        
+        private void OnPropertyChanged(String propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+       #endregion
 
         private bool ValidateEmail(string emailaddress)
         {
-            
+
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             Match match = regex.Match(emailaddress);
             if (match.Success)
@@ -39,11 +286,14 @@ namespace OpeningPitch
                 return false;
         }
 
+        #region IDataErrorInfo Member
         public string Error
         {
             get { throw new NotImplementedException(); }
         }
+        #endregion
 
+        #region Error Validation
         public string this[string columnName]
         {
             get
@@ -193,25 +443,65 @@ namespace OpeningPitch
                     }
                 }
 
+
+                if (columnName == "AccountType")
+                {
+                    if (AccountType == null)
+                    {
+                        result = "Please make a selection.";
+                    }
+
+                    if (AccountType == "Team Captain" && String.IsNullOrEmpty(NewTeamName))
+                    {
+                        result = "Please enter a team.";
+                    }
+
+                    if (AccountType == "Team Player" && String.IsNullOrEmpty(TeamChoice))
+                    {
+                        result = "Please select a team.";
+                    }
+
+                }
+
                 if (columnName == "TeamChoice")
                 {
-                    if (TeamChoice == null)
+                    if (AccountType == "Team Player")
                     {
-                        if (NewTeamName == null)
+                        if (String.IsNullOrEmpty(TeamChoice))
                         {
-                            result = "Please select an option.";
+                            result = "Please select a team.";
                         }
-                        
+                    }
+
+                    if (AccountType == "Team Captain")
+                    {
+                        if (!(String.IsNullOrEmpty(TeamChoice)))
+                        {
+                            result = "Do not select a team if you want to make your own!";
+                        }
                     }
                 }
 
                 if (columnName == "NewTeamName")
                 {
-                    if (NewTeamName == null)
+                    if (String.IsNullOrEmpty(NewTeamName))
                     {
-                        if (TeamChoice == null)
+                        if (AccountType == "Team Captain")
                         {
-                            result = "Please select an option.";
+                            result = "Please make a selection.";
+                        }
+                    }
+
+                    else if (Regex.IsMatch(NewTeamName, @"[\W\d]"))
+                    {
+                        result = "Team name cannot contain non-letters.";
+                    }
+
+                    if (AccountType == "Team Player")
+                    {
+                        if (!(String.IsNullOrEmpty(NewTeamName)))
+                        {
+                            result = "Please use the selection box to choose a team.";
                         }
                     }
                 }
@@ -219,6 +509,7 @@ namespace OpeningPitch
                 return result;
             }
         }
+        #endregion
 
     }
 }

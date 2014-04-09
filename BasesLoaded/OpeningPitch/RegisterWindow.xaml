@@ -12,12 +12,12 @@
         WindowStyle="None"
         Title="RegisterWindow" 
         Height="500" 
-        Width="748.522" 
+        Width="798.494" 
         MouseDown="Window_MouseDown">
 
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
-            
+
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="FontSize" Value="14.667" />
             <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
@@ -28,7 +28,7 @@
             <Setter Property="MinHeight" Value="30" />
             <Setter Property="MinWidth" Value="90" />
             <Setter Property="IsTabStop" Value="False" />
-             <Setter Property="Validation.ErrorTemplate">
+            <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>
                         <DockPanel LastChildFill="true">
@@ -87,8 +87,7 @@
     </Window.Resources>
 
     <Grid x:Name="Register_Window" 
-          Background="{DynamicResource ButtonBackgroundBrush}" HorizontalAlignment="Left" Width="749">
-
+          Background="{DynamicResource ButtonBackgroundBrush}" Margin="-13,0,0,0">
         <Grid.CommandBindings>
             <CommandBinding Command="New" CanExecute="Applicant_CanExecute" Executed="Applicant_Executed"></CommandBinding>
         </Grid.CommandBindings>
@@ -274,7 +273,7 @@
         <TextBox x:Name="Email_Input" 
 			HorizontalAlignment="Center" 
 			Height="23" 
-			Margin="130,214,36,256" 
+			Margin="333,213,239,257" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Center" 
 			Width="234"
@@ -284,7 +283,7 @@
         <Label x:Name="E_Mail_Label" 
 			Content="E-Mail" 
 			HorizontalAlignment="Center" 
-			Margin="6,214,347,256" 
+			Margin="209,211,550,259" 
 			VerticalAlignment="Center" 
 			Height="30"/>
         <Label x:Name="E_Mail_Required" 
@@ -299,7 +298,7 @@
 
         <xctk:MaskedTextBox x:Name="Phone_Number_Input" 
             HorizontalAlignment="Center" 
-            Margin="130,244,104,226" 
+            Margin="333,242,307,228" 
             TextWrapping="Wrap"  
             VerticalAlignment="Center" 
             InputScope="InputScopeNameValue.TelephoneNumber"  
@@ -317,7 +316,7 @@
         <Label x:Name="Phone_Number_Label" 
 			Content="Phone Number" 
 			HorizontalAlignment="Center" 
-			Margin="6,244,295,226" 
+			Margin="209,240,498,230" 
 			VerticalAlignment="Center" 
 			Height="30"/>
 
@@ -325,7 +324,7 @@
         <Label x:Name="Position_Label" 
 			Content="Desired Position" 
 			HorizontalAlignment="Center" 
-			Margin="6,304,278,166" 
+			Margin="209,298,481,172" 
 			VerticalAlignment="Center" 
 			Height="30" 
 			Width="116"/>
@@ -333,18 +332,16 @@
         <Label x:Name="Gender_Label" 
 			Content="Gender" 
 			HorizontalAlignment="Center" 
-			Margin="6,274,297,196" 
+			Margin="209,270,500,200" 
 			VerticalAlignment="Center" 
 			Height="30" 
 			Width="97"/>
 
         <ComboBox x:Name="Gender_Selection" 
                   HorizontalAlignment="Center" 
-                  Margin="130,274,150,196" 
+                  Margin="333,270,353,200" 
                   VerticalAlignment="Center" 
                   Width="120"
-                  Grid.Row="8"
-                  Grid.Column="1"
                   Validation.Error="Validation_Error"
                   Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Gender, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
             <ComboBoxItem Content="Male" HorizontalAlignment="Left" Width="118"/>
@@ -352,14 +349,12 @@
         </ComboBox>
         <ComboBox x:Name="Position_Selection"
                   HorizontalAlignment="Center"
-                  Margin="130,304,150,166" 
+                  Margin="333,298,353,172" 
                   VerticalAlignment="Center"
                   Width="120"
-                  Grid.Row="9"
-                  Grid.Column="1"
                   Validation.Error="Validation_Error"
                   Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Position, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
-            
+
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -372,11 +367,9 @@
         </ComboBox>
         <ComboBox x:Name="Alt_Position_Selection"
                   HorizontalAlignment="Center"
-                  Margin="130,334,150,136"
+                  Margin="333,327,353,143"
                   VerticalAlignment="Center"
                   Width="120"
-                  Grid.Row="10"
-                  Grid.Column="1"
                   Validation.Error="Validation_Error"
                   Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AltPosition1, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
             <ComboBoxItem Content="" HorizontalAlignment="Left" Width="118"/>
@@ -395,24 +388,22 @@
         <Label x:Name="Alt_Position_Label2" 
         	Content="Alternate Position2" 
         	HorizontalAlignment="Center" 
-        	Margin="6,364,270,106" 
+        	Margin="209,355,473,115" 
         	VerticalAlignment="Center" 
         	Height="30" 
         	Width="124"/>
         <Label x:Name="Alt_Position_Label1" 
         	Content="Alternate Position" 
         	HorizontalAlignment="Center" 
-        	Margin="6,334,278,136" 
+        	Margin="209,327,481,143" 
         	VerticalAlignment="Center" 
         	Height="30" 
         	Width="116"/>
         <ComboBox x:Name="Alt_Position_Selection2" 
                   HorizontalAlignment="Center" 
-                  Margin="130,364,150,106" 
+                  Margin="333,356,353,114" 
                   VerticalAlignment="Center" 
                   Width="120"
-                  Grid.Row="11"
-                  Grid.Column="1"
                   Validation.Error="Validation_Error"
                   Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AltPosition2, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
             <ComboBoxItem Content="" HorizontalAlignment="Left" Width="118"/>
@@ -426,29 +417,6 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <RadioButton x:Name="Team_Player" 
-                     GroupName="User_Type" 
-                     Content="Team Player" 
-                     FontSize="12" 
-                     HorizontalAlignment="Right" 
-                     VerticalAlignment="Bottom" 
-                     BorderBrush="{DynamicResource ButtonBorderBrush}" 
-                     Margin="0,0,10,165" 
-                     Height="31" 
-                     Width="97" 
-                     Checked="Team_Player_Checked"
-                     Grid.Row="15"
-                     Grid.Column="1"
-                     Validation.Error="Validation_Error"/>
-
-        <RadioButton x:Name="Team_Captain" 
-                     GroupName="User_Type" 
-                     Content="Team Captain" 
-                     FontSize="12" 
-                     HorizontalAlignment="Right" 
-                     VerticalAlignment="Bottom" 
-                     BorderBrush="{DynamicResource ButtonBorderBrush}" 
-                     Margin="0,0,10,196" Checked="Team_Captain_Checked"/>
 
         <Label x:Name="New_Password_Label" 
         	Content="New Password" 
@@ -543,7 +511,26 @@
 			VerticalAlignment="Center" 
 			Height="26"/>
 
-        <Label x:Name="TeamListLabel" Content="Team" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="522,336,0,0"/>
+        <Label Content="Account Type" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="476,299,0,0" Height="30" Width="91"/>
+        <ComboBox 
+            x:Name="AccountType" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Width="135" 
+            Margin="567,299,0,0"
+            Grid.Row="12"
+            Grid.Column="1"
+            Validation.Error="Validation_Error"
+            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AccountType, ValidatesOnDataErrors=True, NotifyOnValidationError=True }"
+            >
+            <ComboBoxItem Content="" HorizontalAlignment="Left" Width="135"></ComboBoxItem>
+            <ComboBoxItem Content= "Team Captain" HorizontalAlignment="Left" Width="135"></ComboBoxItem>
+            <ComboBoxItem Content= "Team Player"  HorizontalAlignment="Left" Width="135"></ComboBoxItem>
+        </ComboBox>
+
+
+
+        <Label x:Name="TeamListLabel" Content="Team" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="525,336,0,0"/>
         <ComboBox 
             x:Name="TeamList"
             HorizontalAlignment="Left"
@@ -551,7 +538,9 @@
             Width="135"
             Margin="567,334,0,0"
             Validation.Error="Validation_Error"
-            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=TeamChoice, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"  
+            Grid.Row="13"
+            Grid.Column="1"
+            SelectedValue="{Binding UpdateSourceTrigger=PropertyChanged, Path=TeamChoice, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"  
             />
 
         <Label x:Name="CustomTeamLabel" Content="Team Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="487,370,0,0" Width="80"/>
@@ -565,8 +554,15 @@
             Margin="567,369,0,0"
             FontSize="12px"
             Validation.Error="Validation_Error"
-            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=NewTeamName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
-
-
+            Grid.Row="14"
+            Grid.Column="1"
+            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=NewTeamName, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+        <Button x:Name="Clear_Button" 
+        	Content="Clear" 
+        	HorizontalAlignment="Center" 
+        	Margin="731,334,0,136" 
+        	VerticalAlignment="Center" 
+        	Width="75" Click="Clear_Button_Click" 
+        	IsCancel="True"/>
     </Grid>
 </Window>

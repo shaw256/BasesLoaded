@@ -44,10 +44,6 @@ namespace OpeningPitch
             this.State_Input.SelectedIndex = 1;
             Register_Window.DataContext = _applicant;
             PopulateTeamComboBox();
-            TeamList.Visibility = Visibility.Hidden;
-            CustomTeam.Visibility = Visibility.Hidden;
-            CustomTeamLabel.Visibility = Visibility.Hidden;
-            TeamListLabel.Visibility = Visibility.Hidden;
         }
 
         public void PopulateTeamComboBox()
@@ -120,20 +116,35 @@ namespace OpeningPitch
                     
                     
                     
-                    if (Team_Captain.IsChecked == true)
+                    if (AccountType.Text == "Team Captain")
                     {
                         user.UserType = 1;
                         user.Approved = 1;
                         globals.user.UserType = user.UserType;
+
+                        Team newTeam = new Team();
+                        newTeam.TeamName = CustomTeam.Text;
+                        newTeam.CoachFirstName = First_Name_Input.Text;
+                        newTeam.CoachLastName = Last_Name_Input.Text;
+
+                        user.TeamName = CustomTeam.Text;
+                        db.Teams.InsertOnSubmit(newTeam);
                     }
 
-                    var teamquery = from teams in db.Teams
-                                    where teams.TeamName == "TestTeam"
-                                    select teams.TID;
 
-                    foreach (var team in teamquery)
+                    if (AccountType.Text == "Team Player")
                     {
-                        user.TID = team;
+
+                        var teamquery = from teams in db.Teams
+                                        where teams.TeamName == "TestTeam"
+                                        select teams;
+
+                        foreach (var team in teamquery)
+                        {
+                            user.TID = team.TID;
+                            user.TeamName = team.TeamName;
+
+                        }
                     }
 
                     
@@ -237,28 +248,16 @@ namespace OpeningPitch
 
         }
 
-        private void Team_Captain_Checked(object sender, RoutedEventArgs e)
+        private void Clear_Button_Click(object sender, RoutedEventArgs e)
         {
-            CustomTeam.Visibility = Visibility.Visible;
-            TeamList.Visibility = Visibility.Hidden;
-            CustomTeamLabel.Visibility = Visibility.Visible;
-            TeamListLabel.Visibility = Visibility.Hidden;
-            
+            TeamList.SelectedIndex = -1;
         }
 
-        private void Team_Player_Checked(object sender, RoutedEventArgs e)
-        {
-            TeamList.Visibility = Visibility.Visible;
-            CustomTeam.Visibility = Visibility.Hidden;
-            CustomTeamLabel.Visibility = Visibility.Hidden;
-            TeamListLabel.Visibility = Visibility.Visible;
 
-            
-        }
 
-        
 
     }
+
 }
 
             
