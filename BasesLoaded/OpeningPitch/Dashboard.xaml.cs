@@ -47,9 +47,19 @@ namespace OpeningPitch
         }
         private void Dashboard_Logout_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow BacktoMain = new MainWindow();
-            BacktoMain.Show();
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit?\n\nAll unsaved changes will be lost.",
+                          "Confirmation", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
+            {
+                MainWindow BacktoMain = new MainWindow();
+                BacktoMain.Show();
+                this.Close();
+            }
+            else if (result == MessageBoxResult.Cancel)
+            {
+
+            }
         }
        private void CreateTeam_Click(object sender, RoutedEventArgs e)
         {
@@ -96,20 +106,18 @@ namespace OpeningPitch
 
        private void Approve_Player_Click(object sender, RoutedEventArgs e)
        {
-           LINQtoSQLDataContext ApprovePlayer = new LINQtoSQLDataContext();
-
            try
            {
 
                Player PlayerRow = Team_Display.SelectedItem as Player;
 
-               Player player = (from p in ApprovePlayer.Players
+               Player player = (from p in db.Players
                                 where p.PID == globals.user.PID
                                 select p).Single();
 
                player.Approved = 1;
 
-               ApprovePlayer.SubmitChanges();
+               db.SubmitChanges();
 
                MessageBox.Show("Update Successful.");
 
@@ -224,14 +232,14 @@ namespace OpeningPitch
       
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-             LINQtoSQLDataContext UpdateUser = new LINQtoSQLDataContext();
+             
 
              try
              {
 
                  Player PlayerRow = Team_Display.SelectedItem as Player;
 
-                 Player player = (from p in UpdateUser.Players
+                 Player player = (from p in db.Players
                                   where p.PID == globals.user.PID
                                   select p).Single();
 
@@ -245,7 +253,7 @@ namespace OpeningPitch
                  player.State = PlayerRow.State;
                  player.Zipcode = PlayerRow.Zipcode;
 
-                 UpdateUser.SubmitChanges();
+                 db.SubmitChanges();
 
                  MessageBox.Show("Update Successful.");
 
@@ -263,17 +271,16 @@ namespace OpeningPitch
         }
 
 
-        /// <summary>
-        /// These are all the extra functions the button use
-        /// </summary>
-            private void GridViewRoster()
-        {
-            var players = (from m in db.Players
-                           where m.TID == globals.user.TID
-                           select m);
+        private void GridViewRoster()
+            {
+                var players = (from m in db.Players
+                               where m.TID == globals.user.TID
+                               select m);
 
-            Team_Display.ItemsSource = players;
-        }
+                Team_Display.ItemsSource = players;
+            }
+
+
             private void GridViewApplicants()
             {
 
@@ -282,6 +289,7 @@ namespace OpeningPitch
                                select a);
                 Team_Display.ItemsSource = players;
             }
+
             private void MakeReadonlyTrue()
             {
                 foreach (DataGridColumn Item in Team_Display.Columns)
@@ -289,6 +297,7 @@ namespace OpeningPitch
                     Item.IsReadOnly = true;
                 }
             }
+
             private void MakeReadonlyFalse()
             {
                 foreach (DataGridColumn Item in Team_Display.Columns)
@@ -304,6 +313,33 @@ namespace OpeningPitch
 
                 Team_Display.ItemsSource = players;
                 MakeReadonlyFalse();
+            }
+
+            private void Delete_Player_Click(object sender, RoutedEventArgs e)
+            {
+                Player selectedPlayer = Team_Display.SelectedItem as Player;
+
+                var queriedPlayer = from players in db.Players
+                                    where players.PID == selectedPlayer.PID
+                                    select players;
+
+                foreach (var playerDetails in queriedPlayer)
+                {
+                    db.Players.DeleteOnSubmit(playerDetails);
+                }
+
+                try
+                {
+                    db.SubmitChanges();
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                GridViewRoster();
+
             }
 
         }

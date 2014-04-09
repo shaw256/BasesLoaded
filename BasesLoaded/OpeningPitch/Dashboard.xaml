@@ -53,7 +53,7 @@
 			HorizontalAlignment="Center" 
 			Margin="10,460,570,10" 
 			VerticalAlignment="Center" 
-			Width="110"/>
+			Width="110" Click="Delete_Player_Click"/>
         <Button x:Name="Cancel_Event" 
 			Content="Cancel" 
 			HorizontalAlignment="Center" 
