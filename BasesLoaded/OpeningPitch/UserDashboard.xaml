@@ -32,8 +32,7 @@
                 Margin="10,85,585,385" 
                 Height="24" 
                 Click="EditInfo_btn_Click"/>
-        <Button x:Name="Update"
-                Content="Update" 
+        <Button x:Name="Update" Content="Update"
                 HorizontalAlignment="Center" 
                 Margin="110,85,505,385" 
                 VerticalAlignment="Center" 
@@ -85,6 +84,8 @@
                                     IsReadOnly="True"
                                     Header="First Name" 
                                     Width="Auto" />
+                <DataGridTextColumn Binding="{Binding  Path=FirstName}" IsReadOnly="False"  
+                                    Header="First Name" Width="SizeToHeader" />
                 <DataGridTextColumn Binding="{Binding Path=LastName}" 
                                     IsReadOnly="True"
                                     Header="Last Name" 
@@ -124,7 +125,9 @@
                                     IsReadOnly="True"
                                     Header="Zip Code"
                                     Width="Auto" />
+
             </DataGrid.Columns>
         </DataGrid>
+
     </Grid>
 </Window>
