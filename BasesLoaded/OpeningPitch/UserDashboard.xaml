@@ -80,13 +80,13 @@
                   Margin="10,120,10,10" 
                   Background="{DynamicResource ButtonBackgroundBrush}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding  Path=FirstName}"
+                <DataGridTextColumn x:Name="firstName"
+                                    Binding="{Binding  Path=FirstName}"
                                     IsReadOnly="True"
                                     Header="First Name" 
                                     Width="Auto" />
-                <DataGridTextColumn Binding="{Binding  Path=FirstName}" IsReadOnly="False"  
-                                    Header="First Name" Width="SizeToHeader" />
-                <DataGridTextColumn Binding="{Binding Path=LastName}" 
+                <DataGridTextColumn x:Name="lastName" 
+                                    Binding="{Binding Path=LastName}" 
                                     IsReadOnly="True"
                                     Header="Last Name" 
                                     Width="Auto" />
@@ -125,9 +125,7 @@
                                     IsReadOnly="True"
                                     Header="Zip Code"
                                     Width="Auto" />
-
             </DataGrid.Columns>
         </DataGrid>
-
     </Grid>
 </Window>
