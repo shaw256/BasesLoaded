@@ -108,6 +108,7 @@ namespace OpeningPitch
                     user.AltPosition2 = Alt_Position_Selection2.Text;
                     user.Gender = Gender_Selection.Text;
                     user.Password = Confirm_Password_Input.Password;
+                    user.ActivateCode = Last_Name_Input.Text + DateTime.Now;
                     
                     if (Team_Captain.IsChecked == true)
                     {
@@ -167,9 +168,9 @@ namespace OpeningPitch
                     msg.To.Add(Email_Input.Text);
                     msg.From = new MailAddress("basesloadedapp@outlook.com");
                     msg.Subject = "Registration Successful";
-                    msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.\n\nhttp://basesloadedapp.azurewebsites.net/safdftsa6b.database.windows.net?Email=$Email&Activatecode=$ActivateCode";
+                    msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.\n\nhttp://basesloadedapp.azurewebsites.net/?Email=$Email&ActivateCode=$ActivateCode";
                     client.Send(msg);
-                    MessageBox.Show("Please check your E-Mail for a verification link.");
+                    MessageBox.Show("Please check your E-Mail for a verification link.\n\nYou may have to check you junk folder for this E-Mail as well.");
                 }
                 catch (Exception ex)
                 {
