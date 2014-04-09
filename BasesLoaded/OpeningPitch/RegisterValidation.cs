@@ -14,6 +14,8 @@ namespace OpeningPitch
     class RegisterValidation : IDataErrorInfo, INotifyPropertyChanged
     {
 
+        LINQtoSQLDataContext databaseCheck = new LINQtoSQLDataContext();
+
        #region Private Variables
        private string _FName;
        private string _LName;
@@ -286,6 +288,24 @@ namespace OpeningPitch
                 return false;
         }
 
+        private bool ValidateTeam(string teamToBeChecked)
+        {
+            var isThereATeam = from teams in databaseCheck.Teams
+                               where teams.TeamName == teamToBeChecked
+                               select teams;
+
+            if (isThereATeam.Count() > 0)
+            {
+                return false;
+            }
+
+            else
+            {
+                return true;
+            }
+        }
+
+
         #region IDataErrorInfo Member
         public string Error
         {
@@ -306,7 +326,7 @@ namespace OpeningPitch
                         result = "Please enter a First Name";
                     }
 
-                    else if (Regex.IsMatch(FName, @"[\W\d]" ))
+                    else if (Regex.IsMatch(FName, @"[\d]" ))
                     {
                         result = "First name cannot contain non-letters.";
                     }
@@ -504,6 +524,13 @@ namespace OpeningPitch
                             result = "Please use the selection box to choose a team.";
                         }
                     }
+
+                    if (!ValidateTeam(NewTeamName))
+                    {
+                        result = "This team already exists!";
+                    }
+                        
+
                 }
 
                 return result;
