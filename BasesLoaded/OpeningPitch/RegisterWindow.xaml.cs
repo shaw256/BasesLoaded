@@ -122,6 +122,7 @@ namespace OpeningPitch
                         user.Approved = 1;
                         globals.user.UserType = user.UserType;
 
+
                         Team newTeam = new Team();
                         newTeam.TeamName = CustomTeam.Text;
                         newTeam.CoachFirstName = First_Name_Input.Text;
