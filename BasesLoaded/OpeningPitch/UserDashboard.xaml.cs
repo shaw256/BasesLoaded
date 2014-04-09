@@ -23,18 +23,22 @@ namespace OpeningPitch
         public UserDashboard()
         {
             InitializeComponent();
+            //Update button visibility is hidden upon window loading
             Update.Visibility = Visibility.Hidden;
         }
 
         private void Player_Profile_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            //Allows user to drag window
             this.DragMove();
         }
 
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
+        //Function that allows the current user to view the Team Roster
         private void GridViewRoster()
         {
             var players = (from m in db.Players
+                           //Selects Team Identification associated with the current user
                            where m.TID == globals.user.TID
                            select m
                            );
@@ -42,15 +46,18 @@ namespace OpeningPitch
             User_View.ItemsSource = players;
         }
 
+        //Function that allows the current user to view his own information
         private void CurrentUserInfo()
         {
             var players = (from m in db.Players
+                           //Selects E-mail and associatd information with the current user
                            where m.Email == globals.user.Email
                            select m);
 
             User_View.ItemsSource = players;
         }
 
+        //Logout function that also asks for confirmation from user
         private void Logout_btn_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to logout " + globals.user.FirstName + " ?\n\nAll unsaved changes will be lost", "Logout?", MessageBoxButton.OKCancel);
@@ -64,10 +71,12 @@ namespace OpeningPitch
             }
             else if (result == MessageBoxResult.Cancel)
             {
-
+                //Else do nothing
             }
 
         }
+
+        //Exit button that also asks for user confirmation
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit, " + globals.user.FirstName + " ?\n\nAll unsaved changes will be lost.",
@@ -75,6 +84,7 @@ namespace OpeningPitch
 
             if (result == MessageBoxResult.OK)
             {
+                //Takes the user back to the MainWindow but also populates the log-in field with current users e-mail
                 MainWindow BacktoMain = new MainWindow();
                 BacktoMain.Show();
                 BacktoMain.Username_Input.Text = globals.user.Email;
@@ -82,14 +92,18 @@ namespace OpeningPitch
             }
             else if (result == MessageBoxResult.Cancel)
             {
-
+                //Else do nothing
             }
         }
+
+        //Minimize button
         private void Minimize_Button(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
 
+        //Upon clicking the View Roster button, the user can view the current roster associated with their Team ID
+        //The other users personal information is also hidden for security purposes
         private void UserViewRoster_btn_Click(object sender, RoutedEventArgs e)
         {
             GridViewRoster();
@@ -104,19 +118,22 @@ namespace OpeningPitch
 
             foreach (DataGridColumn item in User_View.Columns)
             {
-                //if(column name condition of column id)
+                //Makes the columns read-only
                 item.IsReadOnly = true;
             }
         }
 
+        //Upon clicking the Edit Info button, the current user can edit ONLY his personal information
         private void EditInfo_btn_Click(object sender, RoutedEventArgs e)
         {
             CurrentUserInfo();
+
             foreach (DataGridColumn item in User_View.Columns)
             {
-                //if(column name condition of column id)
+                //Makes the columns editable to the current user
                 item.IsReadOnly = false;
             }
+            //Allows the Update button to be visible upon Edit Info button click
             Update.Visibility = Visibility.Visible;
         }
 
@@ -124,6 +141,7 @@ namespace OpeningPitch
         {
             LINQtoSQLDataContext UpdateUser = new LINQtoSQLDataContext();
 
+            //Pushes all columns back to the database column associated with the current users Player ID
             try
             {
                 Player PlayerRow = User_View.SelectedItem as Player;
@@ -143,13 +161,16 @@ namespace OpeningPitch
 
                 UpdateUser.SubmitChanges();
 
+                //Update Confirmation
                 MessageBox.Show("Update Successful.");
 
+                //Refreshes every column, updated or not
                 User_View.Items.Refresh();
             }
 
             catch (Exception Ex)
             {
+                //Shows exception in messagebox
                 MessageBox.Show(Ex.Message);
                 return;
             } 
