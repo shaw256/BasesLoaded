@@ -24,11 +24,19 @@ namespace OpeningPitch
     /// Interaction logic for RegisterWindow.xaml
     /// </summary>
 
+
     public partial class RegisterWindow : Window
     {
         private int _noOfErrorsOnScreen = 0;
         private RegisterValidation _applicant = new RegisterValidation();
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+       
+        
         public RegisterWindow()
         {
             InitializeComponent();
@@ -37,21 +45,19 @@ namespace OpeningPitch
             Register_Window.DataContext = _applicant;
             PopulateTeamComboBox();
         }
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
 
         public void PopulateTeamComboBox()
         {
             var currentTeamQuery = (from teams in db.Teams
                             select new { teams.TeamName }).ToList();
             
+            
             this.TeamList.ItemsSource = currentTeamQuery;
             this.TeamList.DisplayMemberPath = "TeamName";
             this.TeamList.SelectedValuePath = "TeamName";
             
         }
+
 
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
@@ -60,6 +66,7 @@ namespace OpeningPitch
             else
                 _noOfErrorsOnScreen--;
         }
+
         
         private void Applicant_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -89,6 +96,7 @@ namespace OpeningPitch
 
                 if (query.Count() == 0)
                 {
+
                     Player user = new Player();
                     user.FirstName = First_Name_Input.Text;
                     user.LastName = Last_Name_Input.Text;
@@ -104,7 +112,9 @@ namespace OpeningPitch
                     user.AltPosition2 = Alt_Position_Selection2.Text;
                     user.Gender = Gender_Selection.Text;
                     user.Password = Confirm_Password_Input.Password;
-                    user.ActivateCode = Last_Name_Input.Text + DateTime.Now;
+                    
+                    
+                    
                     
                     if (AccountType.Text == "Team Captain")
                     {
@@ -139,6 +149,7 @@ namespace OpeningPitch
 
                     
                     db.Players.InsertOnSubmit(user);
+
                    
                     try
                     {
@@ -153,18 +164,23 @@ namespace OpeningPitch
                     Window BacktoMain = new MainWindow();
                     BacktoMain.Show();
                     this.Close();
+                    
                 }
 
                 else
                 {
                     MessageBox.Show("Username already exists!");
                 }
+
+
             }
 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+            
 
             try
                 {
@@ -179,9 +195,9 @@ namespace OpeningPitch
                     msg.To.Add(Email_Input.Text);
                     msg.From = new MailAddress("basesloadedapp@outlook.com");
                     msg.Subject = "Registration Successful";
-                    msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.\n\nhttp://basesloadedapp.azurewebsites.net/?Email=$Email&ActivateCode=$ActivateCode";
+                    msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.\n\nhttp://basesloadedapp.azurewebsites.net/";
                     client.Send(msg);
-                    MessageBox.Show("Please check your E-Mail for a verification link.\n\nYou may have to check you junk folder for this E-Mail as well.");
+                    MessageBox.Show("Please check your E-Mail for a verification link.");
                 }
                 catch (Exception ex)
                 {
@@ -193,23 +209,6 @@ namespace OpeningPitch
             Register_Window.DataContext = _applicant;
             e.Handled = true;
         }
-
-        private void Team_Captain_Checked(object sender, RoutedEventArgs e)
-        {
-            CustomTeam.Visibility = Visibility.Visible;
-            TeamList.Visibility = Visibility.Hidden;
-            CustomTeamLabel.Visibility = Visibility.Visible;
-            TeamListLabel.Visibility = Visibility.Hidden;
-        }
-
-        private void Team_Player_Checked(object sender, RoutedEventArgs e)
-        {
-            TeamList.Visibility = Visibility.Visible;
-            CustomTeam.Visibility = Visibility.Hidden;
-            CustomTeamLabel.Visibility = Visibility.Hidden;
-            TeamListLabel.Visibility = Visibility.Visible;
-        }
-
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit Registration?\n\nAll data will be lost.",
@@ -223,7 +222,7 @@ namespace OpeningPitch
             }
             else if (result == MessageBoxResult.Cancel)
             {
-
+                
             }
         }
         private void Minimize_Button(object sender, RoutedEventArgs e)
@@ -243,8 +242,9 @@ namespace OpeningPitch
             }
             else if (result == MessageBoxResult.Cancel)
             {
+                
+            }
 
-<<<<<<< HEAD
 
         }
 
@@ -253,18 +253,6 @@ namespace OpeningPitch
             TeamList.SelectedIndex = -1;
         }
 
+  }
 
-
-
-=======
-            }
-        }
->>>>>>> 354f0062024e1cac63e4d6b6edb73029bbb80e72
-    }
-
-}
-
-            
-
- 
-
+}  
