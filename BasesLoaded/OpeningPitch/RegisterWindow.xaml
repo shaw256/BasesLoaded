@@ -17,10 +17,9 @@
 
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
-<<<<<<< HEAD
 
-=======
->>>>>>> 354f0062024e1cac63e4d6b6edb73029bbb80e72
+
+
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="FontSize" Value="14.667" />
             <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
@@ -90,13 +89,13 @@
     </Window.Resources>
 
     <Grid x:Name="Register_Window" 
-<<<<<<< HEAD
+
           Background="{DynamicResource ButtonBackgroundBrush}" Margin="-13,0,0,0">
-=======
+
           Background="{DynamicResource ButtonBackgroundBrush}" 
           HorizontalAlignment="Left" 
           Width="749">
->>>>>>> 354f0062024e1cac63e4d6b6edb73029bbb80e72
+
         <Grid.CommandBindings>
             <CommandBinding Command="New" CanExecute="Applicant_CanExecute" Executed="Applicant_Executed"></CommandBinding>
         </Grid.CommandBindings>
@@ -260,12 +259,12 @@
         <TextBox x:Name="Email_Input" 
 			HorizontalAlignment="Center" 
 			Height="23" 
-<<<<<<< HEAD
+
 			Margin="333,213,239,257" 
 			TextWrapping="Wrap" 
-=======
+
 			Margin="130,214,36,256" 
->>>>>>> 354f0062024e1cac63e4d6b6edb73029bbb80e72
+
 			VerticalAlignment="Center" 
 			Width="234"
             InputScope="InputScopeNameValue.EmailSmtpAddress"
@@ -338,10 +337,7 @@
                   Width="120"
                   Validation.Error="Validation_Error"
                   Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Position, ValidatesOnDataErrors=True, NotifyOnValidationError=True}">
-<<<<<<< HEAD
 
-=======
->>>>>>> 354f0062024e1cac63e4d6b6edb73029bbb80e72
             <ComboBoxItem Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Catcher" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="First Base" HorizontalAlignment="Left" Width="118"/>
@@ -402,9 +398,7 @@
             <ComboBoxItem Content="Center Field" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Left Field" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-<<<<<<< HEAD
 
-=======
         <RadioButton x:Name="Team_Player" 
                      GroupName="User_Type" 
                      Content="Team Player" 
@@ -428,7 +422,7 @@
                      BorderBrush="{DynamicResource ButtonBorderBrush}" 
                      Margin="0,0,10,196" 
                      Checked="Team_Captain_Checked"/>
->>>>>>> 354f0062024e1cac63e4d6b6edb73029bbb80e72
+
         <Label x:Name="New_Password_Label" 
         	Content="New Password" 
         	HorizontalAlignment="Center" 
@@ -521,7 +515,6 @@
 			Margin="10,468,305,6" 
 			VerticalAlignment="Center" 
 			Height="26"/>
-<<<<<<< HEAD
 
         <Label Content="Account Type" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="476,299,0,0" Height="30" Width="91"/>
         <ComboBox 
@@ -543,13 +536,13 @@
 
 
         <Label x:Name="TeamListLabel" Content="Team" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="525,336,0,0"/>
-=======
+
         <Label x:Name="TeamListLabel" 
                Content="Team" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top" 
                Margin="522,336,0,0"/>
->>>>>>> 354f0062024e1cac63e4d6b6edb73029bbb80e72
+
         <ComboBox 
             x:Name="TeamList"
             HorizontalAlignment="Left"
@@ -557,14 +550,13 @@
             Width="135"
             Margin="567,334,0,0"
             Validation.Error="Validation_Error"
-<<<<<<< HEAD
             Grid.Row="13"
             Grid.Column="1"
             SelectedValue="{Binding UpdateSourceTrigger=PropertyChanged, Path=TeamChoice, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"  
             />
 
         <Label x:Name="CustomTeamLabel" Content="Team Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="487,370,0,0" Width="80"/>
-=======
+
             Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=TeamChoice, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"  />
         <Label x:Name="CustomTeamLabel" 
                Content="Team Name" 
@@ -572,7 +564,7 @@
                VerticalAlignment="Top"
                Margin="487,370,0,0" 
                Width="80"/>
->>>>>>> 354f0062024e1cac63e4d6b6edb73029bbb80e72
+
         <TextBox 
             x:Name="CustomTeam"
             HorizontalAlignment="Left" 
@@ -582,7 +574,6 @@
             Margin="567,369,0,0"
             FontSize="12px"
             Validation.Error="Validation_Error"
-<<<<<<< HEAD
             Grid.Row="14"
             Grid.Column="1"
             Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=NewTeamName, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
@@ -592,9 +583,7 @@
         	Margin="731,334,0,136" 
         	VerticalAlignment="Center" 
         	Width="75" Click="Clear_Button_Click" 
-        	IsCancel="True"/>
-=======
-            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=NewTeamName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
->>>>>>> 354f0062024e1cac63e4d6b6edb73029bbb80e72
+        	IsCancel="True"
+
     </Grid>
 </Window>
