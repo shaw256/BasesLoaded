@@ -1,7 +1,13 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="OpeningPitch.Player_Info"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        xmlns:Obselete="clr-namespace:Xceed.Wpf.Toolkit.Obselete;assembly=Xceed.Wpf.Toolkit"
+        xmlns:local="clr-namespace:OpeningPitch"
+        x:Class="OpeningPitch.Player_Info"
+        WindowStartupLocation="CenterScreen"
         Title="Player_Info" 
         Height="500" 
         Width="400" 
@@ -9,6 +15,76 @@
         AllowsTransparency="True"
         MouseDown="Window_MouseDown" 
         Background="{DynamicResource ButtonBackgroundBrush}">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14.667" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+            <Setter Property="Background" Value="{StaticResource TextBoxBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="6,4" />
+            <Setter Property="MinHeight" Value="30" />
+            <Setter Property="MinWidth" Value="90" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel LastChildFill="true">
+                            <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="20" Height="20" CornerRadius="10"
+                                    ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                                </TextBlock>
+                            </Border>
+                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                <Border BorderBrush="red" BorderThickness="1" />
+                            </AdornedElementPlaceholder>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style TargetType="{x:Type xctk:MaskedTextBox}">
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel LastChildFill="true">
+                            <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="20" Height="20" CornerRadius="10"
+                                    ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                                </TextBlock>
+                            </Border>
+                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                <Border BorderBrush="red" BorderThickness="1" />
+                            </AdornedElementPlaceholder>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style BasedOn="{StaticResource ComboBoxStyle}" TargetType="{x:Type ComboBox}">
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel LastChildFill="true">
+                            <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="20" Height="20" CornerRadius="10"
+                                    ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                                </TextBlock>
+                            </Border>
+                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                <Border BorderBrush="red" BorderThickness="1" />
+                            </AdornedElementPlaceholder>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
     <Grid x:Name="PlayerInfo" Margin="0,0,0,2" 
           Background="{DynamicResource ButtonBackgroundBrush}">
@@ -18,7 +94,8 @@
 			Margin="90,39,0,0" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
-			Width="120"/>
+			Width="120"
+            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=FName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
         <Label x:Name="First_Name_Label" 
 			Content="Name" 
 			HorizontalAlignment="Left" 
@@ -36,13 +113,14 @@
 			HorizontalAlignment="Left" 
 			Margin="215,39,0,0" 
 			VerticalAlignment="Top"/>
-        <TextBox x:Name="Last_Name_Input" 
+        <TextBox x:Name="LastName_Input" 
 			HorizontalAlignment="Left" 
 			Height="23" 
 			Margin="90,69,0,0" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
-			Width="120"/>
+			Width="120"
+            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=LName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
         <Label x:Name="Last_Name_Label"
 			Content="Last Name" 
 			HorizontalAlignment="Left" 
@@ -73,52 +151,115 @@
 			VerticalAlignment="Top" 
 			Height="27" 
 			Width="68"/>
+        <TextBox x:Name="City_Input"
+        	HorizontalAlignment="Center" 
+        	Height="23" 
+        	Margin="90,158,76,310" 
+        	TextWrapping="Wrap" 
+        	VerticalAlignment="Center" 
+        	Width="234"
+        	Validation.Error="Validation_Error"
+        	Text="{Binding City, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+        <Label Content="City" 
+        	HorizontalAlignment="Center" 
+        	Margin="8,159,360,309" 
+        	VerticalAlignment="Center" 
+        	Height="30"/>
         <ComboBox x:Name="State_Input" 
 			HorizontalAlignment="Left" 
-			Margin="90,159,0,0" 
+			Margin="90,188,0,0" 
 			VerticalAlignment="Top" 
-			Width="61" 
-			ItemsSource="{Binding AllowDrop, ElementName=label}">
-            <ComboBoxItem Content="ComboBoxItem" HorizontalAlignment="Left" Width="92"/>
+			Width="61" >
+			    <ComboBoxItem Content="AL" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="AK" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="AZ" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="AR" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="CA" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="CO" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="CT" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="DE" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="FL" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="GA" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="HI" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="ID" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="IL" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="IN" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="IA" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="KS" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="KY" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="LA" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="ME" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="MD" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="MA" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="MI" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="MN" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="MS" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="MO" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="MT" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="NE" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="NV" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="NH" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="NJ" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="NM" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="NY" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="NC" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="ND" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="OH" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="OK" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="OR" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="PA" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="RI" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="SC" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="SD" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="TN" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="TX" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="UT" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="VT" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="VA" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="WA" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="WV" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="WI" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="WY" HorizontalAlignment="Left" Width="112"/>
+                <ComboBoxItem Content="ComboBoxItem" HorizontalAlignment="Left" Width="92"/>
         </ComboBox>
         <Label x:Name="State_Label" 
 			Content="State" 
 			HorizontalAlignment="Left" 
-			Margin="8,156,0,0" 
+			Margin="8,186,0,0" 
 			VerticalAlignment="Top"/>
         <TextBox x:Name="Zipcode_Input" 
             HorizontalAlignment="Left" 
-            Height="26" Margin="210,159,0,0" 
+            Height="26" Margin="210,188,0,0" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Width="64"/>
         <Label x:Name="Zipcode_Label" 
 			Content="Zipcode" 
 			HorizontalAlignment="Left" 
-			Margin="153,158,0,0" 
+			Margin="153,187,0,0" 
 			VerticalAlignment="Top"/>
         <TextBox x:Name="Phone_Input" 
 			HorizontalAlignment="Left" 
 			Height="26" 
-			Margin="90,189,0,0" 
+			Margin="90,218,0,0" 
 			TextWrapping="Wrap" 
 			VerticalAlignment="Top" 
 			Width="161"/>
         <Label x:Name="Phone_Label" 
 			Content="Phone" 
 			HorizontalAlignment="Left" 
-			Margin="8,189,0,0" 
+			Margin="8,219,0,0" 
 			VerticalAlignment="Top"/>
         <Label x:Name="Position_Label"
             Content="Position"
 			HorizontalAlignment="Left" 
-			Margin="8,219,0,0" 
+			Margin="8,309,0,0" 
 			VerticalAlignment="Top"/>
         <ComboBox x:Name="Position_Input" 
 			HorizontalAlignment="Left" 
-			Margin="90,219,0,0" 
+			Margin="90,308,0,0" 
 			VerticalAlignment="Top" 
-			Width="106" 
+			Width="120" 
 			SelectedItem="{Binding ChosenValue, Mode=TwoWay}" 
 			Height="22">
             <ComboBoxItem x:Name="Pitcher" Content="Pitcher" HorizontalAlignment="Left" Width="118"/>
@@ -134,7 +275,8 @@
 			HorizontalAlignment="Left" 
 			Margin="10,466,0,0" 
 			VerticalAlignment="Top" 
-			Width="75"/>
+			Width="75" 
+            Command="New"/>
         <Button x:Name="CancelForm" 
 			Content="Cancel" 
 			HorizontalAlignment="Left" 
@@ -173,5 +315,38 @@
                 Click="Minimize_Button"
                 ToolTip="Minimize" 
                 FontWeight="Bold"/>
+        <ProgressBar x:Name="Prog_Bar" 
+        	HorizontalAlignment="Center" 
+        	Height="5" 
+        	Margin="-2,0,0,-2" 
+        	VerticalAlignment="Bottom" 
+        	Width="402"/>
+        <Label x:Name="Gender_Label" 
+       	Content="Gender" 
+       	HorizontalAlignment="Center" 
+       	Margin="8,248,295,220" 
+       	VerticalAlignment="Center" 
+       	Height="30" 
+       	Width="97"/>
+        <ComboBox x:Name="Gender_Selection" 
+       	HorizontalAlignment="Center" 
+       	Margin="90,248,190,220" 
+       	VerticalAlignment="Center" 
+       	Width="120"
+       	Validation.Error="Validation_Error"
+       	Text="{Binding Gender, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+            <ComboBoxItem Content="Male" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Female" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <Label x:Name="TeamListLabel" Content="Team" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,280,0,0"/>
+        <ComboBox 
+        	x:Name="TeamList"
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Top"
+        	Width="120"
+        	Margin="90,278,0,0"
+        	Validation.Error="Validation_Error"
+        	Text="{Binding TeamChoice, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"  
+            />
     </Grid>
 </Window>
