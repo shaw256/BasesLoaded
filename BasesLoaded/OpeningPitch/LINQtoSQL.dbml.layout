@@ -2,24 +2,17 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LINQtoSQL">
   <DataContextMoniker Name="/LINQtoSQLDataContext" />
   <nestedChildShapes>
-    <classShape Id="e6535470-bcd6-4950-8cdb-609735169608" absoluteBounds="3.5, 1, 2, 4.6554182942708326">
+    <classShape Id="b08ef333-8bd5-4244-b957-792059275e63" absoluteBounds="5.625, 1.625, 2, 4.8477197265625">
       <DataClassMoniker Name="/LINQtoSQLDataContext/Player" />
       <nestedChildShapes>
-        <elementListCompartment Id="4288ed7d-0933-4a98-8c38-fcdf93e71fea" absoluteBounds="3.515, 1.46, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0a72a4b0-189a-4159-88a8-7273145f32ca" absoluteBounds="5.6400000000000006, 2.085, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f751afc4-9f61-474e-a5a4-e9049e58f9c0" absoluteBounds="0.75, 2.625, 2, 1.5785953776041666">
+    <classShape Id="9cf3ffea-7e4f-4254-a672-5bb4e5aedbec" absoluteBounds="1.5, 3.25, 2, 1.5785953776041666">
       <DataClassMoniker Name="/LINQtoSQLDataContext/Team" />
       <nestedChildShapes>
-        <elementListCompartment Id="b81eb035-9b97-4ddf-a80f-d7a68dedbeec" absoluteBounds="0.765, 3.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ce5a568b-ce1d-46c4-a109-8292ed7bf7ae" absoluteBounds="1.5150000000000006, 3.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 3.41429768880208); (3.5 : 3.41429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LINQtoSQLDataContext/Team/Team_Player" />
-      <nodes>
-        <classShapeMoniker Id="f751afc4-9f61-474e-a5a4-e9049e58f9c0" />
-        <classShapeMoniker Id="e6535470-bcd6-4950-8cdb-609735169608" />
-      </nodes>
-    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
