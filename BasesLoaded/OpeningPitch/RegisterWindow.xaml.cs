@@ -40,6 +40,10 @@ namespace OpeningPitch
         public RegisterWindow()
         {
             InitializeComponent();
+            TeamList.Visibility = Visibility.Hidden;
+            TeamListLabel.Visibility = Visibility.Hidden;
+            CustomTeam.Visibility = Visibility.Hidden;
+            CustomTeamLabel.Visibility = Visibility.Hidden;
             First_Name_Input.Focus();
             this.State_Input.SelectedIndex = 1;
             Register_Window.DataContext = _applicant;
@@ -58,7 +62,6 @@ namespace OpeningPitch
             
         }
 
-
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
             if (e.Action == ValidationErrorEventAction.Added)
@@ -66,7 +69,6 @@ namespace OpeningPitch
             else
                 _noOfErrorsOnScreen--;
         }
-
         
         private void Applicant_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -76,9 +78,7 @@ namespace OpeningPitch
 
         private void Applicant_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-
-            RegisterValidation _applicant = Register_Window.DataContext as RegisterValidation;
-
+           RegisterValidation _applicant = Register_Window.DataContext as RegisterValidation;
 
                     Player user = new Player();
                     user.FirstName = First_Name_Input.Text;
@@ -95,15 +95,16 @@ namespace OpeningPitch
                     user.AltPosition2 = Alt_Position_Selection2.Text;
                     user.Gender = Gender_Selection.Text;
                     user.Password = Confirm_Password_Input.Password;
-                    
-                    
-                                    
+                                   
                     if (AccountType.Text == "Team Captain")
                     {
                         user.UserType = 1;
                         user.Approved = 1;
-                        globals.user.UserType = user.UserType;
+                        user.Position = "Team Captain";
+                        user.TeamName = CustomTeam.Text;
+                        globals.user.TID = user.TID;
 
+                        globals.user.UserType = user.UserType;
 
                         Team newTeam = new Team();
                         newTeam.TeamName = CustomTeam.Text;
@@ -113,7 +114,6 @@ namespace OpeningPitch
                         user.TeamName = CustomTeam.Text;
                         db.Teams.InsertOnSubmit(newTeam);
                     }
-
 
                     if (AccountType.Text == "Team Player")
                     {
@@ -129,11 +129,9 @@ namespace OpeningPitch
 
                         }
                     }
-
-                    
+                  
                     db.Players.InsertOnSubmit(user);
-
-                   
+               
                     try
                     {
                         db.SubmitChanges();
@@ -144,20 +142,13 @@ namespace OpeningPitch
                         MessageBox.Show(ex.Message);
                     }
 
-
-
                     MessageBox.Show("You have successfully registered!");
 
                     Window BacktoMain = new MainWindow();
                     BacktoMain.Show();
                     this.Close();
-                    
-
-
-
-            
-
-            try
+ 
+           /* try
                 {
                     SmtpClient client = new SmtpClient("smtp.live.com", 587);
                     client.EnableSsl = true;
@@ -178,7 +169,7 @@ namespace OpeningPitch
                 {
 
                     MessageBox.Show(ex.ToString());
-                }
+                }*/
 
 
             _applicant = new RegisterValidation();
@@ -230,6 +221,25 @@ namespace OpeningPitch
         private void Clear_Button_Click(object sender, RoutedEventArgs e)
         {
             TeamList.SelectedIndex = -1;
+            CustomTeam.Text = "";
+        }
+
+        private void AccountType_DropDownClosed(object sender, EventArgs e)
+        {
+            if (AccountType.Text == "Team Captain")
+            {
+                TeamList.Visibility = Visibility.Hidden;
+                TeamListLabel.Visibility = Visibility.Hidden;
+                CustomTeam.Visibility = Visibility.Visible;
+                CustomTeamLabel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                TeamList.Visibility = Visibility.Visible;
+                TeamListLabel.Visibility = Visibility.Visible;
+                CustomTeam.Visibility = Visibility.Hidden;
+                CustomTeamLabel.Visibility = Visibility.Hidden;
+            }
         }
 
   }
