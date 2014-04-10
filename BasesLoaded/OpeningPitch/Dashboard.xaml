@@ -2,112 +2,106 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Softball Roster" 
-    Height="500" 
-    Width="690"
+    Height="444" 
+    Width="1130"
     WindowStartupLocation="CenterScreen"
     MouseDown="TC_Dashboard_MouseDown" 
     WindowStyle="None" 
     AllowsTransparency="True"
     ResizeMode="CanResizeWithGrip"
-    MinWidth="690"
+    MinWidth="723"
     MinHeight="500">
 
     <Grid x:Name="TC_Dashboard" 
           Background="{DynamicResource ButtonBackgroundBrush}">
         <Button x:Name="Login_Home" 
 			Content="Home" 
-			HorizontalAlignment="Center" 
+			HorizontalAlignment="Left" 
 			Height="22" 
-			VerticalAlignment="Center" 
+			VerticalAlignment="Top" 
 			Width="131" 
-            Margin="10,94,549,376" Click="Login_Home_Click"/>
-        <Button x:Name="Create_Team1" 
-			Content="Add Teams" 
-			HorizontalAlignment="Center" 
-			Margin="282,94,278,376" 
-			VerticalAlignment="Center" 
-			Width="130" 
-			Click="CreateTeam_Click" 
-			Height="22"/>
+            Margin="14,0,0,0" Click="Login_Home_Click"/>
         <Button x:Name="EditPersonalInfo" 
         	Content="Personal Info" 
-        	HorizontalAlignment="Center" 
-        	VerticalAlignment="Center" 
-        	Width="129" 
-            Margin="551,94,10,376" 
+        	HorizontalAlignment="Right" 
+        	VerticalAlignment="Top" 
+        	Width="128" 
+            Margin="0,0,171,0" 
             Height="24" Click="EditPersonalInfo_Click"/>
         <Button x:Name="Applications" 
 			Content="Applications" 
-			HorizontalAlignment="Center" 
-			Margin="412,94,139,376" 
-			VerticalAlignment="Center" 
-			Width="139" Click="Applications_Click"/>
+			HorizontalAlignment="Left" 
+			Margin="286,0,0,0" 
+			VerticalAlignment="Top" 
+			Width="138" Click="Applications_Click"/>
         <Button x:Name="Team_Roster" 
 			Content="Team Roster" 
-			HorizontalAlignment="Center"
-			Margin="141,94,408,376" 
-			VerticalAlignment="Center" 
+			HorizontalAlignment="Left"
+			Margin="145,0,0,0" 
+			VerticalAlignment="Top" 
 			Width="141" Click="Team_Roster_Click"/>
         <Button x:Name="Delete_Player" 
 			Content="Delete Player" 
-			HorizontalAlignment="Center" 
-			Margin="10,460,570,10" 
-			VerticalAlignment="Center" 
+			HorizontalAlignment="Left" 
+			Margin="14,0,0,10" 
+			VerticalAlignment="Bottom" 
 			Width="110" Click="Delete_Player_Click"/>
         <Button x:Name="Cancel_Event" 
 			Content="Cancel" 
-			HorizontalAlignment="Center" 
-			Margin="580,460,10,10" 
-			VerticalAlignment="Center" 
-			Width="100"/>
+			HorizontalAlignment="Right" 
+			Margin="0,0,30,10" 
+			VerticalAlignment="Bottom" 
+			Width="112"/>
         <DataGrid x:Name="Team_Display" x:Uid="Team_Display" AutoGenerateColumns="False"  
+                       AlternationCount="2" SelectionMode="Single" Margin="14,35,13,45" Background="Transparent" Foreground = "{DynamicResource Brush01}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="420">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource ForegroundBrush}"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="BorderThickness" Value="1"/>
 
-                       AlternationCount="2" SelectionMode="Single" Margin="10,129,10,45">
+                </Style>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource Brush01}"/>
+                    <Setter Property="Block.TextAlignment" Value="Center"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridRowHeader}">
+                    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource Brush01}"/>
+
+                </Style>
+            </DataGrid.Resources>
+
 
             <DataGrid.Columns>
 
                 <DataGridTextColumn Binding="{Binding  Path=FirstName}" IsReadOnly="True"  
-                                    
-
-                                    Header="First Name" Width="SizeToHeader" />
-
+                                    Header="First Name" Width="SizeToHeader" MinWidth="100" />
                 <DataGridTextColumn Binding="{Binding Path=LastName}" IsReadOnly="True"
-
-                                    Header="Last Name" Width="SizeToHeader" />
-
+                                    Header="Last Name" Width="SizeToHeader" MinWidth="100" />
                 <DataGridTextColumn Binding="{Binding Path=PhoneNumber}"  IsReadOnly="True"
-
-                                    Header="Phone Number" Width="SizeToHeader" />
+                                    Header="Phone Number" Width="SizeToHeader" MinWidth="100"/>
                 <DataGridTextColumn Binding="{Binding Path=Email}" IsReadOnly="True"
-
-                                    Header="Email" Width="SizeToHeader" />
-
+                                    Header="Email" Width="SizeToHeader" MinWidth="100"/>
                 <DataGridTextColumn Binding="{Binding Path=Address}" IsReadOnly="True"
-
-                                    Header="Address" Width="SizeToHeader" />
-
+                                    Header="Address" Width="SizeToHeader" MinWidth="100"/>
                 <DataGridTextColumn Binding="{Binding Path=Address2}" IsReadOnly="True"
-
-                                    Header="Address2" Width="SizeToHeader" />
-
+                                    Header="Address2" Width="SizeToHeader" MinWidth="100"/>
                 <DataGridTextColumn Binding="{Binding Path=City}" IsReadOnly="True"
-
-                                    Header="City" Width="SizeToHeader" />
+                                    Header="City" Width="SizeToHeader" MinWidth="100"/>
                 <DataGridTextColumn Binding="{Binding Path=State}" IsReadOnly="True"
-
-                                    Header="State" Width="SizeToHeader" />
+                                    Header="State" Width="SizeToHeader" MinWidth="50"/>
                 <DataGridTextColumn Binding="{Binding Path=Zipcode}" IsReadOnly="True"
-
-                                    Header="Zipcode" Width="SizeToHeader" />
+                                    Header="Zipcode" Width="SizeToHeader" MinWidth="75"/>
                 <DataGridTextColumn Binding="{Binding Path=Gender}" IsReadOnly="True"
-
-                                    Header="Gender" Width="SizeToHeader" />
+                                    Header="Gender" Width="SizeToHeader" MinWidth="75"/>
                 <DataGridTextColumn Binding="{Binding Path=Position}" IsReadOnly="True"
-
-                                    Header="Position" Width="SizeToHeader" />
+                                    Header="Position" Width="SizeToHeader" MinWidth="100"/>
                 <DataGridTextColumn Binding="{Binding Path=Team}" IsReadOnly="True"
-
-                                    Header="Team" Width="SizeToHeader" />
+                                    Header="Team" Width="SizeToHeader" MinWidth="100"/>
                 <!--<DataGridTemplateColumn Header="Edit Row">
 
                     <DataGridTemplateColumn.CellTemplate>
@@ -147,10 +141,10 @@
 			Content="Logout" 
 			HorizontalAlignment="Right" 
 			VerticalAlignment="Top" 
-			Width="95" 
+			Width="128" 
 			Click="Dashboard_Logout_Click" 
 			Height="22" 
-            Margin="0,0,43,0" Grid.Column="1"/>
+            Margin="0,0,43,0"/>
         <Button Content="X" 
 			VerticalAlignment="Top" 
             HorizontalAlignment="Right"
@@ -177,31 +171,31 @@
             FontWeight="Bold" Grid.Column="1"/>
         <Button x:Name="Approve_Player" 
             Content="Approve" 
-            HorizontalAlignment="Center" 
-            Margin="375,460,215,10" 
-            VerticalAlignment="Center" 
-            Width="100" 
+            HorizontalAlignment="Right" 
+            Margin="0,0,142,10" 
+            VerticalAlignment="Bottom" 
+            Width="112" 
             ToolTip="This allows one to pull up all the users information." 
             Click="Approve_Player_Click"/>
         <Button x:Name="Deny_Player" 
         	Content="Deny" 
-        	HorizontalAlignment="Center" 
-        	Margin="475,460,115,10" 
-        	VerticalAlignment="Center" 
-        	Width="100" 
+        	HorizontalAlignment="Right" 
+        	Margin="0,0,142,10" 
+        	VerticalAlignment="Bottom" 
+        	Width="112" 
         	ToolTip="This allows one to pull up all the users information." 
         	Click="Deny_Player_Click"/>
         <Button x:Name="Add_Player" 
         	Content="Add Player" 
-        	HorizontalAlignment="Center" 
-        	Margin="120,460,458,10" 
-        	VerticalAlignment="Center" 
+        	HorizontalAlignment="Left" 
+        	Margin="124,0,0,10" 
+        	VerticalAlignment="Bottom" 
         	Width="112" Click="Add_Player_Click"/>
         <Button x:Name="Update" 
         	Content="Update" 
-        	HorizontalAlignment="Center" 
-        	Margin="480,460,110,10" 
-        	VerticalAlignment="Center" 
-        	Width="100" Click="Update_Click"/>
+        	HorizontalAlignment="Right" 
+        	Margin="0,0,142,10" 
+        	VerticalAlignment="Bottom" 
+        	Width="112" Click="Update_Click"/>
     </Grid>
 </Window>

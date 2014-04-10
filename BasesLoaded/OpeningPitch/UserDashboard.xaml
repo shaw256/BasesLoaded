@@ -16,34 +16,35 @@
 
     <Grid x:Name="PlayerProfile" 
           Background="{DynamicResource ButtonBackgroundBrush}">
+
         <Button x:Name="Logout_btn" 
                 Content="Logout" 
-                HorizontalAlignment="Center" 
-                Margin="10,10,585,460" 
-                VerticalAlignment="Center" 
-                Width="95" 
+                HorizontalAlignment="Right" 
+                Margin="0,0,65,0" 
+                VerticalAlignment="Top" 
+                Width="123" 
                 Click="Logout_btn_Click" 
                 Height="24"/>
         <Button x:Name="EditInfo_btn" 
                 Content="Edit Info" 
-                HorizontalAlignment="Center" 
-                VerticalAlignment="Center" 
-                Width="95" 
-                Margin="10,85,585,385" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                Width="123" 
+                Margin="0,0,188,0" 
                 Height="24" 
-                Click="EditInfo_btn_Click"/>
+                Click="EditInfo_Click"/>
         <Button x:Name="Update" Content="Update"
-                HorizontalAlignment="Center" 
-                Margin="110,85,505,385" 
-                VerticalAlignment="Center" 
-                Width="75" 
+                HorizontalAlignment="Right" 
+                Margin="0,0,122,13" 
+                VerticalAlignment="Bottom" 
+                Width="112" 
                 Click="Update_Click"/>
         <Button x:Name="UserViewRoster_btn" 
                 Content="View Roster" 
-                HorizontalAlignment="Center" 
-                Margin="585,85,10,385" 
-                VerticalAlignment="Center"
-                Width="95" 
+                HorizontalAlignment="Left" 
+                Margin="133,0,0,0" 
+                VerticalAlignment="Top"
+                Width="123" 
                 Height="24" 
                 Click="UserViewRoster_btn_Click"/>
         <Button Content="X" 
@@ -77,55 +78,97 @@
                   AutoGenerateColumns="False"  
                   AlternationCount="2" 
                   SelectionMode="Single" 
-                  Margin="10,120,10,10" 
+                  Margin="10,40,10,48" 
                   Background="{DynamicResource ButtonBackgroundBrush}">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource ForegroundBrush}"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+
+                </Style>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource Brush01}"/>
+                    <Setter Property="Block.TextAlignment" Value="Center"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridRowHeader}">
+                    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource Brush01}"/>
+
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="firstName"
                                     Binding="{Binding  Path=FirstName}"
                                     IsReadOnly="True"
                                     Header="First Name" 
-                                    Width="Auto" />
+                                    Width="Auto" 
+                                    MinWidth="75"/>
                 <DataGridTextColumn x:Name="lastName" 
                                     Binding="{Binding Path=LastName}" 
                                     IsReadOnly="True"
                                     Header="Last Name" 
-                                    Width="Auto" />
+                                    Width="Auto"
+                                    MinWidth="75"/>
                 <DataGridTextColumn x:Name="emailField" 
                                     Binding="{Binding Path=Email}"                                      
                                     IsReadOnly="True"
                                     Header="Email" 
-                                    Width="Auto" />
+                                    Width="Auto" 
+                                    MinWidth="75"/>
                 <DataGridTextColumn x:Name="phoneNumber" 
                                     Binding="{Binding Path=PhoneNumber}" 
                                     IsReadOnly="True"
                                     Header="Phone Number" 
-                                    Width="Auto" />
+                                    Width="Auto" 
+                                    MinWidth="100"/>
                 <DataGridTextColumn x:Name="address1" 
                                     Binding="{Binding Path=Address}"                                     
                                     IsReadOnly="True"
                                     Header="Address"
-                                    Width="Auto" />
+                                    Width="Auto" 
+                                    MinWidth="75"/>
                 <DataGridTextColumn x:Name="address2" 
                                     Binding="{Binding Path=Address2}"                                    
                                     IsReadOnly="True"
                                     Header="Address 2" 
-                                    Width="Auto" />
+                                    Width="Auto"
+                                    MinWidth="75"/>
                 <DataGridTextColumn x:Name="city" 
                                     Binding="{Binding Path=City}"                                    
                                     IsReadOnly="True"
                                     Header="City" 
-                                    Width="Auto" />
+                                    Width="Auto" 
+                                    MinWidth="75"/>
                 <DataGridTextColumn x:Name="state" 
                                     Binding="{Binding Path=State}"                                     
                                     IsReadOnly="True"
                                     Header="State" 
-                                    Width="Auto" />
+                                    Width="Auto"
+                                    MinWidth="43"/>
                 <DataGridTextColumn x:Name="zipcode"
                                     Binding="{Binding Path=Zipcode}"                                     
                                     IsReadOnly="True"
                                     Header="Zip Code"
-                                    Width="Auto" />
+                                    Width="Auto"
+                                    MinWidth="75"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="Home" 
+        	Content="Home" 
+        	HorizontalAlignment="Left" 
+        	Height="22" 
+        	VerticalAlignment="Top" 
+        	Width="123" 
+        	Margin="10,0,0,0" Click="Home_Click"/>
+        <Button x:Name="Cancel" 
+        	Content="Cancel" 
+        	HorizontalAlignment="Right" 
+        	Margin="0,0,10,13" 
+        	VerticalAlignment="Bottom" 
+        	Width="112" Click="Cancel_Click"/>
     </Grid>
 </Window>
