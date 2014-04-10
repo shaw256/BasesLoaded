@@ -35,7 +35,6 @@ namespace OpeningPitch
         {
             this.DragMove();
         }
-       
         
         public RegisterWindow()
         {
@@ -51,13 +50,11 @@ namespace OpeningPitch
             var currentTeamQuery = (from teams in db.Teams
                             select new { teams.TeamName }).ToList();
             
-            
             this.TeamList.ItemsSource = currentTeamQuery;
             this.TeamList.DisplayMemberPath = "TeamName";
             this.TeamList.SelectedValuePath = "TeamName";
             
         }
-
 
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
@@ -66,7 +63,6 @@ namespace OpeningPitch
             else
                 _noOfErrorsOnScreen--;
         }
-
         
         private void Applicant_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -76,9 +72,7 @@ namespace OpeningPitch
 
         private void Applicant_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-
             RegisterValidation _applicant = Register_Window.DataContext as RegisterValidation;
-
 
                     Player user = new Player();
                     user.FirstName = First_Name_Input.Text;
@@ -95,9 +89,9 @@ namespace OpeningPitch
                     user.AltPosition2 = Alt_Position_Selection2.Text;
                     user.Gender = Gender_Selection.Text;
                     user.Password = Confirm_Password_Input.Password;
-                    
-                    
-                                    
+                    user.ActivateCode = DateTime.Now.GetHashCode(); 
+                    globals.user.ActivateCode = Convert.ToInt32(user.ActivateCode);
+         
                     if (AccountType.Text == "Team Captain")
                     {
                         user.UserType = 1;
@@ -114,10 +108,8 @@ namespace OpeningPitch
                         db.Teams.InsertOnSubmit(newTeam);
                     }
 
-
                     if (AccountType.Text == "Team Player")
                     {
-
                         var teamquery = from teams in db.Teams
                                         where teams.TeamName == TeamList.Text
                                         select teams;
@@ -126,13 +118,10 @@ namespace OpeningPitch
                         {
                             user.TID = team.TID;
                             user.TeamName = team.TeamName;
-
                         }
                     }
-
                     
                     db.Players.InsertOnSubmit(user);
-
                    
                     try
                     {
@@ -144,49 +133,39 @@ namespace OpeningPitch
                         MessageBox.Show(ex.Message);
                     }
 
-
-
                     MessageBox.Show("You have successfully registered!");
 
                     Window BacktoMain = new MainWindow();
                     BacktoMain.Show();
                     this.Close();
-                    
 
+                    try
+                    {
+                        SmtpClient client = new SmtpClient("smtp.live.com", 587);
+                        client.EnableSsl = true;
+                        client.Timeout = 10000;
+                        client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        client.UseDefaultCredentials = false;
+                        client.Credentials = new NetworkCredential("glen.a.hammer@outlook.com", "3turboturd3!@#");
 
+                        MailMessage msg = new MailMessage();
+                        msg.To.Add(Email_Input.Text);
+                        msg.From = new MailAddress("glen.a.hammer@outlook.com");
+                        msg.Subject = "Registration Successful";
+                        msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.\n\nhttp://mssadevteam1.azurewebsites.net?ActivateCode=" + globals.user.ActivateCode + "&Activated=" + 1;
+                        client.Send(msg);
+                        MessageBox.Show("Please check your E-Mail for a verification link.");
+                    }
+                    catch (Exception ex)
+                    {
 
-            
-
-            try
-                {
-                    SmtpClient client = new SmtpClient("smtp.live.com", 587);
-                    client.EnableSsl = true;
-                    client.Timeout = 10000;
-                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
-
-                    MailMessage msg = new MailMessage();
-                    msg.To.Add(Email_Input.Text);
-                    msg.From = new MailAddress("basesloadedapp@outlook.com");
-                    msg.Subject = "Registration Successful";
-                    msg.Body = "Congratulations!\nPlease follow the link below to verify your submission.\n\nhttp://basesloadedapp.azurewebsites.net/";
-                    client.Send(msg);
-                    MessageBox.Show("Please check your E-Mail for a verification link.");
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show(ex.ToString());
-                }
-
+                        MessageBox.Show(ex.ToString());
+                    }
 
             _applicant = new RegisterValidation();
             Register_Window.DataContext = _applicant;
             e.Handled = true;
-
         }
-
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
@@ -204,10 +183,12 @@ namespace OpeningPitch
                 
             }
         }
+
         private void Minimize_Button(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
+
         private void Cancel_Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to cancel your Registration?\n\nAll data will be lost.",
@@ -223,15 +204,12 @@ namespace OpeningPitch
             {
                 
             }
-
-
         }
 
         private void Clear_Button_Click(object sender, RoutedEventArgs e)
         {
             TeamList.SelectedIndex = -1;
         }
-
   }
 
 }  
