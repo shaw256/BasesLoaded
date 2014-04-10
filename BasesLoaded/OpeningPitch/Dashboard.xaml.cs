@@ -33,6 +33,7 @@ namespace OpeningPitch
             Delete_Player.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Hidden;
             Team_Display.Visibility = Visibility.Hidden;
+            CurrentUser.Content = "Logged In: "+ globals.user.FirstName ;
         }
 
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
@@ -116,7 +117,7 @@ namespace OpeningPitch
                                 where p.PID == globals.user.PID
                                 select p).Single();
 
-               selectedPlayer.Approved = 1;
+               selectedPlayer.Approved = (PlayerRow.Approved = 1);
                try
                {
                    db.SubmitChanges();
@@ -314,7 +315,7 @@ namespace OpeningPitch
             {
                 Team_Display.Visibility = Visibility.Visible;
                 var players = (from a in db.Players
-                               where a.Approved == 0
+                               where a.TID == globals.user.TID && a.Approved == 0
                                select a);
                 Team_Display.ItemsSource = players;
             }
@@ -345,8 +346,6 @@ namespace OpeningPitch
                 Team_Display.ItemsSource = players;
                 MakeReadonlyFalse();
             }
-
-
         }
 
     }   

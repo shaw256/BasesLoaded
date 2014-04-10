@@ -3,41 +3,41 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Softball Roster" 
     Height="444" 
-    Width="1131"
+    Width="1132.5"
     WindowStartupLocation="CenterScreen"
     MouseDown="TC_Dashboard_MouseDown" 
     WindowStyle="None" 
     AllowsTransparency="True"
     ResizeMode="CanResizeWithGrip"
-    MinWidth="723"
+    MinWidth="711"
     MinHeight="500">
 
     <Grid x:Name="TC_Dashboard" 
-          Background="{DynamicResource ButtonBackgroundBrush}">
+          Background="{DynamicResource ButtonBackgroundBrush}" >
         <Button x:Name="Login_Home" 
 			Content="Home" 
 			HorizontalAlignment="Left" 
 			Height="22" 
 			VerticalAlignment="Top" 
 			Width="131" 
-            Margin="14,0,0,0" Click="Login_Home_Click"/>
+            Margin="14,39,0,0" Click="Login_Home_Click"/>
         <Button x:Name="EditPersonalInfo" 
         	Content="Personal Info" 
         	HorizontalAlignment="Right" 
         	VerticalAlignment="Top" 
         	Width="128" 
-            Margin="0,0,171,0" 
+            Margin="0,39,158,0" 
             Height="24" Click="EditPersonalInfo_Click"/>
         <Button x:Name="Applications" 
 			Content="Applications" 
 			HorizontalAlignment="Left" 
-			Margin="286,0,0,0" 
+			Margin="286,39,0,0" 
 			VerticalAlignment="Top" 
 			Width="138" Click="Applications_Click"/>
         <Button x:Name="Team_Roster" 
 			Content="Team Roster" 
 			HorizontalAlignment="Left"
-			Margin="145,0,0,0" 
+			Margin="145,39,0,0" 
 			VerticalAlignment="Top" 
 			Width="141" Click="Team_Roster_Click"/>
         <Button x:Name="Delete_Player" 
@@ -53,7 +53,7 @@
 			VerticalAlignment="Bottom" 
 			Width="112"/>
         <DataGrid x:Name="Team_Display" x:Uid="Team_Display" AutoGenerateColumns="False"  
-                       AlternationCount="2" SelectionMode="Single" Margin="14,35,13,45" Background="Transparent" Foreground = "{DynamicResource Brush01}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="420">
+                       AlternationCount="2" SelectionMode="Single" Margin="15,74,14,45" Background="Transparent" Foreground = "{DynamicResource Brush01}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="381">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Transparent"/>
@@ -100,7 +100,7 @@
                                     Header="Gender" Width="SizeToHeader" MinWidth="75"/>
                 <DataGridTextColumn Binding="{Binding Path=Position}" IsReadOnly="True"
                                     Header="Position" Width="SizeToHeader" MinWidth="100"/>
-                <DataGridTextColumn Binding="{Binding Path=Team}" IsReadOnly="True"
+                <DataGridTextColumn Binding="{Binding Path=TeamName}" IsReadOnly="True"
                                     Header="Team" Width="SizeToHeader" MinWidth="100"/>
                 <!--<DataGridTemplateColumn Header="Edit Row">
 
@@ -144,7 +144,7 @@
 			Width="128" 
 			Click="Dashboard_Logout_Click" 
 			Height="22" 
-            Margin="0,0,43,0"/>
+            Margin="0,39,30,0"/>
         <Button Content="X" 
 			VerticalAlignment="Top" 
             HorizontalAlignment="Right"
@@ -197,5 +197,14 @@
         	Margin="0,0,142,10" 
         	VerticalAlignment="Bottom" 
         	Width="112" Click="Update_Click"/>
+        <Label Content="BASES LOADED" 
+               HorizontalAlignment="Left" 
+               Margin="15,0,0,0" 
+               VerticalAlignment="Top" 
+               Width="201" 
+               Height="34" FontSize="20"/>
+        <Label 
+            x:Name="CurrentUser"
+            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="888,0,0,0" Height="34" Width="205"/>
     </Grid>
 </Window>
