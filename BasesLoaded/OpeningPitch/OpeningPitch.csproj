@@ -214,7 +214,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Themes\Dark\baseball_clip_art_15911.ico" />
-    <Content Include="Validation\Validation Page.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
