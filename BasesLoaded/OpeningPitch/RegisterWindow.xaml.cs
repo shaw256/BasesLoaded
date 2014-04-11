@@ -170,8 +170,7 @@ namespace OpeningPitch
 
                     MessageBox.Show(ex.ToString());
                 }*/
-
-
+            
             _applicant = new RegisterValidation();
             Register_Window.DataContext = _applicant;
             e.Handled = true;

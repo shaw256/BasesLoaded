@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:grid="http://schemas.microsoft.com/wpf/2008/toolkit"
         Title="UserDashboard" 
-        Height="500" 
+        Height="561.5" 
         Width="690" 
         WindowStartupLocation="CenterScreen" 
         MouseDown="Player_Profile_MouseDown" 
@@ -20,17 +20,17 @@
         <Button x:Name="Logout_btn" 
                 Content="Logout" 
                 HorizontalAlignment="Right" 
-                Margin="0,0,65,0" 
+                Margin="0,35,60,0" 
                 VerticalAlignment="Top" 
-                Width="123" 
+                Width="124" 
                 Click="Logout_btn_Click" 
                 Height="24"/>
         <Button x:Name="EditInfo_btn" 
                 Content="Edit Info" 
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Top" 
-                Width="123" 
-                Margin="0,0,188,0" 
+                Width="122" 
+                Margin="0,35,184,0" 
                 Height="24" 
                 Click="EditInfo_Click"/>
         <Button x:Name="Update" Content="Update"
@@ -42,9 +42,9 @@
         <Button x:Name="UserViewRoster_btn" 
                 Content="View Roster" 
                 HorizontalAlignment="Left" 
-                Margin="133,0,0,0" 
+                Margin="138,35,0,0" 
                 VerticalAlignment="Top"
-                Width="123" 
+                Width="122" 
                 Height="24" 
                 Click="UserViewRoster_btn_Click"/>
         <Button Content="X" 
@@ -78,7 +78,7 @@
                   AutoGenerateColumns="False"  
                   AlternationCount="2" 
                   SelectionMode="Single" 
-                  Margin="10,40,10,48" 
+                  Margin="10,84,10,48" 
                   Background="{DynamicResource ButtonBackgroundBrush}">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -162,13 +162,22 @@
         	HorizontalAlignment="Left" 
         	Height="22" 
         	VerticalAlignment="Top" 
-        	Width="123" 
-        	Margin="10,0,0,0" Click="Home_Click"/>
+        	Width="124" 
+        	Margin="14,35,0,0" Click="Home_Click"/>
         <Button x:Name="Cancel" 
         	Content="Cancel" 
         	HorizontalAlignment="Right" 
         	Margin="0,0,10,13" 
         	VerticalAlignment="Bottom" 
         	Width="112" Click="Cancel_Click"/>
+        <Label Content="BASES LOADED" 
+        	HorizontalAlignment="Left" 
+        	Margin="15,0,0,0" 
+        	VerticalAlignment="Top" 
+        	Width="201" 
+        	Height="34" FontSize="20"/>
+        <Label 
+        	x:Name="CurrentUser"
+        	HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,-4,0,0" Height="34" Width="205"/>
     </Grid>
 </Window>
