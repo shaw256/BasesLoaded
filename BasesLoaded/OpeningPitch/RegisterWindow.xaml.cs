@@ -23,6 +23,11 @@ namespace OpeningPitch
 
     public partial class RegisterWindow : Window
     {
+
+
+
+
+
         private int _noOfErrorsOnScreen = 0;
         private RegisterValidation _applicant = new RegisterValidation();
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
