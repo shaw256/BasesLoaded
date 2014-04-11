@@ -131,7 +131,7 @@ namespace OpeningPitch
 		
 		private string _Password;
 		
-		private string _ActivateCode;
+		private System.Nullable<int> _ActivateCode;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -177,7 +177,7 @@ namespace OpeningPitch
     partial void OnActivatedChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
-    partial void OnActivateCodeChanging(string value);
+    partial void OnActivateCodeChanging(System.Nullable<int> value);
     partial void OnActivateCodeChanged();
     #endregion
 		
@@ -586,8 +586,8 @@ namespace OpeningPitch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivateCode", DbType="VarChar(32)")]
-		public string ActivateCode
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivateCode", DbType="Int")]
+		public System.Nullable<int> ActivateCode
 		{
 			get
 			{

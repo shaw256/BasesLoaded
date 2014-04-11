@@ -2,16 +2,16 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LINQtoSQL">
   <DataContextMoniker Name="/LINQtoSQLDataContext" />
   <nestedChildShapes>
-    <classShape Id="b08ef333-8bd5-4244-b957-792059275e63" absoluteBounds="5.625, 1.625, 2, 4.8477197265625">
+    <classShape Id="2558027f-e4d6-4101-848a-c260550788e3" absoluteBounds="0.75, 0.75, 2, 4.8477197265625">
       <DataClassMoniker Name="/LINQtoSQLDataContext/Player" />
       <nestedChildShapes>
-        <elementListCompartment Id="0a72a4b0-189a-4159-88a8-7273145f32ca" absoluteBounds="5.6400000000000006, 2.085, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0696b9c4-e450-4d52-aa66-b9cb71b0f13c" absoluteBounds="0.765, 1.21, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9cf3ffea-7e4f-4254-a672-5bb4e5aedbec" absoluteBounds="1.5, 3.25, 2, 1.5785953776041666">
+    <classShape Id="cce896b7-e5c6-4adc-a5be-ee76b1518ef7" absoluteBounds="3.75, 0.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/LINQtoSQLDataContext/Team" />
       <nestedChildShapes>
-        <elementListCompartment Id="ce5a568b-ce1d-46c4-a109-8292ed7bf7ae" absoluteBounds="1.5150000000000006, 3.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0c97461e-d9f0-4fa5-88d8-c62b4d4804dc" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

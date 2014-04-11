@@ -20,10 +20,6 @@ using System.Windows.Shapes;
 
 namespace OpeningPitch
 {
-    /// <summary>
-    /// Interaction logic for RegisterWindow.xaml
-    /// </summary>
-
 
     public partial class RegisterWindow : Window
     {

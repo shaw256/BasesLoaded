@@ -22,7 +22,7 @@
       <Column Name="TID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Activated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ActivateCode" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="ActivateCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Teams" Member="Teams">
