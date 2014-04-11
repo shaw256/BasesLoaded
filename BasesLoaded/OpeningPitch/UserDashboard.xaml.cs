@@ -23,8 +23,10 @@ namespace OpeningPitch
         public UserDashboard()
         {
             InitializeComponent();
-            //Update button visibility is hidden upon window loading
+            User_View.Visibility = Visibility.Hidden;
+            //Update and Cancel button visibility is hidden upon window loading
             Update.Visibility = Visibility.Hidden;
+            Cancel.Visibility = Visibility.Hidden;
         }
 
         private void Player_Profile_MouseDown(object sender, MouseButtonEventArgs e)
@@ -37,6 +39,7 @@ namespace OpeningPitch
         //Function that allows the current user to view the Team Roster
         private void GridViewRoster()
         {
+            User_View.Visibility = Visibility.Visible;
             var players = (from m in db.Players
                            //Selects Team Identification associated with the current user
                            where m.TID == globals.user.TID
@@ -49,6 +52,16 @@ namespace OpeningPitch
         //Function that allows the current user to view his own information
         private void CurrentUserInfo()
         {
+            User_View.Visibility = Visibility.Visible;
+            emailField.Visibility = Visibility.Visible;
+            phoneNumber.Visibility = Visibility.Visible;
+            address1.Visibility = Visibility.Visible;
+            address2.Visibility = Visibility.Visible;
+            city.Visibility = Visibility.Visible;
+            state.Visibility = Visibility.Visible;
+            zipcode.Visibility = Visibility.Visible;
+            Update.Visibility = Visibility.Visible;
+            Cancel.Visibility = Visibility.Visible;
             var players = (from m in db.Players
                            //Selects E-mail and associatd information with the current user
                            where m.Email == globals.user.Email
@@ -67,6 +80,8 @@ namespace OpeningPitch
                 MainWindow BacktoMain = new MainWindow();
                 BacktoMain.Show();
                 BacktoMain.Username_Input.Text = globals.user.Email;
+                BacktoMain.Password_Input.Focus();
+                globals.Flush();
                 this.Close();
             }
             else if (result == MessageBoxResult.Cancel)
@@ -88,6 +103,8 @@ namespace OpeningPitch
                 MainWindow BacktoMain = new MainWindow();
                 BacktoMain.Show();
                 BacktoMain.Username_Input.Text = globals.user.Email;
+                BacktoMain.Password_Input.Focus();
+                globals.Flush();
                 this.Close();
             }
             else if (result == MessageBoxResult.Cancel)
@@ -124,7 +141,7 @@ namespace OpeningPitch
         }
 
         //Upon clicking the Edit Info button, the current user can edit ONLY his personal information
-        private void EditInfo_btn_Click(object sender, RoutedEventArgs e)
+        private void EditInfo_Click(object sender, RoutedEventArgs e)
         {
             CurrentUserInfo();
 
@@ -174,6 +191,28 @@ namespace OpeningPitch
                 MessageBox.Show(Ex.Message);
                 return;
             } 
+        }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            User_View.Visibility = Visibility.Hidden;
+            Update.Visibility = Visibility.Hidden;
+            Cancel.Visibility = Visibility.Hidden;
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to Cancel, " + globals.user.FirstName + " ?\n\nYour changes will be lost.",
+                "Confirmation", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
+            {
+                CurrentUserInfo();
+            }
+            else if (result == MessageBoxResult.Cancel)
+            {
+                //Else do nothing
+            }
         }
     }
 }

@@ -32,6 +32,8 @@ namespace OpeningPitch
             Add_Player.Visibility = Visibility.Hidden;
             Delete_Player.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Hidden;
+            Team_Display.Visibility = Visibility.Hidden;
+            CurrentUser.Content = "Logged In: "+ globals.user.FirstName ;
         }
 
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
@@ -47,13 +49,16 @@ namespace OpeningPitch
         }
         private void Dashboard_Logout_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit?\n\nAll unsaved changes will be lost.",
+            MessageBoxResult result = MessageBox.Show("Are you sure you would like to logout " + globals.user.FirstName +"?\n\nAll unsaved changes will be lost.",
                           "Confirmation", MessageBoxButton.OKCancel);
 
             if (result == MessageBoxResult.OK)
             {
                 MainWindow BacktoMain = new MainWindow();
                 BacktoMain.Show();
+                BacktoMain.Username_Input.Text = globals.user.Email;
+                BacktoMain.Password_Input.Focus();
+                globals.Flush();
                 this.Close();
             }
             else if (result == MessageBoxResult.Cancel)
@@ -61,22 +66,19 @@ namespace OpeningPitch
 
             }
         }
-       private void CreateTeam_Click(object sender, RoutedEventArgs e)
-        {
-           Window Teams = new Add_Team();
-           Teams.Show();
-           MakeReadonlyTrue();
-           this.Close();
-        }
+     
        private void Exit_Click(object sender, RoutedEventArgs e)
        {
-           MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit?\n\nAll unsaved changes will be lost.",
+           MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit "+globals.user.FirstName+"?\n\nAll unsaved changes will be lost.",
                "Confirmation", MessageBoxButton.OKCancel);
 
            if (result == MessageBoxResult.OK)
            {
                MainWindow BacktoMain = new MainWindow();
                BacktoMain.Show();
+               BacktoMain.Username_Input.Text = globals.user.Email;
+               BacktoMain.Password_Input.Focus();
+               globals.Flush();
                this.Close();
            }
            else if (result == MessageBoxResult.Cancel)
@@ -91,7 +93,7 @@ namespace OpeningPitch
 
        private void Applications_Click(object sender, RoutedEventArgs e)
        {
-
+           
            GridViewApplicants();
            MakeReadonlyFalse();
            Add_Player.Visibility = Visibility.Hidden;
@@ -111,14 +113,19 @@ namespace OpeningPitch
 
                Player PlayerRow = Team_Display.SelectedItem as Player;
 
-               Player player = (from p in db.Players
+               Player selectedPlayer = (from p in db.Players
                                 where p.PID == globals.user.PID
                                 select p).Single();
 
-               player.Approved = 1;
-
-               db.SubmitChanges();
-
+               selectedPlayer.Approved = (PlayerRow.Approved = 1);
+               try
+               {
+                   db.SubmitChanges();
+               }
+               catch (Exception ex)
+               {
+                   MessageBox.Show(ex.Message + "Update Unsuccessfull");
+               }
                MessageBox.Show("Update Successful.");
 
                Team_Display.Items.Refresh();
@@ -166,9 +173,7 @@ namespace OpeningPitch
             Add_Player.Visibility = Visibility.Hidden;
             Delete_Player.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Hidden;
-            Window home = new Dashboard();
-            home.Show();
-            this.Close();
+            Team_Display.Visibility = Visibility.Hidden;
           
         }
 
@@ -210,8 +215,7 @@ namespace OpeningPitch
         }
 
         private void Team_Roster_Click(object sender, RoutedEventArgs e)
-        {           
-            
+        {
             Approve_Player.Visibility = Visibility.Hidden;
             Deny_Player.Visibility = Visibility.Hidden;
             Cancel_Event.Visibility = Visibility.Hidden;
@@ -269,23 +273,49 @@ namespace OpeningPitch
                  return;
              }
         }
+        private void Delete_Player_Click(object sender, RoutedEventArgs e)
+        {
+            Player selectedPlayer = Team_Display.SelectedItem as Player;
 
+            var queriedPlayer = from players in db.Players
+                                where players.PID == selectedPlayer.PID
+                                select players;
 
-        private void GridViewRoster()
+            foreach (var playerDetails in queriedPlayer)
             {
+                db.Players.DeleteOnSubmit(playerDetails);
+            }
+
+            try
+            {
+                db.SubmitChanges();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            GridViewRoster();
+
+        }
+        /// extra functions that the click buttons use
+        /// 
+            private void GridViewRoster()
+            {
+                Team_Display.Visibility = Visibility.Visible;
                 var players = (from m in db.Players
-                               where m.TID == globals.user.TID
+                               where m.TID == globals.user.TID && m.Approved == 1
                                select m);
 
                 Team_Display.ItemsSource = players;
             }
-
-
+        
             private void GridViewApplicants()
             {
-
+                Team_Display.Visibility = Visibility.Visible;
                 var players = (from a in db.Players
-                               where a.Approved == 0
+                               where a.TID == globals.user.TID && a.Approved == 0
                                select a);
                 Team_Display.ItemsSource = players;
             }
@@ -297,7 +327,7 @@ namespace OpeningPitch
                     Item.IsReadOnly = true;
                 }
             }
-
+        
             private void MakeReadonlyFalse()
             {
                 foreach (DataGridColumn Item in Team_Display.Columns)
@@ -305,8 +335,10 @@ namespace OpeningPitch
                     Item.IsReadOnly = false;
                 }
             }
+            
             private void CurrentUserInfo()
             {
+                Team_Display.Visibility = Visibility.Visible;
                 var players = (from m in db.Players
                                where m.Email == globals.user.Email
                                select m);
@@ -314,34 +346,6 @@ namespace OpeningPitch
                 Team_Display.ItemsSource = players;
                 MakeReadonlyFalse();
             }
-
-            private void Delete_Player_Click(object sender, RoutedEventArgs e)
-            {
-                Player selectedPlayer = Team_Display.SelectedItem as Player;
-
-                var queriedPlayer = from players in db.Players
-                                    where players.PID == selectedPlayer.PID
-                                    select players;
-
-                foreach (var playerDetails in queriedPlayer)
-                {
-                    db.Players.DeleteOnSubmit(playerDetails);
-                }
-
-                try
-                {
-                    db.SubmitChanges();
-                }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-                GridViewRoster();
-
-            }
-
         }
 
     }   

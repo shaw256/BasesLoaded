@@ -25,6 +25,8 @@ namespace OpeningPitch
         private int _userType;
         private int _PID;
         private System.Nullable<int> _TID;
+        private int _activated;
+        private System.Nullable<int> _activateCode;
 
         public string Email
         {
@@ -106,6 +108,18 @@ namespace OpeningPitch
         {
             get { return _TID; }
             set { _TID = value; }
+        }
+
+        public System.Nullable<int> ActivateCode
+        {
+            get { return _activateCode; }
+            set { _activateCode = value; }
+        }
+
+        public int Activated
+        {
+            get { return _activated; }
+            set { _activated = value; }
         }
 
     }
