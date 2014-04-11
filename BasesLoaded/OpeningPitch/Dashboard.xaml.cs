@@ -40,7 +40,15 @@ namespace OpeningPitch
               
         private void TC_Dashboard_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            base.OnMouseLeftButtonDown(e);
+            try
+            {
+                this.DragMove();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
+            }
         }
         private void Profile_Click(object sender, RoutedEventArgs e)
         {

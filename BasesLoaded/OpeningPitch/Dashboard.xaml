@@ -185,12 +185,6 @@
         	Width="112" 
         	ToolTip="This allows one to pull up all the users information." 
         	Click="Deny_Player_Click"/>
-        <Button x:Name="Add_Player" 
-        	Content="Add Player" 
-        	HorizontalAlignment="Left" 
-        	Margin="124,0,0,10" 
-        	VerticalAlignment="Bottom" 
-        	Width="112" Click="Add_Player_Click"/>
         <Button x:Name="Update" 
         	Content="Update" 
         	HorizontalAlignment="Right" 

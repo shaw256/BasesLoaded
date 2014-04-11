@@ -32,7 +32,15 @@ namespace OpeningPitch
         private void Player_Profile_MouseDown(object sender, MouseButtonEventArgs e)
         {
             //Allows user to drag window
-            this.DragMove();
+            base.OnMouseLeftButtonDown(e);
+            try
+            {
+                this.DragMove();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
+            }
         }
 
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();

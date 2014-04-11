@@ -34,7 +34,15 @@ namespace OpeningPitch
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            base.OnMouseLeftButtonDown(e);
+            try
+            {
+                this.DragMove();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
+            }
         }
        
         

@@ -25,7 +25,7 @@
     </Window.Resources>
 
     <Grid x:Name="Main_Window" 
-          Background="{DynamicResource BackgroundKey}">
+          Background="{DynamicResource BackgroundKey}" MouseLeftButtonDown="Window_MouseDown" >
         <TextBox x:Name="Username_Input" 
                  Margin="125,185,125,285" 
                  VerticalAlignment="Center"

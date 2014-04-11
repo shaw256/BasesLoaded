@@ -21,7 +21,15 @@ namespace OpeningPitch
     {
         private void Manage_Team_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            base.OnMouseLeftButtonDown(e);
+            try
+            {
+                this.DragMove();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
+            }
         }
         public Manage_Roster()
         {

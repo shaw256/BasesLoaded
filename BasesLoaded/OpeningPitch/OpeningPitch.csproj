@@ -112,9 +112,6 @@
     <Compile Include="Manage_Roster.xaml.cs">
       <DependentUpon>Manage_Roster.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Player_Info.xaml.cs">
-      <DependentUpon>Player_Info.xaml</DependentUpon>
-    </Compile>
     <Compile Include="RegisterValidation.cs" />
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
@@ -144,10 +141,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Manage_Roster.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Player_Info.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
