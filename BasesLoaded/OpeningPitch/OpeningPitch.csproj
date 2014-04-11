@@ -101,16 +101,10 @@
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="globals.cs" />
-    <Compile Include="Add_Teams.xaml.cs">
-      <DependentUpon>Add_Teams.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LINQtoSQL.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LINQtoSQL.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Manage_Roster.xaml.cs">
-      <DependentUpon>Manage_Roster.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegisterValidation.cs" />
     <Compile Include="RegisterWindow.xaml.cs">
@@ -121,10 +115,6 @@
     </Compile>
     <Compile Include="Persona.cs" />
     <Page Include="Dashboard.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Add_Teams.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -140,10 +130,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Manage_Roster.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="RegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

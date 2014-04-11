@@ -29,7 +29,6 @@ namespace OpeningPitch
             Approve_Player.Visibility = Visibility.Hidden;
             Deny_Player.Visibility = Visibility.Hidden;
             Cancel_Event.Visibility = Visibility.Hidden;
-            Add_Player.Visibility = Visibility.Hidden;
             Delete_Player.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Hidden;
             Team_Display.Visibility = Visibility.Hidden;
@@ -104,7 +103,6 @@ namespace OpeningPitch
            
            GridViewApplicants();
            MakeReadonlyFalse();
-           Add_Player.Visibility = Visibility.Hidden;
            Delete_Player.Visibility = Visibility.Hidden;
            Approve_Player.Visibility = Visibility.Visible;
            Deny_Player.Visibility = Visibility.Visible;
@@ -178,7 +176,6 @@ namespace OpeningPitch
             Approve_Player.Visibility = Visibility.Hidden;
             Deny_Player.Visibility = Visibility.Hidden;
             Cancel_Event.Visibility = Visibility.Hidden;
-            Add_Player.Visibility = Visibility.Hidden;
             Delete_Player.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Hidden;
             Team_Display.Visibility = Visibility.Hidden;
@@ -190,7 +187,6 @@ namespace OpeningPitch
             Approve_Player.Visibility = Visibility.Hidden;
             Deny_Player.Visibility = Visibility.Hidden;
             Cancel_Event.Visibility = Visibility.Visible;
-            Add_Player.Visibility = Visibility.Hidden;
             Delete_Player.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Visible;
             CurrentUserInfo();
@@ -228,20 +224,11 @@ namespace OpeningPitch
             Deny_Player.Visibility = Visibility.Hidden;
             Cancel_Event.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Hidden;
-            Add_Player.Visibility = Visibility.Visible;
             Delete_Player.Visibility = Visibility.Visible;
             GridViewRoster();
             MakeReadonlyTrue();
         }
-
-        private void Add_Player_Click(object sender, RoutedEventArgs e)
-        {
-            Window AddPlayer = new Player_Info();
-            AddPlayer.Show();
-            MakeReadonlyTrue();
-            this.Close();
-        }
-      
+     
         private void Update_Click(object sender, RoutedEventArgs e)
         {
              
