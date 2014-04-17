@@ -26,7 +26,7 @@
             <Setter Property="Padding" Value="6,4" />
             <Setter Property="MinHeight" Value="30" />
             <Setter Property="MinWidth" Value="90" />
-            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="IsTabStop" Value="True" />
             <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>
@@ -277,7 +277,7 @@
             TextWrapping="Wrap"  
             VerticalAlignment="Center" 
             InputScope="InputScopeNameValue.TelephoneNumber"  
-            Mask="(000) 000 - 0000" 
+            Mask="(000) 000 -0000" 
             Width="166" 
             Height="30" 
             FontSize="20px"
@@ -287,7 +287,7 @@
             BorderBrush="{DynamicResource ButtonBorderBrush}" 
             CaretBrush="{DynamicResource TransparentBrush}"
             Validation.Error="Validation_Error"
-            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=PhoneNumber, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=PhoneNumber, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" ManipulationStarted="ManipulatePhone"/>
         <Label x:Name="Phone_Number_Label" 
 			Content="Phone Number" 
 			HorizontalAlignment="Left" 

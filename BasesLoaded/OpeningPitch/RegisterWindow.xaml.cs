@@ -58,7 +58,7 @@ namespace OpeningPitch
             Register_Window.DataContext = _applicant;
             PopulateTeamComboBox();
         }
-
+        
         public void PopulateTeamComboBox()
         {
             var currentTeamQuery = (from teams in db.Teams
@@ -249,7 +249,13 @@ namespace OpeningPitch
                 CustomTeamLabel.Visibility = Visibility.Hidden;
             }
         }
+      
 
+        private void ManipulatePhone(object sender, ManipulationStartedEventArgs e)
+        {
+            Phone_Number_Input.Clear();
+            Phone_Number_Input.Cursor = Cursor;
+        }
   }
 
 }  

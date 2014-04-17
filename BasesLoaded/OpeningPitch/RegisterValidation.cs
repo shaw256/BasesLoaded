@@ -292,6 +292,16 @@ namespace OpeningPitch
                 return false;
             }
         }
+        private bool ValidatePhone(string phone)
+        {
+           if (phone.Length == 16)
+            {
+                return true;
+            }
+            else return false;
+
+
+        }
 
         private bool IsEmailUnique(string emailaddress)
         {
@@ -440,7 +450,12 @@ namespace OpeningPitch
                     {
                         result = "Please enter your phone number.";
                     }
+                    else if (!ValidatePhone(PhoneNumber))
+                    {
+                        result = "Please enter a valid phone number";
+                    }
                 }
+               
 
                 if (columnName == "Gender")
                 {
