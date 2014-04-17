@@ -94,16 +94,16 @@
                 Click="Minimize_Button"
                 ToolTip="Minimize" FontSize="14" TextOptions.TextFormattingMode="Display"/>
         <Label x:Name="AppName" 
-               Content="_____BASES LOADEd____" 
+               Content="_____BASES LOADEd_____" 
                HorizontalAlignment="Center" 
-               Margin="0,100,0,0" 
+               Margin="36,102,35,0" 
                VerticalAlignment="Top" 
                Height="44" 
-               Width="400" 
+               Width="329" 
                FontFamily="Neon" 
                FontSize="36" 
                HorizontalContentAlignment="Center"/>
         <Image gif:ImageBehavior.AnimatedSource="/Themes/Dark/baseballspinning2.gif"  Margin="167,363,160,79"></Image>
-        
+
     </Grid>
 </Window>

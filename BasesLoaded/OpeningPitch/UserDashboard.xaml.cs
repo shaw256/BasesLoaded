@@ -225,6 +225,14 @@ namespace OpeningPitch
 
         private void StatusCheck()
         {
+            var playerPosition = from p in db.Players
+                                 where p.PID == globals.user.PID
+                                 select p;
+            foreach (var p in playerPosition)
+            {
+                globals.user.Position = p.Position;
+            }
+                
             if (globals.user.Approved == 1)
             {
                 Status.Content = "Position on the Team: " + globals.user.Position;

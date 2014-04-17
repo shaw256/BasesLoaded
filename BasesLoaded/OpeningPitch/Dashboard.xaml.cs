@@ -185,7 +185,7 @@ namespace OpeningPitch
             Welcome.Visibility = Visibility.Visible;
             Status.Visibility = Visibility.Visible;
             Instructions.Visibility = Visibility.Visible;
-          
+            StatusCheck();       
         }
 
         private void EditPersonalInfo_Click(object sender, RoutedEventArgs e)
@@ -197,32 +197,14 @@ namespace OpeningPitch
             Delete_Player.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Visible;
             CurrentUserInfo();
+            
           
         }
 
         private void Deny_Player_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    SmtpClient client = new SmtpClient("smtp.live.com", 587);
-            //    client.EnableSsl = true;
-            //    client.Timeout = 10000;
-            //    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            //    client.UseDefaultCredentials = false;
-            //    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
-
-            //    MailMessage msg = new MailMessage();
-            //    msg.To.Add(Email_Input.Text);
-            //    msg.From = new MailAddress("basesloadedapp@outlook.com");
-            //    msg.Subject = "Registration Failed";
-            //    msg.Body = "We are sorry to have to inform you that your submission has been denied.\nPlease contact the team captain";
-            //    client.Send(msg);
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    MessageBox.Show(ex.ToString());
-            //}
+            deletePlayer();
+            GridViewApplicants();
         }
 
         private void Team_Roster_Click(object sender, RoutedEventArgs e)
@@ -265,6 +247,7 @@ namespace OpeningPitch
                  MessageBox.Show("Update Successful.");
 
                  Team_Display.Items.Refresh();
+                 StatusCheck();
 
              }
 
@@ -278,32 +261,12 @@ namespace OpeningPitch
         }
         private void Delete_Player_Click(object sender, RoutedEventArgs e)
         {
-            Player selectedPlayer = Team_Display.SelectedItem as Player;
-
-            var queriedPlayer = from players in db.Players
-                                where players.PID == selectedPlayer.PID
-                                select players;
-
-            foreach (var playerDetails in queriedPlayer)
-            {
-                db.Players.DeleteOnSubmit(playerDetails);
-            }
-
-            try
-            {
-                db.SubmitChanges();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            deletePlayer();
             GridViewRoster();
-
         }
-        /// extra functions that the click buttons use
-        /// 
+
+
+        #region        /// extra functions that the click buttons use---------------------------------------------------------------------------------------------------------------------------------------------------
             private void GridViewRoster()
             {
                 Welcome.Visibility = Visibility.Hidden;
@@ -361,6 +324,14 @@ namespace OpeningPitch
             
             private void StatusCheck()
             {
+                var playerPosition = from p in db.Players
+                                      where p.PID == globals.user.PID
+                                      select p;
+                foreach (var p in playerPosition)
+                {
+                    globals.user.Position = p.Position;
+                }
+                
                 if (globals.user.Approved == 1)
                 {
                     Status.Content = "Position on the Team: " + globals.user.Position;
@@ -368,6 +339,71 @@ namespace OpeningPitch
                 else
                     Status.Content = "Pending...(Please give your team captain time to accept your request)";
             }
+
+            private void deletePlayer()
+            {
+                
+                MessageBoxResult result = MessageBox.Show("Are you sure you would like to delete the selected Player?\n\nThis player will also be removed from the Database.",
+                  "Confirmation", MessageBoxButton.OKCancel);
+
+                if (result == MessageBoxResult.OK)
+                {
+                    try
+                    {
+                        Player selectedPlayer = Team_Display.SelectedItem as Player;
+                        var queriedPlayer = from players in db.Players
+                                            where players.PID == selectedPlayer.PID
+                                            select players;
+
+                        foreach (var playerDetails in queriedPlayer)
+                        {
+                            db.Players.DeleteOnSubmit(playerDetails);
+                        }
+
+                        try
+                        {
+                            db.SubmitChanges();
+                        }
+
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        //try
+                        //{
+                        //    SmtpClient client = new SmtpClient("smtp.live.com", 587);
+                        //    client.EnableSsl = true;
+                        //    client.Timeout = 10000;
+                        //    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        //    client.UseDefaultCredentials = false;
+                        //    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
+
+                        //    MailMessage msg = new MailMessage();
+                        //    msg.To.Add(Email_Input.Text);
+                        //    msg.From = new MailAddress("basesloadedapp@outlook.com");
+                        //    msg.Subject = "Registration Failed";
+                        //    msg.Body = "We are sorry to have to inform you that your submission has been denied.\nPlease contact the team captain";
+                        //    client.Send(msg);
+                        //}
+                        //catch (Exception ex)
+                        //{
+
+                        //    MessageBox.Show(ex.ToString());
+                        //}
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Unable to delete the player" + ex.Message);
+                    }
+
+                }
+                else if (result == MessageBoxResult.Cancel)
+                {
+
+                }
+            }
+        #endregion
         }
 
     }   
