@@ -27,6 +27,9 @@ namespace OpeningPitch
             //Update and Cancel button visibility is hidden upon window loading
             Update.Visibility = Visibility.Hidden;
             Cancel.Visibility = Visibility.Hidden;
+            CurrentUser.Content = "Logged In: " + globals.user.FirstName;
+            Welcome.Content = "WELCOME to Bases Loaded " + globals.user.FirstName + "!";
+            StatusCheck();
         }
 
         private void Player_Profile_MouseDown(object sender, MouseButtonEventArgs e)
@@ -45,38 +48,8 @@ namespace OpeningPitch
 
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
         //Function that allows the current user to view the Team Roster
-        private void GridViewRoster()
-        {
-            User_View.Visibility = Visibility.Visible;
-            var players = (from m in db.Players
-                           //Selects Team Identification associated with the current user
-                           where m.TID == globals.user.TID
-                           select m
-                           );
-
-            User_View.ItemsSource = players;
-        }
 
         //Function that allows the current user to view his own information
-        private void CurrentUserInfo()
-        {
-            User_View.Visibility = Visibility.Visible;
-            emailField.Visibility = Visibility.Visible;
-            phoneNumber.Visibility = Visibility.Visible;
-            address1.Visibility = Visibility.Visible;
-            address2.Visibility = Visibility.Visible;
-            city.Visibility = Visibility.Visible;
-            state.Visibility = Visibility.Visible;
-            zipcode.Visibility = Visibility.Visible;
-            Update.Visibility = Visibility.Visible;
-            Cancel.Visibility = Visibility.Visible;
-            var players = (from m in db.Players
-                           //Selects E-mail and associatd information with the current user
-                           where m.Email == globals.user.Email
-                           select m);
-
-            User_View.ItemsSource = players;
-        }
 
         //Logout function that also asks for confirmation from user
         private void Logout_btn_Click(object sender, RoutedEventArgs e)
@@ -203,6 +176,9 @@ namespace OpeningPitch
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
+            Welcome.Visibility = Visibility.Visible;
+            Status.Visibility = Visibility.Visible;
+            Instructions.Visibility = Visibility.Visible;
             User_View.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Hidden;
             Cancel.Visibility = Visibility.Hidden;
@@ -222,5 +198,56 @@ namespace OpeningPitch
                 //Else do nothing
             }
         }
+       
+        //Supporting fuctions
+        private void CurrentUserInfo()
+        {
+            Welcome.Visibility = Visibility.Hidden;
+            Status.Visibility = Visibility.Hidden;
+            Instructions.Visibility = Visibility.Hidden;
+            User_View.Visibility = Visibility.Visible;
+            emailField.Visibility = Visibility.Visible;
+            phoneNumber.Visibility = Visibility.Visible;
+            address1.Visibility = Visibility.Visible;
+            address2.Visibility = Visibility.Visible;
+            city.Visibility = Visibility.Visible;
+            state.Visibility = Visibility.Visible;
+            zipcode.Visibility = Visibility.Visible;
+            Update.Visibility = Visibility.Visible;
+            Cancel.Visibility = Visibility.Visible;
+            var players = (from m in db.Players
+                           //Selects E-mail and associatd information with the current user
+                           where m.Email == globals.user.Email
+                           select m);
+
+            User_View.ItemsSource = players;
+        }
+
+        private void StatusCheck()
+        {
+            if (globals.user.Approved == 1)
+            {
+                Status.Content = "Position on the Team: " + globals.user.Position;
+            }
+            else
+                Status.Content = "Pending...(Please give your team captain time to accept your request)";
+        }
+
+        private void GridViewRoster()
+        {
+            Welcome.Visibility = Visibility.Hidden;
+            Status.Visibility = Visibility.Hidden;
+            Instructions.Visibility = Visibility.Hidden;
+            Cancel.Visibility = Visibility.Hidden;
+            User_View.Visibility = Visibility.Visible;
+            var players = (from m in db.Players
+                           //Selects Team Identification associated with the current user
+                           where m.TID == globals.user.TID
+                           select m
+                           );
+
+            User_View.ItemsSource = players;
+        }
+
     }
 }

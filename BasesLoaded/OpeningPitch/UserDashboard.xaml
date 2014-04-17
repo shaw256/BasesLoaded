@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:grid="http://schemas.microsoft.com/wpf/2008/toolkit"
         Title="UserDashboard" 
-        Height="561.5" 
+        Height="530" 
         Width="690" 
         WindowStartupLocation="CenterScreen" 
         MouseDown="Player_Profile_MouseDown" 
@@ -82,7 +82,7 @@
                   Background="{DynamicResource ButtonBackgroundBrush}">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}"/>
                     <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/>
                     <Setter Property="BorderBrush" Value="{DynamicResource ForegroundBrush}"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -178,6 +178,27 @@
         	Height="34" FontSize="20"/>
         <Label 
         	x:Name="CurrentUser"
-        	HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,-4,0,0" Height="34" Width="205"/>
+        	HorizontalAlignment="Right" 
+            VerticalAlignment="Top" 
+            Margin="0,-4,60,0" 
+            Height="34" 
+            Width="205"/>
+        <Label x:Name="Welcome" 
+            HorizontalAlignment ="Center"
+            HorizontalContentAlignment="Center"
+            VerticalAlignment="Center"
+            Width="528" Height="36" Margin="81,196,81,268"/>
+        <Label x:Name="Instructions" 
+            Content="Click Roster to view your team or Edit Info to edit your data."
+            HorizontalAlignment ="Center" 
+            VerticalAlignment="Center"
+            Width="389" Height="36"
+            HorizontalContentAlignment="Center"/>
+        <Label x:Name="Status" 
+            HorizontalAlignment ="Center" 
+            VerticalAlignment="Center"
+            Width="528" Height="36"
+            HorizontalContentAlignment="Center" Margin="81,268,81,196" FontWeight="Bold" FontStyle="Italic"/>
+
     </Grid>
 </Window>

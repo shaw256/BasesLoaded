@@ -83,6 +83,7 @@ namespace OpeningPitch
                     globals.user.AltPosition2 = player.AltPosition2;
                     globals.user.Gender = player.Gender;
                     globals.user.UserType = player.UserType;
+                    globals.user.Approved = player.Approved;
                     Window UserDashboard = new UserDashboard();
                     UserDashboard.Show();
                     this.Close();
@@ -107,6 +108,7 @@ namespace OpeningPitch
                     globals.user.AltPosition2 = player.AltPosition2;
                     globals.user.Gender = player.Gender;
                     globals.user.UserType = player.UserType;
+                    globals.user.Approved = player.Approved;
                     Window Dashboard = new Dashboard();
                     Dashboard.Show();
                     this.Close();

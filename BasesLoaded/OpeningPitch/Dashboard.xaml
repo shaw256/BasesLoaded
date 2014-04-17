@@ -200,5 +200,21 @@
         <Label 
             x:Name="CurrentUser"
             HorizontalAlignment="Left" VerticalAlignment="Top" Margin="888,0,0,0" Height="34" Width="205"/>
+        <Label x:Name="Welcome" 
+        	HorizontalAlignment ="Center"
+        	HorizontalContentAlignment="Center"
+        	VerticalAlignment="Center"
+        	Width="528" Height="36" Margin="273,180,331,284"/>
+        <Label x:Name="Instructions" 
+        	Content="This program is to help you, as a Team Captain, manage your Team."
+        	HorizontalAlignment ="Center" 
+        	VerticalAlignment="Center"
+        	Width="528" Height="36"
+        	HorizontalContentAlignment="Center" Margin="273,216,331,248"/>
+        <Label x:Name="Status" 
+        	HorizontalAlignment ="Center" 
+        	VerticalAlignment="Center"
+        	Width="528" Height="36"
+        	HorizontalContentAlignment="Center" Margin="273,257,331,207" FontWeight="Bold" FontStyle="Italic"/>
     </Grid>
 </Window>

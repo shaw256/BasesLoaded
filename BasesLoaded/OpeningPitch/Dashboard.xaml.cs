@@ -33,6 +33,9 @@ namespace OpeningPitch
             Update.Visibility = Visibility.Hidden;
             Team_Display.Visibility = Visibility.Hidden;
             CurrentUser.Content = "Logged In: "+ globals.user.FirstName ;
+            Welcome.Content = "WELCOME to Bases Loaded " + globals.user.FirstName + "!";
+            StatusCheck();
+
         }
 
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
@@ -179,11 +182,15 @@ namespace OpeningPitch
             Delete_Player.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Hidden;
             Team_Display.Visibility = Visibility.Hidden;
+            Welcome.Visibility = Visibility.Visible;
+            Status.Visibility = Visibility.Visible;
+            Instructions.Visibility = Visibility.Visible;
           
         }
 
         private void EditPersonalInfo_Click(object sender, RoutedEventArgs e)
         {
+           
             Approve_Player.Visibility = Visibility.Hidden;
             Deny_Player.Visibility = Visibility.Hidden;
             Cancel_Event.Visibility = Visibility.Visible;
@@ -220,6 +227,7 @@ namespace OpeningPitch
 
         private void Team_Roster_Click(object sender, RoutedEventArgs e)
         {
+            
             Approve_Player.Visibility = Visibility.Hidden;
             Deny_Player.Visibility = Visibility.Hidden;
             Cancel_Event.Visibility = Visibility.Hidden;
@@ -298,6 +306,9 @@ namespace OpeningPitch
         /// 
             private void GridViewRoster()
             {
+                Welcome.Visibility = Visibility.Hidden;
+                Status.Visibility = Visibility.Hidden;
+                Instructions.Visibility = Visibility.Hidden;
                 Team_Display.Visibility = Visibility.Visible;
                 var players = (from m in db.Players
                                where m.TID == globals.user.TID && m.Approved == 1
@@ -308,6 +319,9 @@ namespace OpeningPitch
         
             private void GridViewApplicants()
             {
+                Welcome.Visibility = Visibility.Hidden;
+                Status.Visibility = Visibility.Hidden;
+                Instructions.Visibility = Visibility.Hidden;
                 Team_Display.Visibility = Visibility.Visible;
                 var players = (from a in db.Players
                                where a.TID == globals.user.TID && a.Approved == 0
@@ -333,6 +347,9 @@ namespace OpeningPitch
             
             private void CurrentUserInfo()
             {
+                Welcome.Visibility = Visibility.Hidden;
+                Status.Visibility = Visibility.Hidden;
+                Instructions.Visibility = Visibility.Hidden;
                 Team_Display.Visibility = Visibility.Visible;
                 var players = (from m in db.Players
                                where m.Email == globals.user.Email
@@ -340,6 +357,16 @@ namespace OpeningPitch
 
                 Team_Display.ItemsSource = players;
                 MakeReadonlyFalse();
+            }
+            
+            private void StatusCheck()
+            {
+                if (globals.user.Approved == 1)
+                {
+                    Status.Content = "Position on the Team: " + globals.user.Position;
+                }
+                else
+                    Status.Content = "Pending...(Please give your team captain time to accept your request)";
             }
         }
 

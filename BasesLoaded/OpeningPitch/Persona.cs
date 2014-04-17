@@ -27,6 +27,7 @@ namespace OpeningPitch
         private System.Nullable<int> _TID;
         private int _activated;
         private System.Nullable<int> _activateCode;
+        private int _approved;
 
         public string Email
         {
@@ -120,6 +121,11 @@ namespace OpeningPitch
         {
             get { return _activated; }
             set { _activated = value; }
+        }
+        public int Approved
+        {
+            get { return _approved; }
+            set { _approved = value; }
         }
 
     }
