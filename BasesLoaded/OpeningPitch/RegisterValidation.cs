@@ -32,6 +32,8 @@ namespace OpeningPitch
        private string _TeamChoice;
        private string _NewTeamName;
        private string _AccountType;
+       private string _Password;
+       private string _ConfirmPassword;
        #endregion
 
        #region Properties
@@ -263,6 +265,33 @@ namespace OpeningPitch
                 }
             }
         }
+        public string Password
+        {
+            get { return _Password; }
+
+            set
+            {
+                if (_Password != value)
+                {
+                    _Password = value;
+                    OnPropertyChanged("Password");
+
+                }
+            }
+        }
+        public string ConfirmPassword
+        {
+            get { return _ConfirmPassword; }
+
+            set
+            {
+                if (_ConfirmPassword != value)
+                {
+                    _ConfirmPassword = value;
+                    OnPropertyChanged("ConfirmPassword");
+                }
+            }
+        }
         #endregion
 
        #region INotifyPropertyChanged Members
@@ -294,15 +323,24 @@ namespace OpeningPitch
         }
         private bool ValidatePhone(string phone)
         {
-           if (phone.Length == 16)
+
+
+            Regex regex = new Regex(@"^\(\d{3}\)\d{3}-\d{4}$");
+            Match match = regex.Match(phone);
+            //string tempphone = phone;
+            //string finalphone = "";
+            //finalphone = tempphone.Substring(1, 3) + tempphone.Substring(5, 3) + tempphone.Substring(9, 4);
+            //Match match = regex.Match(finalphone);
+            
+            if (match.Success)
             {
                 return true;
             }
-            else return false;
-
-
+            else
+            {
+                return false;
+            }
         }
-
         private bool IsEmailUnique(string emailaddress)
         {
             var checkEmailAddresses = from players in databaseCheck.Players
@@ -337,7 +375,73 @@ namespace OpeningPitch
                 return true;
             }
         }
+        private bool IsPasswordValid(string passwordToCheck)
+        {
+            
+            int numberOfDigits = 0, numberOfLetters = 0, numberOfSymbols = 0;
+            foreach (char c in passwordToCheck)
+            {
+                if (char.IsDigit(c))
+                {
+                    numberOfDigits++;
+                }
+                else if (char.IsLetter(c))
+                {
+                    numberOfLetters++;
+                }
+                else if (char.IsPunctuation(c) || char.IsSeparator(c) ||char.IsSymbol(c)) 
+                {
+                    numberOfSymbols++;
+                }
+            }
 
+            if (numberOfDigits >= 2 && numberOfSymbols >= 2 && passwordToCheck.Length >= 8 && passwordToCheck.Length < 20)
+            {
+                return true;
+            }
+            else if (numberOfDigits < 2 || numberOfSymbols < 2 || passwordToCheck.Length <= 7 || passwordToCheck.Length >= 20)
+            {
+                return false;
+            }
+            else {
+                return false;
+            }
+           
+        }
+        private bool IsConfirmPasswordValid(string passwordToCheck)
+        {
+
+            int numberOfDigits = 0, numberOfLetters = 0, numberOfSymbols = 0;
+            foreach (char c in passwordToCheck)
+            {
+                if (char.IsDigit(c))
+                {
+                    numberOfDigits++;
+                }
+                else if (char.IsLetter(c))
+                {
+                    numberOfLetters++;
+                }
+                else if (char.IsPunctuation(c) || char.IsSeparator(c) || char.IsSymbol(c))
+                {
+                    numberOfSymbols++;
+                }
+            }
+
+            if (numberOfDigits >= 2 && numberOfSymbols >= 2 && passwordToCheck.Length >= 8 && passwordToCheck.Length < 20)
+            {
+                return true;
+            }
+            else if (numberOfDigits < 2 || numberOfSymbols <  2 || passwordToCheck.Length <=7 || passwordToCheck.Length >= 20)
+            {
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
 
         #region IDataErrorInfo Member
         public string Error
@@ -352,6 +456,7 @@ namespace OpeningPitch
             get
             {
                 string result = null;
+                
                 if (columnName == "FName")
                 {
                     if(string.IsNullOrEmpty(FName))
@@ -574,7 +679,34 @@ namespace OpeningPitch
                         
 
                 }
-
+                if (columnName == "Password")
+                {
+                    if (String.IsNullOrEmpty(Password))
+                    {
+                        result = "Please enter a valid password.";
+                    }
+                    else if (!IsPasswordValid(Password))
+                    {
+                        result = "Password must contain two special characters, two numbers and must be between 8 and 20 characters.";
+                    }
+                    
+            
+                }
+                if (columnName == "ConfirmPassword")
+                {
+                    if (String.IsNullOrEmpty(ConfirmPassword))
+                    {
+                        result = "Please enter a valid password.";
+                    }
+                    else if (!IsConfirmPasswordValid(ConfirmPassword))
+                    {
+                        result = "Password must contain two special characters, two numbers and must be between 8 and 20 characters.";
+                    }
+                    else if (Password != ConfirmPassword)
+                    {
+                        result = "Password and Confirmation password must match.";
+                    }
+                }
                 return result;
             }
         }

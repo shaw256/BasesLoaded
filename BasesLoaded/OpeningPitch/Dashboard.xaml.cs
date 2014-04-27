@@ -105,7 +105,7 @@ namespace OpeningPitch
        {
            
            GridViewApplicants();
-           MakeReadonlyFalse();
+           MakeReadonlyTrue();
            Delete_Player.Visibility = Visibility.Hidden;
            Approve_Player.Visibility = Visibility.Visible;
            Deny_Player.Visibility = Visibility.Visible;

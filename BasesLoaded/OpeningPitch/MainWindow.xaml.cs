@@ -52,80 +52,82 @@ namespace OpeningPitch
             {
                 MessageBox.Show("You did not enter a valid Username and/or Password");
             }
-
-            var query = from players in user.Players
-                        where (players.Email == Username_Input.Text && players.Password == Password_Input.Password)
-                        select players;
-
-            
-            foreach (var player in query)
+            else
             {
-                 if (query.Count() == 0)
+                var query = from players in user.Players
+                            where (players.Email == Username_Input.Text && players.Password == Password_Input.Password)
+                            select players;
+
+
+                foreach (var player in query)
                 {
-                    MessageBox.Show("Incorrect email and password");
-                }
-                
-                else if (player.UserType == 0)
-                {
-                    globals.user.PID = player.PID;
-                    globals.user.TID = player.TID;
-                    globals.user.FirstName = player.FirstName;
-                    globals.user.LastName = player.LastName;
-                    globals.user.Email = player.Email;
-                    globals.user.PhoneNumber = player.PhoneNumber;
-                    globals.user.Address = player.Address;
-                    globals.user.Address2 = player.Address2;
-                    globals.user.City = player.City;
-                    globals.user.State = player.State;
-                    globals.user.Zipcode = player.Zipcode;
-                    globals.user.Position = player.Position;
-                    globals.user.AltPosition = player.AltPosition1;
-                    globals.user.AltPosition2 = player.AltPosition2;
-                    globals.user.Gender = player.Gender;
-                    globals.user.UserType = player.UserType;
-                    globals.user.Approved = player.Approved;
-                    Window UserDashboard = new UserDashboard();
-                    UserDashboard.Show();
-                    this.Close();
+                    if (query.Count() == 0)
+                    {
+                        MessageBox.Show("Incorrect email and password");
+                    }
+
+                    else if (player.UserType == 0)
+                    {
+                        globals.user.PID = player.PID;
+                        globals.user.TID = player.TID;
+                        globals.user.FirstName = player.FirstName;
+                        globals.user.LastName = player.LastName;
+                        globals.user.Email = player.Email;
+                        globals.user.PhoneNumber = player.PhoneNumber;
+                        globals.user.Address = player.Address;
+                        globals.user.Address2 = player.Address2;
+                        globals.user.City = player.City;
+                        globals.user.State = player.State;
+                        globals.user.Zipcode = player.Zipcode;
+                        globals.user.Position = player.Position;
+                        globals.user.AltPosition = player.AltPosition1;
+                        globals.user.AltPosition2 = player.AltPosition2;
+                        globals.user.Gender = player.Gender;
+                        globals.user.UserType = player.UserType;
+                        globals.user.Approved = player.Approved;
+                        Window UserDashboard = new UserDashboard();
+                        UserDashboard.Show();
+                        this.Close();
+
+                    }
+
+                    else if (player.UserType == 1)
+                    {
+                        globals.user.PID = player.PID;
+                        globals.user.TID = player.TID;
+                        globals.user.FirstName = player.FirstName;
+                        globals.user.LastName = player.LastName;
+                        globals.user.Email = player.Email;
+                        globals.user.PhoneNumber = player.PhoneNumber;
+                        globals.user.Address = player.Address;
+                        globals.user.Address2 = player.Address2;
+                        globals.user.City = player.City;
+                        globals.user.State = player.State;
+                        globals.user.Zipcode = player.Zipcode;
+                        globals.user.Position = player.Position;
+                        globals.user.AltPosition = player.AltPosition1;
+                        globals.user.AltPosition2 = player.AltPosition2;
+                        globals.user.Gender = player.Gender;
+                        globals.user.UserType = player.UserType;
+                        globals.user.Approved = player.Approved;
+                        Window Dashboard = new Dashboard();
+                        Dashboard.Show();
+                        this.Close();
+                    }
+
+                    if (Username_Input.Text.Equals("1") && Password_Input.Password.Equals("1"))
+                    {
+
+                        Window Dashboard = new Dashboard();
+                        Dashboard.Show();
+                        this.Close();
+                    }
+
 
                 }
 
-                else if (player.UserType == 1)
-                {
-                    globals.user.PID = player.PID;
-                    globals.user.TID = player.TID;
-                    globals.user.FirstName = player.FirstName;
-                    globals.user.LastName = player.LastName;
-                    globals.user.Email = player.Email;
-                    globals.user.PhoneNumber = player.PhoneNumber;
-                    globals.user.Address = player.Address;
-                    globals.user.Address2 = player.Address2;
-                    globals.user.City = player.City;
-                    globals.user.State = player.State;
-                    globals.user.Zipcode = player.Zipcode;
-                    globals.user.Position = player.Position;
-                    globals.user.AltPosition = player.AltPosition1;
-                    globals.user.AltPosition2 = player.AltPosition2;
-                    globals.user.Gender = player.Gender;
-                    globals.user.UserType = player.UserType;
-                    globals.user.Approved = player.Approved;
-                    Window Dashboard = new Dashboard();
-                    Dashboard.Show();
-                    this.Close();
-                }
-
-                if (Username_Input.Text.Equals("1") && Password_Input.Password.Equals("1"))
-                {
-                    
-                    Window Dashboard = new Dashboard();
-                    Dashboard.Show();
-                    this.Close();
-                }
-                
-               
             }
-
-        }   
+        }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit the application?",

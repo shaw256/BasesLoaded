@@ -18,16 +18,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 
+
 namespace OpeningPitch
 {
 
     public partial class RegisterWindow : Window
     {
-
-
-
-
-
         private int _noOfErrorsOnScreen = 0;
         private RegisterValidation _applicant = new RegisterValidation();
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
@@ -89,6 +85,12 @@ namespace OpeningPitch
         {
            RegisterValidation _applicant = Register_Window.DataContext as RegisterValidation;
 
+            if (Confirm_Password_Input.Text != New_Password_Input.Text)
+            {
+                MessageBox.Show("Your passwords must match before you can finish registering. Please check your password and try again.");
+            }
+            else
+            {
                     Player user = new Player();
                     user.FirstName = First_Name_Input.Text;
                     user.LastName = Last_Name_Input.Text;
@@ -103,7 +105,7 @@ namespace OpeningPitch
                     user.AltPosition1 = Alt_Position_Selection.Text;
                     user.AltPosition2 = Alt_Position_Selection2.Text;
                     user.Gender = Gender_Selection.Text;
-                    user.Password = Confirm_Password_Input.Password;
+                    user.Password = Confirm_Password_Input.Text;
                                    
                     if (AccountType.Text == "Team Captain")
                     {
@@ -151,6 +153,26 @@ namespace OpeningPitch
                         MessageBox.Show(ex.Message);
                     }
 
+                    if (AccountType.Text == "Team Captain")
+                    {
+                        var teamquery = from teams in db.Teams
+                                        where teams.TeamName == CustomTeam.Text
+                                        select teams;
+
+                        foreach (var team in teamquery)
+                        {
+                            globals.user.TID = team.TID;
+                            user.TID = team.TID;
+                        }
+                        try
+                        {
+                            db.SubmitChanges();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
                     MessageBox.Show("You have successfully registered!");
 
                     Window BacktoMain = new MainWindow();
@@ -185,7 +207,7 @@ namespace OpeningPitch
             e.Handled = true;
 
         }
-
+        }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
@@ -254,7 +276,7 @@ namespace OpeningPitch
         private void ManipulatePhone(object sender, ManipulationStartedEventArgs e)
         {
             Phone_Number_Input.Clear();
-            Phone_Number_Input.Cursor = Cursor;
+            Phone_Number_Input.Focus();
         }
   }
 
