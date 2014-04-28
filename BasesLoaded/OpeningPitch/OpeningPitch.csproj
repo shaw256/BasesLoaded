@@ -222,6 +222,8 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Themes\Dark\NEON___.TTF" />
+    <Resource Include="Themes\Dark\LOSTWAGE.TTF" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -252,9 +254,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Themes\Dark\baseballspinning2.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Themes\Dark\basball_clip_art.ico" />
