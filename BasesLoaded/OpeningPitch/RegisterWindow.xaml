@@ -282,7 +282,7 @@
             BorderBrush="{DynamicResource ButtonBorderBrush}" 
             CaretBrush="{DynamicResource TransparentBrush}"
             Validation.Error="Validation_Error"
-            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=PhoneNumber, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" ManipulationStarted="ManipulatePhone"/>
+            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=PhoneNumber, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
         <Label x:Name="Phone_Number_Label" 
 			Content="Phone Number" 
 			HorizontalAlignment="Left" 
