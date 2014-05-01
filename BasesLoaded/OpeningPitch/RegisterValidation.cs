@@ -327,10 +327,6 @@ namespace OpeningPitch
 
             Regex regex = new Regex(@"^\(\d{3}\)\d{3}-\d{4}$");
             Match match = regex.Match(phone);
-            //string tempphone = phone;
-            //string finalphone = "";
-            //finalphone = tempphone.Substring(1, 3) + tempphone.Substring(5, 3) + tempphone.Substring(9, 4);
-            //Match match = regex.Match(finalphone);
             
             if (match.Success)
             {

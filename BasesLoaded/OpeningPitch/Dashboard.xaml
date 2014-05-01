@@ -42,20 +42,26 @@
 			Width="141" Click="Team_Roster_Click"/>
         <Button x:Name="Delete_Player" 
 			Content="Delete Player" 
-           HorizontalAlignment="Left" 
+            HorizontalAlignment="Left" 
 			Margin="14,0,0,10" 
 			VerticalAlignment="Bottom" 
 			Width="110" Click="Delete_Player_Click"/>
-        
-
         <Button x:Name="Cancel_Event" 
 			Content="Cancel" 
 			HorizontalAlignment="Right" 
 			Margin="0,0,30,10" 
 			VerticalAlignment="Bottom" 
 			Width="112"/>
-        <DataGrid x:Name="Team_Display" x:Uid="Team_Display" AutoGenerateColumns="False"  
-                       AlternationCount="2" SelectionMode="Single" Margin="15,74,14,45" Background="Transparent" Foreground = "{DynamicResource Brush01}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="381">
+        <DataGrid x:Name="Team_Display" x:Uid="Team_Display" 
+                  AutoGenerateColumns="False"  
+                  AlternationCount="2" 
+                  SelectionMode="Single" 
+                  Margin="15,74,14,45" 
+                  Background="Transparent" 
+                  Foreground = "{DynamicResource Brush01}" 
+                  HorizontalAlignment="Center" 
+                  VerticalAlignment="Center" 
+                  Height="381">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Transparent"/>
@@ -73,13 +79,10 @@
                 <Style TargetType="{x:Type DataGridRowHeader}">
                     <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}"/>
                     <Setter Property="Foreground" Value="{DynamicResource Brush01}"/>
-
                 </Style>
             </DataGrid.Resources>
 
-
             <DataGrid.Columns>
-
                 <DataGridTextColumn Binding="{Binding  Path=FirstName}" IsReadOnly="True"  
                                     Header="First Name" Width="SizeToHeader" MinWidth="100" />
                 <DataGridTextColumn Binding="{Binding Path=LastName}" IsReadOnly="True"
@@ -104,40 +107,8 @@
                                     Header="Position" Width="SizeToHeader" MinWidth="100"/>
                 <DataGridTextColumn Binding="{Binding Path=TeamName}" IsReadOnly="True"
                                     Header="Team" Width="SizeToHeader" MinWidth="100"/>
-                <!--<DataGridTemplateColumn Header="Edit Row">
-
-                    <DataGridTemplateColumn.CellTemplate>
-
-                        <DataTemplate>
-
-                            <Button Content="Edit" Click="EditButton_Click" />
-
-                        </DataTemplate>
-
-                    </DataGridTemplateColumn.CellTemplate>
-
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="Delete Row">
-
-                    <DataGridTemplateColumn.CellTemplate>
-
-                        <DataTemplate>
-
-                            <Button Content="Delete" Click="DeleteButton_Click" />
-
-                        </DataTemplate>
-
-                    </DataGridTemplateColumn.CellTemplate>
-
-                </DataGridTemplateColumn>-->
-
             </DataGrid.Columns>
-
         </DataGrid>
-
-
-
 
         <Button x:Name="Dashboard_Logout" 
 			Content="Logout" 
@@ -147,30 +118,6 @@
 			Click="Dashboard_Logout_Click" 
 			Height="22" 
             Margin="0,39,30,0"/>
-        <Button Content="X" 
-			VerticalAlignment="Top" 
-            HorizontalAlignment="Right"
-			Height="19" 
-			Background="{DynamicResource ButtonBackgroundBrush}" 
-			Click="Exit_Click" 
-			Width="19" 
-			Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
-            Foreground="{DynamicResource Brush01}" 
-            TextOptions.TextFormattingMode="Display"
-            ToolTip="Close" 
-            FontWeight="Bold" Grid.Column="1"/>
-        <Button Content="-" 
-            HorizontalAlignment="Right" 
-            Margin="0,0,19,0" 
-            VerticalAlignment="Top" 
-            Width="19" 
-            Height="19"
-            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
-            Foreground="{DynamicResource Brush01}" 
-            TextOptions.TextFormattingMode="Display" 
-            Click="Minimize_Button"
-            ToolTip="Minimize" 
-            FontWeight="Bold" Grid.Column="1"/>
         <Button x:Name="Approve_Player" 
             Content="Approve" 
             HorizontalAlignment="Right" 
@@ -192,31 +139,71 @@
         	HorizontalAlignment="Right" 
         	Margin="0,0,142,10" 
         	VerticalAlignment="Bottom" 
-        	Width="112" Click="Update_Click"/>
+        	Width="112" 
+            Click="Update_Click"/>
+        <Button Content="X" 
+			VerticalAlignment="Top" 
+            HorizontalAlignment="Right"
+			Height="19" 
+			Background="{DynamicResource ButtonBackgroundBrush}" 
+			Click="Exit_Click" 
+			Width="19" 
+			Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+            Foreground="{DynamicResource Brush01}" 
+            TextOptions.TextFormattingMode="Display"
+            ToolTip="Close" 
+            FontWeight="Bold" 
+            Grid.Column="1"/>
+        <Button Content="-" 
+            HorizontalAlignment="Right" 
+            Margin="0,0,19,0" 
+            VerticalAlignment="Top" 
+            Width="19" 
+            Height="19"
+            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+            Foreground="{DynamicResource Brush01}" 
+            TextOptions.TextFormattingMode="Display" 
+            Click="Minimize_Button"
+            ToolTip="Minimize" 
+            FontWeight="Bold" 
+            Grid.Column="1"/>
         <Label Content="BASES LOADED" 
                HorizontalAlignment="Left" 
                Margin="15,0,0,0" 
                VerticalAlignment="Top" 
                Width="201" 
-               Height="34" FontSize="20"/>
+               Height="34" 
+               FontSize="20"/>
         <Label 
             x:Name="CurrentUser"
-            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="888,0,0,0" Height="34" Width="205"/>
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Margin="888,0,0,0" 
+            Height="34" 
+            Width="205"/>
         <Label x:Name="Welcome" 
         	HorizontalAlignment ="Center"
         	HorizontalContentAlignment="Center"
         	VerticalAlignment="Center"
-        	Width="528" Height="36" Margin="62,180,121,284"/>
+        	Width="528" 
+            Height="36" 
+            Margin="62,180,121,284"/>
         <Label x:Name="Instructions" 
         	Content="This program is to help you, as a Team Captain, manage your Team."
         	HorizontalAlignment ="Center" 
         	VerticalAlignment="Center"
-        	Width="528" Height="36"
-        	HorizontalContentAlignment="Center" Margin="62,216,121,248"/>
+        	Width="528" 
+            Height="36"
+        	HorizontalContentAlignment="Center" 
+            Margin="62,216,121,248"/>
         <Label x:Name="Status" 
         	HorizontalAlignment ="Center" 
         	VerticalAlignment="Center"
-        	Width="528" Height="36"
-        	HorizontalContentAlignment="Center" Margin="62,252,121,212" FontWeight="Bold" FontStyle="Italic"/>
+        	Width="528" 
+            Height="36"
+        	HorizontalContentAlignment="Center" 
+            Margin="62,252,121,212" 
+            FontWeight="Bold" 
+            FontStyle="Italic"/>
     </Grid>
 </Window>

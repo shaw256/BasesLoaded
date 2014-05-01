@@ -45,7 +45,6 @@
             </Setter>
         </Style>
 
-
         <Style TargetType="{x:Type xctk:MaskedTextBox}">
             <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
@@ -86,7 +85,6 @@
     </Window.Resources>
 
     <Grid x:Name="Register_Window" 
-
           Background="{DynamicResource ButtonBackgroundBrush}" Margin="-1,0">
         <Grid.CommandBindings>
             <CommandBinding Command="New" CanExecute="Applicant_CanExecute" Executed="Applicant_Executed"></CommandBinding>
@@ -402,9 +400,7 @@
                      Height="26" Margin="134,397,0,73" 
                      VerticalAlignment="Center" 
                      Width="120"
-                     
-                 Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Password, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
-                     
+                     Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Password, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
         <Label x:Name="Confirm_Password_Label" 
         	Content="Confirm Password" 
         	HorizontalAlignment="Left" 
@@ -432,7 +428,8 @@
         	HorizontalAlignment="Right" 
         	Margin="315,430,10,40" 
         	VerticalAlignment="Center" 
-        	Width="75" Click="Cancel_Button_Click" 
+        	Width="75" 
+            Click="Cancel_Button_Click" 
             IsCancel="True"/>
         <Button x:Name="Register_Button" 
 			Content="Register" 
@@ -456,7 +453,8 @@
             Foreground="{DynamicResource Brush01}" 
             TextOptions.TextFormattingMode="Display"
             ToolTip="Close" 
-            FontWeight="Bold" FontSize="14"/>
+            FontWeight="Bold" 
+            FontSize="14"/>
         <Button Content="-" 
                 HorizontalAlignment="Right" 
                 Margin="0,10,35,0" 
@@ -468,15 +466,14 @@
                 TextOptions.TextFormattingMode="Display" 
                 Click="Minimize_Button"
                 ToolTip="Minimize" 
-                FontWeight="Bold" FontSize="14"/>
-        <Label Content="* = Required" 
-			HorizontalAlignment="Left" 
-			Margin="14,464,0,10" 
-			VerticalAlignment="Center" 
-			Height="26"/>
-
-
-        <Label Content="Account Type" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="272,299,0,0" Height="30" Width="91"/>
+                FontWeight="Bold" 
+                FontSize="14"/>
+        <Label Content="Account Type" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" 
+               Margin="272,299,0,0" 
+               Height="30" 
+               Width="91"/>
         <ComboBox 
             x:Name="AccountType" 
             HorizontalAlignment="Left" 
@@ -484,23 +481,16 @@
             Width="135" 
             Margin="363,299,0,0"
             Validation.Error="Validation_Error"
-            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AccountType, ValidatesOnDataErrors=True, NotifyOnValidationError=True }" DropDownClosed="AccountType_DropDownClosed"
-            >
+            Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=AccountType, ValidatesOnDataErrors=True, NotifyOnValidationError=True }" DropDownClosed="AccountType_DropDownClosed">
             <ComboBoxItem Content="" HorizontalAlignment="Left" Width="135"></ComboBoxItem>
             <ComboBoxItem Content= "Team Captain" HorizontalAlignment="Left" Width="135"></ComboBoxItem>
             <ComboBoxItem Content= "Team Player"  HorizontalAlignment="Left" Width="135"></ComboBoxItem>
         </ComboBox>
-
-
-
-
-
         <Label x:Name="TeamListLabel" 
                Content="Team" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top" 
                Margin="272,334,0,0"/>
-
         <ComboBox 
             x:Name="TeamList"
             HorizontalAlignment="Left"
@@ -510,8 +500,6 @@
             Validation.Error="Validation_Error"
             SelectedValue="{Binding UpdateSourceTrigger=PropertyChanged, Path=TeamChoice, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"  
             />
-
-
         <Label x:Name="CustomTeamLabel" 
                Content="Team Name" 
                HorizontalAlignment="Left" 
@@ -533,7 +521,13 @@
         	HorizontalAlignment="Left" 
         	Margin="466,334,0,136" 
         	VerticalAlignment="Center" 
-        	Width="30" Click="Clear_Button_Click" 
+        	Width="30" 
+            Click="Clear_Button_Click" 
         	IsCancel="True"/>
+        <Label Content="* = Required" 
+			HorizontalAlignment="Left" 
+			Margin="14,464,0,10" 
+			VerticalAlignment="Center" 
+			Height="26"/>
     </Grid>
 </Window>
