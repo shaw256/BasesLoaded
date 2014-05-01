@@ -469,14 +469,12 @@
                 Click="Minimize_Button"
                 ToolTip="Minimize" 
                 FontWeight="Bold" FontSize="14"/>
-        <Label Content="* = Required" 
-			HorizontalAlignment="Left" 
-			Margin="14,464,0,10" 
-			VerticalAlignment="Center" 
-			Height="26"/>
-
-
-        <Label Content="Account Type" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="272,299,0,0" Height="30" Width="91"/>
+        <Label Content="Account Type" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" 
+               Margin="272,299,0,0" 
+               Height="30" 
+               Width="91"/>
         <ComboBox 
             x:Name="AccountType" 
             HorizontalAlignment="Left" 
@@ -490,17 +488,11 @@
             <ComboBoxItem Content= "Team Captain" HorizontalAlignment="Left" Width="135"></ComboBoxItem>
             <ComboBoxItem Content= "Team Player"  HorizontalAlignment="Left" Width="135"></ComboBoxItem>
         </ComboBox>
-
-
-
-
-
         <Label x:Name="TeamListLabel" 
                Content="Team" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top" 
                Margin="272,334,0,0"/>
-
         <ComboBox 
             x:Name="TeamList"
             HorizontalAlignment="Left"
@@ -510,8 +502,6 @@
             Validation.Error="Validation_Error"
             SelectedValue="{Binding UpdateSourceTrigger=PropertyChanged, Path=TeamChoice, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"  
             />
-
-
         <Label x:Name="CustomTeamLabel" 
                Content="Team Name" 
                HorizontalAlignment="Left" 
@@ -535,5 +525,10 @@
         	VerticalAlignment="Center" 
         	Width="30" Click="Clear_Button_Click" 
         	IsCancel="True"/>
+        <Label Content="* = Required" 
+			HorizontalAlignment="Left" 
+			Margin="14,464,0,10" 
+			VerticalAlignment="Center" 
+			Height="26"/>
     </Grid>
 </Window>

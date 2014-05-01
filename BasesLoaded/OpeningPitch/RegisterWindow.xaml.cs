@@ -28,6 +28,7 @@ namespace OpeningPitch
         private RegisterValidation _applicant = new RegisterValidation();
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
 
+        //Funcionality of movable window
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
@@ -40,7 +41,6 @@ namespace OpeningPitch
                 string error = ex.ToString();
             }
         }
-       
         
         public RegisterWindow()
         {
@@ -178,37 +178,39 @@ namespace OpeningPitch
                     Window BacktoMain = new MainWindow();
                     BacktoMain.Show();
                     this.Close();
- 
-           /* try
-                {
-                    SmtpClient client = new SmtpClient("smtp.live.com", 587);
-                    client.EnableSsl = true;
-                    client.Timeout = 10000;
-                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
+                    
+                    //E-mail client using live.com smtp along with basesloaded outlook credentials. Has a 10 second timeout.
+                    try
+                         {
+                            SmtpClient client = new SmtpClient("smtp.live.com", 587);
+                            client.EnableSsl = true;
+                            client.Timeout = 10000;
+                            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                            client.UseDefaultCredentials = false;
+                            client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "1qaz2wsx!QAZ@WSX");
 
-                    MailMessage msg = new MailMessage();
-                    msg.To.Add(Email_Input.Text);
-                    msg.From = new MailAddress("basesloadedapp@outlook.com");
-                    msg.Subject = "Registration Successful";
-                    msg.Body = "Congratulations!\nYou have successfully registered.";
-                    client.Send(msg);
-                    MessageBox.Show("Please check your E-Mail for verification.");
-                }
-                catch (Exception ex)
-                {
+                            MailMessage msg = new MailMessage();
+                            msg.To.Add(Email_Input.Text);
+                            msg.From = new MailAddress("basesloadedapp@outlook.com");
+                            msg.Subject = "Registration Successful";
+                            msg.Body = "Congratulations!\nYou have successfully registered with BasesLoaded!";
+                            client.Send(msg);
+                            MessageBox.Show("Please check your E-Mail for verification.");
+                         }
+                         catch (Exception ex)
+                         {
 
-                    MessageBox.Show(ex.ToString());
-                }*/
+                             MessageBox.Show(ex.ToString());
+                         }
             
             _applicant = new RegisterValidation();
             Register_Window.DataContext = _applicant;
             e.Handled = true;
 
         }
-        }
+    }
 
+        //Exit button with confirmation messagebox
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit Registration?\n\nAll data will be lost.",
@@ -225,10 +227,13 @@ namespace OpeningPitch
                 
             }
         }
+
         private void Minimize_Button(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        //Cancel button with confirmation messagebox
         private void Cancel_Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to cancel your Registration?\n\nAll data will be lost.",
@@ -245,15 +250,16 @@ namespace OpeningPitch
                 
             }
 
-
         }
 
+        //Team name clear button
         private void Clear_Button_Click(object sender, RoutedEventArgs e)
         {
             TeamList.SelectedIndex = -1;
             CustomTeam.Text = "";
         }
 
+        //Team role drop down box with visibility based on selection
         private void AccountType_DropDownClosed(object sender, EventArgs e)
         {
             if (AccountType.Text == "Team Captain")
@@ -271,7 +277,6 @@ namespace OpeningPitch
                 CustomTeamLabel.Visibility = Visibility.Hidden;
             }
         }
-      
 
         private void ManipulatePhone(object sender, ManipulationStartedEventArgs e)
         {
@@ -279,5 +284,4 @@ namespace OpeningPitch
             Phone_Number_Input.Focus();
         }
   }
-
 }  

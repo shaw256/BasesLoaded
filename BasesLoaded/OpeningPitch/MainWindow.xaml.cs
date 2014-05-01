@@ -28,6 +28,8 @@ namespace OpeningPitch
             InitializeComponent();
             Username_Input.Focus();
         }
+
+        //Funcionality of movable window
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
@@ -40,12 +42,14 @@ namespace OpeningPitch
                 string error = ex.ToString();
             }
         }
+
         private void Register(object sender, RoutedEventArgs e)
         {
             Window RegisterWindow = new RegisterWindow();
             RegisterWindow.Show();
             this.Close();
         }
+
         private void Log_In_Click(object sender, RoutedEventArgs e)
         {
             if (Username_Input.Text.Equals("") || Password_Input.Password.Equals(""))
@@ -57,7 +61,6 @@ namespace OpeningPitch
                 var query = from players in user.Players
                             where (players.Email == Username_Input.Text && players.Password == Password_Input.Password)
                             select players;
-
 
                 foreach (var player in query)
                 {
@@ -88,7 +91,6 @@ namespace OpeningPitch
                         Window UserDashboard = new UserDashboard();
                         UserDashboard.Show();
                         this.Close();
-
                     }
 
                     else if (player.UserType == 1)
@@ -117,17 +119,14 @@ namespace OpeningPitch
 
                     if (Username_Input.Text.Equals("1") && Password_Input.Password.Equals("1"))
                     {
-
                         Window Dashboard = new Dashboard();
                         Dashboard.Show();
                         this.Close();
                     }
-
-
                 }
-
             }
         }
+
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to exit the application?",
@@ -143,10 +142,10 @@ namespace OpeningPitch
 
             }
         }
+
         private void Minimize_Button(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
-         
     }
 }

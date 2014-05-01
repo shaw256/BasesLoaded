@@ -35,7 +35,6 @@ namespace OpeningPitch
             CurrentUser.Content = "Logged In: "+ globals.user.FirstName ;
             Welcome.Content = "WELCOME to Bases Loaded " + globals.user.FirstName + "!";
             StatusCheck();
-
         }
 
         LINQtoSQLDataContext db = new LINQtoSQLDataContext();
@@ -52,11 +51,13 @@ namespace OpeningPitch
                 string error = ex.ToString();
             }
         }
+
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             Window Profile = new Dashboard();
             Profile.Show();
         }
+
         private void Dashboard_Logout_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you would like to logout " + globals.user.FirstName +"?\n\nAll unsaved changes will be lost.",
@@ -96,6 +97,7 @@ namespace OpeningPitch
 
            }
        }
+
        private void Minimize_Button(object sender, RoutedEventArgs e)
        {
            this.WindowState = WindowState.Minimized;
@@ -103,7 +105,6 @@ namespace OpeningPitch
 
        private void Applications_Click(object sender, RoutedEventArgs e)
        {
-           
            GridViewApplicants();
            MakeReadonlyTrue();
            Delete_Player.Visibility = Visibility.Hidden;
@@ -111,8 +112,6 @@ namespace OpeningPitch
            Deny_Player.Visibility = Visibility.Visible;
            Cancel_Event.Visibility = Visibility.Visible;
            Update.Visibility = Visibility.Hidden;
-         
-           
        }
 
        private void Approve_Player_Click(object sender, RoutedEventArgs e)
@@ -138,7 +137,6 @@ namespace OpeningPitch
                MessageBox.Show("Update Successful.");
 
                Team_Display.Items.Refresh();
-
            }
 
            catch (Exception Ex)
@@ -148,31 +146,9 @@ namespace OpeningPitch
 
                return;
            }
-           //DataRowView row = (DataRowView)Team_Display.SelectedItems[0];
-           //var player = from players in db.Players
-           //             where players.Email.ToString() == row["Email"].ToString()
-           //             select players;
-
-           //foreach (var info in player)
-           //{
-           //    info.Approved = 1;
-
-           //}
-           //try
-           //{
-           //    //db.Refresh(System.Data.Linq.RefreshMode.KeepChanges, info.Approved);
-           //    db.SubmitChanges();
-           //}
-
-           //catch (Exception ex)
-           //{
-           //    MessageBox.Show(ex.Message);
-           //}
 
            GridViewApplicants();
        }
-    
-       
 
         private void Login_Home_Click(object sender, RoutedEventArgs e)
         {
@@ -197,8 +173,6 @@ namespace OpeningPitch
             Delete_Player.Visibility = Visibility.Hidden;
             Update.Visibility = Visibility.Visible;
             CurrentUserInfo();
-            
-          
         }
 
         private void Deny_Player_Click(object sender, RoutedEventArgs e)
@@ -221,11 +195,9 @@ namespace OpeningPitch
      
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-             
 
              try
              {
-
                  Player PlayerRow = Team_Display.SelectedItem as Player;
 
                  Player player = (from p in db.Players
@@ -248,14 +220,11 @@ namespace OpeningPitch
 
                  Team_Display.Items.Refresh();
                  StatusCheck();
-
              }
 
              catch (Exception Ex)
              {
-
                  MessageBox.Show(Ex.Message);
-
                  return;
              }
         }
@@ -265,8 +234,8 @@ namespace OpeningPitch
             GridViewRoster();
         }
 
-
-        #region        /// extra functions that the click buttons use---------------------------------------------------------------------------------------------------------------------------------------------------
+        /// extra functions that the click buttons use---------------------------------------------------------------------------------------------------------------------------------------------------
+        #region
             private void GridViewRoster()
             {
                 Welcome.Visibility = Visibility.Hidden;
@@ -342,7 +311,6 @@ namespace OpeningPitch
 
             private void deletePlayer()
             {
-                
                 MessageBoxResult result = MessageBox.Show("Are you sure you would like to delete the selected Player?\n\nThis player will also be removed from the Database.",
                   "Confirmation", MessageBoxButton.OKCancel);
 
@@ -369,27 +337,27 @@ namespace OpeningPitch
                         {
                             MessageBox.Show(ex.Message);
                         }
-                        //try
-                        //{
-                        //    SmtpClient client = new SmtpClient("smtp.live.com", 587);
-                        //    client.EnableSsl = true;
-                        //    client.Timeout = 10000;
-                        //    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                        //    client.UseDefaultCredentials = false;
-                        //    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
+                        try
+                        {
+                            SmtpClient client = new SmtpClient("smtp.live.com", 587);
+                            client.EnableSsl = true;
+                            client.Timeout = 10000;
+                            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                            client.UseDefaultCredentials = false;
+                            client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "1qaz2wsx!QAZ@WSX");
 
-                        //    MailMessage msg = new MailMessage();
-                        //    msg.To.Add(Email_Input.Text);
-                        //    msg.From = new MailAddress("basesloadedapp@outlook.com");
-                        //    msg.Subject = "Registration Failed";
-                        //    msg.Body = "We are sorry to have to inform you that your submission has been denied.\nPlease contact the team captain";
-                        //    client.Send(msg);
-                        //}
-                        //catch (Exception ex)
-                        //{
+                            MailMessage msg = new MailMessage();
+                            msg.To.Add(globals.user.Email);
+                            msg.From = new MailAddress("basesloadedapp@outlook.com");
+                            msg.Subject = "Registration Failed";
+                            msg.Body = "We are sorry to have to inform you that your submission has been denied.\nPlease contact the team captain";
+                            client.Send(msg);
+                        }
+                        catch (Exception ex)
+                        {
 
-                        //    MessageBox.Show(ex.ToString());
-                        //}
+                            MessageBox.Show(ex.ToString());
+                        }
                     }
 
                     catch (Exception ex)
@@ -403,9 +371,8 @@ namespace OpeningPitch
 
                 }
             }
-        #endregion
         }
-
+#endregion
     }   
            
 
