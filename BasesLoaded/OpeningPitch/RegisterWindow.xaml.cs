@@ -204,7 +204,7 @@ namespace OpeningPitch
                     client.Timeout = 10000;
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
                     client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "!QAZ@WSX1qaz2wsx");
+                    client.Credentials = new NetworkCredential("basesloadedapp@outlook.com", "1qaz2wsx!QAZ@WSX");
 
                     MailMessage msg = new MailMessage();
                     msg.To.Add(Email_Input.Text);
